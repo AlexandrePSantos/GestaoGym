@@ -1,0 +1,8 @@
+select * from Clientes where id_cliente = 40;
+
+select id_nutricionista, horaentrada, horasaida, diasemana from nutricionistas
+where horaentrada < '10:00';
+
+select id_instrutor, horaentrada, horasaida FROM instrutores where diasemana like '%c%';
+
+delete from Clientes where id_cliente = 1;

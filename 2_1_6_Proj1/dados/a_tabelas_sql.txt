@@ -1,0 +1,76 @@
+
+CREATE TABLE Nutricionistas (
+	id_nutricionista int PRIMARY KEY not NULL,
+	nome varchar2(50) not NULL,
+	email varchar2(50) not NULL,
+	password varchar2(50) not NULL,
+	dataNascimento date not NULL,
+    	horaEntrada varchar2(5) not NULL,
+	horaSaida varchar2(5) not NULL,
+	diasSemana varchar2(50) not NULL,
+	dataCriacao date not NULL,
+	dataAtualizacao date not NULL
+);
+
+CREATE TABLE Clientes (
+	id_fatura int PRIMARY KEY not NULL,
+	id_nutricionista int not NULL,
+	id_instrutor int not NULL,
+	nome varchar2(50) not NULL,
+	email varchar2(50) not NULL,
+	password varchar2(50) not NULL,
+	dataNascimento date not NULL,
+	dataCriacao date not NULL,
+	dataAtualizacao date not NULL
+);
+
+CREATE TABLE Fichas_Cliente_Nutricao (
+	id_fichaN PRIMARY KEY int not NULL,
+	id_cliente int not NULL,
+	data interval year to day not NULL,
+	peso double not NULL,
+	massaGorda double not NULL,
+	massaMagra double not NULL
+);
+
+
+CREATE TABLE Fichas_Cliente_Avaliacao (
+	id_fichaA int PRIMARY KEY not NULL,
+	id_cliente int not NULL,
+	data interval year to day not NULL,
+	peso double not NULL,
+	altura double not NULL,
+	pressaoArterial int not NULL,
+	cintura double not NULL,
+	anca double not NULL,
+	massaGorda int not NULL,
+	massaMagra int not NULL,
+	objetivo char not NULL,
+	atividade_fisica char not NULL
+);
+
+
+CREATE TABLE Faturas (
+	id_fatura int PRIMARY KEY NOT NULL,
+	id_cliente int not NULL,
+	id_rececionista int not NULL,
+	id_produto int not NULL,
+	data date not NULL,
+	preco_produto int not NULL
+);
+
+
+CREATE TABLE Artigos (
+	id_artigo int  PRIMARY KEY NOT NULL, 
+	nome varchar2(20) NOT NULL, 
+	descricao varchar(100) NOT NULL, 
+	valor number(5,2) NOT NULL
+);
+
+
+CREATE TABLE LinhasFatura (
+	linha_fatura int PRIMARY KEY NOT NULL,
+	id_artigo int not NULL,
+	quantidade int not NULL,
+	valor decimal not NULL
+);

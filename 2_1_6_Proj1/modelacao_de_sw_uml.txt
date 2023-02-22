@@ -1,0 +1,14 @@
+Atores:
+    Cliente;
+    Recepcionista;
+    Instrutor;
+    Nutricionista.
+
+inscricao_cliente
+    Como Cliente quero me inscrever no ginásio.
+    Como Cliente quero escolher o meu plano de treino.
+    Como Cliente quero marcar a data e hora da primeira avaliação física.
+    Como Cliente quero escolher se marco consulta com o nutricionista.
+    Como Cliente quero marcar a data e hora da consulta com o nutricionista.
+    Como Recepcionista quero inscrever um cliente no ginásio.
+    Como Recepcionista quero
