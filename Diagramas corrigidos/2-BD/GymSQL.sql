@@ -2,18 +2,18 @@ CREATE DATABASE gymManagement;
 
 
 CREATE TABLE Funcao (
-    idFuncao INT PRIMARY KEY,
+    idFuncao INT PRIMARY KEY NOT_NULL,
     descricao VARCHAR(100)
 )
 
 CREATE TABLE PisoSala (
-    idLocal INT PRIMARY KEY,
+    idLocal INT PRIMARY KEY NOT_NULL,
     piso VARCHAR(1),
     sala VARCHAR(2)
 )
 
 CREATE TABLE Funcionario (
-    idFuncionario INT PRIMARY KEY, 
+    idFuncionario INT PRIMARY KEY NOT_NULL, 
     idFuncao INT, 
     nome VARCHAR(100), 
     email VARCHAR(50), 
@@ -24,14 +24,14 @@ CREATE TABLE Funcionario (
 )
 
 CREATE TABLE PlanoTreino (
-    numPlano INT PRIMARY KEY, 
+    numPlano INT PRIMARY KEY NOT_NULL, 
     dtCriacao DATE, 
     descricao VARCHAR(200), 
     idFuncionario INT
 )
 
 CREATE TABLE Cliente (
-    idCliente INT PRIMARY KEY, 
+    idCliente INT PRIMARY KEY NOT_NULL, 
     nome VARCHAR(200), 
     idade INT, 
     email VARCHAR(100), 
@@ -50,7 +50,7 @@ CREATE TABLE HistoricoNutricao (
 )
 
 CREATE TABLE AulaGrupo (
-    numAula INT PRIMARY KEY, 
+    numAula INT PRIMARY KEY NOT_NULL, 
     dataAula DATE, 
     idLocal INT, 
     tipoAula VARCHAR(1), 
@@ -60,7 +60,7 @@ CREATE TABLE AulaGrupo (
 )
 
 CREATE TABLE Consulta (
-    numConsulta INT PRIMARY KEY, 
+    numConsulta INT PRIMARY KEY NOT_NULL, 
     dataConsulta DATE, 
     idLocal INT, 
     idFuncionario INT, 
