@@ -14,49 +14,49 @@ CREATE TABLE PisoSala (
 
 CREATE TABLE Funcionario (
     idFuncionario INT PRIMARY KEY, 
-    idFuncao, 
-    nome, 
-    email, 
-    telemóvel, 
-    NIF, 
+    idFuncao INT, 
+    nome VARCHAR(100), 
+    email VARCHAR(50), 
+    telemóvel INT, 
+    NIF INT, 
     dtNascimento DATE, 
-    salario
+    salario DECIMAL(7,2)
 )
 
 CREATE TABLE PlanoTreino (
     numPlano INT PRIMARY KEY, 
     dtCriacao DATE, 
-    descricao , 
-    idFuncionario
+    descricao VARCHAR(200), 
+    idFuncionario INT
 )
 
 CREATE TABLE Cliente (
     idCliente INT PRIMARY KEY, 
-    nome, 
-    idade, 
-    email, 
-    telemóvel, 
+    nome VARCHAR(200), 
+    idade INT, 
+    email VARCHAR(100), 
+    telemóvel INT, 
     dtNascimento DATE, 
-    NIF, 
+    NIF INT, 
     numPlano INT
 )
 
 CREATE TABLE HistoricoNutricao (
-    idCliente, 
-    peso, 
-    IMC, 
-    massaGorda, 
-    massaMagra
+    idCliente INT, 
+    peso DECIMAL(3,2), 
+    IMC DECIMAL(2,1), 
+    massaGorda INT, 
+    massaMagra INT
 )
 
 CREATE TABLE AulaGrupo (
     numAula INT PRIMARY KEY, 
     dataAula DATE, 
-    idLocal, 
-    tipoAula, 
-    vagas, 
-    duracao, 
-    idFuncionario
+    idLocal INT, 
+    tipoAula VARCHAR(1), 
+    vagas INT, 
+    duracao TIME, /*TODO Procurar*/ 
+    idFuncionario INT
 )
 
 CREATE TABLE Consulta (
