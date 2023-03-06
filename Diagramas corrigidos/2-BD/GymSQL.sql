@@ -62,37 +62,37 @@ CREATE TABLE AulaGrupo (
 CREATE TABLE Consulta (
     numConsulta INT PRIMARY KEY, 
     dataConsulta DATE, 
-    idLocal, 
-    idFuncionario, 
-    idCliente
+    idLocal INT, 
+    idFuncionario INT, 
+    idCliente INT
 )
 
 CREATE TABLE Subscricao (
-    idCliente, 
-    duracao, 
+    idCliente INT, 
+    duracao TIME, 
     dataIni DATE, 
-    valMensal , 
-    valTotal, 
-    dataFim, 
-    totEmFalta, 
-    totPago, 
-    estado
+    valMensal DECIMAL(3,2), 
+    valTotal DECIMAL(3,2), 
+    dataFim DATE, 
+    totEmFalta DECIMAL(3,2), 
+    totPago DECIMAL(4,2), 
+    estado VARCHAR(20)
 )
 
 CREATE TABLE linhaParticipante (
-    numAula , 
-    idCliente
+    numAula INT, 
+    idCliente INT
 )
 
 CREATE TABLE Relatorio (
-    numConsulta, 
+    numConsulta INT, 
     dataEmissao DATE, 
-    descricao
+    descricao VARCHAR(200)
 )
 
 CREATE TABLE RestricaoSaude (
     idRestricao INT PRIMARY KEY, 
-    descricao
+    descricao VARCHAR(200)
 )
 
 CREATE TABLE LinhaRestricao (
@@ -102,9 +102,9 @@ CREATE TABLE LinhaRestricao (
 
 CREATE TABLE Pagamento (
     numPagamento INT PRIMARY KEY, 
-    valor, 
-    estado, 
-    dataLimite, 
-    dataEfetuado, 
-    idCliente
+    valor decimal(3,2), 
+    estado VARCHAR(20), 
+    dataLimite DATE, 
+    dataEfetuado DATE, 
+    idCliente INT
 )
