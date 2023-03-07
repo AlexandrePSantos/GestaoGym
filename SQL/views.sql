@@ -23,16 +23,15 @@ FROM CLiente
 WHERE Subscricao.idCliente = Cliente.idCliente AND Subscricao.Estado = 'Para renovar'
 
 -- 5 mostrar aulas de certo tipo
+-- TODO where tipoAula e' o cliente que mete (fazer em java)
 CREATE VIEW aulasCertoTipo as AULASTIPO
-SELECT
-FROM
-WHERE
+SELECT *
+FROM AulaGrupo
 
 -- 6 mostrar todos os planos
 CREATE VIEW planos AS PLANOS
-SELECT
-FROM
-WHERE
+SELECT numPlano, descricao
+FROM PlanoTreino
 
 -- 7 mostrar clientes que ainda nao pagaram
 CREATE VIEW clientesParaPagar AS CLIEPAGAR
@@ -41,13 +40,13 @@ FROM Cliente
 WHERE Subscricao.idCliente = Cliente.idCliente AND Subscricao.Estado = 'Para pagar'
 
 -- 8 mostrar uma certa consulta para um cliente
-CREATE VIEW 
-SELECT
-FROM
-WHERE
+-- where idCliente e' o cliente que mete (fazer em java)
+CREATE VIEW consulta as ConsultaCli
+SELECT *
+FROM Consulta
 
 -- 9 mostrar restricoes de saude de um cliente para um nutricionista
-CREATE VIEW
-SELECT
-FROM
-WHERE
+-- where idCliente e' o cliente que mete (fazer em java)
+CREATE VIEW restricoes
+SELECT *
+FROM RestricaoSaude
