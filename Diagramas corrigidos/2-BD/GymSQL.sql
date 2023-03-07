@@ -14,7 +14,7 @@ CREATE TABLE PisoSala (
 
 CREATE TABLE Funcionario (
     idFuncionario INT PRIMARY KEY NOT_NULL, 
-    idFuncao INT, 
+    idFuncao INT REFERENCES Funcao(idFuncao), 
     nome VARCHAR(100), 
     email VARCHAR(50), 
     telemóvel INT, 
@@ -27,7 +27,7 @@ CREATE TABLE PlanoTreino (
     numPlano INT PRIMARY KEY NOT_NULL, 
     dtCriacao DATE, 
     descricao VARCHAR(200), 
-    idFuncionario INT
+    idFuncionario INT REFERENCES Funcionario(idFuncionario)
 )
 
 CREATE TABLE Cliente (
@@ -38,11 +38,11 @@ CREATE TABLE Cliente (
     telemóvel INT, 
     dtNascimento DATE, 
     NIF INT, 
-    numPlano INT
+    numPlano INT REFERENCES PlanoTreino(numPlano)
 )
 
 CREATE TABLE HistoricoNutricao (
-    idCliente INT, 
+    idCliente INT REFERENCES Cliente(idCliente), 
     peso DECIMAL(3,2), 
     IMC DECIMAL(2,1), 
     massaGorda INT, 
@@ -52,23 +52,23 @@ CREATE TABLE HistoricoNutricao (
 CREATE TABLE AulaGrupo (
     numAula INT PRIMARY KEY NOT_NULL, 
     dataAula DATE, 
-    idLocal INT, 
+    idLocal INT REFERENCES PisoSala(idLocal), 
     tipoAula VARCHAR(1), 
     vagas INT, 
-    duracao TIME, /*TODO Procurar*/ 
-    idFuncionario INT
+    duracao TIME,
+    idFuncionario INT REFERENCES Funcionario(idFuncionario)
 )
 
 CREATE TABLE Consulta (
     numConsulta INT PRIMARY KEY NOT_NULL, 
     dataConsulta DATE, 
-    idLocal INT, 
-    idFuncionario INT, 
-    idCliente INT
+    idLocal INT REFERENCES PisoSala(idLocal), 
+    idFuncionario INT REFERENCES Funcionario(idFuncionario), 
+    idCliente INT REFERENCES Cliente(idCliente)
 )
 
 CREATE TABLE Subscricao (
-    idCliente INT, 
+    idCliente INT PRIMARY KEY REFERENCES Cliente(idCliente), 
     duracao TIME, 
     dataIni DATE, 
     valMensal DECIMAL(3,2), 
@@ -80,18 +80,18 @@ CREATE TABLE Subscricao (
 )
 
 CREATE TABLE linhaParticipante (
-    numAula INT, 
-    idCliente INT
+    numAula INT PRIMARY KEY REFERENCES AulaGrupo(numAula), 
+    idCliente INT PRIMARY KEY REFERENCES Cliente(idCliente)
 )
 
 CREATE TABLE Relatorio (
-    numConsulta INT, 
+    numConsulta INT PRIMARY KEY REFERENCES Consulta(numConsulta), 
     dataEmissao DATE, 
     descricao VARCHAR(200)
 )
 
 CREATE TABLE RestricaoSaude (
-    idRestricao INT PRIMARY KEY NOT_NULL 
+    idRestricao INT PRIMARY KEY
     descricao VARCHAR(200)
 )
 
@@ -106,5 +106,5 @@ CREATE TABLE Pagamento (
     estado VARCHAR(20), 
     dataLimite DATE, 
     dataEfetuado DATE, 
-    idCliente INT
+    idCliente INT REFERENCES CLiente(idCliente)
 )
