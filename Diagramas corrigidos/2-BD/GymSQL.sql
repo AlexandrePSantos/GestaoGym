@@ -91,7 +91,7 @@ CREATE TABLE Relatorio (
 )
 
 CREATE TABLE RestricaoSaude (
-    idRestricao INT PRIMARY KEY
+    idRestricao INT PRIMARY KEY,
     descricao VARCHAR(200)
 )
 
