@@ -5,4 +5,4 @@ WHERE Subscricao.idCliente = Cliente.idCliente AND Subscricao.Estado = 'Ativa';
 
 CREATE VIEW clientes_planos as CLIPLA
 SELECT c.nome, c.email, p.numPlano
-FROM Cliente as c 
+FROM Cliente as c AND 
