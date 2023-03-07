@@ -91,7 +91,7 @@ CREATE TABLE Relatorio (
 )
 
 CREATE TABLE RestricaoSaude (
-    idRestricao INT PRIMARY KEY, 
+    idRestricao INT PRIMARY KEY NOT_NULL 
     descricao VARCHAR(200)
 )
 
@@ -101,7 +101,7 @@ CREATE TABLE LinhaRestricao (
 )
 
 CREATE TABLE Pagamento (
-    numPagamento INT PRIMARY KEY, 
+    numPagamento INT PRIMARY KEY NOT_NULL 
     valor decimal(3,2), 
     estado VARCHAR(20), 
     dataLimite DATE, 
