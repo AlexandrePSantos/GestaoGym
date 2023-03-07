@@ -28,7 +28,7 @@ CREATE TABLE PlanoTreino (
     dtCriacao DATE, 
     descricao VARCHAR(200), 
     idFuncionario INT REFERENCES Funcionario(idFuncionario)
-)
+)-- constraint -> funcionario tem de ter funcao instrutor
 
 CREATE TABLE Cliente (
     idCliente INT PRIMARY KEY, 
@@ -68,7 +68,7 @@ CREATE TABLE Consulta (
 )
 
 CREATE TABLE Subscricao (
-    idCliente INT PRIMARY KEY REFERENCES Cliente(idCliente), 
+    idCliente INT REFERENCES Cliente(idCliente), 
     duracao TIME, 
     dataIni DATE, 
     valMensal DECIMAL(3,2), 
@@ -80,12 +80,12 @@ CREATE TABLE Subscricao (
 )
 
 CREATE TABLE linhaParticipante (
-    numAula INT PRIMARY KEY REFERENCES AulaGrupo(numAula), 
-    idCliente INT PRIMARY KEY REFERENCES Cliente(idCliente)
+    numAula INT REFERENCES AulaGrupo(numAula), 
+    idCliente INT REFERENCES Cliente(idCliente)
 )
 
 CREATE TABLE Relatorio (
-    numConsulta INT PRIMARY KEY REFERENCES Consulta(numConsulta), 
+    numConsulta INT REFERENCES Consulta(numConsulta), 
     dataEmissao DATE, 
     descricao VARCHAR(200)
 )

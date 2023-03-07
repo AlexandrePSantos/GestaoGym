@@ -4,17 +4,24 @@ SELECT c.nome, c.email
 FROM Cliente as c
 WHERE Subscricao.idCliente = Cliente.idCliente AND Subscricao.Estado = 'Ativa';
 
+--Corrigida
+-- 1 Mostrar todos os clientes ativos
+CREATE VIEW CLIATIV as 
+SELECT c.nome, c.email
+FROM Cliente as c, Subscricao as s
+WHERE s.idCliente = c.idCliente AND s.Estado = 'Ativa';
+
 -- 2 Mostrar todos os clientes que tem um plano
-CREATE VIEW clientes_planos as CLIPLA
+CREATE VIEW CLIENTEPLANO as 
 SELECT c.nome, c.email, p.numPlano
 FROM Cliente as c AND PlanoTreino as peso
 WHERE Cliente.numPlano = PlanoTreino.numPlano;
 
 -- 3 Mostrar as aulas e horarios de cada sala
-CREATE VIEW aulaHorarioSala as AHS
+CREATE VIEW aulaHorarioSala as
 SELECT a.tipoAula, a.dataAula, a.duracao, a.idLocal
 FROM AulaGrupo as a
-GROUP BY a.idLocal
+GROUP BY a.idLocal;
 
 -- 4 Mostrar clientes que tem 1 mes para renovar
 CREATE VIEW clientesParaRenovar as CLIRENOVAR
