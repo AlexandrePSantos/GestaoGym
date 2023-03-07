@@ -2,18 +2,18 @@ CREATE DATABASE gymManagement;
 
 
 CREATE TABLE Funcao (
-    idFuncao INT PRIMARY KEY NOT_NULL,
+    idFuncao INT PRIMARY KEY,
     descricao VARCHAR(100)
 )
 
 CREATE TABLE PisoSala (
-    idLocal INT PRIMARY KEY NOT_NULL,
+    idLocal INT PRIMARY KEY,
     piso VARCHAR(1),
     sala VARCHAR(2)
 )
 
 CREATE TABLE Funcionario (
-    idFuncionario INT PRIMARY KEY NOT_NULL, 
+    idFuncionario INT PRIMARY KEY, 
     idFuncao INT REFERENCES Funcao(idFuncao), 
     nome VARCHAR(100), 
     email VARCHAR(50), 
@@ -24,14 +24,14 @@ CREATE TABLE Funcionario (
 )
 
 CREATE TABLE PlanoTreino (
-    numPlano INT PRIMARY KEY NOT_NULL, 
+    numPlano INT PRIMARY KEY, 
     dtCriacao DATE, 
     descricao VARCHAR(200), 
     idFuncionario INT REFERENCES Funcionario(idFuncionario)
 )
 
 CREATE TABLE Cliente (
-    idCliente INT PRIMARY KEY NOT_NULL, 
+    idCliente INT PRIMARY KEY, 
     nome VARCHAR(200), 
     idade INT, 
     email VARCHAR(100), 
@@ -50,7 +50,7 @@ CREATE TABLE HistoricoNutricao (
 )
 
 CREATE TABLE AulaGrupo (
-    numAula INT PRIMARY KEY NOT_NULL, 
+    numAula INT PRIMARY KEY, 
     dataAula DATE, 
     idLocal INT REFERENCES PisoSala(idLocal), 
     tipoAula VARCHAR(1), 
@@ -60,7 +60,7 @@ CREATE TABLE AulaGrupo (
 )
 
 CREATE TABLE Consulta (
-    numConsulta INT PRIMARY KEY NOT_NULL, 
+    numConsulta INT PRIMARY KEY, 
     dataConsulta DATE, 
     idLocal INT REFERENCES PisoSala(idLocal), 
     idFuncionario INT REFERENCES Funcionario(idFuncionario), 
@@ -101,7 +101,7 @@ CREATE TABLE LinhaRestricao (
 )
 
 CREATE TABLE Pagamento (
-    numPagamento INT PRIMARY KEY NOT_NULL 
+    numPagamento INT PRIMARY KEY,
     valor decimal(3,2), 
     estado VARCHAR(20), 
     dataLimite DATE, 
