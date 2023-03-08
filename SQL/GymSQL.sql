@@ -43,11 +43,11 @@ CREATE TABLE Cliente (
 
 CREATE TABLE HistoricoNutricao (
     idCliente INT REFERENCES Cliente(idCliente), 
-    peso DECIMAL(3,2), 
-    IMC DECIMAL(2,1), 
+    peso DECIMAL(4,1), 
+    IMC DECIMAL(3,1), 
     massaGorda INT, 
     massaMagra INT
-)
+);
 
 CREATE TABLE AulaGrupo (
     numAula INT PRIMARY KEY, 
@@ -69,15 +69,15 @@ CREATE TABLE Consulta (
 
 CREATE TABLE Subscricao (
     idCliente INT REFERENCES Cliente(idCliente), 
-    duracao TIME, 
+    duracao INT, 
     dataIni DATE, 
-    valMensal DECIMAL(3,2), 
-    valTotal DECIMAL(3,2), 
-    dataFim DATE, 
-    totEmFalta DECIMAL(3,2), 
-    totPago DECIMAL(4,2), 
-    estado VARCHAR(20)
-)
+    dataFim DATE,
+    valMensal DECIMAL(5,2), 
+    valTotal DECIMAL(5,2), 
+    totEmFalta DECIMAL(5,2), 
+    totPago DECIMAL(5,2), 
+    estado VARCHAR(50)
+);
 
 CREATE TABLE linhaParticipante (
     numAula INT REFERENCES AulaGrupo(numAula), 
@@ -102,9 +102,9 @@ CREATE TABLE LinhaRestricao (
 
 CREATE TABLE Pagamento (
     numPagamento INT PRIMARY KEY,
-    valor decimal(3,2), 
+    valor decimal(5,2), 
     estado VARCHAR(20), 
     dataLimite DATE, 
     dataEfetuado DATE, 
     idCliente INT REFERENCES CLiente(idCliente)
-)
+);
