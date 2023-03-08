@@ -1,11 +1,4 @@
 -- 1 Mostrar todos os clientes ativos
-CREATE VIEW clientes_ativos as CLIATIV
-SELECT c.nome, c.email
-FROM Cliente as c
-WHERE Subscricao.idCliente = Cliente.idCliente AND Subscricao.Estado = 'Ativa';
-
---Corrigida
--- 1 Mostrar todos os clientes ativos
 CREATE VIEW CLIATIV as 
 SELECT c.nome, c.email
 FROM Cliente as c, Subscricao as s
@@ -31,16 +24,14 @@ WHERE Subscricao.idCliente = Cliente.idCliente AND Subscricao.Estado = 'Para ren
 
 -- 5 mostrar aulas de certo tipo
 -- TODO where tipoAula e' o cliente que mete (fazer em java)
-CREATE VIEW aulasCertoTipo as AULASTIPO
-SELECT *
+SELECT 
 FROM AulaGrupo
 
 -- 6 mostrar todos os planos
-CREATE VIEW planos AS PLANOS
 SELECT numPlano, descricao
-FROM PlanoTreino
+FROM PlanoTreino;
 
--- 7 mostrar clientes que ainda nao pagaram
+-- 7 mostrar clientes com pagamentos pendentes
 CREATE VIEW clientesParaPagar AS CLIEPAGAR
 SELECT *
 FROM Cliente
