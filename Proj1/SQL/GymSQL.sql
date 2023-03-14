@@ -27,7 +27,6 @@ CREATE TABLE Funcionario (
 CREATE TABLE Cliente (
     idCliente INT PRIMARY KEY, 
     nome VARCHAR(200), 
-    idade INT, 
     email VARCHAR(100), 
     telemóvel VARCHAR(10), 
     dtNascimento DATE, 
@@ -45,7 +44,7 @@ CREATE TABLE PlanoTreino (
     estado VARCHAR(20), 
     idFuncionario INT REFERENCES Funcionario(idFuncionario),
     idCliente INT REFERENCES Cliente(idCliente)
-);-- constraint -> funcionario tem de ter funcao instrutor
+); -- constraint -> funcionario tem de ter funcao instrutor
 
 CREATE TABLE Exercicio (
     idExercicio INT PRIMARY KEY,

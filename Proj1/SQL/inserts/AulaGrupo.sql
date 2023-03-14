@@ -1,0 +1,10 @@
+insert into AulaGrupo (numAula, dataAula, tipoAula, vagas, vagasDisp, duracao, idLocal, idFuncionario) values (1, '2021-12-22', 'Musculacao', 14, 3, 49, 4, 1);
+insert into AulaGrupo (numAula, dataAula, tipoAula, vagas, vagasDisp, duracao, idLocal, idFuncionario) values (2, '2021-12-23', 'Yoga', 14, 2, 21, 4, 1);
+insert into AulaGrupo (numAula, dataAula, tipoAula, vagas, vagasDisp, duracao, idLocal, idFuncionario) values (3, '2022-10-04', 'Yoga', 13, 10, 33, 3, 1);
+insert into AulaGrupo (numAula, dataAula, tipoAula, vagas, vagasDisp, duracao, idLocal, idFuncionario) values (4, '2021-03-18', 'Yoga', 10, 3, 20, 1, 2);
+insert into AulaGrupo (numAula, dataAula, tipoAula, vagas, vagasDisp, duracao, idLocal, idFuncionario) values (5, '2022-07-14', 'Musculacao', 12, 4, 37, 1, 2);
+insert into AulaGrupo (numAula, dataAula, tipoAula, vagas, vagasDisp, duracao, idLocal, idFuncionario) values (6, '2020-02-07', 'Cycling', 10, 7, 60, 2, 2);
+insert into AulaGrupo (numAula, dataAula, tipoAula, vagas, vagasDisp, duracao, idLocal, idFuncionario) values (7, '2022-11-11', 'Yoga', 12, 8, 43, 3, 2);
+insert into AulaGrupo (numAula, dataAula, tipoAula, vagas, vagasDisp, duracao, idLocal, idFuncionario) values (8, '2022-05-07', 'Musculacao', 11, 1, 34, 2, 2);
+insert into AulaGrupo (numAula, dataAula, tipoAula, vagas, vagasDisp, duracao, idLocal, idFuncionario) values (9, '2021-01-12', 'Yoga', 14, 6, 53, 2, 2);
+insert into AulaGrupo (numAula, dataAula, tipoAula, vagas, vagasDisp, duracao, idLocal, idFuncionario) values (10, '2020-08-30', 'Cycling', 10, 4, 44, 1, 1);

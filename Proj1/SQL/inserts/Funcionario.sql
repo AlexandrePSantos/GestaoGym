@@ -1,0 +1,3 @@
+insert into Funcionario (idFuncionario, idFuncao, nome, email, telemovel, NIF, dtNascimento, salario) values (1, 1, 'Malinde Sacher', 'msacher0@businessweek.com', '8031938249', 228379888, '1985-12-30', 1983);
+insert into Funcionario (idFuncionario, idFuncao, nome, email, telemovel, NIF, dtNascimento, salario) values (2, 2, 'Auguste Gammet', 'agammet1@bloglovin.com', '4418851470', 873192434, '1983-03-17', 1789);
+insert into Funcionario (idFuncionario, idFuncao, nome, email, telemovel, NIF, dtNascimento, salario) values (3, 3, 'Sondra Bossel', 'sbossel2@booking.com', '7197606319', 215601959, '1968-01-12', 1355);

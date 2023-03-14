@@ -1,0 +1,10 @@
+insert into Consulta (numConsulta, dataConsulta, idLocal, idFuncionario, idCliente) values (1, '2021-07-31', 2, 2, 2);
+insert into Consulta (numConsulta, dataConsulta, idLocal, idFuncionario, idCliente) values (2, '2020-06-20', 4, 1, 2);
+insert into Consulta (numConsulta, dataConsulta, idLocal, idFuncionario, idCliente) values (3, '2021-04-04', 1, 2, 4);
+insert into Consulta (numConsulta, dataConsulta, idLocal, idFuncionario, idCliente) values (4, '2020-03-05', 2, 2, 4);
+insert into Consulta (numConsulta, dataConsulta, idLocal, idFuncionario, idCliente) values (5, '2021-01-09', 3, 2, 2);
+insert into Consulta (numConsulta, dataConsulta, idLocal, idFuncionario, idCliente) values (6, '2022-04-16', 1, 2, 1);
+insert into Consulta (numConsulta, dataConsulta, idLocal, idFuncionario, idCliente) values (7, '2020-03-28', 2, 2, 1);
+insert into Consulta (numConsulta, dataConsulta, idLocal, idFuncionario, idCliente) values (8, '2022-04-10', 3, 2, 4);
+insert into Consulta (numConsulta, dataConsulta, idLocal, idFuncionario, idCliente) values (9, '2021-08-08', 3, 2, 1);
+insert into Consulta (numConsulta, dataConsulta, idLocal, idFuncionario, idCliente) values (10, '2020-09-28', 3, 1, 3);
