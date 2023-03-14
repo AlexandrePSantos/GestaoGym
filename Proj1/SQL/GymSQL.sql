@@ -28,12 +28,17 @@ CREATE TABLE PlanoTreino (
     numPlano INT PRIMARY KEY, 
     dtCriacao DATE, 
     descricao VARCHAR(200), 
-    idFuncionario INT REFERENCES Funcionario(idFuncionario)
+    idFuncionario INT REFERENCES Funcionario(idFuncionario),
+    idCliente INT REFERENCES Cliente(idCliente)
 );-- constraint -> funcionario tem de ter funcao instrutor
 
 CREATE TABLE linhaExercicio (
     idExercicio INT REFERENCES Exercicio(idExercicio),
-    numPlano INT REFERENCES PlanoTreino(numPlano)
+    numPlano INT REFERENCES PlanoTreino(numPlano),
+    peso DECIMAL(3,2),
+    velocidade DECIMAL(3,1),
+    sets INT,
+    reps INT
 );
 
 CREATE TABLE Exercicio (
@@ -47,8 +52,6 @@ CREATE TABLE Exercicio (
 CREATE TABLE Equipamento ( 
     idEquipamento INT PRIMARY KEY,
     nome VARCHAR(100),
-    peso DECIMAL(4,1),
-    velocidade INT
 );
 
 CREATE TABLE Cliente (
@@ -58,8 +61,7 @@ CREATE TABLE Cliente (
     email VARCHAR(100), 
     telemóvel INT, 
     dtNascimento DATE, 
-    NIF INT, 
-    numPlano INT REFERENCES PlanoTreino(numPlano)
+    NIF INT
 );
 
 CREATE TABLE HistoricoNutricao (
@@ -75,10 +77,11 @@ CREATE TABLE HistoricoNutricao (
 CREATE TABLE AulaGrupo (
     numAula INT PRIMARY KEY, 
     dataAula DATE, 
-    idLocal INT REFERENCES PisoSala(idLocal), 
     tipoAula VARCHAR(1), 
     vagas INT, 
+    vagasDisp INT,
     duracao TIME,
+    idLocal INT REFERENCES PisoSala(idLocal), 
     idFuncionario INT REFERENCES Funcionario(idFuncionario)
 );
 
@@ -96,8 +99,6 @@ CREATE TABLE Subscricao (
     duracao INT, 
     dataIni DATE, 
     dataFim DATE,
-    valMensal DECIMAL(5,2), 
-    valTotal DECIMAL(5,2), 
     totEmFalta DECIMAL(5,2), 
     totPago DECIMAL(5,2), 
     estado VARCHAR(50)
