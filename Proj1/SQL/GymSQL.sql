@@ -44,7 +44,7 @@ CREATE TABLE PlanoTreino (
     descricao VARCHAR(200), 
     idFuncionario INT REFERENCES Funcionario(idFuncionario),
     idCliente INT REFERENCES Cliente(idCliente)
-);-- constraint -> funcionario tem de ter funcao instrutor
+); -- constraint -> funcionario tem de ter funcao instrutor
 
 CREATE TABLE Exercicio (
     idExercicio INT PRIMARY KEY,
