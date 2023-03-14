@@ -1,0 +1,9 @@
+insert into PisoSala (idLocal, piso, sala) values (1, 0, 'D1');
+insert into PisoSala (idLocal, piso, sala) values (2, 0, 'D2');
+insert into PisoSala (idLocal, piso, sala) values (3, 0, 'D3');
+insert into PisoSala (idLocal, piso, sala) values (4, 1, 'S1');
+insert into PisoSala (idLocal, piso, sala) values (5, 1, 'S2');
+insert into PisoSala (idLocal, piso, sala) values (6, 1, 'S3');
+insert into PisoSala (idLocal, piso, sala) values (7, 2, 'C1');
+insert into PisoSala (idLocal, piso, sala) values (8, 2, 'C2');
+insert into PisoSala (idLocal, piso, sala) values (9, 2, 'C3');
