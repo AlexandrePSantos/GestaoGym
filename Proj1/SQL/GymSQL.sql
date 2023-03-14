@@ -24,6 +24,21 @@ CREATE TABLE Funcionario (
     salario DECIMAL(7,2)
 );
 
+CREATE TABLE Cliente (
+    idCliente INT PRIMARY KEY, 
+    nome VARCHAR(200), 
+    idade INT, 
+    email VARCHAR(100), 
+    telemóvel VARCHAR(10), 
+    dtNascimento DATE, 
+    NIF VARCHAR(10)
+);
+
+CREATE TABLE Equipamento ( 
+    idEquipamento INT PRIMARY KEY,
+    nome VARCHAR(100)
+);
+
 CREATE TABLE PlanoTreino (
     numPlano INT PRIMARY KEY, 
     dtCriacao DATE, 
@@ -31,15 +46,6 @@ CREATE TABLE PlanoTreino (
     idFuncionario INT REFERENCES Funcionario(idFuncionario),
     idCliente INT REFERENCES Cliente(idCliente)
 );-- constraint -> funcionario tem de ter funcao instrutor
-
-CREATE TABLE linhaExercicio (
-    idExercicio INT REFERENCES Exercicio(idExercicio),
-    numPlano INT REFERENCES PlanoTreino(numPlano),
-    peso DECIMAL(4,1),
-    velocidade DECIMAL(4,2),
-    sets INT,
-    reps INT
-);
 
 CREATE TABLE Exercicio (
     idExercicio INT PRIMARY KEY,
@@ -49,19 +55,13 @@ CREATE TABLE Exercicio (
     idEquipamento INT REFERENCES Equipamento(idEquipamento)
 );
 
-CREATE TABLE Equipamento ( 
-    idEquipamento INT PRIMARY KEY,
-    nome VARCHAR(100),
-);
-
-CREATE TABLE Cliente (
-    idCliente INT PRIMARY KEY, 
-    nome VARCHAR(200), 
-    idade INT, 
-    email VARCHAR(100), 
-    telemóvel VARCHAR(10), 
-    dtNascimento DATE, 
-    NIF VARCHAR(10)
+CREATE TABLE linhaExercicio (
+    idExercicio INT REFERENCES Exercicio(idExercicio),
+    numPlano INT REFERENCES PlanoTreino(numPlano),
+    peso DECIMAL(4,1),
+    velocidade DECIMAL(4,2),
+    sets INT,
+    reps INT
 );
 
 CREATE TABLE HistoricoNutricao (
@@ -132,5 +132,5 @@ CREATE TABLE Pagamento (
     dataLimite DATE, 
     dataEfetuado DATE,
     metodoPag VARCHAR(100),
-    numSubscricao INT REFERENCES numSubscricao(Subscricao)
+    numSubscricao INT REFERENCES Subscricao(numSubscricao)
 );
