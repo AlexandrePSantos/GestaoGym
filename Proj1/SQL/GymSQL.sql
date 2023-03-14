@@ -17,7 +17,7 @@ CREATE TABLE Funcionario (
     idFuncionario INT PRIMARY KEY, 
     idFuncao INT REFERENCES Funcao(idFuncao), 
     nome VARCHAR(100), 
-    email VARCHAR(50), 
+    email VARCHAR(100), 
     telemóvel VARCHAR(10), 
     NIF VARCHAR(10), 
     dtNascimento DATE, 
@@ -35,8 +35,8 @@ CREATE TABLE PlanoTreino (
 CREATE TABLE linhaExercicio (
     idExercicio INT REFERENCES Exercicio(idExercicio),
     numPlano INT REFERENCES PlanoTreino(numPlano),
-    peso DECIMAL(3,2),
-    velocidade DECIMAL(3,1),
+    peso DECIMAL(4,1),
+    velocidade DECIMAL(4,2),
     sets INT,
     reps INT
 );
@@ -45,7 +45,7 @@ CREATE TABLE Exercicio (
     idExercicio INT PRIMARY KEY,
     sets INT,
     repeticoes INT,
-    duracao VARCHAR(6),
+    duracao DECIMAL(4,2),
     idEquipamento INT REFERENCES Equipamento(idEquipamento)
 );
 
@@ -59,9 +59,9 @@ CREATE TABLE Cliente (
     nome VARCHAR(200), 
     idade INT, 
     email VARCHAR(100), 
-    telemóvel INT, 
+    telemóvel VARCHAR(10), 
     dtNascimento DATE, 
-    NIF INT
+    NIF VARCHAR(10)
 );
 
 CREATE TABLE HistoricoNutricao (
@@ -77,10 +77,10 @@ CREATE TABLE HistoricoNutricao (
 CREATE TABLE AulaGrupo (
     numAula INT PRIMARY KEY, 
     dataAula DATE, 
-    tipoAula VARCHAR(1), 
+    tipoAula VARCHAR(50), 
     vagas INT, 
     vagasDisp INT,
-    duracao TIME,
+    duracao DECIMAL(4,2),
     idLocal INT REFERENCES PisoSala(idLocal), 
     idFuncionario INT REFERENCES Funcionario(idFuncionario)
 );
@@ -96,7 +96,7 @@ CREATE TABLE Consulta (
 CREATE TABLE Subscricao (
     numSubscricao INT PRIMARY KEY,
     idCliente INT REFERENCES Cliente(idCliente), 
-    duracao INT, 
+    duracao DECIMAL(4,2), 
     dataIni DATE, 
     dataFim DATE,
     totEmFalta DECIMAL(5,2), 
@@ -131,6 +131,6 @@ CREATE TABLE Pagamento (
     estado VARCHAR(20), 
     dataLimite DATE, 
     dataEfetuado DATE,
-    metodoPag VARCHAR(100) 
+    metodoPag VARCHAR(100),
     numSubscricao INT REFERENCES numSubscricao(Subscricao)
 );
