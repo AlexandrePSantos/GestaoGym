@@ -42,13 +42,14 @@ CREATE TABLE Equipamento (
 CREATE TABLE PlanoTreino (
     numPlano INT PRIMARY KEY, 
     dtCriacao DATE, 
-    descricao VARCHAR(200), 
+    estado VARCHAR(20), 
     idFuncionario INT REFERENCES Funcionario(idFuncionario),
     idCliente INT REFERENCES Cliente(idCliente)
 );-- constraint -> funcionario tem de ter funcao instrutor
 
 CREATE TABLE Exercicio (
     idExercicio INT PRIMARY KEY,
+    nome VARCHAR(20),
     sets INT,
     repeticoes INT,
     duracao DECIMAL(4,2),
@@ -95,13 +96,13 @@ CREATE TABLE Consulta (
 
 CREATE TABLE Subscricao (
     numSubscricao INT PRIMARY KEY,
-    idCliente INT REFERENCES Cliente(idCliente), 
-    duracao DECIMAL(4,2), 
+    idCliente INT REFERENCES Cliente(idCliente),  
     dataIni DATE, 
     dataFim DATE,
     totEmFalta DECIMAL(5,2), 
     totPago DECIMAL(5,2), 
-    estado VARCHAR(50)
+    estado VARCHAR(50),
+    valor DECIMAL(5,2)
 );
 
 CREATE TABLE linhaParticipante (
