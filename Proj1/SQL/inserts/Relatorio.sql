@@ -1,0 +1,10 @@
+insert into Relatorio (numConsulta, dataEmissao, descricao) values (1, '2022-10-22', 'Perdeu peso mas ganhou massa magra');
+insert into Relatorio (numConsulta, dataEmissao, descricao) values (2, '2021-01-04', 'Diminuiu peso e perdeu massa magra');
+insert into Relatorio (numConsulta, dataEmissao, descricao) values (3, '2022-08-18', 'Aumentou peso e aumentou massa magra');
+insert into Relatorio (numConsulta, dataEmissao, descricao) values (4, '2020-01-23', 'Aumentou peso e aumentou massa gorda');
+insert into Relatorio (numConsulta, dataEmissao, descricao) values (5, '2021-04-09', 'Aumentou peso e aumentou massa gorda');
+insert into Relatorio (numConsulta, dataEmissao, descricao) values (6, '2021-09-29', 'Aumentou peso mas perdeu massa gorda');
+insert into Relatorio (numConsulta, dataEmissao, descricao) values (7, '2021-10-13', 'Aumentou peso e aumentou massa magra');
+insert into Relatorio (numConsulta, dataEmissao, descricao) values (8, '2020-10-23', 'Aumentou peso e aumentou massa gorda');
+insert into Relatorio (numConsulta, dataEmissao, descricao) values (9, '2020-03-25', 'Aumentou peso mas perdeu massa gorda');
+insert into Relatorio (numConsulta, dataEmissao, descricao) values (10, '2020-09-06', 'Diminuiu peso e perdeu massa gorda e magra');
