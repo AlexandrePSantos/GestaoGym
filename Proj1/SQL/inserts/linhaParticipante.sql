@@ -1,0 +1,10 @@
+insert into linhaParticipante (numAula, idCliente) values (1, 2);
+insert into linhaParticipante (numAula, idCliente) values (2, 1);
+insert into linhaParticipante (numAula, idCliente) values (3, 2);
+insert into linhaParticipante (numAula, idCliente) values (4, 2);
+insert into linhaParticipante (numAula, idCliente) values (5, 1);
+insert into linhaParticipante (numAula, idCliente) values (6, 1);
+insert into linhaParticipante (numAula, idCliente) values (7, 1);
+insert into linhaParticipante (numAula, idCliente) values (8, 1);
+insert into linhaParticipante (numAula, idCliente) values (9, 1);
+insert into linhaParticipante (numAula, idCliente) values (10, 3);
