@@ -18,7 +18,7 @@ CREATE TABLE Funcionario (
     idFuncao INT REFERENCES Funcao(idFuncao), 
     nome VARCHAR(100), 
     email VARCHAR(100), 
-    telemóvel VARCHAR(10), 
+    telemovel VARCHAR(10), 
     NIF VARCHAR(10), 
     dtNascimento DATE, 
     salario DECIMAL(7,2)
@@ -28,7 +28,7 @@ CREATE TABLE Cliente (
     idCliente INT PRIMARY KEY, 
     nome VARCHAR(200), 
     email VARCHAR(100), 
-    telemóvel VARCHAR(10), 
+    telemovel VARCHAR(10), 
     dtNascimento DATE, 
     NIF VARCHAR(10)
 );

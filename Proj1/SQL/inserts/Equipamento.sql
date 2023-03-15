@@ -1,10 +1,3 @@
-insert into Equipamento (numPlano, dtCriacao, estado, idFuncionario, idCliente) values (1, '2022-04-26', 'inativo', 2, 1);
-insert into Equipamento (numPlano, dtCriacao, estado, idFuncionario, idCliente) values (2, '2022-09-06', 'ativo', 2, 2);
-insert into Equipamento (numPlano, dtCriacao, estado, idFuncionario, idCliente) values (3, '2022-07-31', 'inativo', 2, 3);
-insert into Equipamento (numPlano, dtCriacao, estado, idFuncionario, idCliente) values (4, '2023-02-25', 'inativo', 2, 4);
-insert into Equipamento (numPlano, dtCriacao, estado, idFuncionario, idCliente) values (5, '2022-03-27', 'ativo', 2, 1);
-insert into Equipamento (numPlano, dtCriacao, estado, idFuncionario, idCliente) values (6, '2022-12-23', 'inativo', 2, 2);
-insert into Equipamento (numPlano, dtCriacao, estado, idFuncionario, idCliente) values (7, '2022-12-01', 'inativo', 2, 3);
-insert into Equipamento (numPlano, dtCriacao, estado, idFuncionario, idCliente) values (8, '2022-11-15', 'inativo', 2, 4);
-insert into Equipamento (numPlano, dtCriacao, estado, idFuncionario, idCliente) values (9, '2022-10-04', 'ativo', 2, 1);
-insert into Equipamento (numPlano, dtCriacao, estado, idFuncionario, idCliente) values (10, '2023-01-02', 'ativo', 2, 2);
+insert into Equipamento (idEquipamento, nome) values (1, 'Halteres');
+insert into Equipamento (idEquipamento, nome) values (2, 'Passadeira');
+insert into Equipamento (idEquipamento, nome) values (3, 'Bicicleta');
