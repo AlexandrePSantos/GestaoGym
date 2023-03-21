@@ -1,5 +1,3 @@
-CREATE DATABASE gymManagement;
-
 CREATE TABLE Funcionario (
     idFuncionario INT PRIMARY KEY, 
     nome VARCHAR(100), 
@@ -7,7 +5,7 @@ CREATE TABLE Funcionario (
     telemovel VARCHAR(10), 
     NIF VARCHAR(10), 
     dtNascimento DATE, 
-    salarioLiquido DECIMAL(7,2),´
+    salarioLiquido DECIMAL(5,1),
     funcao VARCHAR(50)
 );
 
@@ -18,7 +16,7 @@ CREATE TABLE Cliente (
     telemovel VARCHAR(10), 
     NIF VARCHAR(10),
     dtNascimento DATE,
-    morada VARCHAR(100) 
+    cPostal VARCHAR(8) 
 );
 
 CREATE TABLE RestricaoSaude (
@@ -31,8 +29,8 @@ CREATE TABLE LinhaRestricao (
     idCliente INT REFERENCES Cliente(idCliente)
 );
 
-CREATE TABLE PisoSala (
-    idLocal INT PRIMARY KEY,
+CREATE TABLE Sala (
+    idSala INT PRIMARY KEY,
     sala VARCHAR(50)
 );
 
@@ -42,8 +40,8 @@ CREATE TABLE AulaGrupo (
     tipoAula VARCHAR(50), 
     vagas INT, 
     vagasDisp INT,
-    duracao DECIMAL(4,2),
-    idLocal INT REFERENCES PisoSala(idLocal), 
+    duracao INT,
+    idSala INT REFERENCES Sala(idSala), 
     idFuncionario INT REFERENCES Funcionario(idFuncionario)
 );
 
@@ -54,13 +52,13 @@ CREATE TABLE linhaParticipante (
 
 CREATE TABLE Subscricao (
     numSubscricao INT PRIMARY KEY,
+    idCliente INT REFERENCES Cliente(idCliente),
     duracao INT,
     dataIni DATE, 
     dataFim DATE,
     valEmFalta DECIMAL(5,2), 
     valTotal DECIMAL(5,2), 
-    estado VARCHAR(50),
-    idCliente INT REFERENCES Cliente(idCliente) 
+    estado VARCHAR(50)
 );
 
 CREATE TABLE Pagamento (
@@ -81,11 +79,6 @@ CREATE TABLE Equipamento (
 CREATE TABLE Exercicio (
     idExercicio INT PRIMARY KEY,
     nome VARCHAR(20),
-    peso DECIMAL(4,1),
-    sets INT,
-    reps INT,
-    velocidade INT,
-    duracao INT
     idEquipamento INT REFERENCES Equipamento(idEquipamento)
 );
 

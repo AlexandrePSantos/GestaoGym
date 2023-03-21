@@ -1,3 +1,3 @@
-insert into Exercicio (idExercicio, sets, repeticoes, duracao, idEquipamento, nome) values (1, 3, 12, NULL, 1, 'Bench-press');
-insert into Exercicio (idExercicio, sets, repeticoes, duracao, idEquipamento, nome) values (2, 2, NULL, 15, 2, 'Corrida');
-insert into Exercicio (idExercicio, sets, repeticoes, duracao, idEquipamento, nome) values (3, 1, NULL, 20, 3, 'Cycling');
+insert into Exercicio (idExercicio, nome, idEquipamento) values (1, 'Bench-press', 1);
+insert into Exercicio (idExercicio, nome, idEquipamento) values (2, 'Corrida', 2);
+insert into Exercicio (idExercicio, nome, idEquipamento) values (3, 'Cycling', 3);
