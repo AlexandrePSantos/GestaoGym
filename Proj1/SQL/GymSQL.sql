@@ -1,27 +1,14 @@
 CREATE DATABASE gymManagement;
 
-USE gymManagement;
-
-CREATE TABLE Funcao (
-    idFuncao INT PRIMARY KEY,
-    descricao VARCHAR(100)
-);
-
-CREATE TABLE PisoSala (
-    idLocal INT PRIMARY KEY,
-    piso VARCHAR(1),
-    sala VARCHAR(2)
-);
-
 CREATE TABLE Funcionario (
     idFuncionario INT PRIMARY KEY, 
-    idFuncao INT REFERENCES Funcao(idFuncao), 
     nome VARCHAR(100), 
     email VARCHAR(100), 
     telemovel VARCHAR(10), 
     NIF VARCHAR(10), 
     dtNascimento DATE, 
-    salario DECIMAL(7,2)
+    salarioLiquido DECIMAL(7,2),´
+    funcao VARCHAR(50)
 );
 
 CREATE TABLE Cliente (
@@ -29,49 +16,24 @@ CREATE TABLE Cliente (
     nome VARCHAR(200), 
     email VARCHAR(100), 
     telemovel VARCHAR(10), 
-    dtNascimento DATE, 
-    NIF VARCHAR(10)
+    NIF VARCHAR(10),
+    dtNascimento DATE,
+    morada VARCHAR(100) 
 );
 
-CREATE TABLE Equipamento ( 
-    idEquipamento INT PRIMARY KEY,
-    nome VARCHAR(100)
+CREATE TABLE RestricaoSaude (
+    idRestricao INT PRIMARY KEY,
+    descricao VARCHAR(200)
 );
 
-CREATE TABLE PlanoTreino (
-    numPlano INT PRIMARY KEY, 
-    dtCriacao DATE, 
-    estado VARCHAR(20), 
-    idFuncionario INT REFERENCES Funcionario(idFuncionario),
+CREATE TABLE LinhaRestricao (
+    idRestricao INT REFERENCES RestricaoSaude(idRestricao), 
     idCliente INT REFERENCES Cliente(idCliente)
-); -- constraint -> funcionario tem de ter funcao instrutor
-
-CREATE TABLE Exercicio (
-    idExercicio INT PRIMARY KEY,
-    nome VARCHAR(20),
-    sets INT,
-    repeticoes INT,
-    duracao DECIMAL(4,2),
-    idEquipamento INT REFERENCES Equipamento(idEquipamento)
 );
 
-CREATE TABLE linhaExercicio (
-    idExercicio INT REFERENCES Exercicio(idExercicio),
-    numPlano INT REFERENCES PlanoTreino(numPlano),
-    peso DECIMAL(4,1),
-    velocidade DECIMAL(4,2),
-    sets INT,
-    reps INT
-);
-
-CREATE TABLE HistoricoNutricao (
-    nrHist INT PRIMARY KEY,
-    idCliente INT REFERENCES Cliente(idCliente), 
-    data Date,
-    peso DECIMAL(4,1), 
-    IMC DECIMAL(3,1), 
-    massaGorda INT, 
-    massaMagra INT
+CREATE TABLE PisoSala (
+    idLocal INT PRIMARY KEY,
+    sala VARCHAR(50)
 );
 
 CREATE TABLE AulaGrupo (
@@ -85,44 +47,20 @@ CREATE TABLE AulaGrupo (
     idFuncionario INT REFERENCES Funcionario(idFuncionario)
 );
 
-CREATE TABLE Consulta (
-    numConsulta INT PRIMARY KEY, 
-    dataConsulta DATE, 
-    idLocal INT REFERENCES PisoSala(idLocal), 
-    idFuncionario INT REFERENCES Funcionario(idFuncionario), 
-    idCliente INT REFERENCES Cliente(idCliente)
-);
-
-CREATE TABLE Subscricao (
-    numSubscricao INT PRIMARY KEY,
-    idCliente INT REFERENCES Cliente(idCliente),  
-    dataIni DATE, 
-    dataFim DATE,
-    totEmFalta DECIMAL(5,2), 
-    totPago DECIMAL(5,2), 
-    estado VARCHAR(50),
-    valor DECIMAL(5,2)
-);
-
 CREATE TABLE linhaParticipante (
     numAula INT REFERENCES AulaGrupo(numAula), 
     idCliente INT REFERENCES Cliente(idCliente)
 );
 
-CREATE TABLE Relatorio (
-    numConsulta INT REFERENCES Consulta(numConsulta), 
-    dataEmissao DATE, 
-    descricao VARCHAR(200)
-);
-
-CREATE TABLE RestricaoSaude (
-    idRestricao INT PRIMARY KEY,
-    descricao VARCHAR(200)
-);
-
-CREATE TABLE LinhaRestricao (
-    idRestricao INT REFERENCES RestricaoSaude(idRestricao), 
-    idCliente INT REFERENCES Cliente(idCliente)
+CREATE TABLE Subscricao (
+    numSubscricao INT PRIMARY KEY,
+    duracao INT,
+    dataIni DATE, 
+    dataFim DATE,
+    valEmFalta DECIMAL(5,2), 
+    valTotal DECIMAL(5,2), 
+    estado VARCHAR(50),
+    idCliente INT REFERENCES Cliente(idCliente) 
 );
 
 CREATE TABLE Pagamento (
@@ -133,4 +71,38 @@ CREATE TABLE Pagamento (
     dataEfetuado DATE,
     metodoPag VARCHAR(100),
     numSubscricao INT REFERENCES Subscricao(numSubscricao)
+);
+
+CREATE TABLE Equipamento ( 
+    idEquipamento INT PRIMARY KEY,
+    nome VARCHAR(100)
+);
+
+CREATE TABLE Exercicio (
+    idExercicio INT PRIMARY KEY,
+    nome VARCHAR(20),
+    peso DECIMAL(4,1),
+    sets INT,
+    reps INT,
+    velocidade INT,
+    duracao INT
+    idEquipamento INT REFERENCES Equipamento(idEquipamento)
+);
+
+CREATE TABLE PlanoTreino (
+    numPlano INT PRIMARY KEY, 
+    dtCriacao DATE, 
+    estado VARCHAR(20), 
+    idFuncionario INT REFERENCES Funcionario(idFuncionario),
+    idCliente INT REFERENCES Cliente(idCliente)
+); 
+
+CREATE TABLE linhaExercicio (
+    idExercicio INT REFERENCES Exercicio(idExercicio),
+    numPlano INT REFERENCES PlanoTreino(numPlano),
+    peso DECIMAL(4,1),
+    sets INT,
+    reps INT,
+    velocidade INT,
+    duracao INT
 );

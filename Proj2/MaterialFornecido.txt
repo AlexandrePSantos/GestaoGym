@@ -1,0 +1,11 @@
+https://www.youtube.com/watch?v=QJddHc41xrM
+
+https://www.youtube.com/watch?v=Lr_zg_uhWW4
+
+https://www.youtube.com/watch?v=az9ghvGczys
+
+https://blog.jetbrains.com/idea/2021/02/creating-a-simple-jpa-application/
+
+https://www.jetbrains.com/help/idea/persistence-tool-window.html#run-queries
+
+https://www.jetbrains.com/help/datagrip/generating-code.html
