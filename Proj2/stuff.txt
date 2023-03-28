@@ -1,0 +1,13 @@
+Instrutor:
+-Marcar aulas
+-Criar planos de treino
+-Consultar clientes
+
+Rececionista:
+-Inscrever clientes
+-Consultar clientes
+
+Cliente:
+-Pagar mensalidade
+-Consultar conta/plano treino/aulas
+-Inscrever em aula
