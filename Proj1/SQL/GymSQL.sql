@@ -68,6 +68,8 @@ CREATE TABLE Pagamento (
     dataLimite DATE, 
     dataEfetuado DATE,
     metodoPag VARCHAR(100),
+    referencia VARCHAR(10),
+    entidade VARCHAR(6),
     numSubscricao INT REFERENCES Subscricao(numSubscricao)
 );
 
