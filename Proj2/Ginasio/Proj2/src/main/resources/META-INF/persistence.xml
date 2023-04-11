@@ -37,4 +37,5 @@
             <property name="eclipselink.jdbc.password" value="postgres"/>
         </properties>
     </persistence-unit>
+
 </persistence>
