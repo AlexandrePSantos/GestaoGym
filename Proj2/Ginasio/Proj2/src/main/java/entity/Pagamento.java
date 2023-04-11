@@ -1,6 +1,7 @@
 package entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.sql.Date;
 
@@ -29,7 +30,7 @@ public class Pagamento {
     @Column(name = "numsubscricao", nullable = true)
     private Integer numsubscricao;
     @ManyToOne
-    @JoinColumn(name = "numsubscricao", referencedColumnName = "numsubscricao")
+    @JoinColumn(referencedColumnName = "numsubscricao")
     private Subscricao subscricaoByNumsubscricao;
 
     public int getNumpagamento() {

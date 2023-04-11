@@ -1,6 +1,7 @@
 package entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.Collection;
@@ -35,7 +36,7 @@ public class Subscricao {
     @OneToMany(mappedBy = "subscricaoByNumsubscricao")
     private Collection<Pagamento> pagamentosByNumsubscricao;
     @ManyToOne
-    @JoinColumn(name = "idcliente", referencedColumnName = "idcliente")
+    @JoinColumn(referencedColumnName = "idcliente")
     private Cliente clienteByIdcliente;
 
     public int getNumsubscricao() {

@@ -1,27 +1,28 @@
 package entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 public class Linharestricao {
+    @Id
     @Basic
-    @Column(name = "idrestricao", nullable = true)
-    private Integer idrestricao;
+    @Column(name = "idrestricao", nullable = false)
+    private int idrestricao;
     @Basic
     @Column(name = "idcliente", nullable = true)
     private Integer idcliente;
     @ManyToOne
-    @JoinColumn(name = "idrestricao", referencedColumnName = "idrestricao")
+    @JoinColumn(referencedColumnName = "idrestricao", nullable = false)
     private Restricaosaude restricaosaudeByIdrestricao;
     @ManyToOne
-    @JoinColumn(name = "idcliente", referencedColumnName = "idcliente")
+    @JoinColumn(referencedColumnName = "idcliente")
     private Cliente clienteByIdcliente;
 
-    public Integer getIdrestricao() {
+    public int getIdrestricao() {
         return idrestricao;
     }
 
-    public void setIdrestricao(Integer idrestricao) {
+    public void setIdrestricao(int idrestricao) {
         this.idrestricao = idrestricao;
     }
 
@@ -40,7 +41,7 @@ public class Linharestricao {
 
         Linharestricao that = (Linharestricao) o;
 
-        if (idrestricao != null ? !idrestricao.equals(that.idrestricao) : that.idrestricao != null) return false;
+        if (idrestricao != that.idrestricao) return false;
         if (idcliente != null ? !idcliente.equals(that.idcliente) : that.idcliente != null) return false;
 
         return true;
@@ -48,7 +49,7 @@ public class Linharestricao {
 
     @Override
     public int hashCode() {
-        int result = idrestricao != null ? idrestricao.hashCode() : 0;
+        int result = idrestricao;
         result = 31 * result + (idcliente != null ? idcliente.hashCode() : 0);
         return result;
     }

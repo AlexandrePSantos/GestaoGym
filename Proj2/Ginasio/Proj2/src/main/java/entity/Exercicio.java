@@ -1,6 +1,7 @@
 package entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.util.Collection;
 
 @Entity
@@ -15,8 +16,8 @@ public class Exercicio {
     @Basic
     @Column(name = "idequipamento", nullable = true)
     private Integer idequipamento;
-    @ManyToOne
-    @JoinColumn(name = "idequipamento", referencedColumnName = "idequipamento")
+    @ManyToOne(optional = false)
+    @JoinColumn(referencedColumnName = "idequipamento")
     private Equipamento equipamentoByIdequipamento;
     @OneToMany(mappedBy = "exercicioByIdexercicio")
     private Collection<Linhaexercicio> linhaexerciciosByIdexercicio;

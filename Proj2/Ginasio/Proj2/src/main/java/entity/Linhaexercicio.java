@@ -1,16 +1,18 @@
 package entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 
 @Entity
 public class Linhaexercicio {
+    @Id
     @Basic
-    @Column(name = "idexercicio", nullable = true)
-    private Integer idexercicio;
+    @Column(name = "idexercicio", nullable = false)
+    private int idexercicio;
     @Basic
-    @Column(name = "numplano", nullable = true)
-    private Integer numplano;
+    @Column(name = "numplano", nullable = false)
+    private int numplano;
     @Basic
     @Column(name = "peso", nullable = true, precision = 1)
     private BigDecimal peso;
@@ -27,25 +29,25 @@ public class Linhaexercicio {
     @Column(name = "duracao", nullable = true)
     private Integer duracao;
     @ManyToOne
-    @JoinColumn(name = "idexercicio", referencedColumnName = "idexercicio")
+    @JoinColumn(referencedColumnName = "idexercicio", nullable = false)
     private Exercicio exercicioByIdexercicio;
     @ManyToOne
-    @JoinColumn(name = "numplano", referencedColumnName = "numplano")
+    @JoinColumn(referencedColumnName = "numplano", nullable = false)
     private Planotreino planotreinoByNumplano;
 
-    public Integer getIdexercicio() {
+    public int getIdexercicio() {
         return idexercicio;
     }
 
-    public void setIdexercicio(Integer idexercicio) {
+    public void setIdexercicio(int idexercicio) {
         this.idexercicio = idexercicio;
     }
 
-    public Integer getNumplano() {
+    public int getNumplano() {
         return numplano;
     }
 
-    public void setNumplano(Integer numplano) {
+    public void setNumplano(int numplano) {
         this.numplano = numplano;
     }
 
@@ -96,8 +98,8 @@ public class Linhaexercicio {
 
         Linhaexercicio that = (Linhaexercicio) o;
 
-        if (idexercicio != null ? !idexercicio.equals(that.idexercicio) : that.idexercicio != null) return false;
-        if (numplano != null ? !numplano.equals(that.numplano) : that.numplano != null) return false;
+        if (idexercicio != that.idexercicio) return false;
+        if (numplano != that.numplano) return false;
         if (peso != null ? !peso.equals(that.peso) : that.peso != null) return false;
         if (sets != null ? !sets.equals(that.sets) : that.sets != null) return false;
         if (reps != null ? !reps.equals(that.reps) : that.reps != null) return false;
@@ -109,8 +111,8 @@ public class Linhaexercicio {
 
     @Override
     public int hashCode() {
-        int result = idexercicio != null ? idexercicio.hashCode() : 0;
-        result = 31 * result + (numplano != null ? numplano.hashCode() : 0);
+        int result = idexercicio;
+        result = 31 * result + numplano;
         result = 31 * result + (peso != null ? peso.hashCode() : 0);
         result = 31 * result + (sets != null ? sets.hashCode() : 0);
         result = 31 * result + (reps != null ? reps.hashCode() : 0);

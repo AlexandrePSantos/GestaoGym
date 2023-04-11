@@ -1,6 +1,7 @@
 package entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.sql.Date;
 import java.util.Collection;
 
@@ -25,10 +26,10 @@ public class Planotreino {
     @OneToMany(mappedBy = "planotreinoByNumplano")
     private Collection<Linhaexercicio> linhaexerciciosByNumplano;
     @ManyToOne
-    @JoinColumn(name = "idfuncionario", referencedColumnName = "idfuncionario")
+    @JoinColumn(referencedColumnName = "idfuncionario")
     private Funcionario funcionarioByIdfuncionario;
     @ManyToOne
-    @JoinColumn(name = "idcliente", referencedColumnName = "idcliente")
+    @JoinColumn(referencedColumnName = "idcliente")
     private Cliente clienteByIdcliente;
 
     public int getNumplano() {

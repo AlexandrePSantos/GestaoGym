@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c284a83d-e23e-4cf6-894b-34816e2edd9d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Aulagrupo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Cliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Equipamento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Exercicio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Funcionario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Linhaexercicio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Linhaparticipante.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Linharestricao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Pagamento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Planotreino.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Restricaosaude.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Sala.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Subscricao.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="ProjectId" id="2OHgClPEqVKh5yMfKevmhu150yP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JPA.DatabaseSchemaImportDialog": "ad773247-15f8-4c45-9cd1-4b1aa5914c8f",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_directory_selection": "D:/Escola/22_23/2ºsemestre/4-PROJ2-5/Gest-oGym/Proj2/Ginasio/gymProj2/src/main/java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="entity" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c284a83d-e23e-4cf6-894b-34816e2edd9d" name="Changes" comment="" />
+      <created>1681222798363</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681222798363</updated>
+      <workItem from="1681222799404" duration="2091000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

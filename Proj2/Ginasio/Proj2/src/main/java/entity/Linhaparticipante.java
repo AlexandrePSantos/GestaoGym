@@ -1,35 +1,37 @@
 package entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 public class Linhaparticipante {
+
+    @Id
     @Basic
-    @Column(name = "numaula", nullable = true)
-    private Integer numaula;
+    @Column(name = "numaula", nullable = false)
+    private int numaula;
     @Basic
-    @Column(name = "idcliente", nullable = true)
-    private Integer idcliente;
+    @Column(name = "idcliente", nullable = false)
+    private int idcliente;
     @ManyToOne
-    @JoinColumn(name = "numaula", referencedColumnName = "numaula")
+    @JoinColumn(referencedColumnName = "numaula", nullable = false)
     private Aulagrupo aulagrupoByNumaula;
     @ManyToOne
-    @JoinColumn(name = "idcliente", referencedColumnName = "idcliente")
+    @JoinColumn(referencedColumnName = "idcliente", nullable = false)
     private Cliente clienteByIdcliente;
 
-    public Integer getNumaula() {
+    public int getNumaula() {
         return numaula;
     }
 
-    public void setNumaula(Integer numaula) {
+    public void setNumaula(int numaula) {
         this.numaula = numaula;
     }
 
-    public Integer getIdcliente() {
+    public int getIdcliente() {
         return idcliente;
     }
 
-    public void setIdcliente(Integer idcliente) {
+    public void setIdcliente(int idcliente) {
         this.idcliente = idcliente;
     }
 
@@ -40,16 +42,16 @@ public class Linhaparticipante {
 
         Linhaparticipante that = (Linhaparticipante) o;
 
-        if (numaula != null ? !numaula.equals(that.numaula) : that.numaula != null) return false;
-        if (idcliente != null ? !idcliente.equals(that.idcliente) : that.idcliente != null) return false;
+        if (numaula != that.numaula) return false;
+        if (idcliente != that.idcliente) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = numaula != null ? numaula.hashCode() : 0;
-        result = 31 * result + (idcliente != null ? idcliente.hashCode() : 0);
+        int result = numaula;
+        result = 31 * result + idcliente;
         return result;
     }
 
