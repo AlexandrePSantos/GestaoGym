@@ -1,0 +1,8 @@
+--> postgres:
+https://mvnrepository.com/artifact/org.postgresql/postgresql/42.6.0
+
+--> hibernate:
+https://www.w3schools.blog/hibernate-maven-dependency
+
+junit:
+http://jvmhub.com/2014/10/22/hibernate-and-postgresql-configuration-with-maven/

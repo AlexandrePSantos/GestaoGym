@@ -1,13 +1,7 @@
-Instrutor:
--Marcar aulas
--Criar planos de treino
--Consultar clientes
+--> FUNCIONALIDADES EXTRA A IMPLEMENTAR NO FINAL CASO DÊ TEMPO <--
 
-Rececionista:
--Inscrever clientes
--Consultar clientes
-
-Cliente:
--Pagar mensalidade
--Consultar conta/plano treino/aulas
--Inscrever em aula
+1. Mensagem do dia (Web - Cliente)
+2. Registo de exercicios (Desktop - Instrutor)
+3. Registo de atividade realizada num determinado treino (Web - Cliente)
+4. Registo de restrições de saúde (Web - Cliente)
+5.

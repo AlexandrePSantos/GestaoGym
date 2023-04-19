@@ -19,16 +19,6 @@ CREATE TABLE Cliente (
     cPostal VARCHAR(8) 
 );
 
-CREATE TABLE RestricaoSaude (
-    idRestricao INT PRIMARY KEY,
-    descricao VARCHAR(200)
-);
-
-CREATE TABLE LinhaRestricao (
-    idRestricao INT REFERENCES RestricaoSaude(idRestricao), 
-    idCliente INT REFERENCES Cliente(idCliente)
-);
-
 CREATE TABLE Sala (
     idSala INT PRIMARY KEY,
     sala VARCHAR(50)
@@ -100,4 +90,52 @@ CREATE TABLE linhaExercicio (
     reps INT,
     velocidade INT,
     duracao INT
+);
+
+------------------\\------------------
+
+JPA:
+
+CREATE TABLE Funcionario (
+
+);
+
+CREATE TABLE Cliente (
+
+);
+
+CREATE TABLE Sala (
+
+);
+
+CREATE TABLE AulaGrupo (
+
+);
+
+CREATE TABLE linhaParticipante (
+
+);
+
+CREATE TABLE Subscricao (
+
+);
+
+CREATE TABLE Pagamento (
+
+);
+
+CREATE TABLE Equipamento (
+
+);
+
+CREATE TABLE Exercicio (
+
+);
+
+CREATE TABLE PlanoTreino (
+
+);
+
+CREATE TABLE linhaExercicio (
+
 );
