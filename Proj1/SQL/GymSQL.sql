@@ -37,6 +37,7 @@ CREATE TABLE AulaGrupo (
 );
 
 CREATE TABLE linhaParticipante (
+    id_linhaPart INT PRIMARY KEY,
     numAula INT REFERENCES AulaGrupo(numAula), 
     idCliente INT REFERENCES Cliente(idCliente)
 );
@@ -84,6 +85,7 @@ CREATE TABLE PlanoTreino (
 ); 
 
 CREATE TABLE linhaExercicio (
+    id_linhaEx INT PRIMARY KEY,
     idExercicio INT REFERENCES Exercicio(idExercicio),
     numPlano INT REFERENCES PlanoTreino(numPlano),
     peso DECIMAL(4,1),
@@ -91,52 +93,4 @@ CREATE TABLE linhaExercicio (
     reps INT,
     velocidade INT,
     duracao INT
-);
-
-------------------\\------------------
-
-JPA:
-
-CREATE TABLE Funcionario (
-
-);
-
-CREATE TABLE Cliente (
-
-);
-
-CREATE TABLE Sala (
-
-);
-
-CREATE TABLE AulaGrupo (
-
-);
-
-CREATE TABLE linhaParticipante (
-
-);
-
-CREATE TABLE Subscricao (
-
-);
-
-CREATE TABLE Pagamento (
-
-);
-
-CREATE TABLE Equipamento (
-
-);
-
-CREATE TABLE Exercicio (
-
-);
-
-CREATE TABLE PlanoTreino (
-
-);
-
-CREATE TABLE linhaExercicio (
-
 );

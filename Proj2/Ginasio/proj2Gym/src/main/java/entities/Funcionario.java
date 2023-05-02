@@ -4,20 +4,18 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "cliente")
-public class Cliente {
+@Table(name = "funcionario")
+public class Funcionario {
     @Id
-    @Column(name = "idcliente", nullable = false)
+    @Column(name = "idfuncionario", nullable = false)
     private Integer id;
 
-    @Column(name = "nome", length = 200)
+    @Column(name = "nome", length = 100)
     private String nome;
-
-    @Column(name = "idade")
-    private Integer idade;
 
     @Column(name = "email", length = 100)
     private String email;
@@ -31,8 +29,11 @@ public class Cliente {
     @Column(name = "dtnascimento")
     private LocalDate dtnascimento;
 
-    @Column(name = "cpostal", length = 8)
-    private String cpostal;
+    @Column(name = "salarioliquido", precision = 5, scale = 1)
+    private BigDecimal salarioliquido;
+
+    @Column(name = "funcao", length = 50)
+    private String funcao;
 
     public Integer getId() {
         return id;
@@ -48,14 +49,6 @@ public class Cliente {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Integer getIdade() {
-        return idade;
-    }
-
-    public void setIdade(Integer idade) {
-        this.idade = idade;
     }
 
     public String getEmail() {
@@ -90,12 +83,20 @@ public class Cliente {
         this.dtnascimento = dtnascimento;
     }
 
-    public String getCpostal() {
-        return cpostal;
+    public BigDecimal getSalarioliquido() {
+        return salarioliquido;
     }
 
-    public void setCpostal(String cpostal) {
-        this.cpostal = cpostal;
+    public void setSalarioliquido(BigDecimal salarioliquido) {
+        this.salarioliquido = salarioliquido;
+    }
+
+    public String getFuncao() {
+        return funcao;
+    }
+
+    public void setFuncao(String funcao) {
+        this.funcao = funcao;
     }
 
 }
