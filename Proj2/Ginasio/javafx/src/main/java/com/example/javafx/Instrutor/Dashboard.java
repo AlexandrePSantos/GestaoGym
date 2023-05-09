@@ -42,6 +42,7 @@ public class Dashboard {
             Stage stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(new File("C:\\Users\\sofia\\Documents\\_escola\\_este_ano\\2_2_6_Proj2\\GestaoGym\\Proj2\\Ginasio\\javafx\\src\\main\\resources\\com\\example\\javafx\\instrutor_planos.fxml").toURI().toURL());
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            stage.setTitle("Planos de Treino");
             stage.setScene(scene);
             stage.show();
 
@@ -60,6 +61,7 @@ public class Dashboard {
             Stage stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(new File("C:\\Users\\sofia\\Documents\\_escola\\_este_ano\\2_2_6_Proj2\\GestaoGym\\Proj2\\Ginasio\\javafx\\src\\main\\resources\\com\\example\\javafx\\instrutor_aulas.fxml").toURI().toURL());
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            stage.setTitle("Aulas de Grupo");
             stage.setScene(scene);
             stage.show();
 
