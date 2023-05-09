@@ -20,8 +20,8 @@ public class Planotreino {
     private String estado;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idinstrutor")
-    private Instrutor idinstrutor;
+    @JoinColumn(name = "idfuncionario")
+    private Funcionario idfuncionario;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idcliente")
@@ -54,12 +54,12 @@ public class Planotreino {
         this.estado = estado;
     }
 
-    public Instrutor getIdinstrutor() {
-        return idinstrutor;
+    public Funcionario getIdfuncionario() {
+        return idfuncionario;
     }
 
-    public void setIdinstrutor(Instrutor idinstrutor) {
-        this.idinstrutor = idinstrutor;
+    public void setIdfuncionario(Funcionario idfuncionario) {
+        this.idfuncionario = idfuncionario;
     }
 
     public Cliente getIdcliente() {

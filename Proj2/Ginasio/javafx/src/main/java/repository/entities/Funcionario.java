@@ -3,13 +3,15 @@ package repository.entities;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "instrutor")
-public class Instrutor {
+@Table(name = "funcionario")
+public class Funcionario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idinstrutor", nullable = false)
+    @Column(name = "idfuncionario", nullable = false)
     private Integer id;
 
     @Column(name = "nome", length = 100)
@@ -29,6 +31,15 @@ public class Instrutor {
 
     @Column(name = "salarioliquido", precision = 5, scale = 1)
     private BigDecimal salarioliquido;
+
+    @Column(name = "funcao", length = 15)
+    private String funcao;
+
+    @OneToMany(mappedBy = "idfuncionario")
+    private Set<Planotreino> planotreinos = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "idfuncionario")
+    private Set<Aulagrupo> aulagrupos = new LinkedHashSet<>();
 
     public Integer getId() {
         return id;
@@ -84,6 +95,30 @@ public class Instrutor {
 
     public void setSalarioliquido(BigDecimal salarioliquido) {
         this.salarioliquido = salarioliquido;
+    }
+
+    public String getFuncao() {
+        return funcao;
+    }
+
+    public void setFuncao(String funcao) {
+        this.funcao = funcao;
+    }
+
+    public Set<Planotreino> getPlanotreinos() {
+        return planotreinos;
+    }
+
+    public void setPlanotreinos(Set<Planotreino> planotreinos) {
+        this.planotreinos = planotreinos;
+    }
+
+    public Set<Aulagrupo> getAulagrupos() {
+        return aulagrupos;
+    }
+
+    public void setAulagrupos(Set<Aulagrupo> aulagrupos) {
+        this.aulagrupos = aulagrupos;
     }
 
 }

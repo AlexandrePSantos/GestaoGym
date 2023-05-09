@@ -2,6 +2,8 @@ package repository.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "cliente")
@@ -31,6 +33,15 @@ public class Cliente {
 
     @Column(name = "cpostal", length = 8)
     private String cpostal;
+
+    @OneToMany(mappedBy = "idcliente")
+    private Set<Planotreino> planotreinos = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "idcliente")
+    private Set<Linhaparticipante> linhaparticipantes = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "idcliente")
+    private Set<Subscricao> subscricaos = new LinkedHashSet<>();
 
     public Integer getId() {
         return id;
@@ -94,6 +105,30 @@ public class Cliente {
 
     public void setCpostal(String cpostal) {
         this.cpostal = cpostal;
+    }
+
+    public Set<Planotreino> getPlanotreinos() {
+        return planotreinos;
+    }
+
+    public void setPlanotreinos(Set<Planotreino> planotreinos) {
+        this.planotreinos = planotreinos;
+    }
+
+    public Set<Linhaparticipante> getLinhaparticipantes() {
+        return linhaparticipantes;
+    }
+
+    public void setLinhaparticipantes(Set<Linhaparticipante> linhaparticipantes) {
+        this.linhaparticipantes = linhaparticipantes;
+    }
+
+    public Set<Subscricao> getSubscricaos() {
+        return subscricaos;
+    }
+
+    public void setSubscricaos(Set<Subscricao> subscricaos) {
+        this.subscricaos = subscricaos;
     }
 
 }

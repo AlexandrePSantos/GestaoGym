@@ -33,8 +33,8 @@ public class Aulagrupo {
     private Sala idsala;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idinstrutor")
-    private Instrutor idinstrutor;
+    @JoinColumn(name = "idfuncionario")
+    private Funcionario idfuncionario;
 
     @OneToMany(mappedBy = "numaula")
     private Set<Linhaparticipante> linhaparticipantes = new LinkedHashSet<>();
@@ -95,12 +95,12 @@ public class Aulagrupo {
         this.idsala = idsala;
     }
 
-    public Instrutor getIdinstrutor() {
-        return idinstrutor;
+    public Funcionario getIdfuncionario() {
+        return idfuncionario;
     }
 
-    public void setIdinstrutor(Instrutor idinstrutor) {
-        this.idinstrutor = idinstrutor;
+    public void setIdfuncionario(Funcionario idfuncionario) {
+        this.idfuncionario = idfuncionario;
     }
 
     public Set<Linhaparticipante> getLinhaparticipantes() {
