@@ -1,8 +1,9 @@
-package com.example.javafx.Instrutor;
+package controller;
 
         import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
         import javafx.fxml.FXMLLoader;
+        import javafx.scene.AccessibleAction;
         import javafx.scene.Node;
         import javafx.scene.Scene;
         import javafx.scene.control.Label;
@@ -10,11 +11,9 @@ package com.example.javafx.Instrutor;
 
         import java.io.File;
 
-public class Aulas {
-
+public class Planos {
     @FXML
     protected void onActionAnterior(ActionEvent event) {
-        //DONE Abrir Dashboard
         try{
             Stage stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(new File("../javafx/src/main/resources/com/example/javafx/instrutor_dashboard.fxml").toURI().toURL());

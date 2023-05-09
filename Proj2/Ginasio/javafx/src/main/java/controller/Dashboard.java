@@ -1,4 +1,4 @@
-package com.example.javafx.Instrutor;
+package controller;
 
         import com.example.javafx.HelloApplication;
         import javafx.event.ActionEvent;

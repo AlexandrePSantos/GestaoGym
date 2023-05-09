@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.Instrutor.Aulas">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Aulas">
     <Rectangle fill="#ff8600" height="39.0" layoutX="-3.0" stroke="#ff8600" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="603.0" />
     <Text layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aulas de Grupo" textAlignment="CENTER" wrappingWidth="600.0">
         <font>
