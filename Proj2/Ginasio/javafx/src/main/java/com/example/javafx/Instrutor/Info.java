@@ -7,6 +7,7 @@ public class Info {
     @FXML
     protected void onActionAnterior() {
         //TODO abrir Dashboard
+
     }
 
     @FXML
