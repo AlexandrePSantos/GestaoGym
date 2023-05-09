@@ -1,12 +1,11 @@
-CREATE TABLE Funcionario (
-    idFuncionario INT PRIMARY KEY, 
+CREATE TABLE Instrutor (
+    idInstrutor INT PRIMARY KEY, 
     nome VARCHAR(100), 
     email VARCHAR(100), 
     telemovel VARCHAR(10), 
     NIF VARCHAR(10), 
     dtNascimento DATE, 
-    salarioLiquido DECIMAL(5,1),
-    funcao VARCHAR(50)
+    salarioLiquido DECIMAL(5,1)
 );
 
 CREATE TABLE Cliente (
@@ -33,36 +32,13 @@ CREATE TABLE AulaGrupo (
     vagasDisp INT,
     duracao INT,
     idSala INT REFERENCES Sala(idSala), 
-    idFuncionario INT REFERENCES Funcionario(idFuncionario)
+    idInstrutor INT REFERENCES Instrutor(idInstrutor)
 );
 
 CREATE TABLE linhaParticipante (
     id_linhaPart INT PRIMARY KEY,
     numAula INT REFERENCES AulaGrupo(numAula), 
     idCliente INT REFERENCES Cliente(idCliente)
-);
-
-CREATE TABLE Subscricao (
-    numSubscricao INT PRIMARY KEY,
-    idCliente INT REFERENCES Cliente(idCliente),
-    duracao INT,
-    dataIni DATE, 
-    dataFim DATE,
-    valEmFalta DECIMAL(5,2), 
-    valTotal DECIMAL(5,2), 
-    estado VARCHAR(50)
-);
-
-CREATE TABLE Pagamento (
-    numPagamento INT PRIMARY KEY,
-    valor decimal(5,2), 
-    estado VARCHAR(20), 
-    dataLimite DATE, 
-    dataEfetuado DATE,
-    metodoPag VARCHAR(100),
-    referencia VARCHAR(10),
-    entidade VARCHAR(6),
-    numSubscricao INT REFERENCES Subscricao(numSubscricao)
 );
 
 CREATE TABLE Equipamento ( 
@@ -80,7 +56,7 @@ CREATE TABLE PlanoTreino (
     numPlano INT PRIMARY KEY, 
     dtCriacao DATE, 
     estado VARCHAR(20), 
-    idFuncionario INT REFERENCES Funcionario(idFuncionario),
+    idInstrutor INT REFERENCES Instrutor(idInstrutor),
     idCliente INT REFERENCES Cliente(idCliente)
 ); 
 
