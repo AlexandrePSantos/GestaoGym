@@ -16,4 +16,9 @@
     <Arc layoutX="577.0" layoutY="30.0" length="180.0" radiusX="9.0" radiusY="10.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
    <Button layoutX="95.0" layoutY="328.0" mnemonicParsing="false" onAction="#onActionAnterior" onMouseClicked="#onActionAnterior" prefHeight="25.0" prefWidth="103.0" text="Anterior" />
    <Button layoutX="392.0" layoutY="328.0" mnemonicParsing="false" onAction="#onActionConfirmar" onMouseClicked="#onActionConfirmar" prefHeight="25.0" prefWidth="103.0" text="Confirmar" />
+   <Text layoutX="-74.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aulas de Grupo" textAlignment="CENTER" wrappingWidth="600.0">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Text>
 </Pane>
