@@ -2,7 +2,7 @@ CREATE TABLE Funcionario (
     idFuncionario INT PRIMARY KEY GENERATED always as IDENTITY , 
     nome VARCHAR(100), 
     email VARCHAR(100), 
-    telemovel VARCHAR(10), 
+    telemovel VARCHAR(20), 
     NIF VARCHAR(10), 
     dtNascimento DATE, 
     salarioLiquido DECIMAL(5,1),
@@ -14,10 +14,10 @@ CREATE TABLE Cliente (
     nome VARCHAR(200), 
     idade INT, 
     email VARCHAR(100), 
-    telemovel VARCHAR(10), 
+    telemovel VARCHAR(20), 
     NIF VARCHAR(10),
     dtNascimento DATE,
-    cPostal VARCHAR(8) 
+    cPostal VARCHAR(10) 
 );
 
 CREATE TABLE Subscricao (
@@ -58,9 +58,9 @@ CREATE TABLE AulaGrupo (
     idFuncionario INT REFERENCES Funcionario(idFuncionario)
 );
 
-CREATE TABLE linhaParticipante (
+CREATE TABLE linhaparticipante (
     id_linhaPart INT PRIMARY KEY GENERATED always as IDENTITY ,
-    numAula INT REFERENCES AulaGrupo(numAula), 
+    numAula INT REFERENCES Aulagrupo(numAula), 
     idCliente INT REFERENCES Cliente(idCliente)
 );
 
