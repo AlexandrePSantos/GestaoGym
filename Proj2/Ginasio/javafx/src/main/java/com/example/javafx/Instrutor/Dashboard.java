@@ -3,11 +3,13 @@ package com.example.javafx.Instrutor;
         import com.example.javafx.HelloApplication;
         import javafx.fxml.FXML;
         import javafx.fxml.FXMLLoader;
+        import javafx.scene.Node;
         import javafx.scene.Scene;
         import javafx.scene.control.Button;
         import javafx.scene.control.Label;
         import javafx.stage.Stage;
 
+        import java.io.File;
         import java.io.IOException;
 
 public class Dashboard {
@@ -17,17 +19,15 @@ public class Dashboard {
     @FXML
     protected void onActionAlterar() throws IOException {
         //TODO Abrir Info
-        // Load the FXML files
-        FXMLLoader loader1 = new FXMLLoader(Dashboard.class.getResource("instrutor_info.fxml"));
-
-        // Create Scene objects
-        Scene scene1 = new Scene(loader1.load());
-
-        // Get the reference to the Stage object from your FXML controller
-        Stage stage = (Stage) inst_dash_alt.getScene().getWindow();
-
-        // Switch to Scene 1
-        stage.setScene(scene1);
+        try{
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(new File("C:\\Users\\sofia\\Documents\\_escola\\_este_ano\\2_2_6_Proj2\\GestaoGym\\Proj2\\Ginasio\\javafx\\src\\main\\resources\\com\\example\\javafx\\instrutor_info.fxml").toURI().toURL());
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        stage.setScene(scene);
+        stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
