@@ -6,7 +6,6 @@ public class Dashboard {
     @FXML
     protected void onActionAlterar(){
         //TODO Abrir Info
-        //  teste
     }
 
     @FXML
