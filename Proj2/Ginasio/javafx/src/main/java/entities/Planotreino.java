@@ -2,11 +2,14 @@ package entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "planotreino")
 public class Planotreino {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "numplano", nullable = false)
     private Integer id;
 
@@ -17,12 +20,15 @@ public class Planotreino {
     private String estado;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idfuncionario")
-    private Funcionario idfuncionario;
+    @JoinColumn(name = "idinstrutor")
+    private Instrutor idinstrutor;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idcliente")
     private Cliente idcliente;
+
+    @OneToMany(mappedBy = "numplano")
+    private Set<Linhaexercicio> linhaexercicios = new LinkedHashSet<>();
 
     public Integer getId() {
         return id;
@@ -48,12 +54,12 @@ public class Planotreino {
         this.estado = estado;
     }
 
-    public Funcionario getIdfuncionario() {
-        return idfuncionario;
+    public Instrutor getIdinstrutor() {
+        return idinstrutor;
     }
 
-    public void setIdfuncionario(Funcionario idfuncionario) {
-        this.idfuncionario = idfuncionario;
+    public void setIdinstrutor(Instrutor idinstrutor) {
+        this.idinstrutor = idinstrutor;
     }
 
     public Cliente getIdcliente() {
@@ -62,6 +68,14 @@ public class Planotreino {
 
     public void setIdcliente(Cliente idcliente) {
         this.idcliente = idcliente;
+    }
+
+    public Set<Linhaexercicio> getLinhaexercicios() {
+        return linhaexercicios;
+    }
+
+    public void setLinhaexercicios(Set<Linhaexercicio> linhaexercicios) {
+        this.linhaexercicios = linhaexercicios;
     }
 
 }

@@ -1,17 +1,15 @@
 package entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "funcionario")
-public class Funcionario {
+@Table(name = "instrutor")
+public class Instrutor {
     @Id
-    @Column(name = "idfuncionario", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idinstrutor", nullable = false)
     private Integer id;
 
     @Column(name = "nome", length = 100)
@@ -31,9 +29,6 @@ public class Funcionario {
 
     @Column(name = "salarioliquido", precision = 5, scale = 1)
     private BigDecimal salarioliquido;
-
-    @Column(name = "funcao", length = 50)
-    private String funcao;
 
     public Integer getId() {
         return id;
@@ -89,14 +84,6 @@ public class Funcionario {
 
     public void setSalarioliquido(BigDecimal salarioliquido) {
         this.salarioliquido = salarioliquido;
-    }
-
-    public String getFuncao() {
-        return funcao;
-    }
-
-    public void setFuncao(String funcao) {
-        this.funcao = funcao;
     }
 
 }

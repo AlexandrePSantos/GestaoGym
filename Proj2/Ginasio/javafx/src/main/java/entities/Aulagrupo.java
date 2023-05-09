@@ -2,11 +2,14 @@ package entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "aulagrupo")
 public class Aulagrupo {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "numaula", nullable = false)
     private Integer id;
 
@@ -30,8 +33,11 @@ public class Aulagrupo {
     private Sala idsala;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idfuncionario")
-    private Funcionario idfuncionario;
+    @JoinColumn(name = "idinstrutor")
+    private Instrutor idinstrutor;
+
+    @OneToMany(mappedBy = "numaula")
+    private Set<Linhaparticipante> linhaparticipantes = new LinkedHashSet<>();
 
     public Integer getId() {
         return id;
@@ -89,12 +95,20 @@ public class Aulagrupo {
         this.idsala = idsala;
     }
 
-    public Funcionario getIdfuncionario() {
-        return idfuncionario;
+    public Instrutor getIdinstrutor() {
+        return idinstrutor;
     }
 
-    public void setIdfuncionario(Funcionario idfuncionario) {
-        this.idfuncionario = idfuncionario;
+    public void setIdinstrutor(Instrutor idinstrutor) {
+        this.idinstrutor = idinstrutor;
+    }
+
+    public Set<Linhaparticipante> getLinhaparticipantes() {
+        return linhaparticipantes;
+    }
+
+    public void setLinhaparticipantes(Set<Linhaparticipante> linhaparticipantes) {
+        this.linhaparticipantes = linhaparticipantes;
     }
 
 }

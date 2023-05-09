@@ -1,11 +1,14 @@
 package entities;
 
 import javax.persistence.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "exercicio")
 public class Exercicio {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idexercicio", nullable = false)
     private Integer id;
 
@@ -15,6 +18,9 @@ public class Exercicio {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idequipamento")
     private Equipamento idequipamento;
+
+    @OneToMany(mappedBy = "idexercicio")
+    private Set<Linhaexercicio> linhaexercicios = new LinkedHashSet<>();
 
     public Integer getId() {
         return id;
@@ -38,6 +44,14 @@ public class Exercicio {
 
     public void setIdequipamento(Equipamento idequipamento) {
         this.idequipamento = idequipamento;
+    }
+
+    public Set<Linhaexercicio> getLinhaexercicios() {
+        return linhaexercicios;
+    }
+
+    public void setLinhaexercicios(Set<Linhaexercicio> linhaexercicios) {
+        this.linhaexercicios = linhaexercicios;
     }
 
 }
