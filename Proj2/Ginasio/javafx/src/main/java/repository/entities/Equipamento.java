@@ -1,4 +1,4 @@
-package entities;
+package repository.entities;
 
 import javax.persistence.*;
 import java.util.LinkedHashSet;
