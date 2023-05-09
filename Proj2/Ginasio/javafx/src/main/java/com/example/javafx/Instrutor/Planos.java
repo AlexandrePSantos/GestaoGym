@@ -16,7 +16,7 @@ public class Planos {
     protected void onActionAnterior(ActionEvent event) {
         try{
             Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(new File("C:\\Users\\sofia\\Documents\\_escola\\_este_ano\\2_2_6_Proj2\\GestaoGym\\Proj2\\Ginasio\\javafx\\src\\main\\resources\\com\\example\\javafx\\instrutor_aulas.fxml").toURI().toURL());
+            FXMLLoader fxmlLoader = new FXMLLoader(new File("C:\\Users\\sofia\\Documents\\_escola\\_este_ano\\2_2_6_Proj2\\GestaoGym\\Proj2\\Ginasio\\javafx\\src\\main\\resources\\com\\example\\javafx\\instrutor_dashboard.fxml").toURI().toURL());
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
             stage.setScene(scene);
             stage.show();

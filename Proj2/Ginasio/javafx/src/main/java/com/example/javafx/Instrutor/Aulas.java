@@ -30,6 +30,7 @@ public class Aulas {
         }
     }
 
+    @FXML
     protected void onActionConfirmar(ActionEvent event) {
         //DONE abrir Dashboard
         //TODO guardar informacao
