@@ -20,15 +20,30 @@
    <Pane layoutX="17.0" layoutY="56.0" prefHeight="148.0" prefWidth="298.0" style="-fx-background-color: #808080;">
       <children>
          <Button layoutX="205.0" layoutY="109.0" mnemonicParsing="false" onAction="#onActionAlterar" prefHeight="25.0" prefWidth="79.0" text="Alterar" />
+         <Text layoutX="21.0" layoutY="36.0" text="Dashboard" wrappingWidth="257.0">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Text>
       </children>
    </Pane>
    <Pane layoutX="17.0" layoutY="224.0" prefHeight="148.0" prefWidth="298.0" style="-fx-background-color: #808080;">
       <children>
          <Button fx:id="inst_dash_alt" layoutX="205.0" layoutY="109.0" mnemonicParsing="false" onAction="#onActionAlterar" prefHeight="25.0" prefWidth="79.0" text="Mais info." />
+         <Text layoutX="14.0" layoutY="36.0" text="Dashboard" wrappingWidth="257.0">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Text>
       </children></Pane>
    <Pane layoutX="326.0" layoutY="56.0" prefHeight="316.0" prefWidth="257.0" style="-fx-background-color: #808080;">
       <children>
          <Button layoutX="164.0" layoutY="277.0" mnemonicParsing="false" onAction="#onActionAlterar" prefHeight="25.0" prefWidth="79.0" text="Mais info.c " />
+         <Text layoutX="14.0" layoutY="36.0" text="Dashboard" wrappingWidth="257.0">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Text>
       </children></Pane>
 <!--   <Button layoutX="309.0" layoutY="274.0" mnemonicParsing="false" onAction="#onHelloButtonClick" text="Hello!!"/>-->
 </Pane>
