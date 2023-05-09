@@ -27,6 +27,6 @@
    <CustomTextField layoutX="185.0" layoutY="228.0" prefHeight="25.0" prefWidth="228.0" promptText="Email" />
    <CustomTextField layoutX="96.0" layoutY="278.0" prefHeight="25.0" prefWidth="178.0" promptText="NIF" />
    <CustomTextField layoutX="325.0" layoutY="278.0" prefHeight="25.0" prefWidth="178.0" promptText="Código Postal" />
-   <Button cancelButton="true" layoutX="133.0" layoutY="340.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Anterior" />
-   <Button layoutX="361.0" layoutY="340.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Guardar" />
+   <Button layoutX="133.0" layoutY="340.0" mnemonicParsing="false" onAction="#onActionAnterior" onMouseClicked="#onActionAnterior" prefHeight="25.0" prefWidth="106.0" text="Anterior" />
+   <Button layoutX="361.0" layoutY="340.0" mnemonicParsing="false" onAction="#onActionGuardar" onMouseClicked="#onActionGuardar" prefHeight="25.0" prefWidth="106.0" text="Guardar" />
 </Pane>
