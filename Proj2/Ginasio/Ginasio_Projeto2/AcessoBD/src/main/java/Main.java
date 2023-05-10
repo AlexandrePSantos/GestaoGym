@@ -18,21 +18,21 @@ public class Main {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-//        // Create a new Cliente entity
-//        Cliente cliente = new Cliente();
-//        cliente.setNome("John Doe3");
-//        cliente.setEmail("johndoe@example.com");
-//        cliente.setTelemovel("555-1234");
-//
-//        // Persist the new Cliente entity
-//        em.persist(cliente);
-//
-//        // Commit the transaction
-//        tx.commit();
-//
-//        // Close the EntityManager and the EntityManagerFactory
-//        em.close();
-//        emf.close();
+        // Create a new Cliente entity
+        Cliente cliente = new Cliente();
+        cliente.setNome("John Doe3");
+        cliente.setEmail("johndoe@example.com");
+        cliente.setTelemovel("555-1234");
+
+        // Persist the new Cliente entity
+        em.persist(cliente);
+
+        // Commit the transaction
+        tx.commit();
+
+        // Close the EntityManager and the EntityManagerFactory
+        em.close();
+        emf.close();
     }
 
 }
