@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx.controllerEstafeta.listaPedidosController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0">
+         <children>
+            <Pane layoutX="2.0" layoutY="-5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="610.0" layoutX="-6.0" layoutY="-3.0" stroke="WHITE" strokeType="INSIDE" width="960.0" />
+                  <TableView editable="true" layoutX="14.0" layoutY="119.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="444.0" prefWidth="794.0" style="-fx-border-color: #F19800; -fx-background-radius: #F19800; -fx-cursor: FFD389;" tableMenuButtonVisible="true">
+                     <columns>
+                        <TableColumn fx:id="estado" prefWidth="94.0" style="-fx-background-color: #F19800;" text="Estado" />
+                        <TableColumn fx:id="Qtd" prefWidth="72.0" style="-fx-background-color: #F19800;" text="Qtd" />
+                        <TableColumn fx:id="data" prefWidth="116.0" style="-fx-background-color: #F19800;" text="Data" />
+                        <TableColumn fx:id="descricao" prefWidth="148.0" style="-fx-background-color: #F19800;" text="Descrição" />
+                        <TableColumn fx:id="nCliente" prefWidth="198.0" style="-fx-background-color: #F19800;" text="Nome cliente" />
+                        <TableColumn fx:id="nPedido" prefWidth="148.0" style="-fx-background-color: #F19800;" text="Número pedido" />
+                     </columns>
+                  </TableView>
+                  <Button fx:id="btnEstado" layoutX="820.0" layoutY="145.0" mnemonicParsing="false" onAction="#handleBtnEstado" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="Editar estado" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnVoltarEs" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="27.0" prefWidth="90.0" style="-fx-background-color: #ffff;" text="&lt;- voltar" textFill="#007687" underline="true">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="90.0" fitWidth="187.0" layoutX="341.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/icon.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="335.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista dos pedidos" wrappingWidth="173.5">
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font>
+                  </Text>
+                  <TextField layoutX="566.0" layoutY="17.0" prefHeight="27.0" prefWidth="162.0" promptText="Pesquisar pedidos..." />
+                  <Button fx:id="btnPesquisar" layoutX="729.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleBtnPesquisar" prefHeight="27.0" prefWidth="83.0" style="-fx-background-color: #007687;" text="Pesquisar" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnLogout" layoutX="820.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleBtnLogout" prefHeight="27.0" prefWidth="124.0" style="-fx-background-color: #F19800;" text="Terminar sessão" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

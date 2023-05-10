@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="641.0" prefWidth="1025.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx.controllerCozinheiro.pedidoCozinheiro">
+   <children>
+      <ImageView fitHeight="90.0" fitWidth="187.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icon.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="600.0" layoutX="8.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" width="1026.0" />
+      <ImageView fitHeight="90.0" fitWidth="152.0" layoutX="880.0" layoutY="9.0" pickOnBounds="true">
+         <image>
+            <Image url="@../assets/icon.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ImageView>
+      <TableView fx:id="tblPedidosCoz" editable="true" layoutX="97.0" layoutY="164.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="403.0" prefWidth="764.0" style="-fx-border-color: #F19800; -fx-background-header: #007687; -fx-cursor: #F19800;" styleClass="fx-" tableMenuButtonVisible="true">
+         <columns>
+            <TableColumn fx:id="npedido" onEditStart="#npedido" prefWidth="243.0" text="Nº pedido" />
+            <TableColumn fx:id="quantidade" onEditStart="#quantidade" prefWidth="210.0" text="Quantidade" />
+            <TableColumn fx:id="descricao" onEditStart="#descricao" prefWidth="301.0" style="fx-background-header: #F19800;" text="Descrição" />
+         </columns>
+      </TableView>
+      <Text layoutX="430.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LISTA DOS PEDIDOS" wrappingWidth="173.5">
+         <font>
+            <Font name="Arial Black" size="15.0" />
+         </font>
+      </Text>
+      <Line endX="459.0" endY="207.0" layoutX="200.0" layoutY="-88.0" startX="182.46446228027344" startY="207.0" stroke="#007687" strokeWidth="5.0" />
+      <Button fx:id="btnEditarCoz" layoutX="877.0" layoutY="264.0" mnemonicParsing="false" onAction="#handleBtnEditarCoz" prefHeight="45.0" prefWidth="131.0" style="-fx-background-color: #F19800;" text="Pedido feito" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnVoltar" layoutX="10.0" layoutY="21.0" mnemonicParsing="false" onAction="#handleBtnVoltar" prefHeight="33.0" prefWidth="111.0" style="-fx-background-color: #007687;" text="Voltar" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAtualizar" layoutX="881.0" layoutY="185.0" mnemonicParsing="false" onAction="#handleBtnAtualizar" prefHeight="45.0" prefWidth="124.0" style="-fx-background-color: #F19800;" text="Atualizar" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

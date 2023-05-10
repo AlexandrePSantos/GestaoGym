@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx.controllerAdmin.ClienteUpdateAdmin">
+   <children>
+      <VBox layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0">
+         <children>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="608.0" layoutX="-5.0" layoutY="-8.0" stroke="WHITE" strokeType="INSIDE" width="960.0" />
+                  <TableView fx:id="tblClienteEd" editable="true" layoutX="37.0" layoutY="131.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="246.0" prefWidth="844.0" style="-fx-border-color: #F19800; -fx-background-radius: #F19800; -fx-cursor: FFD389;" tableMenuButtonVisible="true">
+                     <columns>
+                        <TableColumn fx:id="telefone" prefWidth="90.0" text="Telefone" />
+                        <TableColumn fx:id="codigopostal" prefWidth="110.66668701171875" text="Código-postal" />
+                        <TableColumn fx:id="morada" prefWidth="231.99996948242188" text="Morada" />
+                        <TableColumn fx:id="nif" minWidth="0.0" prefWidth="99.33334350585938" text="Nif" />
+                        <TableColumn fx:id="nome" minWidth="0.0" prefWidth="175.0" text="Nome" />
+                        <TableColumn fx:id="id" prefWidth="112.0" text="Id" />
+                     </columns>
+                  </TableView>
+                  <Button fx:id="btnEditarCl" layoutX="351.0" layoutY="532.0" mnemonicParsing="false" onAction="#handleBtnEditarCl" prefHeight="37.0" prefWidth="217.0" style="-fx-background-color: #007687;" text="Editar dados" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnVoltarEs" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="&lt;- voltar" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="102.0" fitWidth="154.0" layoutX="390.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/icon.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="390.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista dos clientes" wrappingWidth="194.5">
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font>
+                  </Text>
+                  <TextField layoutX="636.0" layoutY="15.0" prefHeight="27.0" prefWidth="195.0" promptText="Pesquisar cliente..." />
+                  <Button fx:id="btnPesquisar" layoutX="840.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleBtnPesquisar" prefHeight="27.0" prefWidth="83.0" style="-fx-background-color: #007687;" text="Pesquisar" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="nomeed" layoutX="37.0" layoutY="413.0" onAction="#nomed" prefHeight="37.0" prefWidth="525.0" promptText="Nome..." />
+                  <TextField fx:id="telefoneed" layoutX="593.0" layoutY="413.0" onAction="#telefoneed" prefHeight="37.0" prefWidth="288.0" promptText="Telefone..." />
+                  <TextField fx:id="moradaed" layoutX="36.0" layoutY="476.0" onAction="#moradaed" prefHeight="37.0" prefWidth="525.0" promptText="Morada..." />
+                  <Text layoutX="37.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Primeiro e último nome:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="592.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="37.0" layoutY="470.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Morada:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
