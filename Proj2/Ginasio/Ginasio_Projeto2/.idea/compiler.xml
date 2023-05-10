@@ -6,18 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="javafx" />
         <module name="AcessoBD" />
+        <module name="javafx" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="projeto2" target="1.5" />
-      <module name="webapp" target="17" />
-    </bytecodeTargetLevel>
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="webapp" options="-parameters" />
-    </option>
   </component>
 </project>
