@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+    <persistence-unit name="persist_gym">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>repository.entities.Aulagrupo</class>
+        <class>repository.entities.Cliente</class>
+        <class>repository.entities.Equipamento</class>
+        <class>repository.entities.Exercicio</class>
+        <class>repository.entities.Funcionario</class>
+        <class>repository.entities.Linhaexercicio</class>
+        <class>repository.entities.Linhaparticipante</class>
+        <class>repository.entities.Pagamento</class>
+        <class>repository.entities.Planotreino</class>
+        <class>repository.entities.Sala</class>
+        <class>repository.entities.Subscricao</class>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/Gym?createDatabaseIfNotExist=true"/>
+            <property name="javax.persistence.jdbc.user" value="postgres"/>
+            <property name="javax.persistence.jdbc.password" value="postgres"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+        </properties>
+    </persistence-unit>
+</persistence>

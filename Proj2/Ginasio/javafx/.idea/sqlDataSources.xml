@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DdlMappings">
-    <mapping uuid="5ec25c06-f303-4a5f-ae2b-5bf579439cc3" name="Gym@localhost Mapping">
-      <data-sources db="688f2e01-0cd7-465b-9302-06da895d3b4e" ddl="08ce9f5d-aec9-4092-9d9f-0cedf5f62260" />
+    <mapping uuid="de04720a-f29a-4328-8a28-e119dfe2cd61" name="DDL Mapping">
+      <data-sources db="71b077f6-507a-4df0-82b5-c77f5f8c2e8d" ddl="57bc3060-020a-4442-9b57-7d5e412a1c75" />
       <scope>
         <node kind="database" qname="Gym">
-          <node kind="schema" negative="1" />
+          <node kind="schema" qname="@" />
         </node>
       </scope>
     </mapping>
@@ -14,7 +14,7 @@
     <option name="dataSources">
       <list>
         <State>
-          <option name="id" value="08ce9f5d-aec9-4092-9d9f-0cedf5f62260" />
+          <option name="id" value="57bc3060-020a-4442-9b57-7d5e412a1c75" />
           <option name="name" value="Gym@localhost (DDL)" />
           <option name="dbmsName" value="POSTGRES" />
           <option name="urls">
