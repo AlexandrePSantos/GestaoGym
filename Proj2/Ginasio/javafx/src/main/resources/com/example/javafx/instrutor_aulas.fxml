@@ -14,9 +14,25 @@
     </Text>
     <Circle layoutX="577.0" layoutY="14.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
     <Arc layoutX="577.0" layoutY="30.0" length="180.0" radiusX="9.0" radiusY="10.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-   <Button layoutX="95.0" layoutY="328.0" mnemonicParsing="false" onAction="#onActionAnterior" onMouseClicked="#onActionAnterior" prefHeight="25.0" prefWidth="103.0" text="Anterior" />
-   <Button layoutX="392.0" layoutY="328.0" mnemonicParsing="false" onAction="#onActionConfirmar" onMouseClicked="#onActionConfirmar" prefHeight="25.0" prefWidth="103.0" text="Confirmar" />
-   <Text layoutX="-74.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aulas de Grupo" textAlignment="CENTER" wrappingWidth="600.0">
+
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="39.0" layoutX="6.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="39.0" />
+    <Text fill="#ff8600" layoutX="5.0" layoutY="29.0" text="L" textAlignment="CENTER" wrappingWidth="42.0">
+        <font> <Font size="25.0" /> </font>
+    </Text>
+
+   <Button layoutX="102.0" layoutY="353.0" mnemonicParsing="false" onAction="#onActionAnterior" onMouseClicked="#onActionAnterior" prefHeight="25.0" prefWidth="103.0" text="Anterior" />
+   <Button layoutX="392.0" layoutY="353.0" mnemonicParsing="false" onAction="#onActionConfirmar" onMouseClicked="#onActionConfirmar" prefHeight="25.0" prefWidth="103.0" text="Confirmar" />
+   <Text layoutX="14.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planeadas" wrappingWidth="139.0">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Text>
+   <Text layoutX="14.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Realizadas" wrappingWidth="139.0">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Text>
+   <Text layoutX="14.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Criar" wrappingWidth="139.0">
       <font>
          <Font size="20.0" />
       </font>

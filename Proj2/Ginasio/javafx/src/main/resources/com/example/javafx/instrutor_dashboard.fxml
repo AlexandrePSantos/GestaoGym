@@ -11,6 +11,7 @@
    <Text layoutY="28.0" text="Dashboard" textAlignment="CENTER" wrappingWidth="600.0">
       <font> <Font size="20.0" /> </font>
    </Text>
+
    <Arc layoutX="577.0" layoutY="30.0" length="180.0" radiusX="9.0" radiusY="10.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
    <Circle layoutX="577.0" layoutY="14.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
 
@@ -18,6 +19,7 @@
    <Text fill="#ff8600" layoutX="5.0" layoutY="29.0" text="L" textAlignment="CENTER" wrappingWidth="42.0">
       <font> <Font size="25.0" /> </font>
    </Text>
+
    <Pane layoutX="17.0" layoutY="56.0" prefHeight="148.0" prefWidth="298.0">
       <children>
          <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="148.0" stroke="BLACK" strokeMiterLimit="0.0" width="298.0" />
