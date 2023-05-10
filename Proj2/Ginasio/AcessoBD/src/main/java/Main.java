@@ -1,44 +1,38 @@
-import java.util.EnumSet;
-
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.tool.hbm2ddl.SchemaExport;
-import org.hibernate.tool.schema.TargetType;
-
-import repository.entities.*;
+import repository.entities.Cliente;
 
 public class Main {
 
     public static void main(String[] args) {
-        // Create a persistence unit using the persistence.xml file
+        // Create an EntityManagerFactory using the persistence.xml file
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("persist_gym");
 
-        // Create the Hibernate metadata sources based on the JPA entities
-        StandardServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(emf.getProperties())
-                .build();
-        MetadataSources metadata = new MetadataSources(registry);
-        metadata.addAnnotatedClass(Exercicio.class);
-        metadata.addAnnotatedClass(Equipamento.class);
-        metadata.addAnnotatedClass(Planotreino.class);
-        metadata.addAnnotatedClass(Funcionario.class);
-        metadata.addAnnotatedClass(Cliente.class);
-        metadata.addAnnotatedClass(Aulagrupo.class);
-        metadata.addAnnotatedClass(Linhaexercicio.class);
-        metadata.addAnnotatedClass(Linhaparticipante.class);
-        metadata.addAnnotatedClass(Pagamento.class);
-        metadata.addAnnotatedClass(Sala.class);
-        metadata.addAnnotatedClass(Subscricao.class);
+        // Create an EntityManager from the EntityManagerFactory
+        EntityManager em = emf.createEntityManager();
 
-        // Create the schema export object and set the output to console
-        SchemaExport schemaExport = new SchemaExport();
-        schemaExport.setFormat(true).setDelimiter(";").setOutputFile("schema.sql");
+        // Begin a transaction
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
 
-        // Create the database schema based on the metadata sources
-        schemaExport.create(EnumSet.of(TargetType.DATABASE), metadata.buildMetadata());
+        // Create a new Cliente entity
+        Cliente cliente = new Cliente();
+        cliente.setNome("John Doe");
+        cliente.setEmail("johndoe@example.com");
+        cliente.setTelemovel("555-1234");
+
+        // Persist the new Cliente entity
+        em.persist(cliente);
+
+        // Commit the transaction
+        tx.commit();
+
+        // Close the EntityManager and the EntityManagerFactory
+        em.close();
+        emf.close();
     }
 
 }
