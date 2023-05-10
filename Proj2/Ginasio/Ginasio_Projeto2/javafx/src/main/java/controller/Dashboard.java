@@ -21,7 +21,7 @@ public class Dashboard {
         //DONE Abrir Info
         try{
         Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("../javafx/src/main/resources/com/example/javafx/instrutor_info.fxml").toURI().toURL());
+        FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_info.fxml").toURI().toURL());
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Perfil");
         stage.setScene(scene);
@@ -40,7 +40,7 @@ public class Dashboard {
         //DONE Abrir Planos
         try{
             Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(new File("../javafx/src/main/resources/com/example/javafx/instrutor_planos.fxml").toURI().toURL());
+            FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_planos.fxml").toURI().toURL());
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
             stage.setTitle("Planos de Treino");
             stage.setScene(scene);
@@ -59,7 +59,7 @@ public class Dashboard {
         //DONE Abrir Aulas
         try{
             Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(new File("../javafx/src/main/resources/com/example/javafx/instrutor_aulas.fxml").toURI().toURL());
+            FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_aulas.fxml").toURI().toURL());
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
             stage.setTitle("Aulas de Grupo");
             stage.setScene(scene);
