@@ -1,21 +1,14 @@
 package repository.entities;
 
-import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.time.LocalDate;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Cliente")
 public class Cliente {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idCliente")
+    @Column(name = "id_cliente")
     private int idCliente;
 
     @Column(name = "nome")
@@ -30,14 +23,27 @@ public class Cliente {
     @Column(name = "telemovel")
     private String telemovel;
 
-    @Column(name = "NIF")
-    private String NIF;
+    @Column(name = "nif")
+    private String nif;
 
-    @Column(name = "dtNascimento")
-    private Date dtNascimento;
+    @Column(name = "dt_nascimento")
+    private LocalDate dataNascimento;
 
-    @Column(name = "cPostal")
-    private String cPostal;
+    @Column(name = "cod_postal")
+    private String codigoPostal;
+
+    public Cliente() {
+    }
+
+    public Cliente(String nome, int idade, String email, String telemovel, String nif, LocalDate dataNascimento, String codigoPostal) {
+        this.nome = nome;
+        this.idade = idade;
+        this.email = email;
+        this.telemovel = telemovel;
+        this.nif = nif;
+        this.dataNascimento = dataNascimento;
+        this.codigoPostal = codigoPostal;
+    }
 
     public int getIdCliente() {
         return idCliente;
@@ -79,27 +85,27 @@ public class Cliente {
         this.telemovel = telemovel;
     }
 
-    public String getNIF() {
-        return NIF;
+    public String getNif() {
+        return nif;
     }
 
-    public void setNIF(String NIF) {
-        this.NIF = NIF;
+    public void setNif(String nif) {
+        this.nif = nif;
     }
 
-    public Date getDtNascimento() {
-        return dtNascimento;
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setDtNascimento(Date dtNascimento) {
-        this.dtNascimento = dtNascimento;
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
-    public String getcPostal() {
-        return cPostal;
+    public String getCodigoPostal() {
+        return codigoPostal;
     }
 
-    public void setcPostal(String cPostal) {
-        this.cPostal = cPostal;
+    public void setCodigoPostal(String codigoPostal) {
+        this.codigoPostal = codigoPostal;
     }
 }

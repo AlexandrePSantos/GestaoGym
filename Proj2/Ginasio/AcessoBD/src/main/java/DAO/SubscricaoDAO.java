@@ -4,51 +4,50 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
 import repository.entities.Subscricao;
 
 public class SubscricaoDAO {
 
-    private EntityManagerFactory emf;
-    private EntityManager em;
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("persist_gym");
 
-    public SubscricaoDAO() {
-        emf = Persistence.createEntityManagerFactory("persist_gym");
-        em = emf.createEntityManager();
-    }
-
-    public void create(Subscricao subscricao) {
+    public void save(Subscricao subscricao) {
+        EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.persist(subscricao);
         em.getTransaction().commit();
-    }
-
-    public Subscricao findById(int id) {
-        Subscricao subscricao = em.find(Subscricao.class, id);
-        return subscricao;
-    }
-
-    public List<Subscricao> findAll() {
-        TypedQuery<Subscricao> query = em.createQuery("SELECT s FROM Subscricao s", Subscricao.class);
-        List<Subscricao> subscricoes = query.getResultList();
-        return subscricoes;
+        em.close();
     }
 
     public void update(Subscricao subscricao) {
+        EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.merge(subscricao);
         em.getTransaction().commit();
-    }
-
-    public void delete(Subscricao subscricao) {
-        em.getTransaction().begin();
-        em.remove(subscricao);
-        em.getTransaction().commit();
-    }
-
-    public void close() {
         em.close();
-        emf.close();
     }
 
+    public void delete(int numSubscricao) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Subscricao subscricao = em.find(Subscricao.class, numSubscricao);
+        if (subscricao != null) {
+            em.remove(subscricao);
+        }
+        em.getTransaction().commit();
+        em.close();
+    }
+
+    public Subscricao getByNumSubscricao(int numSubscricao) {
+        EntityManager em = emf.createEntityManager();
+        Subscricao subscricao = em.find(Subscricao.class, numSubscricao);
+        em.close();
+        return subscricao;
+    }
+
+    public List<Subscricao> getAll() {
+        EntityManager em = emf.createEntityManager();
+        List<Subscricao> subscricoes = em.createQuery("SELECT s FROM Subscricao s", Subscricao.class).getResultList();
+        em.close();
+        return subscricoes;
+    }
 }

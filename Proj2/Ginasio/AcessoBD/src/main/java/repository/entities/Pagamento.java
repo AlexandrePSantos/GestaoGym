@@ -1,8 +1,8 @@
 package repository.entities;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Pagamento")
@@ -10,30 +10,41 @@ public class Pagamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "numPagamento")
+    @Column(name = "num_pagamento")
     private int numPagamento;
 
     @Column(name = "valor")
     private BigDecimal valor;
 
-    @Column(name = "estado")
+    @Column(name = "estado", length = 200)
     private String estado;
 
-    @Column(name = "dataPagamento")
-    private Date dataPagamento;
+    @Column(name = "data_pagamento")
+    private LocalDate dataPagamento;
 
-    @Column(name = "metodo")
+    @Column(name = "metodo", length = 15)
     private String metodo;
 
-    @Column(name = "referencia")
+    @Column(name = "referencia", length = 12)
     private String referencia;
 
-    @Column(name = "entidade")
+    @Column(name = "entidade", length = 6)
     private String entidade;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "numSubscricao")
+    @ManyToOne
+    @JoinColumn(name = "num_subscricao")
     private Subscricao subscricao;
+
+    public Pagamento() {}
+
+    public Pagamento(BigDecimal valor, String estado, LocalDate dataPagamento, String metodo, String referencia, String entidade) {
+        this.valor = valor;
+        this.estado = estado;
+        this.dataPagamento = dataPagamento;
+        this.metodo = metodo;
+        this.referencia = referencia;
+        this.entidade = entidade;
+    }
 
     public int getNumPagamento() {
         return numPagamento;
@@ -59,11 +70,11 @@ public class Pagamento {
         this.estado = estado;
     }
 
-    public Date getDataPagamento() {
+    public LocalDate getDataPagamento() {
         return dataPagamento;
     }
 
-    public void setDataPagamento(Date dataPagamento) {
+    public void setDataPagamento(LocalDate dataPagamento) {
         this.dataPagamento = dataPagamento;
     }
 

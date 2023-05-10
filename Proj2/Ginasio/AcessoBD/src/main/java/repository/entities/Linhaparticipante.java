@@ -3,7 +3,7 @@ package repository.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "linhaparticipante")
+@Table(name = "Linhaparticipante")
 public class Linhaparticipante {
 
     @Id
@@ -12,12 +12,20 @@ public class Linhaparticipante {
     private int idLinhaPart;
 
     @ManyToOne
-    @JoinColumn(name = "numAula", referencedColumnName = "numAula")
+    @JoinColumn(name = "num_aula")
     private Aulagrupo aulagrupo;
 
     @ManyToOne
-    @JoinColumn(name = "idCliente", referencedColumnName = "idCliente")
+    @JoinColumn(name = "id_cliente")
     private Cliente cliente;
+
+    public Linhaparticipante() {
+    }
+
+    public Linhaparticipante(Aulagrupo aulagrupo, Cliente cliente) {
+        this.aulagrupo = aulagrupo;
+        this.cliente = cliente;
+    }
 
     public int getIdLinhaPart() {
         return idLinhaPart;

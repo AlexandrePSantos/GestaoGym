@@ -8,11 +8,18 @@ public class Sala {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idSala")
+    @Column(name = "id_sala")
     private int idSala;
 
     @Column(name = "sala")
     private String sala;
+
+    public Sala() {
+    }
+
+    public Sala(String sala) {
+        this.sala = sala;
+    }
 
     public int getIdSala() {
         return idSala;

@@ -4,49 +4,50 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
 import repository.entities.Sala;
 
 public class SalaDAO {
 
-    private EntityManagerFactory emf;
-    private EntityManager em;
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("persist_gym");
 
-    public SalaDAO() {
-        emf = Persistence.createEntityManagerFactory("persist_gym");
-        em = emf.createEntityManager();
-    }
-
-    public void create(Sala sala) {
+    public void save(Sala sala) {
+        EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.persist(sala);
         em.getTransaction().commit();
-    }
-
-    public Sala findById(int id) {
-        return em.find(Sala.class, id);
-    }
-
-    public List<Sala> findAll() {
-        TypedQuery<Sala> query = em.createQuery("SELECT s FROM Sala s", Sala.class);
-        return query.getResultList();
+        em.close();
     }
 
     public void update(Sala sala) {
+        EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.merge(sala);
         em.getTransaction().commit();
+        em.close();
     }
 
     public void delete(int id) {
-        Sala sala = findById(id);
+        EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.remove(sala);
+        Sala sala = em.find(Sala.class, id);
+        if (sala != null) {
+            em.remove(sala);
+        }
         em.getTransaction().commit();
+        em.close();
     }
 
-    public void close() {
+    public Sala getById(int id) {
+        EntityManager em = emf.createEntityManager();
+        Sala sala = em.find(Sala.class, id);
         em.close();
-        emf.close();
+        return sala;
+    }
+
+    public List<Sala> getAll() {
+        EntityManager em = emf.createEntityManager();
+        List<Sala> salas = em.createQuery("SELECT s FROM Sala s", Sala.class).getResultList();
+        em.close();
+        return salas;
     }
 }

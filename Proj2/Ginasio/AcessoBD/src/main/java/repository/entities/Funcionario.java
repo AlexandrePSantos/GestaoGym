@@ -1,6 +1,7 @@
 package repository.entities;
+
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.time.LocalDate;
 import javax.persistence.*;
 
 @Entity
@@ -9,8 +10,8 @@ public class Funcionario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idFuncionario")
-    private int idFuncionario;
+    @Column(name = "id_funcionario")
+    private Integer id;
 
     @Column(name = "nome")
     private String nome;
@@ -21,24 +22,39 @@ public class Funcionario {
     @Column(name = "telemovel")
     private String telemovel;
 
-    @Column(name = "NIF")
-    private String NIF;
+    @Column(name = "nif")
+    private String nif;
 
-    @Column(name = "dtNascimento")
-    private Date dtNascimento;
+    @Column(name = "dt_nascimento")
+    private LocalDate dataNascimento;
 
-    @Column(name = "salarioLiquido")
+    @Column(name = "salario_liquido")
     private BigDecimal salarioLiquido;
 
     @Column(name = "funcao")
     private String funcao;
 
-    public int getIdFuncionario() {
-        return idFuncionario;
+    // default constructor
+    public Funcionario() {}
+
+    // constructor with parameters
+    public Funcionario(String nome, String email, String telemovel, String nif, LocalDate dataNascimento, BigDecimal salarioLiquido, String funcao) {
+        this.nome = nome;
+        this.email = email;
+        this.telemovel = telemovel;
+        this.nif = nif;
+        this.dataNascimento = dataNascimento;
+        this.salarioLiquido = salarioLiquido;
+        this.funcao = funcao;
     }
 
-    public void setIdFuncionario(int idFuncionario) {
-        this.idFuncionario = idFuncionario;
+    // getters and setters
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -65,20 +81,20 @@ public class Funcionario {
         this.telemovel = telemovel;
     }
 
-    public String getNIF() {
-        return NIF;
+    public String getNif() {
+        return nif;
     }
 
-    public void setNIF(String NIF) {
-        this.NIF = NIF;
+    public void setNif(String nif) {
+        this.nif = nif;
     }
 
-    public Date getDtNascimento() {
-        return dtNascimento;
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setDtNascimento(Date dtNascimento) {
-        this.dtNascimento = dtNascimento;
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public BigDecimal getSalarioLiquido() {
@@ -97,17 +113,12 @@ public class Funcionario {
         this.funcao = funcao;
     }
 
+    // toString() method
     @Override
     public String toString() {
-        return "Funcionario{" +
-                "idFuncionario=" + idFuncionario +
-                ", nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
-                ", telemovel='" + telemovel + '\'' +
-                ", NIF='" + NIF + '\'' +
-                ", dtNascimento=" + dtNascimento +
-                ", salarioLiquido=" + salarioLiquido +
-                ", funcao='" + funcao + '\'' +
-                '}';
+        return "Funcionario [id=" + id + ", nome=" + nome + ", email=" + email + ", telemovel=" + telemovel + ", nif="
+                + nif + ", dataNascimento=" + dataNascimento + ", salarioLiquido=" + salarioLiquido + ", funcao="
+                + funcao + "]";
     }
+
 }

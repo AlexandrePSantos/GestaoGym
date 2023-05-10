@@ -9,14 +9,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.hibernate.tool.schema.TargetType;
 
-import repository.entities.Aulagrupo;
-import repository.entities.Cliente;
-import repository.entities.Equipamento;
-import repository.entities.Exercicio;
-import repository.entities.Funcionario;
-import repository.entities.Linhaexercicio;
-import repository.entities.Linhaparticipante;
-import repository.entities.Planotreino;
+import repository.entities.*;
 
 public class Main {
 
@@ -36,6 +29,9 @@ public class Main {
         metadata.addAnnotatedClass(Aulagrupo.class);
         metadata.addAnnotatedClass(Linhaexercicio.class);
         metadata.addAnnotatedClass(Linhaparticipante.class);
+        metadata.addAnnotatedClass(Pagamento.class);
+        metadata.addAnnotatedClass(Sala.class);
+        metadata.addAnnotatedClass(Subscricao.class);
 
         // Create the schema export object and set the output to console
         SchemaExport schemaExport = new SchemaExport();

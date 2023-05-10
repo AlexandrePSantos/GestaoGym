@@ -4,30 +4,18 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 import repository.entities.Funcionario;
 
 public class FuncionarioDAO {
 
-    private final EntityManagerFactory emf;
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("persist_gym");
 
-    public FuncionarioDAO() {
-        emf = Persistence.createEntityManagerFactory("persist_gym");
-    }
-
-    public void create(Funcionario funcionario) {
+    public void save(Funcionario funcionario) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.persist(funcionario);
         em.getTransaction().commit();
         em.close();
-    }
-
-    public Funcionario read(int idFuncionario) {
-        EntityManager em = emf.createEntityManager();
-        Funcionario funcionario = em.find(Funcionario.class, idFuncionario);
-        em.close();
-        return funcionario;
     }
 
     public void update(Funcionario funcionario) {
@@ -38,18 +26,27 @@ public class FuncionarioDAO {
         em.close();
     }
 
-    public void delete(Funcionario funcionario) {
+    public void delete(int id) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.remove(em.merge(funcionario));
+        Funcionario funcionario = em.find(Funcionario.class, id);
+        if (funcionario != null) {
+            em.remove(funcionario);
+        }
         em.getTransaction().commit();
         em.close();
     }
 
-    public List<Funcionario> getAllFuncionarios() {
+    public Funcionario getById(int id) {
         EntityManager em = emf.createEntityManager();
-        Query query = em.createQuery("SELECT f FROM Funcionario f");
-        List<Funcionario> funcionarios = query.getResultList();
+        Funcionario funcionario = em.find(Funcionario.class, id);
+        em.close();
+        return funcionario;
+    }
+
+    public List<Funcionario> getAll() {
+        EntityManager em = emf.createEntityManager();
+        List<Funcionario> funcionarios = em.createQuery("SELECT f FROM Funcionario f", Funcionario.class).getResultList();
         em.close();
         return funcionarios;
     }

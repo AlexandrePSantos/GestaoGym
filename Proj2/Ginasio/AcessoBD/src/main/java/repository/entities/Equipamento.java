@@ -3,15 +3,20 @@ package repository.entities;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "Equipamento")
 public class Equipamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_equipamento")
     private Integer idEquipamento;
 
+    @Column(name = "nome")
     private String nome;
 
-    public Equipamento() {}
+    public Equipamento() {
+
+    }
 
     public Equipamento(String nome) {
         this.nome = nome;
@@ -32,4 +37,5 @@ public class Equipamento {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
 }

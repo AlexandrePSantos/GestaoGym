@@ -3,82 +3,51 @@ package DAO;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
 import repository.entities.Linhaparticipante;
 
 public class LinhaparticipanteDAO {
 
-    private EntityManagerFactory emf;
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("persist_gym");
 
-    public LinhaparticipanteDAO() {
-        emf = Persistence.createEntityManagerFactory("persist_gym");
-    }
-
-    public void create(Linhaparticipante linhaparticipante) {
-        EntityManager em = null;
-        try {
-            em = emf.createEntityManager();
-            em.getTransaction().begin();
-            em.persist(linhaparticipante);
-            em.getTransaction().commit();
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
+    public void save(Linhaparticipante linhaparticipante) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.persist(linhaparticipante);
+        em.getTransaction().commit();
+        em.close();
     }
 
     public void update(Linhaparticipante linhaparticipante) {
-        EntityManager em = null;
-        try {
-            em = emf.createEntityManager();
-            em.getTransaction().begin();
-            em.merge(linhaparticipante);
-            em.getTransaction().commit();
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.merge(linhaparticipante);
+        em.getTransaction().commit();
+        em.close();
     }
 
     public void delete(int id) {
-        EntityManager em = null;
-        try {
-            em = emf.createEntityManager();
-            em.getTransaction().begin();
-            Linhaparticipante linhaparticipante = em.getReference(Linhaparticipante.class, id);
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Linhaparticipante linhaparticipante = em.find(Linhaparticipante.class, id);
+        if (linhaparticipante != null) {
             em.remove(linhaparticipante);
-            em.getTransaction().commit();
-        } catch (EntityNotFoundException e) {
-            System.err.println("Error deleting Linhaparticipante. The Linhaparticipante with id " + id + " doesn't exist: " + e.getMessage());
-        } finally {
-            if (em != null) {
-                em.close();
-            }
         }
+        em.getTransaction().commit();
+        em.close();
     }
 
     public Linhaparticipante getById(int id) {
         EntityManager em = emf.createEntityManager();
-        try {
-            return em.find(Linhaparticipante.class, id);
-        } finally {
-            em.close();
-        }
+        Linhaparticipante linhaparticipante = em.find(Linhaparticipante.class, id);
+        em.close();
+        return linhaparticipante;
     }
 
     public List<Linhaparticipante> getAll() {
         EntityManager em = emf.createEntityManager();
-        try {
-            return em.createQuery("SELECT lp FROM Linhaparticipante lp", Linhaparticipante.class).getResultList();
-        } finally {
-            em.close();
-        }
-    }
-
-    public void close() {
-        emf.close();
+        List<Linhaparticipante> linhasparticipantes = em.createQuery("SELECT l FROM Linhaparticipante l", Linhaparticipante.class).getResultList();
+        em.close();
+        return linhasparticipantes;
     }
 }

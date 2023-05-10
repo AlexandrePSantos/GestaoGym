@@ -1,6 +1,6 @@
 package repository.entities;
 
-import java.util.Date;
+import java.time.LocalDate;
 import javax.persistence.*;
 
 @Entity
@@ -9,24 +9,32 @@ public class Planotreino {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "numPlano")
+    @Column(name = "num_plano")
     private int numPlano;
 
-    @Column(name = "dtCriacao")
-    private Date dtCriacao;
+    @Column(name = "dt_criacao")
+    private LocalDate dtCriacao;
 
     @Column(name = "estado")
     private String estado;
 
     @ManyToOne
-    @JoinColumn(name = "idFuncionario")
+    @JoinColumn(name = "id_funcionario")
     private Funcionario funcionario;
 
     @ManyToOne
-    @JoinColumn(name = "idCliente")
+    @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 
-    // getters and setters
+    public Planotreino() {}
+
+    public Planotreino(LocalDate dtCriacao, String estado, Funcionario funcionario, Cliente cliente) {
+        this.dtCriacao = dtCriacao;
+        this.estado = estado;
+        this.funcionario = funcionario;
+        this.cliente = cliente;
+    }
+
     public int getNumPlano() {
         return numPlano;
     }
@@ -35,11 +43,11 @@ public class Planotreino {
         this.numPlano = numPlano;
     }
 
-    public Date getDtCriacao() {
+    public LocalDate getDtCriacao() {
         return dtCriacao;
     }
 
-    public void setDtCriacao(Date dtCriacao) {
+    public void setDtCriacao(LocalDate dtCriacao) {
         this.dtCriacao = dtCriacao;
     }
 

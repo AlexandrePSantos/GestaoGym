@@ -4,50 +4,51 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import repository.entities.Planotreino;
+import repository.entities.Linhaexercicio;
 
-public class PlanotreinoDAO {
+public class LinhaexercicioDAO {
 
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("persist_gym");
 
-    public void save(Planotreino planotreino) {
+    public void save(Linhaexercicio linhaexercicio) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.persist(planotreino);
+        em.persist(linhaexercicio);
         em.getTransaction().commit();
         em.close();
     }
 
-    public void update(Planotreino planotreino) {
+    public void update(Linhaexercicio linhaexercicio) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.merge(planotreino);
+        em.merge(linhaexercicio);
         em.getTransaction().commit();
         em.close();
     }
 
-    public void delete(int id) {
+    public void delete(int idLinhaExercicio) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        Planotreino planotreino = em.find(Planotreino.class, id);
-        if (planotreino != null) {
-            em.remove(planotreino);
+        Linhaexercicio linhaexercicio = em.find(Linhaexercicio.class, idLinhaExercicio);
+        if (linhaexercicio != null) {
+            em.remove(linhaexercicio);
         }
         em.getTransaction().commit();
         em.close();
     }
 
-    public Planotreino getById(int id) {
+    public Linhaexercicio getById(int idLinhaExercicio) {
         EntityManager em = emf.createEntityManager();
-        Planotreino planotreino = em.find(Planotreino.class, id);
+        Linhaexercicio linhaexercicio = em.find(Linhaexercicio.class, idLinhaExercicio);
         em.close();
-        return planotreino;
+        return linhaexercicio;
     }
 
-    public List<Planotreino> getAll() {
+    public List<Linhaexercicio> getAll() {
         EntityManager em = emf.createEntityManager();
-        List<Planotreino> planosTreinos = em.createQuery("SELECT p FROM Planotreino p", Planotreino.class).getResultList();
+        List<Linhaexercicio> linhaexercicios = em.createQuery("SELECT l FROM Linhaexercicio l", Linhaexercicio.class).getResultList();
         em.close();
-        return planosTreinos;
+        return linhaexercicios;
     }
+
 }

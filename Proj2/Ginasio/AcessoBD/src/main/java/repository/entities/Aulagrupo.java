@@ -1,6 +1,6 @@
 package repository.entities;
 
-import java.util.Date;
+import java.time.LocalDate;
 import javax.persistence.*;
 
 @Entity
@@ -9,31 +9,43 @@ public class Aulagrupo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "numAula")
+    @Column(name = "num_aula")
     private int numAula;
 
-    @Column(name = "dataAula")
-    private Date dataAula;
+    @Column(name = "data_aula")
+    private LocalDate dataAula;
 
-    @Column(name = "tipoAula")
+    @Column(name = "tipo_aula")
     private String tipoAula;
 
     @Column(name = "vagas")
     private int vagas;
 
-    @Column(name = "vagasDisp")
+    @Column(name = "vagas_disp")
     private int vagasDisp;
 
     @Column(name = "duracao")
     private int duracao;
 
     @ManyToOne
-    @JoinColumn(name = "idSala")
+    @JoinColumn(name = "id_sala")
     private Sala sala;
 
     @ManyToOne
-    @JoinColumn(name = "idFuncionario")
+    @JoinColumn(name = "id_funcionario")
     private Funcionario funcionario;
+
+    public Aulagrupo() {}
+
+    public Aulagrupo(LocalDate dataAula, String tipoAula, int vagas, int vagasDisp, int duracao, Sala sala, Funcionario funcionario) {
+        this.dataAula = dataAula;
+        this.tipoAula = tipoAula;
+        this.vagas = vagas;
+        this.vagasDisp = vagasDisp;
+        this.duracao = duracao;
+        this.sala = sala;
+        this.funcionario = funcionario;
+    }
 
     public int getNumAula() {
         return numAula;
@@ -43,11 +55,11 @@ public class Aulagrupo {
         this.numAula = numAula;
     }
 
-    public Date getDataAula() {
+    public LocalDate getDataAula() {
         return dataAula;
     }
 
-    public void setDataAula(Date dataAula) {
+    public void setDataAula(LocalDate dataAula) {
         this.dataAula = dataAula;
     }
 
@@ -98,4 +110,5 @@ public class Aulagrupo {
     public void setFuncionario(Funcionario funcionario) {
         this.funcionario = funcionario;
     }
+
 }

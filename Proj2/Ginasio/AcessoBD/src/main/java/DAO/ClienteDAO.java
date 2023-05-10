@@ -1,60 +1,75 @@
 package DAO;
 
+import java.time.LocalDate;
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-
 import repository.entities.Cliente;
 
 public class ClienteDAO {
 
     private static EntityManagerFactory emf;
+    private EntityManager em;
 
     public ClienteDAO() {
         emf = Persistence.createEntityManagerFactory("my-persistence-unit");
+        em = emf.createEntityManager();
     }
 
-    public void adicionarCliente(Cliente cliente) {
-        EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
+    public void create(Cliente cliente) {
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
         em.persist(cliente);
-        em.getTransaction().commit();
-        em.close();
+        tx.commit();
     }
 
-    public void atualizarCliente(Cliente cliente) {
-        EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
+    public void update(Cliente cliente) {
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
         em.merge(cliente);
-        em.getTransaction().commit();
-        em.close();
+        tx.commit();
     }
 
-    public void removerCliente(int idCliente) {
-        EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
-        Cliente cliente = em.find(Cliente.class, idCliente);
+    public void delete(int id) {
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        Cliente cliente = em.find(Cliente.class, id);
         em.remove(cliente);
-        em.getTransaction().commit();
-        em.close();
+        tx.commit();
     }
 
-    public Cliente buscarCliente(int idCliente) {
-        EntityManager em = emf.createEntityManager();
-        Cliente cliente = em.find(Cliente.class, idCliente);
-        em.close();
-        return cliente;
+    public Cliente getById(int id) {
+        return em.find(Cliente.class, id);
     }
 
-    public List<Cliente> listarClientes() {
-        EntityManager em = emf.createEntityManager();
-        Query q = em.createQuery("SELECT c FROM Cliente c");
-        List<Cliente> clientes = q.getResultList();
-        em.close();
-        return clientes;
+    public List<Cliente> getAll() {
+        Query query = em.createQuery("SELECT c FROM Cliente c");
+        return query.getResultList();
     }
 
+    public List<Cliente> getByNome(String nome) {
+        Query query = em.createQuery("SELECT c FROM Cliente c WHERE c.nome = :nome");
+        query.setParameter("nome", nome);
+        return query.getResultList();
+    }
+
+    public List<Cliente> getByCodigoPostal(String codigoPostal) {
+        Query query = em.createQuery("SELECT c FROM Cliente c WHERE c.codigoPostal = :codigoPostal");
+        query.setParameter("codigoPostal", codigoPostal);
+        return query.getResultList();
+    }
+
+    public List<Cliente> getByDataNascimento(LocalDate dataNascimento) {
+        Query query = em.createQuery("SELECT c FROM Cliente c WHERE c.dataNascimento = :dataNascimento");
+        query.setParameter("dataNascimento", dataNascimento);
+        return query.getResultList();
+    }
+
+    public void close() {
+        em.close();
+        emf.close();
+    }
 }

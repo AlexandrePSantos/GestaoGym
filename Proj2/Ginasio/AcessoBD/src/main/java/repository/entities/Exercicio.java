@@ -8,15 +8,22 @@ public class Exercicio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idExercicio")
+    @Column(name = "id_exercicio")
     private int idExercicio;
 
     @Column(name = "nome")
     private String nome;
 
     @ManyToOne
-    @JoinColumn(name = "idEquipamento")
+    @JoinColumn(name = "id_equipamento")
     private Equipamento equipamento;
+
+    public Exercicio() {}
+
+    public Exercicio(String nome, Equipamento equipamento) {
+        this.nome = nome;
+        this.equipamento = equipamento;
+    }
 
     public int getIdExercicio() {
         return idExercicio;
@@ -40,10 +47,5 @@ public class Exercicio {
 
     public void setEquipamento(Equipamento equipamento) {
         this.equipamento = equipamento;
-    }
-
-    @Override
-    public String toString() {
-        return "Exercicio [idExercicio=" + idExercicio + ", nome=" + nome + ", equipamento=" + equipamento + "]";
     }
 }

@@ -1,8 +1,8 @@
 package repository.entities;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Subscricao")
@@ -10,36 +10,50 @@ public class Subscricao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "numSubscricao")
-    private int numSubscricao;
+    @Column(name = "num_subscricao")
+    private Integer numSubscricao;
 
     @Column(name = "duracao")
     private String duracao;
 
-    @Column(name = "dataIni")
-    private Date dataIni;
+    @Column(name = "data_ini")
+    private LocalDate dataIni;
 
-    @Column(name = "dataFim")
-    private Date dataFim;
+    @Column(name = "data_fim")
+    private LocalDate dataFim;
 
     @Column(name = "valor")
     private BigDecimal valor;
 
     @Column(name = "modalidade")
-    private int modalidade;
+    private Integer modalidade;
 
     @Column(name = "estado")
     private String estado;
 
-    @ManyToOne
-    @JoinColumn(name = "idCliente")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 
-    public int getNumSubscricao() {
+    public Subscricao() {
+    }
+
+    public Subscricao(String duracao, LocalDate dataIni, LocalDate dataFim, BigDecimal valor, Integer modalidade,
+                      String estado, Cliente cliente) {
+        this.duracao = duracao;
+        this.dataIni = dataIni;
+        this.dataFim = dataFim;
+        this.valor = valor;
+        this.modalidade = modalidade;
+        this.estado = estado;
+        this.cliente = cliente;
+    }
+
+    public Integer getNumSubscricao() {
         return numSubscricao;
     }
 
-    public void setNumSubscricao(int numSubscricao) {
+    public void setNumSubscricao(Integer numSubscricao) {
         this.numSubscricao = numSubscricao;
     }
 
@@ -51,19 +65,19 @@ public class Subscricao {
         this.duracao = duracao;
     }
 
-    public Date getDataIni() {
+    public LocalDate getDataIni() {
         return dataIni;
     }
 
-    public void setDataIni(Date dataIni) {
+    public void setDataIni(LocalDate dataIni) {
         this.dataIni = dataIni;
     }
 
-    public Date getDataFim() {
+    public LocalDate getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(Date dataFim) {
+    public void setDataFim(LocalDate dataFim) {
         this.dataFim = dataFim;
     }
 
@@ -75,11 +89,11 @@ public class Subscricao {
         this.valor = valor;
     }
 
-    public int getModalidade() {
+    public Integer getModalidade() {
         return modalidade;
     }
 
-    public void setModalidade(int modalidade) {
+    public void setModalidade(Integer modalidade) {
         this.modalidade = modalidade;
     }
 
