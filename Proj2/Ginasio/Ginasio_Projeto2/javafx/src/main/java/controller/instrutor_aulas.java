@@ -1,24 +1,24 @@
 package controller;
 
-        import javafx.event.ActionEvent;
-        import javafx.fxml.FXML;
-        import javafx.fxml.FXMLLoader;
-        import javafx.scene.Node;
-        import javafx.scene.Scene;
-        import javafx.scene.control.Label;
-        import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-        import java.io.File;
+import java.io.File;
 
-public class Info {
+public class instrutor_aulas {
+
     @FXML
     protected void onActionAnterior(ActionEvent event) {
-        //DONE abrir Dashboard
+        //DONE Abrir instrutor_dashboard
         try{
             Stage stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_dashboard.fxml").toURI().toURL());
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-            stage.setTitle("Dashboard");
+            stage.setTitle("instrutor_dashboard");
             stage.setScene(scene);
             stage.show();
 
@@ -31,14 +31,14 @@ public class Info {
     }
 
     @FXML
-    protected void onActionGuardar(ActionEvent event) {
-        //DONE abrir Dashboard
+    protected void onActionConfirmar(ActionEvent event) {
+        //DONE abrir instrutor_dashboard
         //TODO guardar informacao
         try{
             Stage stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_dashboard.fxml").toURI().toURL());
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-            stage.setTitle("Dashboard");
+            stage.setTitle("instrutor_dashboard");
             stage.setScene(scene);
             stage.show();
 
