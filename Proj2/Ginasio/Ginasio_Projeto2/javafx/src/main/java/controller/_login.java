@@ -13,10 +13,9 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
 import java.util.Scanner;
 
-public class login {
+public class _login {
     @FXML
     TextField login_user;
     @FXML
@@ -32,7 +31,7 @@ public class login {
         Stage stage = new Stage();
         System.out.println("something");
         System.out.println(login_user.getText());
-        //TODO se login der instrutor: vai para instrutor_dashboard
+        //TODO se _login der instrutor: vai para instrutor_dashboard
         if((login_user.getText().matches("rececionista")) && login_confirmar.isPressed()) {
             FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/rececionista_dashboard.fxml").toURI().toURL());
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
