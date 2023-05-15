@@ -26,10 +26,7 @@ public class _login {
     @FXML
     protected void onActionConfirmar(ActionEvent event) throws IOException {
         Scanner input = new Scanner(System.in);
-        System.out.println("Qual deles é? 1 - Instrutor, 2 - Rececionista");
-        int i = input.nextInt();
         Stage stage = new Stage();
-        System.out.println("something");
         System.out.println(login_user.getText());
         //TODO se _login der instrutor: vai para instrutor_dashboard
         if((login_user.getText().matches("rececionista")) && login_confirmar.isPressed()) {
