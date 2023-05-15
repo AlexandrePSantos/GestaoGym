@@ -59,6 +59,12 @@
                <Font size="20.0" />
             </font>
          </Text>
+         <TableView layoutX="14.0" layoutY="40.0" prefHeight="81.0" prefWidth="237.0">
+           <columns>
+             <TableColumn prefWidth="75.0" text="Tipo" />
+             <TableColumn prefWidth="75.0" text="Data/Hora" />
+           </columns>
+         </TableView>
       </children></Pane>
 <!--   <Button layoutX="309.0" layoutY="274.0" mnemonicParsing="false" onAction="#onHelloButtonClick" text="Hello!!"/>-->
 </Pane>
