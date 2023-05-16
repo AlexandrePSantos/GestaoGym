@@ -1,5 +1,6 @@
 package com.bd;
 
+import com.bd.repository.entities.Cliente;
 import com.bd.repository.entities.Funcionario;
 import com.bd.repository.entities.Login;
 
@@ -29,14 +30,14 @@ public class Main {
 //
 //        // Persist the new Cliente entity
 //        em.persist(cliente);
-//
-//        // Commit the transaction
+
+        // Commit the transaction
 //        tx.commit();
 //
 //        // Close the EntityManager and the EntityManagerFactory
 //        em.close();
 //        emf.close();
-//
+
         // Create a new Funcionario entity
         Login login = new Login();
         Funcionario func = new Funcionario();
