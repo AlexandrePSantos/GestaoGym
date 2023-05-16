@@ -5,17 +5,17 @@
              version="2.0">
     <persistence-unit name="persist_gym">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>com.bd.repository.entities.Aulagrupo</class>
-        <class>com.bd.repository.entities.Cliente</class>
-        <class>com.bd.repository.entities.Equipamento</class>
-        <class>com.bd.repository.entities.Exercicio</class>
-        <class>com.bd.repository.entities.Funcionario</class>
-        <class>com.bd.repository.entities.Linhaexercicio</class>
-        <class>com.bd.repository.entities.Linhaparticipante</class>
-        <class>com.bd.repository.entities.Pagamento</class>
-        <class>com.bd.repository.entities.Planotreino</class>
-        <class>com.bd.repository.entities.Sala</class>
-        <class>com.bd.repository.entities.Subscricao</class>
+        <class>com.AcessoBD.repository.entities.Aulagrupo</class>
+        <class>com.AcessoBD.repository.entities.Cliente</class>
+        <class>com.AcessoBD.repository.entities.Equipamento</class>
+        <class>com.AcessoBD.repository.entities.Exercicio</class>
+        <class>com.AcessoBD.repository.entities.Funcionario</class>
+        <class>com.AcessoBD.repository.entities.Linhaexercicio</class>
+        <class>com.AcessoBD.repository.entities.Linhaparticipante</class>
+        <class>com.AcessoBD.repository.entities.Pagamento</class>
+        <class>com.AcessoBD.repository.entities.Planotreino</class>
+        <class>com.AcessoBD.repository.entities.Sala</class>
+        <class>com.AcessoBD.repository.entities.Subscricao</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/Gym"/>

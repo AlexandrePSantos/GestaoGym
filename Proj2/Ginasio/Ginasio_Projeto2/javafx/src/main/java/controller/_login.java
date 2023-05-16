@@ -1,13 +1,12 @@
 package controller;
 
+import com.AcessoBD.BLL.LogRegBLL;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.*;
-
-import com.bd.BLL.LogRegBLL;
 
 public class _login {
     @FXML
