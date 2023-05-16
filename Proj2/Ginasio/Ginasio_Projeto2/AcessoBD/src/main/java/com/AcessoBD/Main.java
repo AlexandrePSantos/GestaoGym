@@ -37,22 +37,21 @@ public class Main {
 //        em.close();
 //        emf.close();
 
-        // Create a new Funcionario entity
-        Login login = new Login();
-        Funcionario func = new Funcionario();
-        login.setId("Inst1");
-        login.setPassword("123456");
-        func.setLogin(login);
-        // Persist the new Cliente entity
-        em.persist(login);
-        em.persist(func);
-
-        // Commit the transaction
-        tx.commit();
-
-        // Close the EntityManager and the EntityManagerFactory
-        em.close();
-        emf.close();
+//        // Create a new Funcionario entity
+//        Login login = new Login();
+//        Funcionario func = new Funcionario();
+//        login.setId("Inst1");
+//        login.setPassword("123456");
+//        func.setLogin(login);
+//        // Persist the new Cliente entity
+//        em.persist(login);
+//        em.persist(func);
+//
+//        // Commit the transaction
+//        tx.commit();
+//
+//        // Close the EntityManager and the EntityManagerFactory
+//        em.close();
+//        emf.close();
     }
-
 }
