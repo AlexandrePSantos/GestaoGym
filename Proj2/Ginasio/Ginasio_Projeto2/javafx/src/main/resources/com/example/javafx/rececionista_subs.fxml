@@ -8,25 +8,35 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.rececionista_subs">
+    <!-- Background -->
     <ImageView fitHeight="404.0" fitWidth="603.0" layoutX="-3.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
-        <image>
-            <Image url="@../../../../../images/background.jpg" />
-        </image>
+        <Image url="@../../../../../images/background.jpg"/>
     </ImageView>
-    <Rectangle fill="#ff8600" height="39.0" layoutX="-3.0" stroke="#ff8600" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="603.0" />
-    <Text layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planos de Treino" textAlignment="CENTER" wrappingWidth="600.0">
-        <font>
-            <Font size="20.0" />
-        </font>
-    </Text>
-    <Circle layoutX="577.0" layoutY="14.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
-    <Arc layoutX="577.0" layoutY="30.0" length="180.0" radiusX="9.0" radiusY="10.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
 
+    <!-- Info Bar -->
+    <Rectangle fill="#ff8600" height="39.0" layoutX="-3.0" stroke="#ff8600" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="603.0" />
+
+    <!-- Logo -->
     <Rectangle arcHeight="5.0" arcWidth="10.0" fill="BLACK" height="39.0" layoutX="6.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="39.0" />
     <Text fill="#ff8600" layoutX="5.0" layoutY="29.0" text="L" textAlignment="CENTER" wrappingWidth="42.0">
         <font> <Font size="25.0" /> </font>
     </Text>
 
+    <!-- Texto -->
+    <Text layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planos de Treino" textAlignment="CENTER" wrappingWidth="600.0">
+        <font>
+            <Font size="20.0" />
+        </font>
+    </Text>
+
+    <!-- Exit -->
+    <ImageView fitHeight="33.0" fitWidth="39.0" layoutX="565.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../../../../../images/windows-exit-icon-29.jpg"/>
+    </ImageView>
+
+    <!-- Resto -->
+        <!-- Informação -->
+        <!-- Botão -->
     <Button layoutX="95.0" layoutY="328.0" mnemonicParsing="false" onAction="#onActionAnterior" onMouseClicked="#onActionAnterior" prefHeight="25.0" prefWidth="103.0" text="Anterior" />
     <Button layoutX="392.0" layoutY="328.0" mnemonicParsing="false" onAction="#onActionConfirmar" onMouseClicked="#onActionConfirmar" prefHeight="25.0" prefWidth="103.0" text="Confirmar" />
 </Pane>

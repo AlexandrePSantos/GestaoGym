@@ -13,62 +13,62 @@ import java.io.IOException;
 
 public class rececionista_dashboard {
     @FXML
-    private Button inst_dash_alt;
-
-    @FXML
     protected void onActionAlterar(ActionEvent event) throws IOException {
         //DONE Abrir instrutor_info
-        try{
+    Stage stage = new Stage();
+    FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/rececionista_info.fxml").toURI().toURL());
+    Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+    stage.setTitle("Rececionista: Perfil");
+    stage.setScene(scene);
+    stage.show();
+
+    Node source = (Node) event.getSource();
+    Stage stageAtual = (Stage) source.getScene().getWindow();
+    stageAtual.close();
+    }
+
+    @FXML
+    protected void onActionMaisInfoPlano(ActionEvent event) throws IOException {
+        //DONE Abrir instrutor_planos
         Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_info.fxml").toURI().toURL());
+        FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/rececionista_planos.fxml").toURI().toURL());
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("Perfil");
+        stage.setTitle("Rececionista: Planos de Treino");
         stage.setScene(scene);
         stage.show();
 
         Node source = (Node) event.getSource();
         Stage stageAtual = (Stage) source.getScene().getWindow();
         stageAtual.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    protected void onActionMaisInfoPlano(ActionEvent event) throws IOException {
-        //DONE Abrir instrutor_planos
-        try{
-            Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_planos.fxml").toURI().toURL());
-            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-            stage.setTitle("instrutor_planos de Treino");
-            stage.setScene(scene);
-            stage.show();
-
-            Node source = (Node) event.getSource();
-            Stage stageAtual = (Stage) source.getScene().getWindow();
-            stageAtual.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @FXML
     protected void onActionMaisInfoAula(ActionEvent event) throws IOException {
-        //DONE Abrir instrutor_aulas
-        try{
-            Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_aulas.fxml").toURI().toURL());
-            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-            stage.setTitle("instrutor_aulas de Grupo");
-            stage.setScene(scene);
-            stage.show();
+        //DONE Abrir rececionista_aulas
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/rececionista_aulas.fxml").toURI().toURL());
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        stage.setTitle("Rececionista: Aulas de Grupo");
+        stage.setScene(scene);
+        stage.show();
 
-            Node source = (Node) event.getSource();
-            Stage stageAtual = (Stage) source.getScene().getWindow();
-            stageAtual.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Node source = (Node) event.getSource();
+        Stage stageAtual = (Stage) source.getScene().getWindow();
+        stageAtual.close();
+    }
+
+    @FXML
+    protected void onActionCriarCliente(ActionEvent event) throws IOException {
+        //DONE Abrir rececionista_criarCliente
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/rececionista_criarCliente.fxml").toURI().toURL());
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        stage.setTitle("Rececionista: Criar Cliente");
+        stage.setScene(scene);
+        stage.show();
+
+        Node source = (Node) event.getSource();
+        Stage stageAtual = (Stage) source.getScene().getWindow();
+        stageAtual.close();
     }
 }
