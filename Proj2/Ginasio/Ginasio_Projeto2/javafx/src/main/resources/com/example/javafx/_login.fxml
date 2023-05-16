@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -34,6 +35,9 @@
    <TextField fx:id="login_user" layoutX="227.0" layoutY="200.0" promptText="User" />
    <PasswordField fx:id="login_password" layoutX="227.0" layoutY="246.0" promptText="Password" />
 
-   <Button fx:id="login_confirmar" layoutX="256.0" layoutY="306.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Confirmar" />
+   <Button fx:id="login_confirmar" layoutX="256.0" layoutY="306.0" mnemonicParsing="false" onAction="#onActionConfirmar" onMouseClicked="#onActionConfirmar" prefHeight="25.0" prefWidth="91.0" text="Confirmar">
+      <rotationAxis>
+         <Point3D />
+      </rotationAxis></Button>
 
 </AnchorPane>

@@ -29,7 +29,7 @@ public class _login {
         Stage stage = new Stage();
         System.out.println(login_user.getText());
         //TODO se _login der instrutor: vai para instrutor_dashboard
-        if((login_user.getText().matches("rececionista")) && login_confirmar.isPressed()) {
+        if(login_user.getText().matches("rececionista")) {
             FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/rececionista_dashboard.fxml").toURI().toURL());
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
             stage.setTitle("rececionista_dashboard");
@@ -39,7 +39,7 @@ public class _login {
             Node source = (Node) event.getSource();
             Stage stageAtual = (Stage) source.getScene().getWindow();
             stageAtual.close();
-        } else if ((login_user.getText().matches("instrutor")) && login_confirmar.isPressed()) {
+        } else if (login_user.getText().matches("instrutor")) {
             FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_dashboard.fxml").toURI().toURL());
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
             stage.setTitle("instrutor_dashboard");
