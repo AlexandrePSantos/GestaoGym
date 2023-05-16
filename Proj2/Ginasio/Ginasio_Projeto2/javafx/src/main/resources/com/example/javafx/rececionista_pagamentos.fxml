@@ -8,14 +8,37 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.rececionista_pagamentos"
-            prefHeight="400.0" prefWidth="600.0">
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.*?>
+
+<Pane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.rececionista_pagamentos" prefHeight="400.0" prefWidth="600.0">
+    <!-- Background -->
     <ImageView fitHeight="404.0" fitWidth="603.0" layoutX="-3.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
-        <image>
-            <Image url="@../../../../../images/background.jpg" />
-        </image>
+        <Image url="@../../../../../images/background.jpg"/>
     </ImageView>
 
-</AnchorPane>
+    <!-- Info Bar -->
+    <Rectangle fill="#ff8600" height="39.0" layoutX="-3.0" stroke="#ff8600" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="603.0" />
+
+    <!-- Logo -->
+    <Rectangle arcHeight="10.0" arcWidth="10.0" fill="BLACK" height="39.0" layoutX="6.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="39.0" />
+    <Text fill="#ff8600" layoutX="5.0" layoutY="29.0" text="L" textAlignment="CENTER" wrappingWidth="42.0">
+        <font> <Font size="25.0" /> </font>
+    </Text>
+
+    <!-- Texto -->
+    <Text layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pagamentos" textAlignment="CENTER" wrappingWidth="600.0">
+        <font>
+            <Font size="20.0" />
+        </font>
+    </Text>
+
+    <!-- Exit -->
+    <ImageView fitHeight="33.0" fitWidth="39.0" layoutX="565.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../../../../../images/windows-exit-icon-29.jpg"/>
+    </ImageView>
+
+    <!-- Resto -->
+        <!-- Informação -->
+        <!-- Botão -->
+</Pane>
