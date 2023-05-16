@@ -8,36 +8,36 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller._login">
-   <ImageView fitHeight="404.0" fitWidth="603.0" layoutX="-3.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../../../../../images/background.jpg" />
-      </image>
-   </ImageView>
-    <Rectangle fill="#ff8600" height="39.0" layoutX="-3.0" stroke="#ff8600" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="603.0" />
-    <Text layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" textAlignment="CENTER" wrappingWidth="600.0">
-        <font>
-            <Font size="20.0" />
-        </font>
-    </Text>
-    <Circle layoutX="577.0" layoutY="14.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
-    <Arc layoutX="577.0" layoutY="30.0" length="180.0" radiusX="9.0" radiusY="10.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+    <!-- Background -->
+    <ImageView fitHeight="404.0" fitWidth="603.0" layoutX="-3.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../../../../../images/background.jpg"/>
+    </ImageView>
 
+    <!-- Info Bar -->
+    <Rectangle fill="#ff8600" height="39.0" layoutX="-3.0" stroke="#ff8600" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="603.0" />
+
+    <!-- Logo -->
     <Rectangle arcHeight="10.0" arcWidth="10.0" fill="BLACK" height="39.0" layoutX="6.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="39.0" />
     <Text fill="#ff8600" layoutX="5.0" layoutY="29.0" text="L" textAlignment="CENTER" wrappingWidth="42.0">
         <font> <Font size="25.0" /> </font>
     </Text>
 
-    <Rectangle arcHeight="30.0" arcWidth="30.0" fill="BLACK" height="80.0" layoutX="261.0" layoutY="71.0" stroke="BLACK" strokeType="INSIDE" width="80.0" />
-    <Text fill="#ff8600" layoutX="260.0" layoutY="125.0" strokeWidth="10.0" text="L" textAlignment="CENTER" wrappingWidth="80.0">
-        <font> <Font size="50.0" /> </font>
+    <!-- Texto -->
+    <Text layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" textAlignment="CENTER" wrappingWidth="600.0">
+        <font>
+            <Font size="20.0" />
+        </font>
     </Text>
+
+    <!-- Resto -->
+        <!-- Informação -->
    <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#0000002c" height="200.0" layoutX="150.0" layoutY="171.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
    <TextField fx:id="login_user" layoutX="227.0" layoutY="200.0" promptText="User" />
    <PasswordField fx:id="login_password" layoutX="227.0" layoutY="246.0" promptText="Password" />
-
+    <!-- Botão -->
    <Button fx:id="login_confirmar" layoutX="256.0" layoutY="306.0" mnemonicParsing="false" onAction="#onActionConfirmar" onMouseClicked="#onActionConfirmar" prefHeight="25.0" prefWidth="91.0" text="Confirmar">
       <rotationAxis>
          <Point3D />
-      </rotationAxis></Button>
-
+      </rotationAxis>
+   </Button>
 </AnchorPane>

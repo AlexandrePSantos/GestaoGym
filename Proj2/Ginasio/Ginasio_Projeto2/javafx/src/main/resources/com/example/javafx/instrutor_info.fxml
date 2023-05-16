@@ -8,24 +8,36 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
+
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.instrutor_info">
+    <!-- Background -->
     <ImageView fitHeight="404.0" fitWidth="603.0" layoutX="-3.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
         <image>
             <Image url="@../../../../../images/background.jpg" />
         </image>
     </ImageView>
+
+    <!-- Info Bar e Texto -->
     <Rectangle fill="#ff8600" height="39.0" layoutX="-3.0" stroke="#ff8600" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="603.0" />
     <Text layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perfil" textAlignment="CENTER" wrappingWidth="600.0">
         <font>
             <Font size="20.0" />
         </font>
     </Text>
+
+    <!-- Logo -->
     <Rectangle arcHeight="10.0" arcWidth="10.0" fill="BLACK" height="39.0" layoutX="6.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="39.0" />
     <Text fill="#ff8600" layoutX="5.0" layoutY="29.0" text="L" textAlignment="CENTER" wrappingWidth="42.0">
         <font> <Font size="25.0" /> </font>
     </Text>
-    <Circle layoutX="577.0" layoutY="14.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
-    <Arc layoutX="577.0" layoutY="30.0" length="180.0" radiusX="9.0" radiusY="10.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+
+    <!-- Exit -->
+    <ImageView fitHeight="33.0" fitWidth="39.0" layoutX="565.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../../../../../images/windows-exit-icon-29.jpg"/>
+    </ImageView>
+
+    <!-- Resto -->
+        <!-- Informação -->
    <CustomTextField layoutX="186.0" layoutY="69.0" prefHeight="25.0" prefWidth="228.0" promptText="Nome" />
    <CustomTextField layoutX="97.0" layoutY="115.0" prefHeight="25.0" prefWidth="178.0" promptText="ID" />
    <PasswordField layoutX="325.0" layoutY="115.0" prefHeight="25.0" prefWidth="178.0" promptText="Password" />
@@ -34,6 +46,7 @@
    <CustomTextField layoutX="185.0" layoutY="228.0" prefHeight="25.0" prefWidth="228.0" promptText="Email" />
    <CustomTextField layoutX="97.0" layoutY="278.0" prefHeight="25.0" prefWidth="178.0" promptText="NIF" />
    <CustomTextField layoutX="325.0" layoutY="278.0" prefHeight="25.0" prefWidth="178.0" promptText="Código Postal" />
+        <!-- Botões -->
    <Button layoutX="133.0" layoutY="340.0" mnemonicParsing="false" onAction="#onActionAnterior" onMouseClicked="#onActionAnterior" prefHeight="25.0" prefWidth="106.0" text="Anterior" />
    <Button layoutX="361.0" layoutY="340.0" mnemonicParsing="false" onAction="#onActionGuardar" onMouseClicked="#onActionGuardar" prefHeight="25.0" prefWidth="106.0" text="Guardar" />
 </Pane>
