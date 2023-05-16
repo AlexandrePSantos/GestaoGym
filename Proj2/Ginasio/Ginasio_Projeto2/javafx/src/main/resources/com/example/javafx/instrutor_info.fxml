@@ -10,7 +10,6 @@
 <?import javafx.scene.image.Image?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.instrutor_info">
-
     <!-- Background -->
     <ImageView fitHeight="404.0" fitWidth="603.0" layoutX="-3.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
         <image>
@@ -34,9 +33,7 @@
 
     <!-- Exit -->
     <ImageView fitHeight="33.0" fitWidth="39.0" layoutX="565.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-        <image>
-            <Image url="@../../../../../images/windows-exit-icon-29.jpg" />
-        </image>
+        <Image url="@../../../../../images/windows-exit-icon-29.jpg"/>
     </ImageView>
 
     <!-- Resto -->
