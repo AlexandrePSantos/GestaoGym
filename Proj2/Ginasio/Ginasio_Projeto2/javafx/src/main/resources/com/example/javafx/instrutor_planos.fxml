@@ -36,7 +36,7 @@
     </ImageView>
 
     <!-- Resto -->
-    <!-- Botão -->
+        <!-- Botão -->
     <Button layoutX="95.0" layoutY="328.0" mnemonicParsing="false" onAction="#onActionAnterior" onMouseClicked="#onActionAnterior" prefHeight="25.0" prefWidth="103.0" text="Anterior" />
     <Button layoutX="392.0" layoutY="328.0" mnemonicParsing="false" onAction="#onActionConfirmar" onMouseClicked="#onActionConfirmar" prefHeight="25.0" prefWidth="103.0" text="Confirmar" />
 </Pane>

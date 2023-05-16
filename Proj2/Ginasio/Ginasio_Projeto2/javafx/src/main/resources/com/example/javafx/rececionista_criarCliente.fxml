@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.rececionista_criarCliente"
-            prefHeight="400.0" prefWidth="600.0">
+<Pane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.rececionista_criarCliente" prefHeight="400.0" prefWidth="600.0">
+    <!-- Background -->
     <ImageView fitHeight="404.0" fitWidth="603.0" layoutX="-3.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
-        <image>
-            <Image url="@../../../../../images/background.jpg" />
-        </image>
+        <Image url="@../../../../../images/background.jpg"/>
     </ImageView>
 
-</AnchorPane>
+    <!-- Info Bar -->
+
+
+    <!-- Logo -->
+
+
+    <!-- Texto -->
+
+
+    <!-- Exit -->
+
+
+    <!-- Resto -->
+    <!-- Informação -->
+    <!-- Botão -->
+</Pane>
