@@ -1,19 +1,13 @@
 package controller;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.fxml.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+import java.io.*;
 
-
-import java.io.File;
-import java.io.IOException;
-import java.util.Scanner;
+import AcessoBD.src.main.java.BLL.LogRegBLL;
 
 public class _login {
     @FXML
@@ -27,7 +21,7 @@ public class _login {
     protected void onActionConfirmar(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         //TODO se _login der instrutor: vai para instrutor_dashboard
-        if(login_user.getText().matches("rececionista")) {
+        if(l.loginFuncionario == 1) {
             FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/rececionista_dashboard.fxml").toURI().toURL());
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
             stage.setTitle("Rececionista: Dashboard");
@@ -37,7 +31,7 @@ public class _login {
             Node source = (Node) event.getSource();
             Stage stageAtual = (Stage) source.getScene().getWindow();
             stageAtual.close();
-        } else if (login_user.getText().matches("instrutor")) {
+        } else if (l.loginFuncionario == 2) {
             FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_dashboard.fxml").toURI().toURL());
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
             stage.setTitle("Instrutor: Dashboard");
@@ -47,6 +41,8 @@ public class _login {
             Node source = (Node) event.getSource();
             Stage stageAtual = (Stage) source.getScene().getWindow();
             stageAtual.close();
+        } else if (l.loginFuncionario == 0) {
+            //failed
         }
     }
 }
