@@ -1,6 +1,6 @@
-package DAO;
+package com.bd.DAO;
 
-import repository.entities.Sala;
+import com.bd.repository.entities.Sala;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

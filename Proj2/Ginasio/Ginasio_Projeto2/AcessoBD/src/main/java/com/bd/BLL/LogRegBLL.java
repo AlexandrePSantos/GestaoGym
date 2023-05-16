@@ -1,9 +1,9 @@
-package BLL;
+package com.bd.BLL;
 
-import DAO.LoginDAO;
-import repository.entities.Cliente;
-import repository.entities.Funcionario;
-import repository.entities.Login;
+import com.bd.DAO.LoginDAO;
+import com.bd.repository.entities.Cliente;
+import com.bd.repository.entities.Funcionario;
+import com.bd.repository.entities.Login;
 
 public class LogRegBLL {
 

@@ -1,28 +1,28 @@
-package DAO;
+package com.bd.DAO;
 
-import repository.entities.Login;
+import com.bd.repository.entities.Planotreino;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.List;
 
-public class LoginDAO {
+public class PlanotreinoDAO {
 
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("persist_gym");
 
-    public void save(Login login) {
+    public void save(Planotreino planotreino) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.persist(login);
+        em.persist(planotreino);
         em.getTransaction().commit();
         em.close();
     }
 
-    public void update(Login login) {
+    public void update(Planotreino planotreino) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.merge(login);
+        em.merge(planotreino);
         em.getTransaction().commit();
         em.close();
     }
@@ -30,28 +30,25 @@ public class LoginDAO {
     public void delete(int id) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        Login login = em.find(Login.class, id);
-        if (login != null) {
-            em.remove(login);
+        Planotreino planotreino = em.find(Planotreino.class, id);
+        if (planotreino != null) {
+            em.remove(planotreino);
         }
         em.getTransaction().commit();
         em.close();
     }
 
-    public Login getByUsername(String username) {
+    public Planotreino getById(int id) {
         EntityManager em = emf.createEntityManager();
-        Login login = em.createQuery("SELECT l FROM Login l WHERE l.id = :username", Login.class)
-                .setParameter("username", username)
-                .getSingleResult();
+        Planotreino planotreino = em.find(Planotreino.class, id);
         em.close();
-        return login;
+        return planotreino;
     }
 
-    public List<Login> getAll() {
+    public List<Planotreino> getAll() {
         EntityManager em = emf.createEntityManager();
-        List<Login> logins = em.createQuery("SELECT l FROM Login l", Login.class).getResultList();
+        List<Planotreino> planosTreinos = em.createQuery("SELECT p FROM Planotreino p", Planotreino.class).getResultList();
         em.close();
-        return logins;
+        return planosTreinos;
     }
 }
-

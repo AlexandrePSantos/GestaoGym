@@ -1,6 +1,6 @@
-package DAO;
+package com.bd.DAO;
 
-import repository.entities.Cliente;
+import com.bd.repository.entities.Cliente;
 
 import javax.persistence.*;
 import java.time.LocalDate;

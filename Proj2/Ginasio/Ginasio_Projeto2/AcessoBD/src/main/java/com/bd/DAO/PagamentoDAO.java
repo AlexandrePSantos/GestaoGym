@@ -1,28 +1,28 @@
-package DAO;
+package com.bd.DAO;
 
-import repository.entities.Planotreino;
+import com.bd.repository.entities.Pagamento;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.List;
 
-public class PlanotreinoDAO {
+public class PagamentoDAO {
 
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("persist_gym");
 
-    public void save(Planotreino planotreino) {
+    public void save(Pagamento pagamento) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.persist(planotreino);
+        em.persist(pagamento);
         em.getTransaction().commit();
         em.close();
     }
 
-    public void update(Planotreino planotreino) {
+    public void update(Pagamento pagamento) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.merge(planotreino);
+        em.merge(pagamento);
         em.getTransaction().commit();
         em.close();
     }
@@ -30,25 +30,25 @@ public class PlanotreinoDAO {
     public void delete(int id) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        Planotreino planotreino = em.find(Planotreino.class, id);
-        if (planotreino != null) {
-            em.remove(planotreino);
+        Pagamento pagamento = em.find(Pagamento.class, id);
+        if (pagamento != null) {
+            em.remove(pagamento);
         }
         em.getTransaction().commit();
         em.close();
     }
 
-    public Planotreino getById(int id) {
+    public Pagamento getById(int id) {
         EntityManager em = emf.createEntityManager();
-        Planotreino planotreino = em.find(Planotreino.class, id);
+        Pagamento pagamento = em.find(Pagamento.class, id);
         em.close();
-        return planotreino;
+        return pagamento;
     }
 
-    public List<Planotreino> getAll() {
+    public List<Pagamento> getAll() {
         EntityManager em = emf.createEntityManager();
-        List<Planotreino> planosTreinos = em.createQuery("SELECT p FROM Planotreino p", Planotreino.class).getResultList();
+        List<Pagamento> pagamentos = em.createQuery("SELECT p FROM Pagamento p", Pagamento.class).getResultList();
         em.close();
-        return planosTreinos;
+        return pagamentos;
     }
 }

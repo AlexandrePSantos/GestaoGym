@@ -1,4 +1,4 @@
-package repository.entities;
+package com.bd.repository.entities;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

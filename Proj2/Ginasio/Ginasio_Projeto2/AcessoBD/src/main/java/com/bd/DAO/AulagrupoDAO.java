@@ -1,54 +1,55 @@
-package DAO;
+package com.bd.DAO;
 
-import repository.entities.Linhaparticipante;
+import com.bd.repository.entities.Aulagrupo;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.List;
 
-public class LinhaparticipanteDAO {
+public class AulagrupoDAO {
 
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("persist_gym");
 
-    public void save(Linhaparticipante linhaparticipante) {
+    public void save(Aulagrupo aulagrupo) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.persist(linhaparticipante);
+        em.persist(aulagrupo);
         em.getTransaction().commit();
         em.close();
     }
 
-    public void update(Linhaparticipante linhaparticipante) {
+    public void update(Aulagrupo aulagrupo) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.merge(linhaparticipante);
+        em.merge(aulagrupo);
         em.getTransaction().commit();
         em.close();
     }
 
-    public void delete(int id) {
+    public void delete(int numAula) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        Linhaparticipante linhaparticipante = em.find(Linhaparticipante.class, id);
-        if (linhaparticipante != null) {
-            em.remove(linhaparticipante);
+        Aulagrupo aulagrupo = em.find(Aulagrupo.class, numAula);
+        if (aulagrupo != null) {
+            em.remove(aulagrupo);
         }
         em.getTransaction().commit();
         em.close();
     }
 
-    public Linhaparticipante getById(int id) {
+    public Aulagrupo getById(int numAula) {
         EntityManager em = emf.createEntityManager();
-        Linhaparticipante linhaparticipante = em.find(Linhaparticipante.class, id);
+        Aulagrupo aulagrupo = em.find(Aulagrupo.class, numAula);
         em.close();
-        return linhaparticipante;
+        return aulagrupo;
     }
 
-    public List<Linhaparticipante> getAll() {
+    public List<Aulagrupo> getAll() {
         EntityManager em = emf.createEntityManager();
-        List<Linhaparticipante> linhasparticipantes = em.createQuery("SELECT l FROM Linhaparticipante l", Linhaparticipante.class).getResultList();
+        List<Aulagrupo> aulagrupos = em.createQuery("SELECT a FROM Aulagrupo a", Aulagrupo.class).getResultList();
         em.close();
-        return linhasparticipantes;
+        return aulagrupos;
     }
+
 }

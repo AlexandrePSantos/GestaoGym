@@ -1,4 +1,4 @@
-import repository.entities.Cliente;
+package com.bd;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

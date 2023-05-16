@@ -1,54 +1,54 @@
-package DAO;
+package com.bd.DAO;
 
-import repository.entities.Subscricao;
+import com.bd.repository.entities.Exercicio;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.List;
 
-public class SubscricaoDAO {
+public class ExercicioDAO {
 
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("persist_gym");
 
-    public void save(Subscricao subscricao) {
+    public void save(Exercicio exercicio) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.persist(subscricao);
+        em.persist(exercicio);
         em.getTransaction().commit();
         em.close();
     }
 
-    public void update(Subscricao subscricao) {
+    public void update(Exercicio exercicio) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.merge(subscricao);
+        em.merge(exercicio);
         em.getTransaction().commit();
         em.close();
     }
 
-    public void delete(int numSubscricao) {
+    public void delete(int id) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        Subscricao subscricao = em.find(Subscricao.class, numSubscricao);
-        if (subscricao != null) {
-            em.remove(subscricao);
+        Exercicio exercicio = em.find(Exercicio.class, id);
+        if (exercicio != null) {
+            em.remove(exercicio);
         }
         em.getTransaction().commit();
         em.close();
     }
 
-    public Subscricao getByNumSubscricao(int numSubscricao) {
+    public Exercicio getById(int id) {
         EntityManager em = emf.createEntityManager();
-        Subscricao subscricao = em.find(Subscricao.class, numSubscricao);
+        Exercicio exercicio = em.find(Exercicio.class, id);
         em.close();
-        return subscricao;
+        return exercicio;
     }
 
-    public List<Subscricao> getAll() {
+    public List<Exercicio> getAll() {
         EntityManager em = emf.createEntityManager();
-        List<Subscricao> subscricoes = em.createQuery("SELECT s FROM Subscricao s", Subscricao.class).getResultList();
+        List<Exercicio> exercicios = em.createQuery("SELECT e FROM Exercicio e", Exercicio.class).getResultList();
         em.close();
-        return subscricoes;
+        return exercicios;
     }
 }

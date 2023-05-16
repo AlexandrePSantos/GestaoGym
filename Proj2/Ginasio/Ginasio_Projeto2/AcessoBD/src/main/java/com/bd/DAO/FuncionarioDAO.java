@@ -1,6 +1,6 @@
-package DAO;
+package com.bd.DAO;
 
-import repository.entities.Funcionario;
+import com.bd.repository.entities.Funcionario;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

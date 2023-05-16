@@ -1,28 +1,28 @@
-package DAO;
+package com.bd.DAO;
 
-import repository.entities.Pagamento;
+import com.bd.repository.entities.Login;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.List;
 
-public class PagamentoDAO {
+public class LoginDAO {
 
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("persist_gym");
 
-    public void save(Pagamento pagamento) {
+    public void save(Login login) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.persist(pagamento);
+        em.persist(login);
         em.getTransaction().commit();
         em.close();
     }
 
-    public void update(Pagamento pagamento) {
+    public void update(Login login) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.merge(pagamento);
+        em.merge(login);
         em.getTransaction().commit();
         em.close();
     }
@@ -30,25 +30,28 @@ public class PagamentoDAO {
     public void delete(int id) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        Pagamento pagamento = em.find(Pagamento.class, id);
-        if (pagamento != null) {
-            em.remove(pagamento);
+        Login login = em.find(Login.class, id);
+        if (login != null) {
+            em.remove(login);
         }
         em.getTransaction().commit();
         em.close();
     }
 
-    public Pagamento getById(int id) {
+    public Login getByUsername(String username) {
         EntityManager em = emf.createEntityManager();
-        Pagamento pagamento = em.find(Pagamento.class, id);
+        Login login = em.createQuery("SELECT l FROM Login l WHERE l.id = :username", Login.class)
+                .setParameter("username", username)
+                .getSingleResult();
         em.close();
-        return pagamento;
+        return login;
     }
 
-    public List<Pagamento> getAll() {
+    public List<Login> getAll() {
         EntityManager em = emf.createEntityManager();
-        List<Pagamento> pagamentos = em.createQuery("SELECT p FROM Pagamento p", Pagamento.class).getResultList();
+        List<Login> logins = em.createQuery("SELECT l FROM Login l", Login.class).getResultList();
         em.close();
-        return pagamentos;
+        return logins;
     }
 }
+
