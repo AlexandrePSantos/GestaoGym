@@ -7,7 +7,6 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.*;
 
-import org.example.AcessoBD;
 
 public class _login {
     @FXML
