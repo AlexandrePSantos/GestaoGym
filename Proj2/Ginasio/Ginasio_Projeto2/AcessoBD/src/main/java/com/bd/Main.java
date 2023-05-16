@@ -1,5 +1,8 @@
 package com.bd;
 
+import com.bd.repository.entities.Funcionario;
+import com.bd.repository.entities.Login;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -33,6 +36,23 @@ public class Main {
 //        // Close the EntityManager and the EntityManagerFactory
 //        em.close();
 //        emf.close();
+//
+        // Create a new Funcionario entity
+        Login login = new Login();
+        Funcionario func = new Funcionario();
+        login.setId("Inst1");
+        login.setPassword("123456");
+        func.setLogin(login);
+        // Persist the new Cliente entity
+        em.persist(login);
+        em.persist(func);
+
+        // Commit the transaction
+        tx.commit();
+
+        // Close the EntityManager and the EntityManagerFactory
+        em.close();
+        emf.close();
     }
 
 }
