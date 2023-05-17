@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.instrutor_planos">
     <!-- Background -->
     <ImageView fitHeight="404.0" fitWidth="603.0" layoutX="-3.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
-        <Image url="@../../../../../images/background.jpg"/>
+        <Image url="@../../../../../images/background.jpg" />
     </ImageView>
 
     <!-- Info Bar -->
@@ -32,11 +30,11 @@
 
     <!-- Exit -->
     <ImageView fitHeight="33.0" fitWidth="39.0" layoutX="565.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-        <Image url="@../../../../../images/windows-exit-icon-29.jpg"/>
+        <Image url="@../../../../../images/windows-exit-icon-29.jpg" />
     </ImageView>
 
     <!-- Resto -->
         <!-- Botão -->
-    <Button layoutX="95.0" layoutY="328.0" mnemonicParsing="false" onAction="#onActionAnterior" onMouseClicked="#onActionAnterior" prefHeight="25.0" prefWidth="103.0" text="Anterior" />
-    <Button layoutX="392.0" layoutY="328.0" mnemonicParsing="false" onAction="#onActionConfirmar" onMouseClicked="#onActionConfirmar" prefHeight="25.0" prefWidth="103.0" text="Confirmar" />
+    <Button layoutX="95.0" layoutY="328.0" mnemonicParsing="false" onAction="#onActionAnterior" onMouseClicked="#onActionAnterior" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #ff8600;" text="Anterior" />
+    <Button layoutX="392.0" layoutY="328.0" mnemonicParsing="false" onAction="#onActionConfirmar" onMouseClicked="#onActionConfirmar" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #ff8600;" text="Confirmar" />
 </Pane>

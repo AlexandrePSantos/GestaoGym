@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import org.controlsfx.control.textfield.*?>
-
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.instrutor_info">
     <!-- Background -->
@@ -33,7 +31,7 @@
 
     <!-- Exit -->
     <ImageView fitHeight="33.0" fitWidth="39.0" layoutX="565.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-        <Image url="@../../../../../images/windows-exit-icon-29.jpg"/>
+        <Image url="@../../../../../images/windows-exit-icon-29.jpg" />
     </ImageView>
 
     <!-- Resto -->
@@ -47,6 +45,6 @@
    <CustomTextField layoutX="97.0" layoutY="278.0" prefHeight="25.0" prefWidth="178.0" promptText="NIF" />
    <CustomTextField layoutX="325.0" layoutY="278.0" prefHeight="25.0" prefWidth="178.0" promptText="Código Postal" />
         <!-- Botões -->
-   <Button layoutX="133.0" layoutY="340.0" mnemonicParsing="false" onAction="#onActionAnterior" onMouseClicked="#onActionAnterior" prefHeight="25.0" prefWidth="106.0" text="Anterior" />
-   <Button layoutX="361.0" layoutY="340.0" mnemonicParsing="false" onAction="#onActionGuardar" onMouseClicked="#onActionGuardar" prefHeight="25.0" prefWidth="106.0" text="Guardar" />
+   <Button layoutX="133.0" layoutY="340.0" mnemonicParsing="false" onAction="#onActionAnterior" onMouseClicked="#onActionAnterior" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #ff8600;" text="Anterior" />
+   <Button layoutX="361.0" layoutY="340.0" mnemonicParsing="false" onAction="#onActionGuardar" onMouseClicked="#onActionGuardar" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #ff8600;" text="Guardar" />
 </Pane>

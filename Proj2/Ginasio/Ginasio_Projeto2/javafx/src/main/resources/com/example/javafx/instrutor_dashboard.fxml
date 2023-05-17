@@ -42,7 +42,7 @@
          </font>
       </Text>
       <!-- Botão -->
-      <Button layoutX="205.0" layoutY="109.0" mnemonicParsing="false" onAction="#onActionAlterar" onMouseClicked="#onActionAlterar" prefHeight="25.0" prefWidth="79.0" text="Alterar">
+      <Button layoutX="205.0" layoutY="109.0" mnemonicParsing="false" onAction="#onActionAlterar" onMouseClicked="#onActionAlterar" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #ff8600;" text="Alterar">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -64,7 +64,7 @@
          </font>
       </Text>
       <!-- Botão -->
-      <Button fx:id="inst_dash_alt" layoutX="205.0" layoutY="109.0" mnemonicParsing="false" onAction="#onActionMaisInfoPlano" prefHeight="25.0" prefWidth="79.0" text="Mais info.">
+      <Button fx:id="inst_dash_alt" layoutX="205.0" layoutY="109.0" mnemonicParsing="false" onAction="#onActionMaisInfoPlano" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #ff8600;" text="Mais info.">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -92,7 +92,7 @@
          </font>
       </Text>
       <!-- Botão -->
-      <Button layoutX="164.0" layoutY="277.0" mnemonicParsing="false" onAction="#onActionMaisInfoAula" prefHeight="25.0" prefWidth="79.0" text="Mais info.">
+      <Button layoutX="164.0" layoutY="277.0" mnemonicParsing="false" onAction="#onActionMaisInfoAula" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #ff8600;" text="Mais info.">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
