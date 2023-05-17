@@ -6,12 +6,14 @@ package controller;
         import javafx.scene.Node;
         import javafx.scene.Scene;
         import javafx.scene.control.Button;
+        import javafx.scene.image.ImageView;
         import javafx.stage.Stage;
 
         import java.io.File;
         import java.io.IOException;
 
 public class instrutor_dashboard {
+    public ImageView exit;
     @FXML
     private Button inst_dash_alt;
 
@@ -64,7 +66,7 @@ public class instrutor_dashboard {
     protected void onActionExit(ActionEvent event) throws IOException {
         //DONE Abrir instrutor_aulas
         Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/login.fxml").toURI().toURL());
+        FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/_login.fxml").toURI().toURL());
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Login");
         stage.setScene(scene);

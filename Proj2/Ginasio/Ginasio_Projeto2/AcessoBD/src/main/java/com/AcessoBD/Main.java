@@ -46,12 +46,12 @@ public class Main {
 //        // Persist the new Cliente entity
 //        em.persist(login);
 //        em.persist(func);
-//
-//        // Commit the transaction
-//        tx.commit();
-//
-//        // Close the EntityManager and the EntityManagerFactory
-//        em.close();
-//        emf.close();
+
+        // Commit the transaction
+        tx.commit();
+
+        // Close the EntityManager and the EntityManagerFactory
+        em.close();
+        emf.close();
     }
 }
