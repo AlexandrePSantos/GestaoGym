@@ -59,4 +59,19 @@ public class instrutor_dashboard {
         Stage stageAtual = (Stage) source.getScene().getWindow();
         stageAtual.close();
     }
+
+    @FXML
+    protected void onActionExit(ActionEvent event) throws IOException {
+        //DONE Abrir instrutor_aulas
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/login.fxml").toURI().toURL());
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        stage.setTitle("Login");
+        stage.setScene(scene);
+        stage.show();
+
+        Node source = (Node) event.getSource();
+        Stage stageAtual = (Stage) source.getScene().getWindow();
+        stageAtual.close();
+    }
 }
