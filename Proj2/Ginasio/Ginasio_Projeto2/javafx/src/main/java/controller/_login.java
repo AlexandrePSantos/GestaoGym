@@ -27,7 +27,6 @@ public class _login {
             stage.setTitle("Instrutor: Dashboard");
             stage.setScene(scene);
             stage.show();
-
             Node source = (Node) event.getSource();
             Stage stageAtual = (Stage) source.getScene().getWindow();
             stageAtual.close();
@@ -37,7 +36,6 @@ public class _login {
             stage.setTitle("Rececionista: Dashboard");
             stage.setScene(scene);
             stage.show();
-
             Node source = (Node) event.getSource();
             Stage stageAtual = (Stage) source.getScene().getWindow();
             stageAtual.close();
