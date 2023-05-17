@@ -10,7 +10,7 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.instrutor_dashboard">
    <!-- Background -->
    <ImageView fitHeight="404.0" fitWidth="603.0" layoutX="-3.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
-      <Image url="@../../../../../images/background.jpg"/>
+      <Image url="@../../../../../images/background.jpg" />
    </ImageView>
 
    <!-- Info Bar -->
@@ -29,68 +29,91 @@
 
    <!-- Exit -->
    <ImageView fitHeight="33.0" fitWidth="39.0" layoutX="565.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@../../../../../images/windows-exit-icon-29.jpg"/>
+      <Image url="@../../../../../images/windows-exit-icon-29.jpg" />
    </ImageView>
 
    <!-- Resto -->
    <Pane layoutX="17.0" layoutY="56.0" prefHeight="148.0" prefWidth="298.0">
       <!-- Informação -->
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="148.0" stroke="BLACK" strokeMiterLimit="0.0"
-                 width="298.0"/>
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="148.0" stroke="BLACK" strokeMiterLimit="0.0" width="298.0" />
       <Text layoutX="7.0" layoutY="22.0" text="Informação" wrappingWidth="257.0">
          <font>
-            <Font size="20.0"/>
+            <Font size="20.0" />
          </font>
       </Text>
       <!-- Botão -->
-      <Button layoutX="205.0" layoutY="109.0" mnemonicParsing="false" onAction="#onActionAlterar"
-              onMouseClicked="#onActionAlterar" prefHeight="25.0" prefWidth="79.0" text="Alterar">
+      <Button layoutX="205.0" layoutY="109.0" mnemonicParsing="false" onAction="#onActionAlterar" onMouseClicked="#onActionAlterar" prefHeight="25.0" prefWidth="79.0" text="Alterar">
          <cursor>
-            <Cursor fx:constant="HAND"/>
+            <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <TextField editable="false" layoutX="14.0" layoutY="39.0" prefHeight="25.0" prefWidth="79.0" promptText="Nome" />
+      <TextField editable="false" layoutX="110.0" layoutY="39.0" prefHeight="25.0" prefWidth="79.0" promptText="Telemóvel" />
+      <TextField editable="false" layoutX="205.0" layoutY="39.0" prefHeight="25.0" prefWidth="79.0" promptText="Email" />
+      <TextField editable="false" layoutX="14.0" layoutY="79.0" prefHeight="25.0" prefWidth="79.0" promptText="Data de Nascimento" />
+      <TextField editable="false" layoutX="110.0" layoutY="79.0" prefHeight="25.0" prefWidth="79.0" promptText="Código Postal" />
+      <TextField editable="false" layoutX="205.0" layoutY="79.0" prefHeight="25.0" prefWidth="79.0" promptText="NIF" />
    </Pane>
 
    <Pane layoutX="17.0" layoutY="224.0" prefHeight="148.0" prefWidth="298.0">
       <!-- Informação -->
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="148.0" stroke="BLACK" strokeMiterLimit="0.0"
-                 width="298.0"/>
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="148.0" stroke="BLACK" strokeMiterLimit="0.0" width="298.0" />
       <Text layoutX="7.0" layoutY="22.0" text="Planos de Treino" wrappingWidth="257.0">
          <font>
-            <Font size="20.0"/>
+            <Font size="20.0" />
          </font>
       </Text>
       <!-- Botão -->
-      <Button fx:id="inst_dash_alt" layoutX="205.0" layoutY="109.0" mnemonicParsing="false"
-              onAction="#onActionMaisInfoPlano" prefHeight="25.0" prefWidth="79.0" text="Mais info.">
+      <Button fx:id="inst_dash_alt" layoutX="205.0" layoutY="109.0" mnemonicParsing="false" onAction="#onActionMaisInfoPlano" prefHeight="25.0" prefWidth="79.0" text="Mais info.">
          <cursor>
-            <Cursor fx:constant="HAND"/>
+            <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="33.0" layoutX="14.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="268.0" />
+      <Text layoutX="21.0" layoutY="51.0" text="Plano 1:" wrappingWidth="79.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="33.0" layoutX="14.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" width="268.0" />
+      <Text layoutX="21.0" layoutY="93.0" text="Plano 2:" wrappingWidth="79.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
    </Pane>
 
    <Pane layoutX="326.0" layoutY="56.0" prefHeight="316.0" prefWidth="257.0">
       <!-- Informação -->
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="316.0" stroke="BLACK" strokeMiterLimit="0.0"
-                 width="257.0"/>
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="316.0" stroke="BLACK" strokeMiterLimit="0.0" width="257.0" />
       <Text layoutX="7.0" layoutY="22.0" text="Aulas de Grupo Futuras" wrappingWidth="257.0">
          <font>
-            <Font size="20.0"/>
+            <Font size="20.0" />
          </font>
       </Text>
       <!-- Botão -->
-      <Button layoutX="164.0" layoutY="277.0" mnemonicParsing="false" onAction="#onActionMaisInfoAula" prefHeight="25.0"
-              prefWidth="79.0" text="Mais info.">
+      <Button layoutX="164.0" layoutY="277.0" mnemonicParsing="false" onAction="#onActionMaisInfoAula" prefHeight="25.0" prefWidth="79.0" text="Mais info.">
          <cursor>
-            <Cursor fx:constant="HAND"/>
+            <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
       <!-- Tabela -->
-      <TableView layoutX="14.0" layoutY="40.0" prefHeight="81.0" prefWidth="237.0">
+      <TableView layoutX="10.0" layoutY="58.0" prefHeight="95.0" prefWidth="237.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="Tipo"/>
-            <TableColumn prefWidth="75.0" text="Data/Hora"/>
+            <TableColumn prefWidth="45.0" text="Tipo" />
+            <TableColumn prefWidth="69.0" text="Data/Hora" />
+            <TableColumn prefWidth="54.0" text="Duração" />
+            <TableColumn prefWidth="84.0" text="Sala-Piso" />
+            <TableColumn prefWidth="69.0" text="Participantes" />
          </columns>
       </TableView>
+      <ScrollBar layoutX="10.0" layoutY="151.0" prefHeight="14.0" prefWidth="237.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="136.0" layoutX="10.0" layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="237.0" />
+      <Text layoutX="14.0" layoutY="52.0" text="Por Realizar" wrappingWidth="257.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Line endX="-0.5" endY="7.79901123046875" layoutX="230.0" layoutY="15.0" startX="-100.0" />
    </Pane>
 </Pane>
