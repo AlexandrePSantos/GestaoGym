@@ -97,6 +97,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Text layoutX="14.0" layoutY="52.0" text="Por Realizar" wrappingWidth="257.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
       <!-- Tabela -->
       <TableView layoutX="10.0" layoutY="58.0" prefHeight="95.0" prefWidth="237.0">
          <columns>
@@ -109,10 +114,21 @@
       </TableView>
       <ScrollBar layoutX="10.0" layoutY="151.0" prefHeight="14.0" prefWidth="237.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="136.0" layoutX="10.0" layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="237.0" />
-      <Text layoutX="14.0" layoutY="52.0" text="Por Realizar" wrappingWidth="257.0">
+      <TableView layoutX="10.0" layoutY="199.0" prefHeight="58.0" prefWidth="237.0">
+         <columns>
+            <TableColumn prefWidth="45.0" text="Tipo" />
+            <TableColumn prefWidth="69.0" text="Data/Hora" />
+            <TableColumn prefWidth="54.0" text="Duração" />
+            <TableColumn prefWidth="84.0" text="Sala-Piso" />
+            <TableColumn prefWidth="69.0" text="Participantes" />
+         </columns>
+      </TableView>
+      <Text layoutX="14.0" layoutY="194.0" text="Por Realizar" wrappingWidth="257.0">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
+      <ScrollBar layoutX="10.0" layoutY="257.0" prefHeight="14.0" prefWidth="237.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="101.0" layoutX="10.0" layoutY="172.0" stroke="BLACK" strokeType="INSIDE" width="237.0" />
    </Pane>
 </Pane>
