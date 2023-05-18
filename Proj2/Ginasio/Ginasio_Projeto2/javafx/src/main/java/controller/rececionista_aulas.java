@@ -17,7 +17,7 @@ public class rececionista_aulas {
         //DONE Abrir instrutor_dashboard
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/rececionista_dashboard.fxml").toURI().toURL());
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
         stage.setTitle("Rececionista: Dashboard");
         stage.setScene(scene);
         stage.show();
@@ -33,7 +33,7 @@ public class rececionista_aulas {
         //TODO guardar informacao
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/rececionista_dashboard.fxml").toURI().toURL());
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
         stage.setTitle("Rececionista: Dashboard");
         stage.setScene(scene);
         stage.show();

@@ -15,7 +15,7 @@ public class rececionista_criarCliente {
     protected void onActionAnterior(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/rececionista_dashboard.fxml").toURI().toURL());
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
         stage.setTitle("Rececionista: Dashboard");
         stage.setScene(scene);
         stage.show();
@@ -29,7 +29,7 @@ public class rececionista_criarCliente {
     protected void onActionGuardar(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/rececionista_dashboard.fxml").toURI().toURL());
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
         stage.setTitle("Rececionista: Dashboard");
         stage.setScene(scene);
         stage.show();
