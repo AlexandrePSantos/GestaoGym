@@ -112,8 +112,6 @@
             <TableColumn prefWidth="69.0" text="Participantes" />
          </columns>
       </TableView>
-      <ScrollBar layoutX="10.0" layoutY="151.0" prefHeight="14.0" prefWidth="237.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="136.0" layoutX="10.0" layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="237.0" />
       <TableView layoutX="10.0" layoutY="199.0" prefHeight="58.0" prefWidth="237.0">
          <columns>
             <TableColumn prefWidth="45.0" text="Tipo" />
@@ -128,7 +126,5 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <ScrollBar layoutX="10.0" layoutY="257.0" prefHeight="14.0" prefWidth="237.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="101.0" layoutX="10.0" layoutY="172.0" stroke="BLACK" strokeType="INSIDE" width="237.0" />
-   </Pane>
+  </Pane>
 </Pane>
