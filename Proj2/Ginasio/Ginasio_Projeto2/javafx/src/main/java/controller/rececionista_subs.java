@@ -15,7 +15,7 @@ public class rececionista_subs {
         try{
             Stage stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_dashboard.fxml").toURI().toURL());
-            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
             stage.setTitle("instrutor_dashboard");
             stage.setScene(scene);
             stage.show();
@@ -35,7 +35,7 @@ public class rececionista_subs {
         try{
             Stage stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_dashboard.fxml").toURI().toURL());
-            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
             stage.setTitle("instrutor_dashboard");
             stage.setScene(scene);
             stage.show();
@@ -47,4 +47,6 @@ public class rececionista_subs {
             e.printStackTrace();
         }
     }
+
+
 }

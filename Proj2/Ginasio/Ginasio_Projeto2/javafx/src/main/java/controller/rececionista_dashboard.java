@@ -17,8 +17,7 @@ public class rececionista_dashboard {
         //DONE Abrir instrutor_info
     Stage stage = new Stage();
     FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/rececionista_info.fxml").toURI().toURL());
-    Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-    stage.setTitle("Rececionista: Perfil");
+        Scene scene = new Scene(fxmlLoader.load(), 1366, 768);.setTitle("Rececionista: Perfil");
     stage.setScene(scene);
     stage.show();
 
@@ -32,7 +31,7 @@ public class rececionista_dashboard {
         //DONE Abrir instrutor_planos
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/rececionista_planos.fxml").toURI().toURL());
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
         stage.setTitle("Rececionista: Planos de Treino");
         stage.setScene(scene);
         stage.show();
@@ -47,7 +46,7 @@ public class rececionista_dashboard {
         //DONE Abrir rececionista_aulas
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/rececionista_aulas.fxml").toURI().toURL());
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
         stage.setTitle("Rececionista: Aulas de Grupo");
         stage.setScene(scene);
         stage.show();
@@ -62,7 +61,7 @@ public class rececionista_dashboard {
         //DONE Abrir rececionista_criarCliente
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/rececionista_criarCliente.fxml").toURI().toURL());
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
         stage.setTitle("Rececionista: Criar Cliente");
         stage.setScene(scene);
         stage.show();
