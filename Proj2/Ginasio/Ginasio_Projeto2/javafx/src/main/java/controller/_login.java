@@ -32,9 +32,9 @@ public class _login {
             Stage stageAtual = (Stage) source.getScene().getWindow();
             stageAtual.close();
         } else if (l.loginFuncionario(login_user.getText(), login_password.getText()) == 2) {
-            FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/rececionista_dashboard.fxml").toURI().toURL());
+            FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/admin_dashboard.fxml").toURI().toURL());
             Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
-            stage.setTitle("Rececionista: Dashboard");
+            stage.setTitle("Admin: Dashboard");
             stage.setScene(scene);
             stage.show();
 

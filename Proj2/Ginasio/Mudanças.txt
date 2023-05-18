@@ -1,0 +1,21 @@
+
+!! DESKTOP !!
+--> Admin <--
+-ver/editar propria informação
+-cria funcionario, admin e clientes
+-ver informação de utilizadores
+-ver informação de planos
+-ver informação de aulas
+
+--> Instrutor <--
+-ver/editar propria informação
+-ver/criar/editar informação de planos (incluir nome de clientes com)
+-ver/criar/editar informação de aulas (incluir nome de clientes que participam)
+
+!! WEB !!
+--> Cliente <--
+-ver/editar propria informação
+-ver informação de planos
+-trocar de plano
+-ver informação de aulas
+-inscrever em aulas

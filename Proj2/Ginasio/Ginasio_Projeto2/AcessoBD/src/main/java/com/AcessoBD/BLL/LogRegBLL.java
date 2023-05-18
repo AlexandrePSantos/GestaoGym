@@ -30,9 +30,9 @@ public class LogRegBLL {
                     // Successful login for a Funcionario
                     //retornar 1 (Instrutor)
                     return 1;
-                } else if (funcionario.getFuncao().equals("Rececionista")) {
+                } else if (funcionario.getFuncao().equals("Administrador")) {
                     // Successful login for a Funcionario
-                    //retornar 1 (Rececionista)
+                    //retornar 1 (Administrador)
                     return 2;
                 }
             }
