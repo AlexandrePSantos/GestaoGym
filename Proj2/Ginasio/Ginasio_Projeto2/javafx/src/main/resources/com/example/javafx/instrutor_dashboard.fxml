@@ -100,60 +100,70 @@
          </font>
       </Text>
       <!-- Tabela -->
-      <TableView fx:id="planeado" layoutX="10.0" layoutY="58.0" prefHeight="95.0" prefWidth="402.0">
+      <TableView fx:id="planeado" layoutX="10.0" layoutY="58.0" prefHeight="95.0" prefWidth="561.0">
          <columns>
             <TableColumn text="Tipo">
                <cellValueFactory>
-                  <PropertyValueFactory property="property1" />
+                  <PropertyValueFactory property="tipo_aula" />
                </cellValueFactory>
             </TableColumn>
             <TableColumn text="Data/Hora">
                <cellValueFactory>
-                  <PropertyValueFactory property="property1" />
+                  <PropertyValueFactory property="data_aula" />
                </cellValueFactory>
             </TableColumn>
             <TableColumn text="Duração">
                <cellValueFactory>
-                  <PropertyValueFactory property="property1" />
+                  <PropertyValueFactory property="duracao" />
                </cellValueFactory>
             </TableColumn>
             <TableColumn text="Sala-Piso">
                <cellValueFactory>
-                  <PropertyValueFactory property="property1" />
+                  <PropertyValueFactory property="sala" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Participantes">
+            <TableColumn text="Vagas totais">
                <cellValueFactory>
-                  <PropertyValueFactory property="property1" />
+                  <PropertyValueFactory property="vagas" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="109.20001220703125" text="Vagas disponiveis">
+               <cellValueFactory>
+                  <PropertyValueFactory property="vagas_disp" />
                </cellValueFactory>
             </TableColumn>
          </columns>
       </TableView>
-      <TableView fx:id="realizado" layoutX="10.0" layoutY="199.0" prefHeight="58.0" prefWidth="322.0">
+      <TableView fx:id="realizado" layoutX="10.0" layoutY="199.0" prefHeight="58.0" prefWidth="561.0">
          <columns>
             <TableColumn text="Tipo">
                <cellValueFactory>
-                  <PropertyValueFactory property="property1" />
+                  <PropertyValueFactory property="tipo_aula" />
                </cellValueFactory>
             </TableColumn>
             <TableColumn text="Data/Hora">
                <cellValueFactory>
-                  <PropertyValueFactory property="property1" />
+                  <PropertyValueFactory property="data_aula" />
                </cellValueFactory>
             </TableColumn>
             <TableColumn text="Duração">
                <cellValueFactory>
-                  <PropertyValueFactory property="property1" />
+                  <PropertyValueFactory property="duracao" />
                </cellValueFactory>
             </TableColumn>
             <TableColumn text="Sala-Piso">
                <cellValueFactory>
-                  <PropertyValueFactory property="property1" />
+                  <PropertyValueFactory property="sala" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Participantes">
+            <TableColumn text="Vagas totais">
                <cellValueFactory>
-                  <PropertyValueFactory property="property1" />
+                  <PropertyValueFactory property="vagas" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="117.0" text="Vagas disponiveis">
+               <cellValueFactory>
+                  <PropertyValueFactory property="vagas_disp" />
                </cellValueFactory>
             </TableColumn>
          </columns>
