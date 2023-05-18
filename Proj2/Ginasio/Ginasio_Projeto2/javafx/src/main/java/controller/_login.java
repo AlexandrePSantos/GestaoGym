@@ -1,10 +1,10 @@
 package controller;
 
 import com.AcessoBD.BLL.LogRegBLL;
-import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import java.io.*;
 
@@ -17,13 +17,13 @@ public class _login {
     Button login_confirmar;
 
     @FXML
-    protected void onActionConfirmar(ActionEvent event) throws IOException {
+    protected void onActionConfirmar(MouseEvent event) throws IOException {
         Stage stage = new Stage();
         LogRegBLL l = new LogRegBLL();
         //TODO se _login der instrutor: vai para instrutor_dashboard
         if(l.loginFuncionario(login_user.getText(), login_password.getText()) == 1) {
             FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_dashboard.fxml").toURI().toURL());
-            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
             stage.setTitle("Instrutor: Dashboard");
             stage.setScene(scene);
             stage.show();
@@ -33,7 +33,7 @@ public class _login {
             stageAtual.close();
         } else if (l.loginFuncionario(login_user.getText(), login_password.getText()) == 2) {
             FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/rececionista_dashboard.fxml").toURI().toURL());
-            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
             stage.setTitle("Rececionista: Dashboard");
             stage.setScene(scene);
             stage.show();
