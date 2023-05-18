@@ -5,6 +5,7 @@ import com.AcessoBD.repository.entities.Aulagrupo;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class AulagrupoDAO {

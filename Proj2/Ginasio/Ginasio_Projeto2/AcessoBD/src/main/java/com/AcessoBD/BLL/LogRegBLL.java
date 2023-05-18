@@ -10,7 +10,6 @@ public class LogRegBLL {
     private LoginDAO loginDAO = new LoginDAO();
 
     public boolean loginCliente(String username, String password) {
-        LoginDAO loginDAO = new LoginDAO();
         Login login = loginDAO.getByUsername(username);
         if (login != null && login.getPassword().equals(password)) {
             Cliente cliente = login.getCliente();
@@ -22,7 +21,6 @@ public class LogRegBLL {
     }
 
     public Integer loginFuncionario(String username, String password) {
-        LoginDAO loginDAO = new LoginDAO();
         Login login = loginDAO.getByUsername(username);
         if (login != null && login.getPassword().equals(password)) {
             Funcionario funcionario = login.getFuncionario();

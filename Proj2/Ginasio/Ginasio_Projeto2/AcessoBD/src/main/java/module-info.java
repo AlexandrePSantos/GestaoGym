@@ -9,4 +9,5 @@ module com.AcessoBD {
 
     exports com.AcessoBD.DAO;
     exports com.AcessoBD.BLL;
+    exports com.AcessoBD.repository.entities;
 }
