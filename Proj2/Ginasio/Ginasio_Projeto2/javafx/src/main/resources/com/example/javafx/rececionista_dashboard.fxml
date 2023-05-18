@@ -9,13 +9,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.rececionista_dashboard">
-   <!-- Background -->
-   <ImageView fitHeight="404.0" fitWidth="603.0" layoutX="-3.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
-      <Image url="@../../../../../images/background.jpg"/>
-   </ImageView>
-
    <!-- Info Bar -->
-   <Rectangle fill="#ff8600" height="40.0" stroke="#ff8600" strokeMiterLimit="0.0" width="600.0" />
+   <Rectangle fill="#ff8600" height="39.0" stroke="#ff8600" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="1366.0" />
 
    <!-- Logo -->
    <Rectangle arcHeight="5.0" arcWidth="10.0" fill="BLACK" height="39.0" layoutX="6.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="39.0" />
@@ -24,13 +19,13 @@
    </Text>
 
    <!-- Texto -->
-   <Text layoutY="28.0" text="Dashboard" textAlignment="CENTER" wrappingWidth="600.0">
+   <Text layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" textAlignment="CENTER" wrappingWidth="1366.0">
       <font> <Font size="20.0" /> </font>
    </Text>
 
    <!-- Exit -->
-   <ImageView fitHeight="33.0" fitWidth="39.0" layoutX="565.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@../../../../../images/windows-exit-icon-29.jpg"/>
+   <ImageView fitHeight="33.0" fitWidth="39.0" layoutX="1325.0" layoutY="4.0" onMouseClicked="#onActionExit" pickOnBounds="true" preserveRatio="true">
+      <Image url="@../../../../../images/windows-exit-icon-29.jpg" />
    </ImageView>
 
    <!-- Resto -->

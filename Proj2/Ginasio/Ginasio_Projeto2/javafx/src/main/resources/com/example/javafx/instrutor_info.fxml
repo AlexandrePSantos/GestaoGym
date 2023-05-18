@@ -8,16 +8,9 @@
 <?import org.controlsfx.control.textfield.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.instrutor_info">
-    <!-- Background -->
-    <ImageView fitHeight="404.0" fitWidth="603.0" layoutX="-3.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
-        <image>
-            <Image url="@../../../../../images/background.jpg" />
-        </image>
-    </ImageView>
-
     <!-- Info Bar e Texto -->
-    <Rectangle fill="#ff8600" height="39.0" layoutX="-3.0" stroke="#ff8600" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="603.0" />
-    <Text layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perfil" textAlignment="CENTER" wrappingWidth="600.0">
+    <Rectangle fill="#ff8600" height="39.0" stroke="#ff8600" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="1366.0" />
+    <Text layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perfil" textAlignment="CENTER" wrappingWidth="1366.0">
         <font>
             <Font size="20.0" />
         </font>
@@ -30,7 +23,7 @@
     </Text>
 
     <!-- Exit -->
-    <ImageView fitHeight="33.0" fitWidth="39.0" layoutX="565.0" layoutY="4.0" onMouseClicked="#onActionExit" pickOnBounds="true" preserveRatio="true">
+    <ImageView fitHeight="33.0" fitWidth="39.0" layoutX="1325.0" layoutY="4.0" onMouseClicked="#onActionExit" pickOnBounds="true" preserveRatio="true">
         <Image url="@../../../../../images/windows-exit-icon-29.jpg" />
     </ImageView>
 
