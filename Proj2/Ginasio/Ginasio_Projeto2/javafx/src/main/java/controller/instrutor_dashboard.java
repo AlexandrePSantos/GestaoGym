@@ -6,6 +6,7 @@ package controller;
         import javafx.scene.Node;
         import javafx.scene.Scene;
         import javafx.scene.control.Button;
+        import javafx.scene.control.TableView;
         import javafx.scene.image.ImageView;
         import javafx.scene.input.MouseEvent;
         import javafx.stage.Stage;
@@ -16,6 +17,8 @@ package controller;
 public class instrutor_dashboard {
     @FXML
     public ImageView exit;
+    public TableView planeado;
+    public TableView realizado;
     @FXML
     private Button inst_dash_alt;
 
