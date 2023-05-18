@@ -13,6 +13,7 @@ package controller;
         import java.io.IOException;
 
 public class instrutor_dashboard {
+    @FXML
     public ImageView exit;
     @FXML
     private Button inst_dash_alt;
