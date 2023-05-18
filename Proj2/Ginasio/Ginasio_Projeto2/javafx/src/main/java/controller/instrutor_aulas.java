@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import com.AcessoBD.BLL.AulasBLL;
@@ -62,7 +63,7 @@ public class instrutor_aulas {
     }
 
     @FXML
-    protected void exit(ActionEvent event) throws IOException {
+    protected void onActionExit(MouseEvent event) throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/_login.fxml").toURI().toURL());
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);

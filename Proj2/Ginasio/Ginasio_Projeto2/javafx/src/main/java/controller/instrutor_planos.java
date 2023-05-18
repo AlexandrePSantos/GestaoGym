@@ -5,7 +5,8 @@ import javafx.event.ActionEvent;
         import javafx.fxml.FXMLLoader;
         import javafx.scene.Node;
         import javafx.scene.Scene;
-        import javafx.stage.Stage;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
         import java.io.File;
         import java.io.IOException;
@@ -42,7 +43,7 @@ public class instrutor_planos {
     }
 
     @FXML
-    protected void onActionExit(ActionEvent event) throws IOException {
+    protected void onActionExit(MouseEvent event) throws IOException {
         //DONE Abrir instrutor_aulas
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/_login.fxml").toURI().toURL());
