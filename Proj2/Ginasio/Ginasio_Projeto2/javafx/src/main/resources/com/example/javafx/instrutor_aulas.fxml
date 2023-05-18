@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -68,22 +69,43 @@
         </columns>
     </TableView>
         <!-- Botão -->
-   <Button layoutX="592.0" layoutY="688.0" mnemonicParsing="false" onAction="#onActionAnterior" onMouseClicked="#onActionAnterior" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #ff8600;" text="Anterior" />
+   <Button layoutX="592.0" layoutY="688.0" mnemonicParsing="false" onAction="#onActionAnterior" onMouseClicked="#onActionAnterior" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #ff8600;" text="Anterior">
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor></Button>
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="128.0" layoutX="58.0" layoutY="525.0" stroke="BLACK" strokeType="INSIDE" width="1267.0" />
-   <TextField layoutX="142.0" layoutY="574.0" promptText="Tipo de Aula" />
-   <TextField layoutX="861.0" layoutY="577.0" promptText="Vagas Totais" />
-   <Button layoutX="1096.0" layoutY="606.0" mnemonicParsing="false" onAction="#onActionAnterior" onMouseClicked="#onActionAnterior" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #ff8600;" text="Confirmar" />
+   <TextField layoutX="142.0" layoutY="574.0" promptText="Tipo de Aula">
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor></TextField>
+   <TextField layoutX="861.0" layoutY="577.0" promptText="Vagas Totais">
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor></TextField>
+   <Button layoutX="1096.0" layoutY="606.0" mnemonicParsing="false" onAction="#onActionAnterior" onMouseClicked="#onActionAnterior" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #ff8600;" text="Confirmar">
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor></Button>
    <MenuButton layoutX="1140.0" layoutY="574.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Instrutor">
      <items>
        <MenuItem mnemonicParsing="false" text="Action 1" />
        <MenuItem mnemonicParsing="false" text="Action 2" />
      </items>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
    </MenuButton>
    <MenuButton layoutX="665.0" layoutY="577.0" mnemonicParsing="false" text="Sala">
      <items>
        <MenuItem mnemonicParsing="false" text="Action 1" />
        <MenuItem mnemonicParsing="false" text="Action 2" />
      </items>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
    </MenuButton>
-   <DatePicker layoutX="377.0" layoutY="577.0" />
+   <DatePicker layoutX="377.0" layoutY="577.0">
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor></DatePicker>
 </Pane>
