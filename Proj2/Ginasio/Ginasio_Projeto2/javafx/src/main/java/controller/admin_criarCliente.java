@@ -10,11 +10,9 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 
-public class rececionista_aulas {
-
+public class admin_criarCliente {
     @FXML
     protected void onActionAnterior(ActionEvent event) throws IOException {
-        //DONE Abrir instrutor_dashboard
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/rececionista_dashboard.fxml").toURI().toURL());
         Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
@@ -28,9 +26,7 @@ public class rececionista_aulas {
     }
 
     @FXML
-    protected void onActionConfirmar(ActionEvent event) throws IOException {
-        //DONE abrir instrutor_dashboard
-        //TODO guardar informacao
+    protected void onActionGuardar(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/rececionista_dashboard.fxml").toURI().toURL());
         Scene scene = new Scene(fxmlLoader.load(), 1366, 768);

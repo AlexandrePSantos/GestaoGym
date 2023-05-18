@@ -31,13 +31,13 @@
 
     <!-- Resto -->
     <!-- Informação 1 -->
-    <Text layoutX="14.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planeadas" wrappingWidth="139.0">
+    <Text layoutX="39.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planeadas" wrappingWidth="112.0">
         <font>
             <Font size="20.0" />
         </font>
     </Text>
         <!-- Tabela 1 -->
-    <TableView layoutX="39.0" layoutY="66.0" prefHeight="71.0" prefWidth="520.0">
+    <TableView layoutX="81.0" layoutY="119.0" prefHeight="128.0" prefWidth="1195.0">
         <columns>
             <TableColumn prefWidth="90.0" text="Aula nº" />
             <TableColumn prefWidth="90.0" text="Tipo" />
@@ -47,29 +47,19 @@
         </columns>
     </TableView>
     <!-- Informação 2 -->
-    <Text layoutX="14.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Realizadas" wrappingWidth="139.0">
+    <Text layoutX="39.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Realizadas" wrappingWidth="139.0">
         <font>
             <Font size="20.0" />
         </font>
     </Text>
-        <!-- Tabela 2 -->
-    <TableView layoutX="39.0" layoutY="276.0" prefHeight="71.0" prefWidth="520.0">
-        <columns>
-            <TableColumn prefWidth="90.0" text="Aula nº" />
-            <TableColumn prefWidth="90.0" text="Tipo" />
-            <TableColumn prefWidth="125.0" text="Data/Hora" />
-            <TableColumn prefWidth="125.0" text="Sala-Piso" />
-            <TableColumn prefWidth="90.0" text="Vagas Totais" />
-        </columns>
-    </TableView>
         <!-- Informação 3 -->
-    <Text layoutX="14.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Criar" wrappingWidth="139.0">
+    <Text layoutX="39.0" layoutY="507.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Criar" wrappingWidth="55.0">
         <font>
             <Font size="20.0" />
         </font>
     </Text>
         <!-- Tabela 3 -->
-    <TableView layoutX="39.0" layoutY="172.0" prefHeight="71.0" prefWidth="520.0">
+    <TableView layoutX="81.0" layoutY="329.0" prefHeight="128.0" prefWidth="1195.0">
         <columns>
             <TableColumn prefWidth="105.0" text="Aula nº" />
             <TableColumn prefWidth="105.0" text="Tipo" />
@@ -78,6 +68,22 @@
         </columns>
     </TableView>
         <!-- Botão -->
-   <Button layoutX="102.0" layoutY="353.0" mnemonicParsing="false" onAction="#onActionAnterior" onMouseClicked="#onActionAnterior" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #ff8600;" text="Anterior" />
-   <Button layoutX="392.0" layoutY="353.0" mnemonicParsing="false" onAction="#onActionConfirmar" onMouseClicked="#onActionConfirmar" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #ff8600;" text="Confirmar" />
+   <Button layoutX="592.0" layoutY="688.0" mnemonicParsing="false" onAction="#onActionAnterior" onMouseClicked="#onActionAnterior" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #ff8600;" text="Anterior" />
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="128.0" layoutX="58.0" layoutY="525.0" stroke="BLACK" strokeType="INSIDE" width="1267.0" />
+   <TextField layoutX="142.0" layoutY="574.0" promptText="Tipo de Aula" />
+   <TextField layoutX="861.0" layoutY="577.0" promptText="Vagas Totais" />
+   <Button layoutX="1096.0" layoutY="606.0" mnemonicParsing="false" onAction="#onActionAnterior" onMouseClicked="#onActionAnterior" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #ff8600;" text="Confirmar" />
+   <MenuButton layoutX="1140.0" layoutY="574.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Instrutor">
+     <items>
+       <MenuItem mnemonicParsing="false" text="Action 1" />
+       <MenuItem mnemonicParsing="false" text="Action 2" />
+     </items>
+   </MenuButton>
+   <MenuButton layoutX="665.0" layoutY="577.0" mnemonicParsing="false" text="Sala">
+     <items>
+       <MenuItem mnemonicParsing="false" text="Action 1" />
+       <MenuItem mnemonicParsing="false" text="Action 2" />
+     </items>
+   </MenuButton>
+   <DatePicker layoutX="377.0" layoutY="577.0" />
 </Pane>
