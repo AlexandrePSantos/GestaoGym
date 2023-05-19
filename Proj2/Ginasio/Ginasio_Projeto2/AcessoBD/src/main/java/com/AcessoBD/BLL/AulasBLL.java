@@ -24,7 +24,6 @@ public class AulasBLL {
                 aulasRealizadas.add(aula);
             }
         }
-
         return aulasRealizadas;
     }
 
@@ -38,7 +37,6 @@ public class AulasBLL {
                 aulasPlaneadas.add(aula);
             }
         }
-
         return aulasPlaneadas;
     }
 

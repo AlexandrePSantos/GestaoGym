@@ -2,6 +2,7 @@ package com.AcessoBD.repository.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "Aulagrupo")
@@ -14,6 +15,9 @@ public class Aulagrupo {
 
     @Column(name = "data_aula")
     private LocalDate dataAula;
+
+    @Column(name = "hora_aula")
+    private LocalTime horaAula;
 
     @Column(name = "tipo_aula")
     private String tipoAula;
@@ -37,8 +41,9 @@ public class Aulagrupo {
 
     public Aulagrupo() {}
 
-    public Aulagrupo(LocalDate dataAula, String tipoAula, int vagas, int vagasDisp, int duracao, Sala sala, Funcionario funcionario) {
+    public Aulagrupo(LocalDate dataAula, LocalTime horaAula, String tipoAula, int vagas, int vagasDisp, int duracao, Sala sala, Funcionario funcionario) {
         this.dataAula = dataAula;
+        this.horaAula = horaAula;
         this.tipoAula = tipoAula;
         this.vagas = vagas;
         this.vagasDisp = vagasDisp;
@@ -61,6 +66,14 @@ public class Aulagrupo {
 
     public void setDataAula(LocalDate dataAula) {
         this.dataAula = dataAula;
+    }
+
+    public LocalTime getHoraAula() {
+        return horaAula;
+    }
+
+    public void setHoraAula(LocalDate dataAula) {
+        this.horaAula = horaAula;
     }
 
     public String getTipoAula() {
@@ -110,5 +123,4 @@ public class Aulagrupo {
     public void setFuncionario(Funcionario funcionario) {
         this.funcionario = funcionario;
     }
-
 }

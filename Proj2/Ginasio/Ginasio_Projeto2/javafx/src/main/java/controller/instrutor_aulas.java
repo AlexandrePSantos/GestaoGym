@@ -26,15 +26,7 @@ public class instrutor_aulas {
 
     @FXML
     private void initialize() {
-        AulagrupoDAO aulagrupoDAO = new AulagrupoDAO();
-        AulasBLL aulagrupoBLL = new AulasBLL(aulagrupoDAO);
-        List<Aulagrupo> aulasRealizadas = aulagrupoBLL.getAulasRealizadas();
-        List<Aulagrupo> aulasPlaneadas = aulagrupoBLL.getAulasPlaneadas();
-
-        // Definir as colunas e seus valores
-
-        tabelaAulasRealizadas.setItems(FXCollections.observableArrayList(aulasRealizadas));
-        tabelaAulasPlaneadas.setItems(FXCollections.observableArrayList(aulasPlaneadas));
+//        instrutor_dashboard.getAulaDAO(tabelaAulasRealizadas, tabelaAulasPlaneadas);
     }
 
     @FXML

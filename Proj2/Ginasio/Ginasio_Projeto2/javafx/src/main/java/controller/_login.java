@@ -17,6 +17,11 @@ public class _login {
     Button login_confirmar;
 
     @FXML
+    private void initialize() {
+
+    }
+
+    @FXML
     protected void onActionConfirmar(MouseEvent event) throws IOException {
         Stage stage = new Stage();
         LoginBLL l = new LoginBLL();

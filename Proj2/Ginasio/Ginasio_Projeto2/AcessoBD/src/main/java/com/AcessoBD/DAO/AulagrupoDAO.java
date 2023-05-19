@@ -52,13 +52,4 @@ public class AulagrupoDAO {
         em.close();
         return aulagrupos;
     }
-
-    public List<Object[]> getAlls() {
-        EntityManager em = emf.createEntityManager();
-        List<Object[]> results = em.createQuery("SELECT a, s.sala FROM Aulagrupo a LEFT JOIN a.sala s").getResultList();
-        em.close();
-        return results;
-    }
-
-
 }

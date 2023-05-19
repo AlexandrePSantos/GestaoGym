@@ -7,33 +7,26 @@ import javax.persistence.*;
 public class Sala {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_sala")
-    private int idSala;
-
-    @Column(name = "sala")
-    private String sala;
+    @Column(name = "id_sala", unique = true)
+    private String idSala;
 
     public Sala() {
     }
 
-    public Sala(String sala) {
-        this.sala = sala;
+    public Sala(String id_sala) {
+        this.idSala = id_sala;
     }
 
-    public int getIdSala() {
+    public String getIdSala() {
         return idSala;
     }
 
-    public void setIdSala(int idSala) {
+    public void setIdSala(String idSala) {
         this.idSala = idSala;
     }
 
-    public String getSala() {
-        return sala;
-    }
-
-    public void setSala(String sala) {
-        this.sala = sala;
+    @Override
+    public String toString() {
+        return idSala;
     }
 }
