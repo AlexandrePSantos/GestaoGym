@@ -154,10 +154,14 @@ public class instrutor_dashboard {
         tabelaPlanos.setItems(FXCollections.observableArrayList(planos));
     }
     @FXML
-    protected void getAddAula() {}
+    protected void getAddAula() {
+
+    }
 
     @FXML
-    protected void refreshAula() {}
+    protected void refreshAula() {
+        loadAulasAgendadas();
+    }
 
     @FXML
     protected void onActionAlterar(ActionEvent event) throws IOException {

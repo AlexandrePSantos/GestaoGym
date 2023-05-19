@@ -28,7 +28,6 @@ public class instrutor_planos {
 
     @FXML
     protected void onActionConfirmar(ActionEvent event) throws IOException {
-        //DONE abrir instrutor_dashboard
         //TODO guardar informacao
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_dashboard.fxml").toURI().toURL());
@@ -44,7 +43,6 @@ public class instrutor_planos {
 
     @FXML
     protected void onActionExit(MouseEvent event) throws IOException {
-        //DONE Abrir instrutor_aulas
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/_login.fxml").toURI().toURL());
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);

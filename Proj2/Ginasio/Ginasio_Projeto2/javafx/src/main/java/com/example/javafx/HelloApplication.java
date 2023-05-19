@@ -1,7 +1,4 @@
 package com.example.javafx;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,15 +17,6 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        initializeDatabase();
         launch();
-    }
-
-    private static void initializeDatabase() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("persist_gym");
-        EntityManager em = emf.createEntityManager();
-        // Realize as operações de inicialização da base de dados aqui, como criação de tabelas, inserção de dados iniciais, etc.
-        em.close();
-        emf.close();
     }
 }
