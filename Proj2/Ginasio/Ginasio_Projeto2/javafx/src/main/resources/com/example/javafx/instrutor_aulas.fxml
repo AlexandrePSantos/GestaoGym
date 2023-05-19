@@ -28,6 +28,9 @@
     <!-- Exit -->
     <ImageView fitHeight="33.0" fitWidth="39.0" layoutX="1325.0" layoutY="4.0" onMouseClicked="#onActionExit" pickOnBounds="true" preserveRatio="true">
         <Image url="@../../../../../images/windows-exit-icon-29.jpg" />
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
     </ImageView>
 
     <!-- Resto -->
