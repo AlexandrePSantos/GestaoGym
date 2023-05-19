@@ -16,8 +16,11 @@ public class Funcionario {
     @Column(name = "nome")
     private String nome;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
+
+    @Column(name = "password")
+    private String password;
 
     @Column(name = "telemovel")
     private String telemovel;
@@ -34,15 +37,11 @@ public class Funcionario {
     @Column(name = "funcao")
     private String funcao;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_user", referencedColumnName = "id_user")
-    private Login login;
-
     // default constructor
     public Funcionario() {}
 
     // constructor with parameters
-    public Funcionario(String nome, String email, String telemovel, String nif, LocalDate dataNascimento, BigDecimal salarioLiquido, String funcao, Login login) {
+    public Funcionario(String nome, String email, String telemovel, String nif, LocalDate dataNascimento, BigDecimal salarioLiquido, String funcao, String password) {
         this.nome = nome;
         this.email = email;
         this.telemovel = telemovel;
@@ -50,7 +49,7 @@ public class Funcionario {
         this.dataNascimento = dataNascimento;
         this.salarioLiquido = salarioLiquido;
         this.funcao = funcao;
-        this.login = login;
+        this.password = password;
     }
 
     // getters and setters
@@ -118,9 +117,9 @@ public class Funcionario {
         this.funcao = funcao;
     }
 
-    public Login getLogin() { return login; }
+    public String getPassword() { return password; }
 
-    public void setLogin(Login login) { this.login = login; }
+    public void setPassword(String password) { this.password = password; }
 
     @Override
     public String toString() {
@@ -133,7 +132,7 @@ public class Funcionario {
                 ", dataNascimento=" + dataNascimento +
                 ", salarioLiquido=" + salarioLiquido +
                 ", funcao='" + funcao + '\'' +
-                ", login=" + login +
+                ", password=" + password +
                 '}';
     }
 }

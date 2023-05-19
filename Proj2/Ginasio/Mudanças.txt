@@ -11,6 +11,10 @@
 -ver/editar propria informação
 -ver/criar/editar informação de planos (incluir nome de clientes com o plano)
 -ver/criar/editar informação de aulas (incluir nome de clientes que participam)
+email passa a ser user de login, mudar para unique na entity
+
+
+
 
 !! WEB !!
 --> Cliente <--

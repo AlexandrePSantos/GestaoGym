@@ -17,8 +17,11 @@ public class Cliente {
     @Column(name = "idade")
     private int idade;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
+
+    @Column(name = "password")
+    private String password;
 
     @Column(name = "telemovel")
     private String telemovel;
@@ -32,14 +35,10 @@ public class Cliente {
     @Column(name = "cod_postal")
     private String codigoPostal;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_user", referencedColumnName = "id_user")
-    private Login login;
-
     public Cliente() {
     }
 
-    public Cliente(String nome, int idade, String email, String telemovel, String nif, LocalDate dataNascimento, String codigoPostal, Login login) {
+    public Cliente(String nome, int idade, String email, String telemovel, String nif, LocalDate dataNascimento, String codigoPostal, String password) {
         this.nome = nome;
         this.idade = idade;
         this.email = email;
@@ -47,7 +46,7 @@ public class Cliente {
         this.nif = nif;
         this.dataNascimento = dataNascimento;
         this.codigoPostal = codigoPostal;
-        this.login = login;
+        this.password = password;
     }
 
     public int getIdCliente() {
@@ -114,9 +113,9 @@ public class Cliente {
         this.codigoPostal = codigoPostal;
     }
 
-    public Login getLogin() { return login; }
+    public String getPassword() { return password; }
 
-    public void setLogin(Login login) { this.login = login; }
+    public void setPassword(String password) { this.password = password; }
 
     @Override
     public String toString() {
@@ -129,7 +128,7 @@ public class Cliente {
                 ", nif='" + nif + '\'' +
                 ", dataNascimento=" + dataNascimento +
                 ", codigoPostal='" + codigoPostal + '\'' +
-                ", login=" + login +
+                ", password=" + password +
                 '}';
     }
 }

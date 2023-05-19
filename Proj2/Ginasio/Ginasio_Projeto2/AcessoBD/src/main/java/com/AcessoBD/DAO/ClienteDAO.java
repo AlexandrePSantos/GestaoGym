@@ -1,7 +1,6 @@
 package com.AcessoBD.DAO;
 
 import com.AcessoBD.repository.entities.Cliente;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -63,6 +62,15 @@ public class ClienteDAO {
         Query query = em.createQuery("SELECT c FROM Cliente c WHERE c.dataNascimento = :dataNascimento");
         query.setParameter("dataNascimento", dataNascimento);
         return query.getResultList();
+    }
+
+    public Cliente getByEmail(String email) {
+        EntityManager em = emf.createEntityManager();
+        Query query = em.createQuery("SELECT c FROM Cliente c WHERE c.email = :email");
+        query.setParameter("email", email);
+        Cliente cliente = (Cliente) query.getSingleResult();
+        em.close();
+        return cliente;
     }
 
     public void close() {

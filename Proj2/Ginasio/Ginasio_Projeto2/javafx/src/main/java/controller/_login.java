@@ -1,6 +1,6 @@
 package controller;
 
-import com.AcessoBD.BLL.LogRegBLL;
+import com.AcessoBD.BLL.LoginBLL;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
@@ -19,7 +19,7 @@ public class _login {
     @FXML
     protected void onActionConfirmar(MouseEvent event) throws IOException {
         Stage stage = new Stage();
-        LogRegBLL l = new LogRegBLL();
+        LoginBLL l = new LoginBLL();
         //TODO se _login der instrutor: vai para instrutor_dashboard
         if(l.loginFuncionario(login_user.getText(), login_password.getText()) == 1) {
             FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_dashboard.fxml").toURI().toURL());

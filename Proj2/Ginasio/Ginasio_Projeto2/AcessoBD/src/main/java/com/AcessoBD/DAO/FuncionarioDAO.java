@@ -5,6 +5,7 @@ import com.AcessoBD.repository.entities.Funcionario;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import java.util.List;
 
 public class FuncionarioDAO {
@@ -42,6 +43,19 @@ public class FuncionarioDAO {
         EntityManager em = emf.createEntityManager();
         Funcionario funcionario = em.find(Funcionario.class, id);
         em.close();
+        return funcionario;
+    }
+
+    public Funcionario getByEmail(String email) {
+        EntityManager em = emf.createEntityManager();
+
+        Query query = em.createQuery("SELECT f FROM Funcionario f WHERE f.email = :email");
+        query.setParameter("email", email);
+
+        Funcionario funcionario = (Funcionario) query.getSingleResult();
+
+        em.close();
+
         return funcionario;
     }
 

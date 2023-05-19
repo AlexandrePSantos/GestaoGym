@@ -1,8 +1,5 @@
 package com.AcessoBD;
 
-import com.AcessoBD.repository.entities.Funcionario;
-import com.AcessoBD.repository.entities.Login;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
