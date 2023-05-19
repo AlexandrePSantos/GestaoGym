@@ -9,7 +9,7 @@
 
 --> Instrutor <--
 -ver/editar propria informação
--ver/criar/editar informação de planos (incluir nome de clientes com)
+-ver/criar/editar informação de planos (incluir nome de clientes com o plano)
 -ver/criar/editar informação de aulas (incluir nome de clientes que participam)
 
 !! WEB !!
