@@ -1,5 +1,12 @@
 package controller;
 
+import com.AcessoBD.BLL.AulasBLL;
+import com.AcessoBD.BLL.PlanosBLL;
+import com.AcessoBD.DAO.AulagrupoDAO;
+import com.AcessoBD.DAO.PlanotreinoDAO;
+import com.AcessoBD.repository.entities.Aulagrupo;
+import com.AcessoBD.repository.entities.Planotreino;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
         import javafx.fxml.FXMLLoader;
@@ -13,14 +20,37 @@ import javafx.event.ActionEvent;
 
         import java.io.File;
         import java.io.IOException;
+import java.util.List;
 
 public class instrutor_dashboard {
     @FXML
     public ImageView exit;
-    public TableView planeado;
-    public TableView realizado;
     @FXML
     private Button inst_dash_alt;
+    @FXML
+    private TableView<Aulagrupo> tabelaAulasRealizadas;
+    @FXML
+    private TableView<Aulagrupo> tabelaAulasPlaneadas;
+    @FXML
+    private TableView<Planotreino> tabelaPlanos;
+
+    @FXML
+    private void initialize() {
+        // AULAS DE GRUPO
+        AulagrupoDAO aulagrupoDAO = new AulagrupoDAO();
+        AulasBLL aulagrupoBLL = new AulasBLL(aulagrupoDAO);
+        List<Aulagrupo> aulasRealizadas = aulagrupoBLL.getAulasRealizadas();
+        List<Aulagrupo> aulasPlaneadas = aulagrupoBLL.getAulasPlaneadas();
+
+        tabelaAulasRealizadas.setItems(FXCollections.observableArrayList(aulasRealizadas));
+        tabelaAulasPlaneadas.setItems(FXCollections.observableArrayList(aulasPlaneadas));
+
+        // PLANOS DE TREINO
+        PlanotreinoDAO planotreinoDAO = new PlanotreinoDAO();
+        PlanosBLL planoBLL = new PlanosBLL(planotreinoDAO);
+        List<Planotreino> planos = planoBLL.getPlanosTreino();
+        tabelaPlanos.setItems(FXCollections.observableArrayList(planos));
+    }
 
     @FXML
     protected void onActionAlterar(ActionEvent event) throws IOException {

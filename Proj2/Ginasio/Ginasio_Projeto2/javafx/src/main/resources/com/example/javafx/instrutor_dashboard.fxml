@@ -31,34 +31,35 @@
 
 
    <!-- Perfil -->
-   <Pane layoutX="17.0" layoutY="56.0" prefHeight="224.0" prefWidth="673.0">
+   <Pane layoutX="17.0" layoutY="56.0" prefHeight="211.0" prefWidth="584.0">
       <!-- Informação -->
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="223.0" stroke="BLACK" strokeMiterLimit="0.0" width="674.0" />
-      <Text layoutX="-2.0" layoutY="22.0" text="Informação" textAlignment="CENTER" wrappingWidth="677.0">
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="211.0" stroke="BLACK" strokeMiterLimit="0.0" width="585.0" />
+      <Text layoutY="22.0" text="Informação" textAlignment="CENTER" wrappingWidth="585.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
       <!-- Botão -->
-      <Button layoutX="586.0" layoutY="177.0" mnemonicParsing="false" onAction="#onActionAlterar" onMouseClicked="#onActionAlterar" prefHeight="33.0" prefWidth="73.0" style="-fx-background-color: #ff8600;" text="Alterar">
+      <Button layoutX="497.0" layoutY="159.0" mnemonicParsing="false" onAction="#onActionAlterar" onMouseClicked="#onActionAlterar" prefHeight="33.0" prefWidth="73.0" style="-fx-background-color: #ff8600;" text="Alterar">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField editable="false" layoutX="14.0" layoutY="39.0" prefHeight="25.0" prefWidth="119.0" promptText="Nome" />
-      <TextField editable="false" layoutX="284.0" layoutY="39.0" prefHeight="25.0" prefWidth="132.0" promptText="Telemóvel" />
-      <TextField editable="false" layoutX="14.0" layoutY="118.0" prefHeight="25.0" prefWidth="257.0" promptText="Email" />
-      <TextField editable="false" layoutX="143.0" layoutY="39.0" prefHeight="25.0" prefWidth="126.0" promptText="Data de Nascimento" />
-      <TextField editable="false" layoutX="14.0" layoutY="79.0" prefHeight="25.0" prefWidth="119.0" promptText="Código Postal" />
-      <TextField editable="false" layoutX="284.0" layoutY="79.0" prefHeight="25.0" prefWidth="132.0" promptText="NIF" />
-      <TextField editable="false" layoutX="143.0" layoutY="79.0" prefHeight="25.0" prefWidth="126.0" promptText="Função" />
+      <TextField editable="false" layoutX="14.0" layoutY="39.0" prefHeight="25.0" prefWidth="150.0" promptText="Nome" />
+      <TextField editable="false" layoutX="438.0" layoutY="39.0" prefHeight="25.0" prefWidth="132.0" promptText="Telemóvel" />
+      <TextField editable="false" layoutX="14.0" layoutY="118.0" prefHeight="25.0" prefWidth="345.0" promptText="Email" />
+      <TextField editable="false" layoutX="227.0" layoutY="39.0" prefHeight="25.0" prefWidth="132.0" promptText="Data de Nascimento" />
+      <TextField editable="false" layoutX="438.0" layoutY="118.0" prefHeight="25.0" prefWidth="132.0" promptText="Código Postal" />
+      <TextField editable="false" layoutX="438.0" layoutY="80.0" prefHeight="25.0" prefWidth="132.0" promptText="NIF" />
+      <TextField editable="false" layoutX="227.0" layoutY="80.0" prefHeight="25.0" prefWidth="132.0" promptText="Função" />
+      <TextField editable="false" layoutX="14.0" layoutY="79.0" prefHeight="25.0" prefWidth="150.0" promptText="Password" />
    </Pane>
 
    <!-- Planos de Treino -->
-   <Pane layoutX="17.0" layoutY="297.0" prefHeight="444.0" prefWidth="674.0">
+   <Pane layoutX="17.0" layoutY="280.0" prefHeight="461.0" prefWidth="584.0">
       <!-- Informação -->
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="444.0" stroke="BLACK" strokeMiterLimit="0.0" width="677.0" />
-      <Text layoutX="5.0" layoutY="22.0" text="Planos de Treino" textAlignment="CENTER" wrappingWidth="670.0">
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="459.0" stroke="BLACK" strokeMiterLimit="0.0" width="583.0" />
+      <Text layoutX="4.0" layoutY="22.0" text="Planos de Treino" textAlignment="CENTER" wrappingWidth="575.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -69,59 +70,51 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TableView fx:id="planos" layoutX="57.0" layoutY="47.0" prefHeight="194.0" prefWidth="561.0">
+      <TableView fx:id="tabelaPlanos" layoutX="17.0" layoutY="47.0" prefHeight="354.0" prefWidth="547.0">
          <columns>
-            <TableColumn prefWidth="98.0" text="Tipo">
+            <TableColumn prefWidth="98.0" text="Numero">
                <cellValueFactory>
-                  <PropertyValueFactory property="tipo_aula" />
+                  <PropertyValueFactory property="numPlano" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="150.0" text="Data/Hora">
+            <TableColumn prefWidth="150.0" text="Data Criação">
                <cellValueFactory>
-                  <PropertyValueFactory property="data_aula" />
+                  <PropertyValueFactory property="dtCriacao" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="56.0" text="Duração">
+            <TableColumn prefWidth="56.0" text="Estado">
                <cellValueFactory>
-                  <PropertyValueFactory property="duracao" />
+                  <PropertyValueFactory property="estado" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="70.0" text="Sala-Piso">
+            <TableColumn prefWidth="70.0" text="Cliente">
                <cellValueFactory>
-                  <PropertyValueFactory property="sala" />
-               </cellValueFactory>
-            </TableColumn>
-            <TableColumn prefWidth="78.0" text="Vagas totais">
-               <cellValueFactory>
-                  <PropertyValueFactory property="vagas" />
-               </cellValueFactory>
-            </TableColumn>
-            <TableColumn prefWidth="108.0" text="Vagas disponiveis">
-               <cellValueFactory>
-                  <PropertyValueFactory property="vagas_disp" />
+                  <PropertyValueFactory property="cliente" />
                </cellValueFactory>
             </TableColumn>
          </columns>
       </TableView>
+      <Button layoutX="497.0" layoutY="414.0" mnemonicParsing="false" onAction="#onActionAlterar" onMouseClicked="#onActionAlterar" prefHeight="33.0" prefWidth="73.0" style="-fx-background-color: #ff8600;" text="Criar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </Pane>
 
    <!-- Aulas de Grupo -->
-   <Pane layoutX="714.0" layoutY="56.0" prefHeight="679.0" prefWidth="628.0">
+   <Pane layoutX="623.0" layoutY="56.0" prefHeight="682.0" prefWidth="719.0">
       <!-- Informação -->
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="679.0" stroke="BLACK" strokeMiterLimit="0.0" width="629.0" />
-      <Text layoutX="8.0" layoutY="22.0" text="Aulas de Grupo Futuras" textAlignment="CENTER" wrappingWidth="613.9999999999999">
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="683.0" stroke="BLACK" strokeMiterLimit="0.0" width="722.0" />
+      <Text layoutX="7.0" layoutY="22.0" text="Aulas de Grupo Futuras" textAlignment="CENTER" wrappingWidth="704.9999999999999">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
       <!-- Botão -->
-      <Button layoutX="526.0" layoutY="621.0" mnemonicParsing="false" onAction="#onActionMaisInfoAula" prefHeight="35.0" prefWidth="88.0" style="-fx-background-color: #ff8600;" text="Mais">
+      <Button layoutX="632.0" layoutY="635.0" mnemonicParsing="false" onAction="#onActionMaisInfoAula" prefHeight="33.0" prefWidth="73.0" style="-fx-background-color: #ff8600;" text="Mais">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
-         <font>
-            <Font size="18.0" />
-         </font>
       </Button>
       <!-- Tabelas - aulas -->
       <Text layoutX="14.0" layoutY="56.0" text="Agendadas:" wrappingWidth="257.0">
@@ -129,36 +122,36 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <TableView fx:id="planeado" layoutX="14.0" layoutY="62.0" prefHeight="237.0" prefWidth="602.0">
+      <TableView fx:id="tabelaAulasPlaneadas" layoutX="14.0" layoutY="62.0" prefHeight="237.0" prefWidth="695.0">
          <columns>
-            <TableColumn prefWidth="98.0" text="Tipo">
+            <TableColumn prefWidth="124.0" text="Tipo">
                <cellValueFactory>
-                  <PropertyValueFactory property="tipo_aula" />
+                  <PropertyValueFactory property="tipoAula" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="150.0" text="Data/Hora">
+            <TableColumn prefWidth="159.0" text="Data/Hora">
                <cellValueFactory>
-                  <PropertyValueFactory property="data_aula" />
+                  <PropertyValueFactory property="dataAula" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="56.0" text="Duração">
+            <TableColumn prefWidth="122.0" text="Duração - minutos">
                <cellValueFactory>
                   <PropertyValueFactory property="duracao" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="70.0" text="Sala-Piso">
+            <TableColumn prefWidth="70.0" text="Sala - Piso">
                <cellValueFactory>
                   <PropertyValueFactory property="sala" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="78.0" text="Vagas totais">
+            <TableColumn prefWidth="108.0" text="Vagas tot.">
                <cellValueFactory>
                   <PropertyValueFactory property="vagas" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="108.0" text="Vagas disponiveis">
+            <TableColumn prefWidth="111.0" text="Vagas disp.">
                <cellValueFactory>
-                  <PropertyValueFactory property="vagas_disp" />
+                  <PropertyValueFactory property="vagasDisp" />
                </cellValueFactory>
             </TableColumn>
          </columns>
@@ -169,36 +162,36 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <TableView fx:id="realizado" layoutX="14.0" layoutY="338.0" prefHeight="254.0" prefWidth="602.0">
+      <TableView fx:id="tabelaAulasRealizadas" layoutX="14.0" layoutY="338.0" prefHeight="284.0" prefWidth="695.0">
          <columns>
-            <TableColumn prefWidth="98.0" text="Tipo">
+            <TableColumn prefWidth="124.0" text="Tipo">
                <cellValueFactory>
-                  <PropertyValueFactory property="tipo_aula" />
+                  <PropertyValueFactory property="tipoAula" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="150.0" text="Data/Hora">
+            <TableColumn prefWidth="159.0" text="Data/Hora">
                <cellValueFactory>
-                  <PropertyValueFactory property="data_aula" />
+                  <PropertyValueFactory property="dataAula" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="56.0" text="Duração">
+            <TableColumn prefWidth="122.0" text="Duração - minutos">
                <cellValueFactory>
                   <PropertyValueFactory property="duracao" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="70.0" text="Sala-Piso">
+            <TableColumn prefWidth="70.0" text="Sala - Piso">
                <cellValueFactory>
                   <PropertyValueFactory property="sala" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="78.0" text="Vagas totais">
+            <TableColumn prefWidth="108.0" text="Vagas tot.">
                <cellValueFactory>
                   <PropertyValueFactory property="vagas" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="108.0" text="Vagas disponiveis">
+            <TableColumn prefWidth="111.0" text="Vagas disp.">
                <cellValueFactory>
-                  <PropertyValueFactory property="vagas_disp" />
+                  <PropertyValueFactory property="vagasDisp" />
                </cellValueFactory>
             </TableColumn>
          </columns>

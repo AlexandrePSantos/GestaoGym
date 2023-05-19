@@ -41,6 +41,7 @@ public class _login {
             Node source = (Node) event.getSource();
             Stage stageAtual = (Stage) source.getScene().getWindow();
             stageAtual.close();
+        // adicionar elif para o rececionista
         } else if (l.loginFuncionario(login_user.getText(), login_password.getText()) == 0) {
             //failed
             System.out.println("login falhou");

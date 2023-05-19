@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,23 +13,28 @@ import javafx.stage.Stage;
 
 import com.AcessoBD.BLL.AulasBLL;
 import com.AcessoBD.repository.entities.Aulagrupo;
-
+import com.AcessoBD.DAO.AulagrupoDAO;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class instrutor_aulas {
-    private AulasBLL aulasBLL = new AulasBLL();
     @FXML
-    private TableView<Aulagrupo> aulasRealizadasTable;
+    private TableView<Aulagrupo> tabelaAulasRealizadas;
     @FXML
-    private TableView<Aulagrupo> aulasPlaneadasTable;
+    private TableView<Aulagrupo> tabelaAulasPlaneadas;
 
     @FXML
     private void initialize() {
-        // Call the getAulasRealizadas method and populate the aulasRealizadasTable
-        aulasRealizadasTable.setItems((ObservableList<Aulagrupo>) aulasBLL.getAulasRealizadas());
-        // Call the getAulasPlaneadas method and populate the aulasPlaneadasTable
-        aulasPlaneadasTable.setItems((ObservableList<Aulagrupo>) aulasBLL.getAulasPlaneadas());
+        AulagrupoDAO aulagrupoDAO = new AulagrupoDAO();
+        AulasBLL aulagrupoBLL = new AulasBLL(aulagrupoDAO);
+        List<Aulagrupo> aulasRealizadas = aulagrupoBLL.getAulasRealizadas();
+        List<Aulagrupo> aulasPlaneadas = aulagrupoBLL.getAulasPlaneadas();
+
+        // Definir as colunas e seus valores
+
+        tabelaAulasRealizadas.setItems(FXCollections.observableArrayList(aulasRealizadas));
+        tabelaAulasPlaneadas.setItems(FXCollections.observableArrayList(aulasPlaneadas));
     }
 
     @FXML

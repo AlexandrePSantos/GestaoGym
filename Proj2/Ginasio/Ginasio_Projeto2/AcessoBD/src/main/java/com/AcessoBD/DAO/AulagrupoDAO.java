@@ -1,11 +1,11 @@
 package com.AcessoBD.DAO;
 
 import com.AcessoBD.repository.entities.Aulagrupo;
+import com.AcessoBD.repository.entities.Sala;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class AulagrupoDAO {
@@ -52,5 +52,13 @@ public class AulagrupoDAO {
         em.close();
         return aulagrupos;
     }
+
+    public List<Object[]> getAlls() {
+        EntityManager em = emf.createEntityManager();
+        List<Object[]> results = em.createQuery("SELECT a, s.sala FROM Aulagrupo a LEFT JOIN a.sala s").getResultList();
+        em.close();
+        return results;
+    }
+
 
 }

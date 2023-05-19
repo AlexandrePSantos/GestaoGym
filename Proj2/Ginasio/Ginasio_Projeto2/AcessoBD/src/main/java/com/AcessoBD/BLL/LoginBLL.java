@@ -21,15 +21,12 @@ public class LoginBLL {
             // Check the role of the Funcionario
             String funcao = login.getFuncao();
             switch (funcao) {
-                case "Instrutor":
-                    // Successful login for an Instrutor
-                    return 1;
-                case "Administrador":
-                    // Successful login for an Administrador
-                    return 2;
-                case "Rececionista":
-                    // Successful login for a Rececionista
-                    return 3;
+                // Successful login for an Instrutor
+                case "Instrutor": return 1;
+                // Successful login for an Administrador
+                case "Administrador": return 2;
+                // Successful login for a Rececionista
+                case "Rececionista": return 3;
             }
         }
         // Invalid login credentials or Funcionario not found

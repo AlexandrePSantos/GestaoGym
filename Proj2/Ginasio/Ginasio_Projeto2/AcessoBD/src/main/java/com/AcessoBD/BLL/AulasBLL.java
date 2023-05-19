@@ -8,15 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AulasBLL {
-    private AulagrupoDAO aulagrupoDAO = new AulagrupoDAO();
+    private AulagrupoDAO aulagrupoDAO;
+
+    public AulasBLL(AulagrupoDAO aulagrupoDAO) {
+        this.aulagrupoDAO = aulagrupoDAO;
+    }
 
     public List<Aulagrupo> getAulasRealizadas() {
-        List<Aulagrupo> aulas = aulagrupoDAO.getAll();
+        LocalDate currentDate = LocalDate.now();
+        List<Aulagrupo> allAulas = aulagrupoDAO.getAll();
         List<Aulagrupo> aulasRealizadas = new ArrayList<>();
 
-        LocalDate today = LocalDate.now();
-        for (Aulagrupo aula : aulas) {
-            if (aula.getDataAula().isBefore(today)) {
+        for (Aulagrupo aula : allAulas) {
+            if (aula.getDataAula().isBefore(currentDate)) {
                 aulasRealizadas.add(aula);
             }
         }
@@ -25,12 +29,12 @@ public class AulasBLL {
     }
 
     public List<Aulagrupo> getAulasPlaneadas() {
-        List<Aulagrupo> aulas = aulagrupoDAO.getAll();
+        LocalDate currentDate = LocalDate.now();
+        List<Aulagrupo> allAulas = aulagrupoDAO.getAll();
         List<Aulagrupo> aulasPlaneadas = new ArrayList<>();
 
-        LocalDate today = LocalDate.now();
-        for (Aulagrupo aula : aulas) {
-            if (aula.getDataAula().isAfter(today)) {
+        for (Aulagrupo aula : allAulas) {
+            if (aula.getDataAula().isAfter(currentDate)) {
                 aulasPlaneadas.add(aula);
             }
         }
