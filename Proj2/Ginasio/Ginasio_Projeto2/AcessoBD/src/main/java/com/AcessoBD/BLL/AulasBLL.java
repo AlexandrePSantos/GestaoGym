@@ -40,4 +40,6 @@ public class AulasBLL {
         return aulasPlaneadas;
     }
 
+    private void insert (){}
+
 }

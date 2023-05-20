@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.control.cell.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.instrutor_dashboard">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.instrutor_dashboard">
 
    <!-- Info Bar -->
    <Rectangle fill="#ff8600" height="39.0" stroke="#ff8600" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="1366.0" />
@@ -71,31 +77,36 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TableView fx:id="tabelaPlanos" layoutX="17.0" layoutY="47.0" prefHeight="354.0" prefWidth="456.0">
+      <TableView fx:id="tabelaPlanos" layoutX="17.0" layoutY="93.0" prefHeight="354.0" prefWidth="456.0">
          <columns>
-            <TableColumn fx:id="numPlano" prefWidth="98.0" text="Numero">
+            <TableColumn fx:id="numPlano" prefWidth="65.0" text="Numero">
                <cellValueFactory>
                   <PropertyValueFactory property="numPlano" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="dtCriacao" prefWidth="150.0" text="Data Criação">
+            <TableColumn fx:id="dtCriacao" prefWidth="90.0" text="Data Criação">
                <cellValueFactory>
                   <PropertyValueFactory property="dtCriacao" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="estado" prefWidth="56.0" text="Estado">
+            <TableColumn fx:id="estado" prefWidth="72.0" text="Estado">
                <cellValueFactory>
                   <PropertyValueFactory property="estado" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="cliente" prefWidth="70.0" text="Cliente">
+            <TableColumn fx:id="cliente" prefWidth="120.0" text="Cliente">
                <cellValueFactory>
                   <PropertyValueFactory property="cliente" />
                </cellValueFactory>
             </TableColumn>
          </columns>
       </TableView>
-      <Button layoutX="402.0" layoutY="414.0" mnemonicParsing="false" onAction="#onActionAlterar" onMouseClicked="#onActionAlterar" prefHeight="33.0" prefWidth="73.0" style="-fx-background-color: #ff8600;" text="Criar">
+      <Button layoutX="331.0" layoutY="62.0" mnemonicParsing="false" onAction="#onActionAlterar" onMouseClicked="#onActionAlterar" prefHeight="25.0" prefWidth="63.0" style="-fx-background-color: #ff8600;" text="Criar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="410.0" layoutY="62.0" mnemonicParsing="false" onAction="#onActionAlterar" onMouseClicked="#onActionAlterar" prefHeight="25.0" prefWidth="63.0" style="-fx-background-color: #ff8600;" text="Atualizar">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -112,12 +123,12 @@
          </font>
       </Text>
       <!-- Tabelas - aulas -->
-      <Text layoutX="14.0" layoutY="56.0" text="Agendadas:" wrappingWidth="257.0">
+      <Text layoutX="14.0" layoutY="49.0" text="Agendadas:" wrappingWidth="257.0">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <TableView fx:id="tabelaAulasPlaneadas" layoutX="14.0" layoutY="62.0" prefHeight="237.0" prefWidth="787.0">
+      <TableView fx:id="tabelaAulasPlaneadas" layoutX="14.0" layoutY="62.0" prefHeight="259.0" prefWidth="787.0">
          <columns>
             <TableColumn fx:id="tipoAulaPlan" maxWidth="116.0" prefWidth="95.0" style="-fx-alignment: center;" text="Tipo">
                <cellValueFactory>
@@ -167,12 +178,12 @@
          </columns>
       </TableView>
 
-      <Text layoutX="14.0" layoutY="333.0" text="Realizadas:" wrappingWidth="257.0">
+      <Text layoutX="14.0" layoutY="349.0" text="Realizadas:" wrappingWidth="257.0">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <TableView fx:id="tabelaAulasRealizadas" layoutX="14.0" layoutY="338.0" prefHeight="284.0" prefWidth="787.0">
+      <TableView fx:id="tabelaAulasRealizadas" layoutX="65.0" layoutY="365.0" prefHeight="284.0" prefWidth="683.0">
          <columns>
             <TableColumn fx:id="tipoAulaReal" maxWidth="116.0" prefWidth="95.0" style="-fx-alignment: center;" text="Tipo">
                <cellValueFactory>
@@ -216,22 +227,27 @@
             </TableColumn>
          </columns>
       </TableView>
-      <HBox alignment="TOP_RIGHT" layoutX="615.0" layoutY="34.0" prefHeight="27.0" prefWidth="181.0">
+      <HBox alignment="TOP_RIGHT" layoutX="611.0" layoutY="26.0" prefHeight="27.0" prefWidth="181.0">
          <children>
-            <Button alignment="CENTER" contentDisplay="TEXT_ONLY" ellipsisString="" mnemonicParsing="false" onMouseClicked="#getAddAula" prefHeight="25.0" prefWidth="62.0" text="Criar" textAlignment="CENTER">
+            <ImageView fx:id="addAula" fitHeight="29.0" fitWidth="27.0" onMouseClicked="#getAddAula" pickOnBounds="true" preserveRatio="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <image>
+                  <Image url="@../../../../../images/create.png" />
+               </image>
                <HBox.margin>
                   <Insets right="10.0" />
-               </HBox.margin></Button>
-            <Button fx:id="atualizarPlano" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#refreshAula" text="Atualizar" textAlignment="CENTER">
+               </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="refreshAula" fitHeight="27.0" fitWidth="30.0" onMouseClicked="#refreshAula" pickOnBounds="true" preserveRatio="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin></Button>
+               <image>
+                  <Image url="@../../../../../images/R.png" />
+               </image>
+            </ImageView>
          </children></HBox>
   </Pane>
 </Pane>

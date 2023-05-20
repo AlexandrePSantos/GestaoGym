@@ -13,12 +13,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+
+import javax.security.auth.callback.Callback;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -108,6 +111,7 @@ public class instrutor_dashboard {
                 })
                 .collect(Collectors.toList());
 
+//        final TableCell<Aulagrupo, String> cell = new TableCell<>()
         // Adicione os itens à tabela
         tabelaAulasPlaneadas.setItems(FXCollections.observableArrayList(aulasFiltradas));
     }

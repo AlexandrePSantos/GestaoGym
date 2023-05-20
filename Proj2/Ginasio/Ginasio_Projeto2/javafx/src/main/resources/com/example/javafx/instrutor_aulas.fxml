@@ -2,94 +2,34 @@
 
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.instrutor_aulas">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.instrutor_aulas">
     <!-- Info Bar -->
-    <Rectangle fill="#ff8600" height="39.0" stroke="#ff8600" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="1366.0" />
-
-    <!-- Logo -->
-    <Rectangle arcHeight="10.0" arcWidth="10.0" fill="BLACK" height="39.0" layoutX="6.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="39.0" />
-    <Text fill="#ff8600" layoutX="5.0" layoutY="29.0" text="L" textAlignment="CENTER" wrappingWidth="42.0">
-        <font> <Font size="25.0" /> </font>
-    </Text>
+    <Rectangle fill="#ff8600" height="39.0" layoutX="-4.0" stroke="#ff8600" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="614.0" />
 
     <!-- Texto -->
-    <Text layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aulas de Grupo" textAlignment="CENTER" wrappingWidth="1366.0">
+    <Text layoutX="198.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Criar Aula" textAlignment="CENTER" wrappingWidth="210.0">
         <font>
             <Font size="20.0" />
         </font>
     </Text>
-
-    <!-- Exit -->
-    <ImageView fitHeight="33.0" fitWidth="39.0" layoutX="1325.0" layoutY="4.0" onMouseClicked="#onActionExit" pickOnBounds="true" preserveRatio="true">
-        <Image url="@../../../../../images/windows-exit-icon-29.jpg" />
-      <cursor>
-         <Cursor fx:constant="HAND" />
-      </cursor>
-    </ImageView>
-
-    <!-- Resto -->
-    <!-- Informação 1 -->
-    <Text layoutX="39.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planeadas" wrappingWidth="112.0">
-        <font>
-            <Font size="20.0" />
-        </font>
-    </Text>
-        <!-- Tabela 1 -->
-    <TableView layoutX="81.0" layoutY="119.0" prefHeight="128.0" prefWidth="1195.0">
-        <columns>
-            <TableColumn prefWidth="90.0" text="Aula nº" />
-            <TableColumn prefWidth="90.0" text="Tipo" />
-            <TableColumn prefWidth="125.0" text="Data/Hora" />
-            <TableColumn prefWidth="125.0" text="Sala-Piso" />
-            <TableColumn prefWidth="90.0" text="Vagas Totais" />
-        </columns>
-    </TableView>
-    <!-- Informação 2 -->
-    <Text layoutX="39.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Realizadas" wrappingWidth="139.0">
-        <font>
-            <Font size="20.0" />
-        </font>
-    </Text>
-        <!-- Informação 3 -->
-    <Text layoutX="39.0" layoutY="507.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Criar" wrappingWidth="55.0">
-        <font>
-            <Font size="20.0" />
-        </font>
-    </Text>
-        <!-- Tabela 3 -->
-    <TableView layoutX="81.0" layoutY="329.0" prefHeight="128.0" prefWidth="1195.0">
-        <columns>
-            <TableColumn prefWidth="105.0" text="Aula nº" />
-            <TableColumn prefWidth="105.0" text="Tipo" />
-            <TableColumn prefWidth="105.0" text="Data/Hora" />
-            <TableColumn prefWidth="105.0" text="Sala-Piso" />
-        </columns>
-    </TableView>
-        <!-- Botão -->
-   <Button layoutX="592.0" layoutY="688.0" mnemonicParsing="false" onAction="#onActionAnterior" onMouseClicked="#onActionAnterior" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #ff8600;" text="Anterior">
-      <cursor>
-         <Cursor fx:constant="HAND" />
-      </cursor></Button>
-   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="128.0" layoutX="58.0" layoutY="525.0" stroke="BLACK" strokeType="INSIDE" width="1267.0" />
-   <TextField layoutX="142.0" layoutY="574.0" promptText="Tipo de Aula">
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000005c" height="349.0" layoutX="21.0" layoutY="45.0" opacity="0.55" stroke="BLACK" strokeType="INSIDE" width="569.0" />
+   <TextField layoutX="189.0" layoutY="59.0" prefHeight="39.0" prefWidth="234.0" promptText="Tipo de Aula">
       <cursor>
          <Cursor fx:constant="HAND" />
       </cursor></TextField>
-   <TextField layoutX="861.0" layoutY="577.0" promptText="Vagas Totais">
+   <TextField layoutX="189.0" layoutY="250.0" prefHeight="35.0" prefWidth="234.0" promptText="Vagas Totais">
       <cursor>
          <Cursor fx:constant="HAND" />
       </cursor></TextField>
-   <Button layoutX="1096.0" layoutY="606.0" mnemonicParsing="false" onAction="#onActionAnterior" onMouseClicked="#onActionAnterior" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #ff8600;" text="Confirmar">
+   <Button fx:id="confirmar" layoutX="237.0" layoutY="347.0" mnemonicParsing="false" onMouseClicked="#onActionAnterior" prefHeight="30.0" prefWidth="153.0" style="-fx-background-color: #ff8600;" text="Confirmar">
       <cursor>
          <Cursor fx:constant="HAND" />
       </cursor></Button>
-   <MenuButton layoutX="1140.0" layoutY="574.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Instrutor">
+   <MenuButton layoutX="190.0" layoutY="298.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="105.0" text="Instrutor">
      <items>
        <MenuItem mnemonicParsing="false" text="Action 1" />
        <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -98,7 +38,7 @@
          <Cursor fx:constant="HAND" />
       </cursor>
    </MenuButton>
-   <MenuButton layoutX="665.0" layoutY="577.0" mnemonicParsing="false" text="Sala">
+   <MenuButton layoutX="319.0" layoutY="298.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="111.0" text="Sala">
      <items>
        <MenuItem mnemonicParsing="false" text="Action 1" />
        <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -107,8 +47,23 @@
          <Cursor fx:constant="HAND" />
       </cursor>
    </MenuButton>
-   <DatePicker layoutX="377.0" layoutY="577.0">
+   <DatePicker layoutX="189.0" layoutY="110.0" prefHeight="35.0" prefWidth="234.0">
       <cursor>
          <Cursor fx:constant="HAND" />
       </cursor></DatePicker>
-</Pane>
+   <TextField layoutX="189.0" layoutY="156.0" prefHeight="35.0" prefWidth="234.0" promptText="Hora (hh:mm)">
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </TextField>
+   <TextField layoutX="190.0" layoutY="201.0" prefHeight="35.0" prefWidth="234.0" promptText="Duração (minutos)">
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </TextField>
+   <Text fx:id="close" layoutX="573.0" layoutY="30.0" onMouseClicked="#close" strokeType="OUTSIDE" strokeWidth="0.0" text="X" textAlignment="CENTER" wrappingWidth="35.0">
+      <font>
+         <Font name="System Bold" size="29.0" />
+      </font>
+   </Text>
+</AnchorPane>
