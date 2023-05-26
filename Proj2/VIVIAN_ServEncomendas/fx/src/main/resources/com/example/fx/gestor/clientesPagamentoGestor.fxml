@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx.controllerGestor.clientesPagamentoController">
+   <children>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="608.0" layoutX="-6.0" layoutY="-1.0" stroke="WHITE" strokeType="INSIDE" width="960.0" />
+            <TableView fx:id="tblCliente" editable="true" layoutX="21.0" layoutY="130.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="440.0" prefWidth="763.0" style="-fx-border-color: #F19800; -fx-background-radius: #F19800; -fx-cursor: FFD389;" tableMenuButtonVisible="true">
+               <columns>
+                  <TableColumn fx:id="telefone" prefWidth="90.0" text="Telefone" />
+                  <TableColumn fx:id="codigopostal" prefWidth="110.66668701171875" text="Código-postal" />
+                  <TableColumn fx:id="morada" prefWidth="231.99996948242188" text="Morada" />
+                  <TableColumn fx:id="nif" minWidth="0.0" prefWidth="99.33334350585938" text="Nif" />
+                  <TableColumn fx:id="nome" minWidth="0.0" prefWidth="112.0" text="Nome" />
+                  <TableColumn fx:id="id" prefWidth="100.6666259765625" text="Id" />
+               </columns>
+            </TableView>
+
+
+            <ImageView fitHeight="102.0" fitWidth="154.0" layoutX="352.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icon.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="352.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista dos clientes" wrappingWidth="194.5">
+               <font>
+                  <Font name="Arial Black" size="15.0" />
+               </font>
+            </Text>
+
+            <TextField layoutX="568.0" layoutY="15.0" prefHeight="27.0" prefWidth="162.0" promptText="Pesquisar cliente..." />
+            <Button fx:id="btnPesquisar" layoutX="731.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBtnPesquisar" prefHeight="27.0" prefWidth="83.0" style="-fx-background-color: #007687;" text="Pesquisar" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+
+            <Button fx:id="btnAtualizar" layoutX="641.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleBtnAtualizar" prefHeight="27.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Atualizar" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnVoltarEs" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="&lt;- voltar" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnVerEncomendas" layoutX="795.0" layoutY="151.0" mnemonicParsing="false" onAction="#handleBtnVerEncomendas" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Ver encomendas" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</VBox>
