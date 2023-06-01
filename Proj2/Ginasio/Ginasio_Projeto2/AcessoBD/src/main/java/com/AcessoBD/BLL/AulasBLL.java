@@ -42,4 +42,6 @@ public class AulasBLL {
 
     private void insert (){}
 
+    private void apagarAula (){}
+
 }

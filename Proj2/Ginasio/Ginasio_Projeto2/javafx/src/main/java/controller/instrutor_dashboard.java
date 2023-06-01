@@ -163,38 +163,28 @@ public class instrutor_dashboard {
     }
 
     @FXML
+    protected void getDeleteAula() {
+
+    }
+
+    @FXML
     protected void refreshAula() {
         loadAulasAgendadas();
     }
 
     @FXML
-    protected void onActionAlterar(ActionEvent event) throws IOException {
-        //DONE Abrir instrutor_info
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_info.fxml").toURI().toURL());
-        Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
-        stage.setTitle("Instrutor: Perfil");
-        stage.setScene(scene);
-        stage.show();
-
-        Node source = (Node) event.getSource();
-        Stage stageAtual = (Stage) source.getScene().getWindow();
-        stageAtual.close();
-    }
-
-    @FXML
-    protected void onActionMaisInfoPlano(ActionEvent event) throws IOException {
+    protected void onActionExercicios(ActionEvent event) throws IOException {
         //DONE Abrir instrutor_planos
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_planos.fxml").toURI().toURL());
-        Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
-        stage.setTitle("Instrutor: Planos de Treino");
-        stage.setScene(scene);
-        stage.show();
-
-        Node source = (Node) event.getSource();
-        Stage stageAtual = (Stage) source.getScene().getWindow();
-        stageAtual.close();
+//        Stage stage = new Stage();
+//        FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_planos.fxml").toURI().toURL());
+//        Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
+//        stage.setTitle("Instrutor: Planos de Treino");
+//        stage.setScene(scene);
+//        stage.show();
+//
+//        Node source = (Node) event.getSource();
+//        Stage stageAtual = (Stage) source.getScene().getWindow();
+//        stageAtual.close();
     }
 
     @FXML
