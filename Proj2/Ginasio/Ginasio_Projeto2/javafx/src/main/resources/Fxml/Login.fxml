@@ -15,32 +15,29 @@
     <!-- Info Bar -->
     <Rectangle fill="#ff8600" height="39.0" layoutX="-3.0" stroke="#ff8600" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="603.0" />
 
-    <!-- Logo -->
-    <Rectangle arcHeight="10.0" arcWidth="10.0" fill="BLACK" height="39.0" layoutX="6.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="39.0" />
-    <Text fill="#ff8600" layoutX="5.0" layoutY="29.0" text="L" textAlignment="CENTER" wrappingWidth="42.0">
-        <font> <Font size="25.0" /> </font>
-    </Text>
-
     <!-- Texto -->
     <Text layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" textAlignment="CENTER" wrappingWidth="600.0">
         <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="24.0" />
         </font>
     </Text>
 
     <!-- Resto -->
     <!-- Informação -->
-    <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#0000002c" height="200.0" layoutX="150.0" layoutY="171.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
-    <TextField fx:id="email" layoutX="227.0" layoutY="200.0" promptText="Email" />
-    <PasswordField fx:id="password" layoutX="227.0" layoutY="246.0" promptText="Password" />
+    <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#0000002c" height="306.0" layoutX="150.0" layoutY="65.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
+    <TextField fx:id="email" layoutX="227.0" layoutY="174.0" promptText="Email" />
+    <PasswordField fx:id="password" layoutX="227.0" layoutY="222.0" promptText="Password" />
     <!-- Botão -->
-    <Button fx:id="login_btn" layoutX="256.0" layoutY="306.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #ff8600;" text="Confirmar">
+    <Button fx:id="login_btn" layoutX="239.0" layoutY="308.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="119.0" style="-fx-background-color: #ff8600;" text="Confirmar">
         <cursor>
             <Cursor fx:constant="HAND" />
-        </cursor></Button>
+        </cursor>
+      <font>
+         <Font size="16.0" />
+      </font></Button>
     <!-- Informação -->
-    <Rectangle arcHeight="10.0" arcWidth="10.0" fill="BLACK" height="70.0" layoutX="267.0" layoutY="67.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
-    <Text fill="#ff8600" layoutX="281.0" layoutY="116.0" text="L" textAlignment="CENTER" wrappingWidth="42.0">
+    <Rectangle arcHeight="10.0" arcWidth="10.0" fill="BLACK" height="70.0" layoutX="267.0" layoutY="82.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+    <Text fill="#ff8600" layoutX="281.0" layoutY="131.0" text="L" textAlignment="CENTER" wrappingWidth="42.0">
         <font>
             <Font size="45.0" />
         </font>
