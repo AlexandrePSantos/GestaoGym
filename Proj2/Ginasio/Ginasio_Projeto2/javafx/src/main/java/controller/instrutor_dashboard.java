@@ -163,53 +163,43 @@ public class instrutor_dashboard {
     }
 
     @FXML
+    protected void getDeleteAula() {
+
+    }
+
+    @FXML
+    protected void editarPerfil() {
+
+    }
+
+    @FXML
+    protected void criarPlano() {
+
+    }
+
+    @FXML
+    protected void apagarPlano() {
+
+    }
+
+    @FXML
     protected void refreshAula() {
         loadAulasAgendadas();
     }
 
     @FXML
-    protected void onActionAlterar(ActionEvent event) throws IOException {
-        //DONE Abrir instrutor_info
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_info.fxml").toURI().toURL());
-        Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
-        stage.setTitle("Instrutor: Perfil");
-        stage.setScene(scene);
-        stage.show();
-
-        Node source = (Node) event.getSource();
-        Stage stageAtual = (Stage) source.getScene().getWindow();
-        stageAtual.close();
-    }
-
-    @FXML
-    protected void onActionMaisInfoPlano(ActionEvent event) throws IOException {
+    protected void pagExercicios(ActionEvent event) throws IOException {
         //DONE Abrir instrutor_planos
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_planos.fxml").toURI().toURL());
-        Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
-        stage.setTitle("Instrutor: Planos de Treino");
-        stage.setScene(scene);
-        stage.show();
-
-        Node source = (Node) event.getSource();
-        Stage stageAtual = (Stage) source.getScene().getWindow();
-        stageAtual.close();
-    }
-
-    @FXML
-    protected void onActionMaisInfoAula(ActionEvent event) throws IOException {
-        //DONE Abrir instrutor_aulas
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_aulas.fxml").toURI().toURL());
-        Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
-        stage.setTitle("Instrutor: Aulas de Grupo");
-        stage.setScene(scene);
-        stage.show();
-
-        Node source = (Node) event.getSource();
-        Stage stageAtual = (Stage) source.getScene().getWindow();
-        stageAtual.close();
+//        Stage stage = new Stage();
+//        FXMLLoader fxmlLoader = new FXMLLoader(new File("../Ginasio_Projeto2/javafx/src/main/resources/com/example/javafx/instrutor_planos.fxml").toURI().toURL());
+//        Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
+//        stage.setTitle("Instrutor: Planos de Treino");
+//        stage.setScene(scene);
+//        stage.show();
+//
+//        Node source = (Node) event.getSource();
+//        Stage stageAtual = (Stage) source.getScene().getWindow();
+//        stageAtual.close();
     }
 
     @FXML
