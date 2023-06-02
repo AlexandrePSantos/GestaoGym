@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.instrutor_aulas">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.controller.instrutor_aulas">
     <!-- Info Bar -->
     <Rectangle fill="#ff8600" height="39.0" layoutX="-4.0" stroke="#ff8600" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="614.0" />
 
