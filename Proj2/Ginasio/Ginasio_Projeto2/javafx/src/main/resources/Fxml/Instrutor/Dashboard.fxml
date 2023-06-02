@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.control.cell.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.javafx.controller.Instrutor.DashboardController"
-            prefHeight="768.0" prefWidth="1366.0">
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.controller.Instrutor.DashboardController">
 
-
-    <!-- Info Bar -->
+      
+          <!-- Info Bar -->
     <Rectangle fill="#ff8600" height="39.0" stroke="#ff8600" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="1366.0" />
-    <!-- Logo -->
-    <Rectangle arcHeight="5.0" arcWidth="10.0" fill="BLACK" height="39.0" layoutX="6.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="39.0" />
-    <Text fill="#ff8600" layoutX="5.0" layoutY="29.0" text="L" textAlignment="CENTER" wrappingWidth="42.0">
-        <font> <Font size="25.0" /> </font>
-    </Text>
-    <!-- Texto -->
-    <Text layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" textAlignment="CENTER" wrappingWidth="1366.0">
-        <font> <Font size="20.0" /> </font>
-    </Text>
     <!-- Logout - adicionar um botão -->
 
 
@@ -100,7 +96,7 @@
             </cursor>
         </Button>
         <!-- Botão -->
-        <Button fx:id="PaginaExercicios" layoutX="394.0" layoutY="415.0" mnemonicParsing="false" onAction="#pagExercicios" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: orange;" text="Exercícios">
+        <Button fx:id="PaginaExercicios" layoutX="396.0" layoutY="448.0" mnemonicParsing="false" onAction="#pagExercicios" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: orange;" text="Exercícios">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
@@ -327,5 +323,23 @@
             </font>
         </Text>
     </Pane>
+   <AnchorPane layoutX="-2.0" prefHeight="39.0" prefWidth="1366.0">
+      <children>
+          <!-- Logo -->
+          <Rectangle arcHeight="5.0" arcWidth="10.0" fill="BLACK" height="39.0" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" width="39.0" />
+          <Text fill="#ff8600" layoutY="29.0" text="L" textAlignment="CENTER" wrappingWidth="42.0">
+              <font> <Font size="25.0" /> </font>
+          </Text>
+          <!-- Texto -->
+          <Text layoutX="601.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" textAlignment="CENTER" wrappingWidth="164.4000120162964">
+              <font> <Font name="System Bold" size="30.0" /> </font>
+          </Text>
+         <Button fx:id="logout" layoutX="1291.0" layoutY="3.0" mnemonicParsing="false" onAction="#logout" prefHeight="33.0" prefWidth="74.0" style="-fx-background-color: orange;" text="Logout">
+            <font>
+               <Font name="System Bold" size="15.0" />
+            </font>
+         </Button>
+      </children>
+   </AnchorPane>
 
 </AnchorPane>
