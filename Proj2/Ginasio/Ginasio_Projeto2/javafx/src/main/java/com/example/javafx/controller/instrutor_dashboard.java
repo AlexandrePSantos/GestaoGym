@@ -1,4 +1,4 @@
-package controller;
+package com.example.javafx.controller;
 
 import com.AcessoBD.BLL.PlanosBLL;
 import com.AcessoBD.DAO.AulagrupoDAO;
