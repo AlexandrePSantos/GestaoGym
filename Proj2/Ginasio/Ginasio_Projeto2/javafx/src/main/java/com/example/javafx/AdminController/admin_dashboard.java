@@ -1,4 +1,4 @@
-package com.example.javafx.controller;
+package com.example.javafx.AdminController;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

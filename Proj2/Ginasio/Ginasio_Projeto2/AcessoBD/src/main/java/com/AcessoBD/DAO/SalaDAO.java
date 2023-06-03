@@ -38,7 +38,7 @@ public class SalaDAO {
         em.close();
     }
 
-    public Sala getById(int id) {
+    public Sala getById(String id) {
         EntityManager em = emf.createEntityManager();
         Sala sala = em.find(Sala.class, id);
         em.close();

@@ -14,22 +14,12 @@ public class LoginBLL {
     }
 
     // DESKTOP
-    public Integer loginFuncionario(String email, String password) {
+    public Funcionario loginFuncionario(String email, String password) {
         FuncionarioDAO fd = new FuncionarioDAO();
         Funcionario login = fd.getByEmail(email);
         if (login != null && login.getPassword().equals(password)) {
-            // Check the role of the Funcionario
-            String funcao = login.getFuncao();
-            switch (funcao) {
-                // Successful login for an Instrutor
-                case "Instrutor": return 1;
-                // Successful login for an Administrador
-                case "Administrador": return 2;
-                // Successful login for a Rececionista
-                case "Rececionista": return 3;
-            }
+            return login;
         }
-        // Invalid login credentials or Funcionario not found
-        return 0;
+        return null;
     }
 }

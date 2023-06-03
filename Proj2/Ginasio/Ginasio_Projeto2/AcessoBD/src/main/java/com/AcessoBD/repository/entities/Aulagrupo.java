@@ -72,7 +72,7 @@ public class Aulagrupo {
         return horaAula;
     }
 
-    public void setHoraAula(LocalDate dataAula) {
+    public void setHoraAula(LocalTime horaAula) {
         this.horaAula = horaAula;
     }
 
