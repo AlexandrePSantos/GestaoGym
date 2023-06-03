@@ -14,6 +14,4 @@ module com.example.javafx {
     exports com.example.javafx.controller;
     exports com.example.javafx.controller.Instrutor;
     exports com.example.javafx.controller.Rececionista;
-    exports com.example.javafx.Models;
-    exports com.example.javafx.Views;
 }
