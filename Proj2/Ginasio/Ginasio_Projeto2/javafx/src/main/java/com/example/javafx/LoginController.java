@@ -45,7 +45,6 @@ public class LoginController {
         } else {
             FXMLLoader fxmlLoader;
             String titulo;
-            loginSuccess.setText("Login efetuado com sucesso!");
 
             switch (f.getFuncao()) {
                 case "Instrutor":

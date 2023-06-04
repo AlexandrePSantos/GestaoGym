@@ -12,6 +12,7 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -41,15 +42,15 @@
 
 
    <!-- Perfil -->
-   <Pane id="Perfil" layoutX="17.0" layoutY="56.0" prefHeight="191.0" prefWidth="490.0">
+   <Pane id="Perfil" layoutX="17.0" layoutY="56.0" prefHeight="181.0" prefWidth="490.0">
       <!-- Informação -->
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="191.0" stroke="BLACK" strokeMiterLimit="0.0" width="497.0" />
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="181.0" stroke="BLACK" strokeMiterLimit="0.0" width="498.0" />
       <Text layoutX="1.0" layoutY="21.0" text="Informação" textAlignment="CENTER" wrappingWidth="488.99999999999994">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <HBox layoutX="166.0" layoutY="154.0" prefHeight="27.0" prefWidth="310.0">
+      <HBox layoutX="168.0" layoutY="144.0" prefHeight="27.0" prefWidth="310.0">
          <TextField fx:id="newPass" editable="true" prefHeight="30.0" prefWidth="130.0">
             <HBox.margin>
                <Insets right="5.0" />
@@ -75,12 +76,12 @@
       <Label fx:id="nifLbl" layoutX="326.0" layoutY="64.0" text="NIF:" />
       <Label fx:id="mailLbl" layoutX="15.0" layoutY="102.0" text="Email:" />
       <Label fx:id="slLbl" layoutX="323.0" layoutY="102.0" text="Salário Mensal:" />
-      <Label fx:id="psswdLbl1" layoutX="166.0" layoutY="137.0" text="Pass.:">
+      <Label fx:id="psswdLbl1" layoutX="168.0" layoutY="127.0" text="Pass.:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="tlmLbl1" layoutX="295.0" layoutY="137.0" text="Telemóvel:">
+      <Label fx:id="tlmLbl1" layoutX="297.0" layoutY="127.0" text="Telemóvel:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -88,69 +89,69 @@
    </Pane>
 
    <!-- Planos de Treino -->
-   <Pane id="Planos Treino" layoutX="17.0" layoutY="254.0" prefHeight="401.0" prefWidth="498.0">
+   <Pane id="Planos Treino" layoutX="17.0" layoutY="243.0" prefHeight="259.0" prefWidth="498.0">
       <!-- Informação -->
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="398.0" layoutY="2.0" stroke="BLACK" strokeMiterLimit="0.0" width="498.0" />
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="257.0" layoutY="2.0" stroke="BLACK" strokeMiterLimit="0.0" width="502.0" />
       <Text layoutX="5.0" layoutY="27.0" text="Planos de Treino" textAlignment="CENTER" wrappingWidth="480.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <TableView fx:id="tabelaPlanos" layoutX="11.0" layoutY="42.0" prefHeight="287.0" prefWidth="474.0">
+      <TableView fx:id="tabelaPlanos" layoutX="14.0" layoutY="38.0" prefHeight="162.0" prefWidth="474.0">
          <columns>
-            <TableColumn fx:id="numPlano" prefWidth="52.0" text="Nº">
+            <TableColumn fx:id="numPlano" editable="false" prefWidth="47.999996185302734" text="Nº">
                <cellValueFactory>
                   <PropertyValueFactory property="numPlano" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="dtCriacao" prefWidth="103.0" text="Data Criação">
+            <TableColumn fx:id="dtCriacao" editable="false" prefWidth="93.60000610351562" text="Data Criação">
                <cellValueFactory>
                   <PropertyValueFactory property="dtCriacao" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="estado" prefWidth="72.0" text="Estado">
+            <TableColumn fx:id="estado" editable="false" prefWidth="91.20002746582031" text="Estado">
                <cellValueFactory>
                   <PropertyValueFactory property="estado" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="cliente" prefWidth="120.0" text="Cliente">
+            <TableColumn fx:id="cliente" editable="false" prefWidth="153.5999755859375" text="Cliente">
                <cellValueFactory>
                   <PropertyValueFactory property="cliente" />
                </cellValueFactory>
             </TableColumn>
+            <TableColumn fx:id="showexercicios" editable="false" prefWidth="87.20001220703125" style="-fx-alignment: center;" text="Exercicios" />
          </columns>
       </TableView>
-      <Label layoutX="12.0" layoutY="337.0" text="Número:">
+
+      <Label layoutX="15.0" layoutY="200.0" text="Número:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <HBox layoutX="12.0" layoutY="354.0" prefHeight="33.0" prefWidth="240.0">
-         <children>
-            <TextField prefHeight="30.0" prefWidth="70.0">
-               <HBox.margin>
-                  <Insets right="20.0" />
-               </HBox.margin>
-            </TextField>
-            <Button fx:id="desativarPlano" mnemonicParsing="false" onAction="#apagarPlano" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: orange;" text="Desativar">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
-            </Button>
-            <Button fx:id="editarPlano" mnemonicParsing="false" onAction="#editarPlano" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: orange;" text="Editar">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Button>
-         </children>
+      <HBox layoutX="15.0" layoutY="217.0" prefHeight="33.0" prefWidth="240.0">
+         <TextField fx:id="nPlano" prefHeight="30.0" prefWidth="70.0">
+            <HBox.margin>
+               <Insets right="20.0" />
+            </HBox.margin>
+         </TextField>
+         <Button fx:id="desativarPlano" mnemonicParsing="false" onAction="#apagarPlano" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: orange;" text="Desativar">
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+            <HBox.margin>
+               <Insets right="10.0" />
+            </HBox.margin>
+         </Button>
+         <Button fx:id="editarPlano" mnemonicParsing="false" onAction="#editarPlano" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: orange;" text="Editar">
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+            <HBox.margin>
+               <Insets />
+            </HBox.margin>
+         </Button>
       </HBox>
-      <Button fx:id="criarPlano" layoutX="414.0" layoutY="356.0" mnemonicParsing="false" onAction="#criarPlano" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: orange;" text="Criar">
+      <Button fx:id="criarPlano" layoutX="417.0" layoutY="219.0" mnemonicParsing="false" onAction="#criarPlano" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: orange;" text="Criar">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -172,7 +173,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <TableView fx:id="tabelaAulasPlaneadas" layoutX="14.0" layoutY="62.0" prefHeight="220.0" prefWidth="787.0">
+      <TableView fx:id="tabelaAulasPlaneadas" layoutX="14.0" layoutY="58.0" prefHeight="224.0" prefWidth="787.0">
          <columns>
             <TableColumn fx:id="numAulaPlan" maxWidth="105.0" minWidth="40.0" prefWidth="40.0" style="-fx-alignment: center;" text="Nº">
                <cellValueFactory>
@@ -204,30 +205,26 @@
                   <PropertyValueFactory property="sala" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="vagasPlan" maxWidth="181.0" minWidth="71.0" prefWidth="77.0" style="-fx-alignment: center;" text="Vagas tot.">
+            <TableColumn fx:id="vagasPlan" maxWidth="181.0" minWidth="71.0" prefWidth="92.0" style="-fx-alignment: center;" text="Vagas tot.">
                <cellValueFactory>
                   <PropertyValueFactory property="vagas" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="vagasDispPlan" maxWidth="186.0" minWidth="70.4000244140625" prefWidth="78.0" style="-fx-alignment: center;" text="Vagas disp.">
+            <TableColumn fx:id="vagasDispPlan" maxWidth="186.0" minWidth="70.4000244140625" prefWidth="92.7999267578125" style="-fx-alignment: center;" text="Vagas disp.">
                <cellValueFactory>
                   <PropertyValueFactory property="vagasDisp" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="ParticipantesPlan" maxWidth="212.0" minWidth="0.0" prefWidth="119.0" style="-fx-alignment: center;" text="Participantes">
-               <cellValueFactory>
-                  <PropertyValueFactory property="vagasDisp" />
-               </cellValueFactory>
-            </TableColumn>
+            <TableColumn fx:id="ParticipantesPlan" maxWidth="212.0" minWidth="0.0" prefWidth="91.199951171875" style="-fx-alignment: center;" text="Participantes" />
          </columns>
       </TableView>
 
-      <Text layoutX="14.0" layoutY="453.0" text="Realizadas:" wrappingWidth="257.0">
+      <Text layoutX="14.0" layoutY="466.0" text="Realizadas:" wrappingWidth="257.0">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <TableView fx:id="tabelaAulasRealizadas" layoutX="16.0" layoutY="462.0" prefHeight="220.0" prefWidth="787.0">
+      <TableView fx:id="tabelaAulasRealizadas" layoutX="16.0" layoutY="471.0" prefHeight="211.0" prefWidth="787.0">
          <columns>
             <TableColumn fx:id="numAulaReal" maxWidth="105.0" minWidth="62.4000244140625" prefWidth="62.4000244140625" style="-fx-alignment: center;" text="Nº">
                <cellValueFactory>
@@ -259,31 +256,20 @@
                   <PropertyValueFactory property="sala" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="vagasReal" maxWidth="181.0" minWidth="88.0" prefWidth="89.0" style="-fx-alignment: center;" text="Vagas tot.">
+            <TableColumn fx:id="vagasReal" maxWidth="181.0" minWidth="88.0" prefWidth="94.4000244140625" style="-fx-alignment: center;" text="Vagas tot.">
                <cellValueFactory>
                   <PropertyValueFactory property="vagas" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="vagasDispReal" maxWidth="186.0" minWidth="70.4000244140625" prefWidth="79.2000732421875" style="-fx-alignment: center;" text="Vagas disp.">
+            <TableColumn fx:id="vagasDispReal" maxWidth="186.0" minWidth="70.4000244140625" prefWidth="78.4000244140625" style="-fx-alignment: center;" text="Vagas disp.">
                <cellValueFactory>
                   <PropertyValueFactory property="vagasDisp" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="ParticipantesReal" maxWidth="212.0" minWidth="0.0" prefWidth="90.0" style="-fx-alignment: center;" text="Participantes">
-               <cellValueFactory>
-                  <PropertyValueFactory property="vagasDisp" />
-               </cellValueFactory>
-            </TableColumn>
+            <TableColumn fx:id="ParticipantesReal" maxWidth="212.0" minWidth="0.0" prefWidth="83.800048828125" style="-fx-alignment: center;" text="Participantes" />
          </columns>
       </TableView>
-      <HBox alignment="TOP_RIGHT" layoutX="720.0" layoutY="28.0" prefHeight="25.0" prefWidth="79.0">
-         <Button fx:id="refreshAula" mnemonicParsing="false" onAction="#refreshAula" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: orange;" text="Refresh">
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor>
-         </Button>
-      </HBox>
-      <HBox layoutX="96.0" layoutY="305.0" prefHeight="27.0" prefWidth="705.0">
+      <HBox layoutX="97.0" layoutY="299.0" prefHeight="27.0" prefWidth="705.0">
          <TextField fx:id="tipoAulaTextField" prefHeight="30.0" prefWidth="124.0">
             <HBox.margin>
                <Insets right="5.0" />
@@ -326,47 +312,47 @@
             </cursor>
          </Button>
       </HBox>
-      <Text layoutX="96.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo:">
+      <Text layoutX="97.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="224.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data:">
+      <Text layoutX="225.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="360.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora:">
+      <Text layoutX="361.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="540.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duração:">
+      <Text layoutX="541.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duração:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="442.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sala:">
+      <Text layoutX="443.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sala:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="635.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vagas:">
+      <Text layoutX="636.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vagas:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="328.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número:">
+      <Text layoutX="329.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="640.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número:">
+      <Text layoutX="641.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <HBox layoutX="328.0" layoutY="349.0" prefHeight="27.0" prefWidth="474.0">
+      <HBox layoutX="329.0" layoutY="355.0" prefHeight="27.0" prefWidth="474.0">
          <TextField fx:id="numAulaEdit" prefHeight="30.0" prefWidth="70.0">
             <HBox.margin>
                <Insets right="5.0" />
@@ -393,7 +379,7 @@
             </cursor>
          </Button>
       </HBox>
-      <HBox layoutX="642.0" layoutY="392.0" prefHeight="27.0" prefWidth="161.0">
+      <HBox layoutX="641.0" layoutY="412.0" prefHeight="27.0" prefWidth="161.0">
          <TextField fx:id="numAulaText" prefHeight="30.0" prefWidth="70.0">
             <HBox.margin>
                <Insets right="20.0" />
@@ -408,36 +394,94 @@
             </HBox.margin>
          </Button>
       </HBox>
-      <Text layoutX="407.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data:">
+      <Text layoutX="408.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="540.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora:">
+      <Text layoutX="541.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="628.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duração:">
+      <Text layoutX="629.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duração:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
+      <Line endX="616.0" endY="137.0" layoutX="182.0" layoutY="307.0" startX="-165.0" startY="137.0" />
   </Pane>
-   <Pane layoutX="17.0" layoutY="661.0" prefHeight="94.0" prefWidth="497.0">
-      <children>
-         <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="94.0" stroke="BLACK" strokeMiterLimit="0.0" width="499.0" />
-         <!-- Botão -->
-         <Button fx:id="pagExercicios" layoutX="194.0" layoutY="40.0" mnemonicParsing="false" onAction="#pagExercicios" prefHeight="30.0" prefWidth="110.0" style="-fx-background-color: orange;" text="Gerir Exercicios">
+   <Pane layoutX="18.0" layoutY="509.0" prefHeight="247.0" prefWidth="497.0">
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="247.0" layoutX="-1.0" stroke="BLACK" strokeMiterLimit="0.0" width="506.0" />
+      <Text layoutX="-1.0" layoutY="26.0" text="Exercicios:" textAlignment="CENTER" wrappingWidth="500.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tableExercicio" layoutX="14.0" layoutY="40.0" prefHeight="144.0" prefWidth="474.0">
+         <columns>
+            <TableColumn fx:id="numEx" prefWidth="62.39999008178711" text="Nº">
+               <cellValueFactory>
+                  <PropertyValueFactory property="idExercicio" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="Exercicio" prefWidth="200.79994201660156" text="Exercicio">
+               <cellValueFactory>
+                  <PropertyValueFactory property="nome" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="Equipamento" prefWidth="210.0" text="Equipamento">
+               <cellValueFactory>
+                  <PropertyValueFactory property="equipamento" />
+               </cellValueFactory>
+            </TableColumn>
+         </columns>
+      </TableView>
+      <HBox layoutX="14.0" layoutY="205.0" prefHeight="33.0" prefWidth="142.0">
+         <TextField fx:id="nExDelete" prefHeight="30.0" prefWidth="50.0">
+            <HBox.margin>
+               <Insets right="20.0" />
+            </HBox.margin>
+         </TextField>
+         <Button mnemonicParsing="false" onAction="#apagarExercicio" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: orange;" text="Apagar">
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>
          </Button>
-         <Text layoutX="-1.0" layoutY="21.0" text="Exercicios:" textAlignment="CENTER" wrappingWidth="500.0">
-            <font>
-               <Font name="System Bold" size="20.0" />
-            </font>
-         </Text>
-      </children>
+      </HBox>
+      <Label layoutX="14.0" layoutY="184.0" text="Número:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <HBox layoutX="164.0" layoutY="205.0" prefHeight="33.0" prefWidth="319.0">
+         <TextField fx:id="nomeEx" prefHeight="30.0" prefWidth="130.0">
+            <HBox.margin>
+               <Insets right="5.0" />
+            </HBox.margin>
+         </TextField>
+         <TextField fx:id="nomeEquip" prefHeight="30.0" prefWidth="130.0">
+            <HBox.margin>
+               <Insets right="20.0" />
+            </HBox.margin>
+         </TextField>
+         <!-- Botão -->
+         <Button mnemonicParsing="false" onAction="#addExercicio" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: orange;" text="Criar">
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+      </HBox>
+      <Label layoutX="164.0" layoutY="185.0" text="Exercicio:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="288.0" layoutY="185.0" text="Equipamento:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Line endX="-2.0" endY="-4.0" layoutX="162.0" layoutY="192.0" startX="-2.0" startY="49.0" />
    </Pane>
 </Pane>

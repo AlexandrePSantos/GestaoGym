@@ -14,13 +14,13 @@ public class Exercicio {
     @Column(name = "nome")
     private String nome;
 
-    @ManyToOne
-    @JoinColumn(name = "id_equipamento")
-    private Equipamento equipamento;
+    @Column(name = "equipamento")
+    private String equipamento;
+
 
     public Exercicio() {}
 
-    public Exercicio(String nome, Equipamento equipamento) {
+    public Exercicio(String nome, String equipamento) {
         this.nome = nome;
         this.equipamento = equipamento;
     }
@@ -41,11 +41,11 @@ public class Exercicio {
         this.nome = nome;
     }
 
-    public Equipamento getEquipamento() {
+    public String getEquipamento() {
         return equipamento;
     }
 
-    public void setEquipamento(Equipamento equipamento) {
+    public void setEquipamento(String equipamento) {
         this.equipamento = equipamento;
     }
 }
