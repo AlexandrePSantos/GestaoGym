@@ -12,14 +12,4 @@ public class LoginBLL {
         Cliente login = cd.getByEmail(email);
         return login != null && login.getPassword().equals(password);
     }
-
-    // DESKTOP
-    public Funcionario loginFuncionario(String email, String password) {
-        FuncionarioDAO fd = new FuncionarioDAO();
-        Funcionario login = fd.getByEmail(email);
-        if (login != null && login.getPassword().equals(password)) {
-            return login;
-        }
-        return null;
-    }
 }

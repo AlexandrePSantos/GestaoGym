@@ -1,5 +1,6 @@
 package com.example.javafx;
 
+import com.AcessoBD.DAO.FuncionarioDAO;
 import com.example.javafx.InstrutorController.instrutor_dashboard;
 import com.AcessoBD.BLL.LoginBLL;
 import com.AcessoBD.repository.entities.*;
@@ -16,22 +17,37 @@ import java.io.File;
 import java.io.IOException;
 
 public class LoginController {
-    public Label errorLogin;
+    @FXML
+    public Label loginSuccess, passErrada, mailErrado;
+    @FXML
     public Button login_btn;
+    @FXML
     public TextField email;
+    @FXML
     public PasswordField password;
 
     @FXML
     protected void login(ActionEvent event) throws IOException {
+        FuncionarioDAO fd = new FuncionarioDAO();
         Stage stage = new Stage();
         LoginBLL l = new LoginBLL();
-        Funcionario funcionario = l.loginFuncionario(email.getText(), password.getText());
 
-        if (funcionario != null) {
+        // Verificar se os campos de email e senha estão vazios
+        if (email.getText().isEmpty() || password.getText().isEmpty()) {
+            passErrada.setText("Preencha todos os campos!");
+            return; // Terminar o método aqui para evitar exceções desnecessárias
+        }
+
+        Funcionario f = fd.getByEmail(email.getText());
+
+        if (f != null && !(password.getText().equals(f.getPassword()))) {
+            passErrada.setText("Password errada!");
+        } else {
             FXMLLoader fxmlLoader;
             String titulo;
+            loginSuccess.setText("Login efetuado com sucesso!");
 
-            switch (funcionario.getFuncao()) {
+            switch (f.getFuncao()) {
                 case "Instrutor":
                     fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/javafx/Instrutor/instrutor_dashboard.fxml"));
                     titulo = "Instrutor: Dashboard";
@@ -49,14 +65,14 @@ public class LoginController {
                     return; // Termina o método se o login falhar
             }
 
-            // Carregue o arquivo FXML
+            // Load do arquivo FXML
             Parent root = fxmlLoader.load();
 
-            // Obtenha o controlador para a página de destino
+            // Obter o controlador para a página de destino
             instrutor_dashboard inst_dash = fxmlLoader.getController();
-            // Passe o ID do usuário para o DashboardController
-            inst_dash.setUserId(funcionario.getId());
-            inst_dash.loadPerfil(funcionario.getId());
+            // Passar o ID do user para o dashboard controller
+            inst_dash.setUserId(f.getId());
+            inst_dash.loadPerfil(f.getId());
 
             Scene scene = new Scene(root);
             stage.setTitle(titulo);
@@ -67,25 +83,5 @@ public class LoginController {
             Stage stageAtual = (Stage) source.getScene().getWindow();
             stageAtual.close();
         }
-    }
-
-
-
-
-    //   Alertas precisam de ser apresentados antes do dashboard e com pausa de alguns segundos
-    public void loginAlert(){
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Login errado!");
-        alert.setHeaderText("Username ou Password Errados!");
-        alert.setContentText("Tente novamente");
-        alert.show();
-    }
-
-    public void loginSuccess() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Login efetuado com sucesso!");
-        alert.setHeaderText("Login inciado com sucesso");
-        alert.setContentText("Aproveite a navegação");
-        alert.show();
     }
 }
