@@ -28,7 +28,7 @@
    </Text>
    <!-- Texto -->
    <Text layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" textAlignment="CENTER" wrappingWidth="1366.0">
-      <font> <Font size="20.0" /> </font>
+      <font> <Font name="System Bold" size="24.0" /> </font>
    </Text>
    <!-- Logout -->
    <Button fx:id="onActionExit" layoutX="1300.0" layoutY="8.0" mnemonicParsing="false" onAction="#onActionExit" style="-fx-background-color: black;" text="Logout" textFill="#ff8600">
@@ -68,24 +68,24 @@
             </cursor>
          </Button>
       </HBox>
-      <Label fx:id="nomeLbl" layoutX="13.0" layoutY="36.0" text="Nome:" />
-      <Label fx:id="dnLbl" layoutX="185.0" layoutY="36.0" text="Data Nasc.:" />
-      <Label fx:id="tlmLbl" layoutX="326.0" layoutY="36.0" text="Telemóvel:" />
-      <Label fx:id="psswdLbl" layoutX="14.0" layoutY="64.0" text="Pass.:" />
-      <Label fx:id="funcLbl" layoutX="185.0" layoutY="64.0" text="Função:" />
-      <Label fx:id="nifLbl" layoutX="326.0" layoutY="64.0" text="NIF:" />
-      <Label fx:id="mailLbl" layoutX="15.0" layoutY="102.0" text="Email:" />
-      <Label fx:id="slLbl" layoutX="323.0" layoutY="102.0" text="Salário Mensal:" />
-      <Label fx:id="psswdLbl1" layoutX="168.0" layoutY="127.0" text="Pass.:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <Label fx:id="tlmLbl1" layoutX="297.0" layoutY="127.0" text="Telemóvel:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
+      <Label fx:id="nomeLbl" layoutX="15.0" layoutY="30.0" text="Nome:"><font><Font name="System Bold" size="12.0" /></font></Label>
+      <Label fx:id="dnLbl" layoutX="15.0" layoutY="120.0" text="Data Nasc.:"><font><Font name="System Bold" size="12.0" /></font></Label>
+      <Label fx:id="tlmLbl" layoutX="260.0" layoutY="30.0" text="Telemóvel:"><font><Font name="System Bold" size="12.0" /></font></Label>
+      <Label fx:id="psswdLbl" layoutX="15.0" layoutY="60.0" text="Password:"><font><Font name="System Bold" size="12.0" /></font></Label>
+      <Label fx:id="funcLbl" layoutX="15.0" layoutY="150.0" text="Função:"><font><Font name="System Bold" size="12.0" /></font></Label>
+      <Label fx:id="nifLbl" layoutX="260.0" layoutY="60.0" text="NIF:"><font><Font name="System Bold" size="12.0" /></font></Label>
+      <Label fx:id="mailLbl" layoutX="15.0" layoutY="90.0" text="Email:"><font><Font name="System Bold" size="12.0" /></font></Label>
+      <Label fx:id="slLbl" layoutX="260.0" layoutY="90.0" text="Salário Mensal:"><font><Font name="System Bold" size="12.0" /></font></Label>
+      <Label fx:id="psswdLbl1" layoutX="168.0" layoutY="127.0" text="Pass.:"><font><Font name="System Bold" size="12.0" /></font></Label>
+      <Label fx:id="tlmLbl1" layoutX="297.0" layoutY="127.0" text="Telemóvel:"><font><Font name="System Bold" size="12.0" /></font></Label>
+      <Line endX="210.0" endY="137.0" layoutX="35.0" layoutY="-90.0" startX="16.0" startY="137.0" />
+      <Line endX="210.0" endY="137.0" layoutX="35.0" layoutY="-60.0" startX="36.748046875" startY="137.0" />
+      <Line endX="210.0" endY="137.0" layoutX="35.0" layoutY="-30.0" startX="13.0" startY="137.0" />
+      <Line endX="121.0" endY="137.0" layoutX="35.0" startX="43.0" startY="137.0" />
+      <Line endX="121.0" endY="137.0" layoutX="35.0" layoutY="30.0" startX="22.0" startY="137.0" />
+      <Line endX="210.0" endY="137.0" layoutX="283.0" layoutY="-90.0" startX="38.40625" startY="137.0" />
+      <Line endX="210.0" endY="137.0" layoutX="283.0" layoutY="-60.0" startX="-0.224609375" startY="137.0" />
+      <Line endX="210.0" endY="137.0" layoutX="283.0" layoutY="-30.0" startX="62.517578125" startY="137.0" />
    </Pane>
 
    <!-- Planos de Treino -->
@@ -109,17 +109,17 @@
                   <PropertyValueFactory property="dtCriacao" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="estado" editable="false" prefWidth="91.20002746582031" text="Estado">
+            <TableColumn fx:id="estado" editable="false" prefWidth="73.60003662109375" text="Estado">
                <cellValueFactory>
                   <PropertyValueFactory property="estado" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="cliente" editable="false" prefWidth="153.5999755859375" text="Cliente">
+            <TableColumn fx:id="cliente" editable="false" prefWidth="159.2000274658203" text="Cliente (Nº - Nome)">
                <cellValueFactory>
                   <PropertyValueFactory property="cliente" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="showexercicios" editable="false" prefWidth="87.20001220703125" style="-fx-alignment: center;" text="Exercicios" />
+            <TableColumn fx:id="showexercicios" editable="false" prefWidth="95.0" style="-fx-alignment: center;" text="Exercicios" />
          </columns>
       </TableView>
 
@@ -128,7 +128,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <HBox layoutX="15.0" layoutY="217.0" prefHeight="33.0" prefWidth="240.0">
+      <HBox layoutX="15.0" layoutY="217.0" prefHeight="33.0" prefWidth="161.0">
          <TextField fx:id="nPlano" prefHeight="30.0" prefWidth="70.0">
             <HBox.margin>
                <Insets right="20.0" />
@@ -139,23 +139,27 @@
                <Cursor fx:constant="HAND" />
             </cursor>
             <HBox.margin>
-               <Insets right="10.0" />
-            </HBox.margin>
-         </Button>
-         <Button fx:id="editarPlano" mnemonicParsing="false" onAction="#editarPlano" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: orange;" text="Editar">
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor>
-            <HBox.margin>
                <Insets />
             </HBox.margin>
          </Button>
       </HBox>
-      <Button fx:id="criarPlano" layoutX="417.0" layoutY="219.0" mnemonicParsing="false" onAction="#criarPlano" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: orange;" text="Criar">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
+      <HBox layoutX="258.0" layoutY="217.0" prefHeight="30.0" prefWidth="230.0">
+         <ChoiceBox fx:id="cliPlano" prefHeight="30.0" prefWidth="150.0">
+            <HBox.margin>
+               <Insets right="20.0" />
+            </HBox.margin>
+         </ChoiceBox>
+         <Button fx:id="criarPlano" mnemonicParsing="false" onAction="#criarPlano" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: orange;" text="Criar">
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+      </HBox>
+      <Label layoutX="258.0" layoutY="200.0" text="Cliente (Nº - Nome):">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
    </Pane>
 
    <!-- Aulas de Grupo -->
@@ -215,7 +219,7 @@
                   <PropertyValueFactory property="vagasDisp" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="ParticipantesPlan" maxWidth="212.0" minWidth="0.0" prefWidth="91.199951171875" style="-fx-alignment: center;" text="Participantes" />
+            <TableColumn fx:id="ParticipantesPlan" maxWidth="212.0" minWidth="0.0" prefWidth="87.0" style="-fx-alignment: center;" text="Participantes" />
          </columns>
       </TableView>
 
@@ -266,7 +270,7 @@
                   <PropertyValueFactory property="vagasDisp" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="ParticipantesReal" maxWidth="212.0" minWidth="0.0" prefWidth="83.800048828125" style="-fx-alignment: center;" text="Participantes" />
+            <TableColumn fx:id="ParticipantesReal" maxWidth="212.0" minWidth="0.0" prefWidth="83.0" style="-fx-alignment: center;" text="Participantes" />
          </columns>
       </TableView>
       <HBox layoutX="97.0" layoutY="299.0" prefHeight="27.0" prefWidth="705.0">
@@ -430,7 +434,7 @@
                   <PropertyValueFactory property="nome" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="Equipamento" prefWidth="210.0" text="Equipamento">
+            <TableColumn fx:id="Equipamento" prefWidth="207.0" text="Equipamento">
                <cellValueFactory>
                   <PropertyValueFactory property="equipamento" />
                </cellValueFactory>

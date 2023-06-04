@@ -11,7 +11,7 @@ public class ClienteDAO {
     private EntityManager em;
 
     public ClienteDAO() {
-        emf = Persistence.createEntityManagerFactory("my-persistence-unit");
+        emf = Persistence.createEntityManagerFactory("persist_gym");
         em = emf.createEntityManager();
     }
 

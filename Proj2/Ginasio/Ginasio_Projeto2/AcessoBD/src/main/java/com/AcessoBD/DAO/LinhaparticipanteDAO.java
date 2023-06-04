@@ -5,6 +5,7 @@ import com.AcessoBD.repository.entities.Linhaparticipante;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class LinhaparticipanteDAO {
@@ -44,6 +45,18 @@ public class LinhaparticipanteDAO {
         em.close();
         return linhaparticipante;
     }
+
+    public List<Linhaparticipante> getAllById(int id) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            TypedQuery<Linhaparticipante> query = em.createQuery("SELECT l FROM Linhaparticipante l WHERE l.aulagrupo.numAula = :id", Linhaparticipante.class);
+            query.setParameter("id", id);
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
 
     public List<Linhaparticipante> getAll() {
         EntityManager em = emf.createEntityManager();

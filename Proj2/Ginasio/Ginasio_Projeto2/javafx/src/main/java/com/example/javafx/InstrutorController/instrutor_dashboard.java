@@ -2,23 +2,18 @@ package com.example.javafx.InstrutorController;
 
 import com.AcessoBD.DAO.*;
 import com.AcessoBD.repository.entities.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.*;
+import javafx.event.*;
+import javafx.fxml.*;
+import javafx.scene.*;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
+import javafx.scene.control.cell.*;
+import javafx.stage.*;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.List;
+import java.time.*;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class instrutor_dashboard {
@@ -33,7 +28,7 @@ public class instrutor_dashboard {
     @FXML
     public DatePicker dataAulaDatePicker;
     @FXML
-    public ChoiceBox<String> salaAulaChoice;
+    public ChoiceBox<String> salaAulaChoice, cliPlano;
     @FXML
     public TextField vagasAulaTextField, numAulaText;
     @FXML
@@ -51,8 +46,7 @@ public class instrutor_dashboard {
     public TableColumn<Exercicio, String> Exercicio;
     @FXML
     public TableColumn<Exercicio, String> Equipamento;
-    public TextField nomeEquip;
-    public TextField nomeEx;
+    public TextField nomeEquip, nomeEx;
 
     @FXML
     protected TableView<Aulagrupo> tabelaAulasRealizadas;
@@ -117,8 +111,10 @@ public class instrutor_dashboard {
     FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
     SalaDAO salaDAO = new SalaDAO();
     ExercicioDAO exercicioDAO = new ExercicioDAO();
+    ClienteDAO clienteDAO = new ClienteDAO();
 
-//  *******************
+
+    //  *******************
 //  Inicializar
 //  *******************
     @FXML
@@ -129,14 +125,20 @@ public class instrutor_dashboard {
         // Carrega salas para choicebox
         List<Sala> salas = salaDAO.getAll();
         ObservableList<String> salaOptions = FXCollections.observableArrayList();
-
         for (Sala sala : salas) salaOptions.add(sala.getIdSala());
         salaAulaChoice.setItems(salaOptions);
+
+        List<Cliente> clientes = clienteDAO.getAll();
+        ObservableList<String> cliOptions = FXCollections.observableArrayList();
+        for (Cliente cli : clientes) cliOptions.add(cli.getIdCliente() + " - " + cli.getNome());
+        cliPlano.setItems(cliOptions);
     }
 
 //  *******************
-//  Aulas de grupo - faltam os participantes (talvez uma window extra tipo pop up com a lista)
+//  Aulas de grupo -- FALTA BLL
 //  *******************
+
+    //DONE
     protected void loadAulasAgendadas() {
         List<Aulagrupo> aulasAgendadas = aulagrupoDAO.getAll();
 
@@ -151,18 +153,12 @@ public class instrutor_dashboard {
 
         ParticipantesPlan.setCellFactory(param -> new TableCell<>() {
             private final Button button = new Button("+");
-
             {
                 button.setOnAction(event -> {
                     Aulagrupo aulagrupo = getTableRow().getItem();
                     if (aulagrupo != null) {
                         int aulagrupoId = aulagrupo.getNumAula();
-                        try {
-                            loadParticipantesPage(aulagrupoId);
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-                        System.out.println(aulagrupoId);
+                        try { loadParticipantesPage(aulagrupoId); } catch (IOException e) { throw new RuntimeException(e); }
                     }
                 });
             }
@@ -174,10 +170,7 @@ public class instrutor_dashboard {
         });
 
         // Filtrar apenas as aulas cuja data e hora são posteriores à data atual
-        LocalDate dataAtual = LocalDate.now();
-        LocalTime horaAtual = LocalTime.now();
-        LocalDateTime dataHoraAtual = LocalDateTime.of(dataAtual, horaAtual);
-
+        LocalDateTime dataHoraAtual = LocalDateTime.of(LocalDate.now(), LocalTime.now());
         List<Aulagrupo> aulasFiltradas = aulasAgendadas.stream()
                 .filter(aula -> {
                     LocalDateTime dataHoraAula = LocalDateTime.of(aula.getDataAula(), aula.getHoraAula());
@@ -186,6 +179,8 @@ public class instrutor_dashboard {
                 .collect(Collectors.toList());
         tabelaAulasPlaneadas.setItems(FXCollections.observableArrayList(aulasFiltradas));
     }
+
+    //DONE
     protected void loadAulasRealizadas() {
         List<Aulagrupo> aulasRealizadas = aulagrupoDAO.getAll();
 
@@ -207,11 +202,11 @@ public class instrutor_dashboard {
                     if (aulagrupo != null) {
                         int aulagrupoId = aulagrupo.getNumAula();
                         try {
+                            System.out.println(aulagrupoId);
                             loadParticipantesPage(aulagrupoId);
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
-                        System.out.println(aulagrupoId);
                     }
                 });
             }
@@ -236,6 +231,7 @@ public class instrutor_dashboard {
         tabelaAulasRealizadas.setItems(FXCollections.observableArrayList(aulasFiltradas));
     }
 
+    //DONE
     protected void loadParticipantesPage(int aulagrupoId) throws IOException {
             // Carregar o arquivo FXML
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/javafx/Instrutor/show_participantes.fxml"));
@@ -246,7 +242,7 @@ public class instrutor_dashboard {
 
             // Passar o ID do aulagrupo para o controlador da página de participantes
             participantesController.setAulagrupoId(aulagrupoId);
-            participantesController.loadData();
+            participantesController.loadData(aulagrupoId);
 
             // Criar uma nova janela para exibir a página de participantes
             Stage stage = new Stage();
@@ -254,7 +250,6 @@ public class instrutor_dashboard {
             stage.setScene(new Scene(root));
             stage.show();
     }
-
 
     //TODO - Falta BLL (Controlo de campos, não permitir determinados tipos de valores e formatos)
     @FXML
@@ -297,8 +292,6 @@ public class instrutor_dashboard {
         if (numAula <= 0) { System.out.println("aula inválida"); return; }
         // Recupere a aula existente com base no número da aula usando o método apropriado do AulaGrupoDAO
         Aulagrupo aulagrupo = aulagrupoDAO.getById(numAula);
-        System.out.println(numAula);
-        System.out.println();
         // Verifique cada campo de entrada e, se o campo estiver preenchido, atualize o valor correspondente na aula existente
         if (dataAulaEdit.getValue() != null) { aulagrupo.setDataAula(dataAulaEdit.getValue()); }
         if (!horaAulaEdit.getText().isEmpty()) { aulagrupo.setHoraAula(LocalTime.parse(horaAulaEdit.getText())); } horaAulaEdit.clear();
@@ -310,30 +303,30 @@ public class instrutor_dashboard {
     }
 
 //  *******************
-//  Planos de treino
+//  Planos de treino -- FALTA BLL
 //  *******************
 
+    //DONE
     protected void loadPlanos() {
         List<Planotreino> planos = planoDAO.getAll();
 
         numPlano.setCellValueFactory(new PropertyValueFactory<>("numPlano"));
         dtCriacao.setCellValueFactory(new PropertyValueFactory<>("dtCriacao"));
         estado.setCellValueFactory(new PropertyValueFactory<>("estado"));
-        cliente.setCellValueFactory(new PropertyValueFactory<>("cliente"));
+        cliente.setCellValueFactory(cellData -> {
+            Planotreino planotreino = cellData.getValue();
+            Cliente cliente = planotreino.getCliente();
 
+            // Retorna uma string formatada com o ID e o nome do cliente separados por um traço
+            return new SimpleStringProperty(cliente.getIdCliente() + " - " + cliente.getNome());
+        });
         showexercicios.setCellFactory(param -> new TableCell<>() {
-            private final Button button = new Button("+");
-
-            {
+            private final Button button = new Button("+"); {
                 button.setOnAction(event -> {
                     Planotreino planotreino = getTableRow().getItem();
                     if (planotreino != null) {
                         int planoId = planotreino.getNumPlano();
-                        try {
-                            loadExerciciosPage(planoId);
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
+                        try { loadExerciciosPage(planoId); } catch (IOException e) { throw new RuntimeException(e); }
                     }
                 });
             }
@@ -346,6 +339,8 @@ public class instrutor_dashboard {
 
         tabelaPlanos.setItems(FXCollections.observableArrayList(planos));
     }
+
+    //DONE
     protected void loadExerciciosPage(int planoId)  throws IOException {
         // Carregar o arquivo FXML
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/javafx/Instrutor/show_exercicios.fxml"));
@@ -365,29 +360,34 @@ public class instrutor_dashboard {
         stage.show();
     }
 
-    //TODO
+    //TODO - Só pode criar para um cliente que já tenha se os anteriores estiverem inativos
     @FXML
     protected void criarPlano() {
-        //...
-        loadPlanos();
+        Funcionario f = funcionarioDAO.getById(idUserAtual);
+        Cliente cli = clienteDAO.getById(Integer.parseInt(cliPlano.getValue().split(" - ")[0]));
+        Planotreino pt = new Planotreino();
+
+        pt.setDtCriacao(LocalDate.now());
+        pt.setEstado("ativo");
+        pt.setCliente(cli);
+        pt.setFuncionario(f);
+        planoDAO.save(pt);loadPlanos();
     }
-    //TODO
+
+    //DONE
     @FXML
     protected void apagarPlano() {
-        planoDAO.delete(Integer.parseInt(nPlano.getText()));
+        Planotreino pt = planoDAO.getById(Integer.parseInt(nPlano.getText()));
+        pt.setEstado("inativo");
+        planoDAO.update(pt);
         nPlano.clear(); loadPlanos();
     }
-    //TODO
-    @FXML
-    protected void editarPlano() {
-        //...
-        loadPlanos();
-    }
 
 //  *******************
-//  Exercicios
+//  Exercicios -- FALTA BLL
 //  *******************
 
+    //DONE
     protected void loadExercicios() {
         List<Exercicio> exer = exercicioDAO.getAll();
 
@@ -397,6 +397,8 @@ public class instrutor_dashboard {
 
         tableExercicio.setItems(FXCollections.observableArrayList(exer));
     }
+
+    //TODO - se já existir a combinação de exercicio e equipamento não deixar inserir
     @FXML
     protected void addExercicio() {
         Exercicio ex = new Exercicio();
@@ -405,6 +407,8 @@ public class instrutor_dashboard {
         exercicioDAO.save(ex);
         loadExercicios(); nomeEx.clear(); nomeEquip.clear();
     }
+
+    //TODO - remover cascade de planos com esse exercicio
     @FXML
     protected void apagarExercicio() {
         exercicioDAO.delete(Integer.parseInt(nExDelete.getText()));
@@ -415,8 +419,10 @@ public class instrutor_dashboard {
 //  Editar perfil -- FALTA BLL
 //  *******************
 
+    //DONE
     public void setUserId(Integer id) { this.idUserAtual = id; }
 
+    //DONE
     @FXML
     public void loadPerfil(int idUserAtual) {
         Funcionario f = funcionarioDAO.getById(idUserAtual);
@@ -432,6 +438,7 @@ public class instrutor_dashboard {
         }
     }
 
+    //TODO - restriões como password fraca e telemovel com minimo tamanho e a começar em determinados valores
     @FXML
     protected void editarPerfil() {
         Funcionario f = funcionarioDAO.getById(idUserAtual);
@@ -448,6 +455,8 @@ public class instrutor_dashboard {
 //  *******************
 //  Logout
 //  *******************
+
+    //DONE
     @FXML
     protected void onActionExit(ActionEvent event) throws IOException {
         Stage stage = new Stage();
