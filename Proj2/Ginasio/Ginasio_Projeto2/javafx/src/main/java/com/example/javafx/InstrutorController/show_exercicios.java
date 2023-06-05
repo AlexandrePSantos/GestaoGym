@@ -2,8 +2,6 @@ package com.example.javafx.InstrutorController;
 
 import com.AcessoBD.repository.entities.*;
 import com.AcessoBD.DAO.*;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -28,17 +26,13 @@ public class show_exercicios {
 
     // Remover
     public TextField rmExPlan;
-    public Button removeExPlan;
 
     // Editar
-    public ChoiceBox<Exercicio> editExnomePlan;
-    public TextField editSetPlan, editRepPlan, editPesoPlan, editDurPlan, editVelPlan;
-    public Button editExPlan;
+    public TextField numEditExPlan, editSetPlan, editRepPlan, editPesoPlan, editDurPlan, editVelPlan;
 
     // Criar
     public ChoiceBox<Exercicio> addExnomePlan;
     public TextField addSetPlan, AddRepPlan, addPesoPlan, addDurPlan, addVelPlan;
-    public Button addExPlan;
 
     public int idEx;
 
@@ -100,8 +94,14 @@ public class show_exercicios {
 
     @FXML
     protected void editEx(ActionEvent event) {
-        // ...
-        loadData(idEx);
-    }
+        le = leDAO.getById(Integer.parseInt(numEditExPlan.getText()));
 
+        if(!editSetPlan.getText().isEmpty()) {le.setSets(Integer.parseInt(editSetPlan.getText()));} editSetPlan.clear();
+        if(!editRepPlan.getText().isEmpty()) {le.setReps(Integer.parseInt(editRepPlan.getText()));} editRepPlan.clear();
+        if(!editPesoPlan.getText().isEmpty()) {le.setPeso(BigDecimal.valueOf(Integer.parseInt(editPesoPlan.getText())));} editPesoPlan.clear();
+        if(!editDurPlan.getText().isEmpty()) {le.setDuracao(BigDecimal.valueOf(Integer.parseInt(editDurPlan.getText())));} editDurPlan.clear();
+        if(!editVelPlan.getText().isEmpty()) {le.setVelocidade(Integer.parseInt(editVelPlan.getText()));} editVelPlan.clear();
+
+        leDAO.update(le); loadData(idEx);
+    }
 }
