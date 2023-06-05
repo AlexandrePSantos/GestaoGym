@@ -4,27 +4,30 @@ import com.AcessoBD.repository.entities.*;
 import com.AcessoBD.DAO.*;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class show_exercicios {
     // Tabela
-    public TableView<Linhaparticipante> tblExerciciosPlan;
-    public TableColumn<Linhaparticipante, Integer> nExPlan;
-    public TableColumn<Exercicio, String> nomeExPlan;
-    public TableColumn<Exercicio, String> equipExPlan;
-    public TableColumn<Linhaparticipante, Integer> setsExPlan;
-    public TableColumn<Linhaparticipante, Integer> repsExPlan;
-    public TableColumn<Linhaparticipante, Integer> pesoExPlan;
-    public TableColumn<Linhaparticipante, Integer> durExPlan;
-    public TableColumn<Linhaparticipante, Integer> velExPlan;
+    public TableView<Linhaexercicio> tblExerciciosPlan;
+    public TableColumn<Linhaexercicio, Integer> nExPlan;
+    public TableColumn<Linhaexercicio, String> nomeExPlan;
+    public TableColumn<Linhaexercicio, String> equipExPlan;
+    public TableColumn<Linhaexercicio, Integer> setsExPlan;
+    public TableColumn<Linhaexercicio, Integer> repsExPlan;
+    public TableColumn<Linhaexercicio, Integer> pesoExPlan;
+    public TableColumn<Linhaexercicio, Integer> durExPlan;
+    public TableColumn<Linhaexercicio, Integer> velExPlan;
 
     // Remover
-    public ChoiceBox<Exercicio> rmExPlan;
+    public TextField rmExPlan;
     public Button removeExPlan;
 
     // Editar
@@ -39,7 +42,6 @@ public class show_exercicios {
 
     public int idEx;
 
-    Exercicio ex = new Exercicio();
     ExercicioDAO exDao = new ExercicioDAO();
     Linhaexercicio le = new Linhaexercicio();
     LinhaexercicioDAO leDAO = new LinhaexercicioDAO();
@@ -51,41 +53,49 @@ public class show_exercicios {
     protected void loadData(int id) {
         List<Linhaexercicio> exercicios = leDAO.getAllById(id);
 
-//        nExPlan.setCellValueFactory(cellData -> {
-//            Cliente cliente = cellData.getValue().getCliente();
-//            Integer numeroCliente = cliente.getIdCliente();
-//            return new SimpleIntegerProperty(numeroCliente).asObject();
-//        });
-//        nomeExPlan.setCellValueFactory(cellData -> {
-//            Linhaparticipante linhaparticipante = cellData.getValue();
-//            Cliente cliente = cliDAO.getById(linhaparticipante.getCliente().getIdCliente());
-//            return new SimpleObjectProperty<>(cliente);
-//        });
-//        equipExPlan.setCellValueFactory(cellData -> {
-//            Linhaparticipante linhaparticipante = cellData.getValue();
-//            Cliente cliente = cliDAO.getById(linhaparticipante.getCliente().getIdCliente());
-//            return new SimpleObjectProperty<>(cliente);
-//        });
+        nExPlan.setCellValueFactory(new PropertyValueFactory<>("idLinhaExercicio"));
+        nomeExPlan.setCellValueFactory(cellData -> {
+            Linhaexercicio linhaEx = cellData.getValue();
+            Exercicio exer = exDao.getById(linhaEx.getExercicio().getIdExercicio());
+            return new SimpleStringProperty(exer.getNome());
+        });
+        equipExPlan.setCellValueFactory(cellData -> {
+            Linhaexercicio linhaEx = cellData.getValue();
+            Exercicio exer = exDao.getById(linhaEx.getExercicio().getIdExercicio());
+            return new SimpleStringProperty(exer.getEquipamento());
+        });
+        setsExPlan.setCellValueFactory(new PropertyValueFactory<>("sets"));
+        repsExPlan.setCellValueFactory(new PropertyValueFactory<>("reps"));
+        pesoExPlan.setCellValueFactory(new PropertyValueFactory<>("peso"));
+        durExPlan.setCellValueFactory(new PropertyValueFactory<>("duracao"));
+        velExPlan.setCellValueFactory(new PropertyValueFactory<>("velocidade"));
 
-//        setsExPlan
-//        repsExPlan
-//        pesoExPlan
-//        durExPlan
-//        velExPlan
-
-//        tblExerciciosPlan.setItems(FXCollections.observableArrayList(exercicios));
+        tblExerciciosPlan.setItems(FXCollections.observableArrayList(exercicios));
     }
 
     @FXML
     protected void addEx(ActionEvent event) {
-        // ...
-        loadData(idEx);
+        le.setExercicio(addExnomePlan.getValue());
+        String setPlanText = addSetPlan.getText();
+        le.setSets(setPlanText.isEmpty() ? -1 : Integer.parseInt(setPlanText));
+        String repPlanText = AddRepPlan.getText();
+        le.setReps(repPlanText.isEmpty() ? -1 : Integer.parseInt(repPlanText));
+        String pesoPlanText = addPesoPlan.getText();
+        le.setPeso(pesoPlanText.isEmpty() ? BigDecimal.valueOf(-1) : BigDecimal.valueOf(Integer.parseInt(pesoPlanText)));
+        String durPlanText = addDurPlan.getText();
+        le.setDuracao(durPlanText.isEmpty() ? BigDecimal.valueOf(-1) : BigDecimal.valueOf(Integer.parseInt(durPlanText)));
+        String velPlanText = addVelPlan.getText();
+        le.setVelocidade(velPlanText.isEmpty() ? -1 : Integer.parseInt(velPlanText));
+
+        addSetPlan.clear(); AddRepPlan.clear(); addPesoPlan.clear(); addDurPlan.clear(); addVelPlan.clear();
+
+        leDAO.save(le); loadData(idEx);
     }
 
     @FXML
     protected void removeEx(ActionEvent event) {
-        // ...
-        loadData(idEx);
+        leDAO.delete(Integer.parseInt(rmExPlan.getText()));
+        loadData(idEx); rmExPlan.clear();
     }
 
     @FXML

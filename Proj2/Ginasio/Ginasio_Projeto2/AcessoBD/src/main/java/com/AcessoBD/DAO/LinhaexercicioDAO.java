@@ -50,7 +50,7 @@ public class LinhaexercicioDAO {
     public List<Linhaexercicio> getAllById(int id) {
         EntityManager em = emf.createEntityManager();
         try {
-            TypedQuery<Linhaexercicio> query = em.createQuery("SELECT l FROM Linhaexercicio l WHERE l.exercicio.idExercicio = :id", Linhaexercicio.class);
+            TypedQuery<Linhaexercicio> query = em.createQuery("SELECT l FROM Linhaexercicio l WHERE l.planoTreino.numPlano = :id", Linhaexercicio.class);
             query.setParameter("id", id);
             return query.getResultList();
         } finally {

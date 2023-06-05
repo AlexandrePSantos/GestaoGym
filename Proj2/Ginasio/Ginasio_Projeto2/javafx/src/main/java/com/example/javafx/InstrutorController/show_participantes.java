@@ -23,8 +23,6 @@ public class show_participantes {
 
     protected int idAulaAtual;
 
-    Linhaparticipante lp = new Linhaparticipante();
-    Cliente cli = new Cliente();
     LinhaparticipanteDAO lpDAO = new LinhaparticipanteDAO();
     ClienteDAO cliDAO = new ClienteDAO();
 
