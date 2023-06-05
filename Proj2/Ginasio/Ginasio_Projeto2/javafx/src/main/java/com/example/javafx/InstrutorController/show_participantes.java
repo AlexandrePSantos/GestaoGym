@@ -28,9 +28,6 @@ public class show_participantes {
     LinhaparticipanteDAO lpDAO = new LinhaparticipanteDAO();
     ClienteDAO cliDAO = new ClienteDAO();
 
-    @FXML
-    protected void initialize() { }
-
     protected void setAulagrupoId(int aulagrupoId) {
         this.idAulaAtual = aulagrupoId;
     }

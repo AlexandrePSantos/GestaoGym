@@ -351,7 +351,7 @@ public class instrutor_dashboard {
 
         // Passar o ID do aulagrupo para o controlador da página de participantes
         showExerciciosController.setPlanoId(planoId);
-        showExerciciosController.loadData();
+        showExerciciosController.loadData(planoId);
 
         // Criar uma nova janela para exibir a página de participantes
         Stage stage = new Stage();
