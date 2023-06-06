@@ -25,9 +25,6 @@ public class Subscricao {
     @Column(name = "valor")
     private BigDecimal valor;
 
-    @Column(name = "modalidade")
-    private Integer modalidade;
-
     @Column(name = "estado")
     private String estado;
 
@@ -38,13 +35,11 @@ public class Subscricao {
     public Subscricao() {
     }
 
-    public Subscricao(String duracao, LocalDate dataIni, LocalDate dataFim, BigDecimal valor, Integer modalidade,
-                      String estado, Cliente cliente) {
+    public Subscricao(String duracao, LocalDate dataIni, LocalDate dataFim, BigDecimal valor, String estado, Cliente cliente) {
         this.duracao = duracao;
         this.dataIni = dataIni;
         this.dataFim = dataFim;
         this.valor = valor;
-        this.modalidade = modalidade;
         this.estado = estado;
         this.cliente = cliente;
     }
@@ -87,14 +82,6 @@ public class Subscricao {
 
     public void setValor(BigDecimal valor) {
         this.valor = valor;
-    }
-
-    public Integer getModalidade() {
-        return modalidade;
-    }
-
-    public void setModalidade(Integer modalidade) {
-        this.modalidade = modalidade;
     }
 
     public String getEstado() {

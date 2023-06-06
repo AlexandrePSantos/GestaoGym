@@ -378,7 +378,7 @@ public class instrutor_dashboard {
     @FXML
     protected void apagarPlano() {
         Planotreino pt = planoDAO.getById(Integer.parseInt(nPlano.getText()));
-        pt.setEstado("inativo");
+        pt.setEstado("Inativo");
         planoDAO.update(pt);
         nPlano.clear(); loadPlanos();
     }
@@ -438,7 +438,7 @@ public class instrutor_dashboard {
         }
     }
 
-    //TODO - restriões como password fraca e telemovel com minimo tamanho e a começar em determinados valores
+    //TODO - restrições como password fraca e telemovel com minimo tamanho e a começar em determinados valores
     @FXML
     protected void editarPerfil() {
         Funcionario f = funcionarioDAO.getById(idUserAtual);
