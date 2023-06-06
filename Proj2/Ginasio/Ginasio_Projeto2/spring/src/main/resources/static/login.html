@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html  href="/static/login.html">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" href="/static/login.html">
+        <link rel="stylesheet" href="../templates/cliente.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <header>
+        <img src="/Proj2/Ginasio/Ginasio_Projeto2/spring/src/images/logo.jpg" class="center" alt="logo" width="250" height="250">
+    </header>
+    <body>
+        <section class="align-items-center h-100">
+                    <form class="formcenter">
+                            <div class="divider d-flex align-items-center my-4">
+                                <p class="text-center fw-bold mx-3 mb-0">Login</p>
+                            </div>
+
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="email">Username</label>
+                                <input type="email" id="email" class="form-control form-control-md"
+                                       placeholder="Email" />
+                            </div>
+
+                            <!-- Password input -->
+                            <div class="form-outline mb-3">
+
+                                <label class="form-label" for="password">Password</label>
+                                <input type="password" id="password" class="form-control form-control-md"
+                                       placeholder="Password" />
+                            </div>
+
+                            <div onclick="location.href= '../templates/dashboard.html'" class="text-center text-lg-start mt-4 pt-2">
+                                <button type="button" class="btn btn-info btn-lg"
+                                        style="background-color:#ff8600; border:#ff8600; padding-left: 2.5rem; padding-right: 2.5rem;" >Confirmar</button>
+                            </div>
+                        </form>
+                    </div>
+        </section>
+    </body>
+</html>
