@@ -9,7 +9,6 @@ import java.io.IOException;
 public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/com/example/javafx/Instrutor/instrutor_dashboard.fxml"));
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/com/example/javafx/Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
