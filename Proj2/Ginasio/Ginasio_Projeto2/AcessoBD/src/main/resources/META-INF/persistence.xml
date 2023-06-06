@@ -7,7 +7,6 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>com.AcessoBD.repository.entities.Aulagrupo</class>
         <class>com.AcessoBD.repository.entities.Cliente</class>
-        <class>com.AcessoBD.repository.entities.Equipamento</class>
         <class>com.AcessoBD.repository.entities.Exercicio</class>
         <class>com.AcessoBD.repository.entities.Funcionario</class>
         <class>com.AcessoBD.repository.entities.Linhaexercicio</class>
