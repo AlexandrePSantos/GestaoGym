@@ -2,7 +2,6 @@ package com.example.javafx.RececionistaController;
 
 import com.AcessoBD.DAO.*;
 import com.AcessoBD.repository.entities.*;
-import com.example.javafx.InstrutorController.show_exercicios;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
