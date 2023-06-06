@@ -25,7 +25,7 @@ public class Subscricao {
     @Column(name = "estado")
     private String estado;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 

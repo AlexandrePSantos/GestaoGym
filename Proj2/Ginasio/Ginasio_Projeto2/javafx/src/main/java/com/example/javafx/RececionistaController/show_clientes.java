@@ -44,6 +44,5 @@ public class show_clientes {
         tblParticipantes.setItems(FXCollections.observableArrayList(participantes));
     }
 
-    public void confirmPagamento(ActionEvent event) {
-    }
+
 }

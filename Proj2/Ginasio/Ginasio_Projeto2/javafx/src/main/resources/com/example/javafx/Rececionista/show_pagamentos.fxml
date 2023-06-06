@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="416.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.javafx.RececionistaController.show_clientes">
+            fx:controller="com.example.javafx.RececionistaController.show_pagamentos">
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff8600" height="37.0" stroke="TRANSPARENT" strokeType="INSIDE"
               width="766.0"/>
    <Text layoutX="313.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pagamentos">
