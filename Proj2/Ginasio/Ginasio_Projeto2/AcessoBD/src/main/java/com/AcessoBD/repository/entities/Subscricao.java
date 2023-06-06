@@ -13,6 +13,9 @@ public class Subscricao {
     @Column(name = "num_subscricao")
     private Integer numSubscricao;
 
+    @Column(name = "duracao")
+    private String duracao;
+
     @Column(name = "data_ini")
     private LocalDate dataIni;
 
@@ -32,7 +35,8 @@ public class Subscricao {
     public Subscricao() {
     }
 
-    public Subscricao(LocalDate dataIni, LocalDate dataFim, BigDecimal valor, String estado, Cliente cliente) {
+    public Subscricao(String duracao, LocalDate dataIni, LocalDate dataFim, BigDecimal valor, String estado, Cliente cliente) {
+        this.duracao = duracao;
         this.dataIni = dataIni;
         this.dataFim = dataFim;
         this.valor = valor;
@@ -46,6 +50,14 @@ public class Subscricao {
 
     public void setNumSubscricao(Integer numSubscricao) {
         this.numSubscricao = numSubscricao;
+    }
+
+    public String getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(String duracao) {
+        this.duracao = duracao;
     }
 
     public LocalDate getDataIni() {
