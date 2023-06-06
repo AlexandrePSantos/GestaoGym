@@ -70,12 +70,16 @@ public class show_exercicios {
     @FXML
     protected void addEx(ActionEvent event) {
         le.setExercicio(addExnomePlan.getValue());
-
-        le.setSets(addSetPlan.getText().isEmpty() ? -1 : Integer.parseInt(addSetPlan.getText()));
-        le.setReps(AddRepPlan.getText().isEmpty() ? -1 : Integer.parseInt(AddRepPlan.getText()));
-        le.setPeso(addPesoPlan.getText().isEmpty() ? BigDecimal.valueOf(-1) : BigDecimal.valueOf(Integer.parseInt(addPesoPlan.getText())));
-        le.setDuracao(addDurPlan.getText().isEmpty() ? BigDecimal.valueOf(-1) : BigDecimal.valueOf(Integer.parseInt(addDurPlan.getText())));
-        le.setVelocidade(addVelPlan.getText().isEmpty() ? -1 : Integer.parseInt(addVelPlan.getText()));
+        String setPlanText = addSetPlan.getText();
+        le.setSets(setPlanText.isEmpty() ? -1 : Integer.parseInt(setPlanText));
+        String repPlanText = AddRepPlan.getText();
+        le.setReps(repPlanText.isEmpty() ? -1 : Integer.parseInt(repPlanText));
+        String pesoPlanText = addPesoPlan.getText();
+        le.setPeso(pesoPlanText.isEmpty() ? BigDecimal.valueOf(-1) : BigDecimal.valueOf(Integer.parseInt(pesoPlanText)));
+        String durPlanText = addDurPlan.getText();
+        le.setDuracao(durPlanText.isEmpty() ? BigDecimal.valueOf(-1) : BigDecimal.valueOf(Integer.parseInt(durPlanText)));
+        String velPlanText = addVelPlan.getText();
+        le.setVelocidade(velPlanText.isEmpty() ? -1 : Integer.parseInt(velPlanText));
 
         addSetPlan.clear(); AddRepPlan.clear(); addPesoPlan.clear(); addDurPlan.clear(); addVelPlan.clear();
 
@@ -91,8 +95,6 @@ public class show_exercicios {
     @FXML
     protected void editEx(ActionEvent event) {
         le = leDAO.getById(Integer.parseInt(numEditExPlan.getText()));
-
-        numEditExPlan.clear();
 
         if(!editSetPlan.getText().isEmpty()) {le.setSets(Integer.parseInt(editSetPlan.getText()));} editSetPlan.clear();
         if(!editRepPlan.getText().isEmpty()) {le.setReps(Integer.parseInt(editRepPlan.getText()));} editRepPlan.clear();

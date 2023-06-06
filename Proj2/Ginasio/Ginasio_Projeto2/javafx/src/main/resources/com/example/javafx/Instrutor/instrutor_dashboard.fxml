@@ -27,7 +27,7 @@
       <font> <Font size="25.0" /> </font>
    </Text>
    <!-- Texto -->
-   <Text layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard Instrutor" textAlignment="CENTER" wrappingWidth="1366.0">
+   <Text layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" textAlignment="CENTER" wrappingWidth="1366.0">
       <font> <Font name="System Bold" size="24.0" /> </font>
    </Text>
    <!-- Logout -->
@@ -42,10 +42,10 @@
 
 
    <!-- Perfil -->
-   <Pane id="Perfil" layoutX="17.0" layoutY="56.0" prefHeight="181.0" prefWidth="503.0">
+   <Pane id="Perfil" layoutX="17.0" layoutY="56.0" prefHeight="181.0" prefWidth="490.0">
       <!-- Informação -->
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="182.0" stroke="BLACK" strokeMiterLimit="0.0" width="503.0" />
-      <Text layoutX="1.0" layoutY="21.0" text="Perfil" textAlignment="CENTER" wrappingWidth="488.99999999999994">
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="181.0" stroke="BLACK" strokeMiterLimit="0.0" width="498.0" />
+      <Text layoutX="1.0" layoutY="21.0" text="Informação" textAlignment="CENTER" wrappingWidth="488.99999999999994">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -166,7 +166,7 @@
    <Pane id="Aulas Grupo" layoutX="529.0" layoutY="56.0" prefHeight="700.0" prefWidth="813.0">
       <!-- Informação -->
       <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="700.0" stroke="BLACK" strokeMiterLimit="0.0" width="814.0" />
-      <Text layoutX="5.0" layoutY="22.0" text="Aulas de Grupo" textAlignment="CENTER" wrappingWidth="802.9999999999999">
+      <Text layoutX="5.0" layoutY="22.0" text="Aulas de Grupo Futuras" textAlignment="CENTER" wrappingWidth="802.9999999999999">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -416,7 +416,7 @@
       <Line endX="616.0" endY="137.0" layoutX="182.0" layoutY="307.0" startX="-165.0" startY="137.0" />
   </Pane>
    <Pane layoutX="18.0" layoutY="509.0" prefHeight="247.0" prefWidth="497.0">
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="248.0" layoutX="-1.0" stroke="BLACK" strokeMiterLimit="0.0" width="503.0" />
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="247.0" layoutX="-1.0" stroke="BLACK" strokeMiterLimit="0.0" width="506.0" />
       <Text layoutX="-1.0" layoutY="26.0" text="Exercicios:" textAlignment="CENTER" wrappingWidth="500.0">
          <font>
             <Font name="System Bold" size="20.0" />
