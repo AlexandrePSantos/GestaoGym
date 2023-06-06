@@ -1,10 +1,10 @@
 package com.example.javafx;
 
 import com.AcessoBD.DAO.*;
-import com.AcessoBD.BLL.*;
 import com.AcessoBD.repository.entities.*;
 import com.example.javafx.InstrutorController.instrutor_dashboard;
 import com.example.javafx.RececionistaController.rececionista_dashboard;
+import com.example.javafx.AdministradorController.administrador_dashboard;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,7 +29,6 @@ public class LoginController {
     @FXML
     protected void login(ActionEvent event) throws IOException {
         FuncionarioDAO fd = new FuncionarioDAO();
-        LoginBLL l = new LoginBLL();
 
         // Verificar se os campos de email e senha estão vazios
         if (email.getText().isEmpty() || password.getText().isEmpty()) {
@@ -48,9 +47,9 @@ public class LoginController {
             inst_dash.setUserId(f.getId());
             inst_dash.loadPerfil(f.getId());
 
-//            FXMLLoader administradorLoader = new FXMLLoader(getClass().getResource("/com/example/javafx/Administrador/administrador_dashboard.fxml"));
-//            Parent administradorRoot = administradorLoader.load();
-//            rececionista_dashboard admin_dash = administradorLoader.getController();
+            FXMLLoader administradorLoader = new FXMLLoader(getClass().getResource("/com/example/javafx/Administrador/administrador_dashboard.fxml"));
+            Parent administradorRoot = administradorLoader.load();
+            administrador_dashboard admin_dash = administradorLoader.getController();
 //            admin_dash.setUserId(f.getId());
 //            admin_dash.loadPerfil(f.getId());
 
@@ -70,9 +69,9 @@ public class LoginController {
                     stage.setScene(instrutorScene);
                     break;
                 case "Administrador":
-//                    titulo = "Administrador: Dashboard";
-//                    Scene AdministradorScene = new Scene(administradorRoot);
-//                    stage.setScene(AdministradorScene);
+                    titulo = "Administrador: Dashboard";
+                    Scene AdministradorScene = new Scene(administradorRoot);
+                    stage.setScene(AdministradorScene);
                     break;
                 case "Rececionista":
                     titulo = "Rececionista: Dashboard";
@@ -84,6 +83,7 @@ public class LoginController {
                     return; // Termina o método se o login falhar
             }
 
+            stage.setTitle(titulo);
             stage.show();
             Node source = (Node) event.getSource();
             Stage stageAtual = (Stage) source.getScene().getWindow();

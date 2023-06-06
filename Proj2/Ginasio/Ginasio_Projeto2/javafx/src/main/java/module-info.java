@@ -14,4 +14,6 @@ module com.example.javafx {
     opens com.example.javafx.InstrutorController to javafx.fxml;
     exports com.example.javafx.RececionistaController;
     opens com.example.javafx.RececionistaController to javafx.fxml;
+    exports com.example.javafx.AdministradorController;
+    opens com.example.javafx.AdministradorController to javafx.fxml;
 }

@@ -359,7 +359,7 @@ public class rececionista_dashboard {
 
     //DONE
     @FXML
-    protected void loadClientes() {
+    public void loadClientes() {
         List<Cliente> cli = clienteDAO.getAll();
 
         nCliTbl.setCellValueFactory(new PropertyValueFactory<>("idCliente"));

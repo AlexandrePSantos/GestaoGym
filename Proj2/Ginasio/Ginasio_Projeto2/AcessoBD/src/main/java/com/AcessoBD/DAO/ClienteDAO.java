@@ -1,6 +1,8 @@
 package com.AcessoBD.DAO;
 
 import com.AcessoBD.repository.entities.Cliente;
+import com.AcessoBD.repository.entities.Pagamento;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -13,6 +15,14 @@ public class ClienteDAO {
     public ClienteDAO() {
         emf = Persistence.createEntityManagerFactory("persist_gym");
         em = emf.createEntityManager();
+    }
+
+    public void save(Cliente cliente) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.persist(cliente);
+        em.getTransaction().commit();
+        em.close();
     }
 
     public void create(Cliente cliente) {

@@ -13,6 +13,7 @@ public class App extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
         stage.show();
+        stage.setTitle("Login");
     }
 
     public static void main(String[] args) {

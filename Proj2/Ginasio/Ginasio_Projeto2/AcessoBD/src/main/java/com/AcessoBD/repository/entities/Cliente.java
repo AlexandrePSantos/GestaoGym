@@ -14,9 +14,6 @@ public class Cliente {
     @Column(name = "nome")
     private String nome;
 
-    @Column(name = "idade")
-    private int idade;
-
     @Column(name = "email", unique = true)
     private String email;
 
@@ -38,9 +35,8 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String nome, int idade, String email, String telemovel, String nif, LocalDate dataNascimento, String codigoPostal, String password) {
+    public Cliente(String nome, String email, String telemovel, String nif, LocalDate dataNascimento, String codigoPostal, String password) {
         this.nome = nome;
-        this.idade = idade;
         this.email = email;
         this.telemovel = telemovel;
         this.nif = nif;
@@ -63,14 +59,6 @@ public class Cliente {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
     }
 
     public String getEmail() {

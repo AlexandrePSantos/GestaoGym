@@ -5,6 +5,7 @@ import com.AcessoBD.repository.entities.Pagamento;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class PagamentoDAO {
@@ -43,6 +44,17 @@ public class PagamentoDAO {
         Pagamento pagamento = em.find(Pagamento.class, id);
         em.close();
         return pagamento;
+    }
+
+    public List<Pagamento> getAllById(int id) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            TypedQuery<Pagamento> query = em.createQuery("SELECT p FROM Pagamento p where p.subscricao.numSubscricao = :id", Pagamento.class);
+            query.setParameter("id", id);
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
     }
 
     public List<Pagamento> getAll() {

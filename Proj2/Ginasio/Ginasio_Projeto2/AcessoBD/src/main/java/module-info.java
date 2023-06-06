@@ -8,6 +8,5 @@ module com.AcessoBD {
     opens com.AcessoBD.repository.entities to org.hibernate.orm.core;
 
     exports com.AcessoBD.DAO;
-    exports com.AcessoBD.BLL;
     exports com.AcessoBD.repository.entities;
 }
