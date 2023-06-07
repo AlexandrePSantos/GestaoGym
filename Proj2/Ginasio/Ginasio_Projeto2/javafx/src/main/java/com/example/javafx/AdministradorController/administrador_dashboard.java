@@ -22,6 +22,7 @@ public class administrador_dashboard {
     // Perfil
     public Label nomeLbl, dnLbl, tlmLbl, psswdLbl, funcLbl, nifLbl, mailLbl;
     public TextField newNome, newPass, newTele;
+    public Label errorPerfil;
     // Clientes
     public TableView<Cliente> tblClientes;
     public TableColumn<Cliente, Integer> nCliTbl;
@@ -36,6 +37,7 @@ public class administrador_dashboard {
     public DatePicker dtCliEdit;
     public TextField nomeCliAdd, emailCliAdd, tlmCliAdd, nifCliAdd, cpCliAdd;
     public DatePicker dtCliAdd;
+    public Label errorClientes;
     // Funcionários
     public TableView<Funcionario> tblFuncionarios;
     public TableColumn<Funcionario, Integer> nFuncTbl;
@@ -51,6 +53,7 @@ public class administrador_dashboard {
     public DatePicker dtFuncEdit;
     public TextField nomeFuncAdd, emailFuncAdd, tlmFuncAdd, nifFuncAdd, salarioFuncAdd, funcaoFuncAdd;
     public DatePicker dtFuncAdd;
+    public Label errorFuncionarios;
     // Outras
     public int idUserAtual;
     Cliente cli = new Cliente();
@@ -137,7 +140,7 @@ public class administrador_dashboard {
 
     @FXML
     public void editCli() {
-        cli = cliDAO.getById(Integer.parseInt(nCliEdit.getText()));
+        cli = cliDAO.getById(Integer.parseInt(nCliEdit.getText())); nCliEdit.clear();
 
         if (!nomeCliEdit.getText().isEmpty()) { cli.setNome(nomeCliEdit.getText()); } nomeCliEdit.clear();
         if (!emailCliEdit.getText().isEmpty()) { cli.setEmail(emailCliEdit.getText()); } emailCliEdit.clear();
@@ -151,7 +154,7 @@ public class administrador_dashboard {
     }
     @FXML
     public void editFunc() {
-        func = funcDAO.getById(Integer.parseInt(nFuncEdit.getText()));
+        func = funcDAO.getById(Integer.parseInt(nFuncEdit.getText())); nFuncEdit.clear();
 
         if (!nomeFuncEdit.getText().isEmpty()) { func.setNome(nomeFuncEdit.getText()); } nomeFuncEdit.clear();
         if (!emailFuncEdit.getText().isEmpty()) { func.setEmail(emailFuncEdit.getText()); } emailFuncEdit.clear();
@@ -174,6 +177,13 @@ public class administrador_dashboard {
     public void deleteFunc() {
         funcDAO.delete(Integer.parseInt(nFuncDelete.getText()));
         nFuncDelete.clear(); loadFuncionarios();
+    }
+
+    public void errorCli() {
+//        label errorClientes
+    }
+    public void errorFunc() {
+//        label errorFuncionarios
     }
 
 //  *******************
@@ -207,7 +217,11 @@ public class administrador_dashboard {
         loadPerfil(idUserAtual);
     }
 
-//  *******************
+    public void errorPerfil() {
+//        label errorPerfil
+    }
+
+    //  *******************
 //  Outros
 //  *******************
     @FXML
