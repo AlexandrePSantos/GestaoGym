@@ -17,17 +17,17 @@ import java.time.LocalDate;
 public class loginController {
     public JLabel nomeLbl, dnLbl, tlmLbl, psswdLbl, nifLbl, mailLbl;
 
-    @GetMapping("/templates/dashboard.html")
-    public void loadPerfil(int iduser) {
-        ClienteDAO cliDao = new ClienteDAO();
-        Cliente c = new Cliente();
-        if (cliDao.getById(iduser) != null) {
-            nomeLbl.setText("Nome: " + c.getNome());
-            dnLbl.setText("Data Nasc.: " + c.getDataNascimento());
-            tlmLbl.setText("Telemóvel: " + c.getTelemovel());
-            psswdLbl.setText("Password: " + c.getPassword());
-            nifLbl.setText("NIF: " + c.getNif());
-            mailLbl.setText("Email: " + c.getEmail());
-        }
+    public String loadPerfil(int iduser) {
+//        ClienteDAO cliDao = new ClienteDAO();
+//        Cliente c = new Cliente();
+//        if (cliDao.getById(iduser) != null) {
+//            nomeLbl.setText("Nome: " + c.getNome());
+//            dnLbl.setText("Data Nasc.: " + c.getDataNascimento());
+//            tlmLbl.setText("Telemóvel: " + c.getTelemovel());
+//            psswdLbl.setText("Password: " + c.getPassword());
+//            nifLbl.setText("NIF: " + c.getNif());
+//            mailLbl.setText("Email: " + c.getEmail());
+//        }
+        return "/templates/dashboard.html";
     }
 }

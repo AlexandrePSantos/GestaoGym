@@ -23,5 +23,38 @@
 
 .formcenter {
     margin:auto;
-    width:400px
+    width:400px;
+}
+
+.partee {
+    width: 49%;
+    float: left;
+    border: 2px solid #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.parted {
+    width: 49%;
+    float: right;
+    border: 2px solid #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.color {
+    background-color: #ff8600;
+}
+
+.navbarl {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.right {
+    align-self: end;
+}
+
+.pad {
+    padding: 10px;
 }
