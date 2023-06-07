@@ -7,7 +7,6 @@ import javax.persistence.*;
 public class Exercicio {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_exercicio")
     private int idExercicio;
 
@@ -16,7 +15,6 @@ public class Exercicio {
 
     @Column(name = "equipamento")
     private String equipamento;
-
 
     public Exercicio() {}
 
@@ -47,5 +45,10 @@ public class Exercicio {
 
     public void setEquipamento(String equipamento) {
         this.equipamento = equipamento;
+    }
+
+    @Override
+    public String toString() {
+        return nome;
     }
 }

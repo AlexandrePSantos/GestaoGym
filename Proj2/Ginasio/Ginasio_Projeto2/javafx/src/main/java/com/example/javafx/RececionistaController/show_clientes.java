@@ -7,7 +7,6 @@ import com.AcessoBD.repository.entities.Linhaparticipante;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
@@ -43,6 +42,4 @@ public class show_clientes {
 
         tblParticipantes.setItems(FXCollections.observableArrayList(participantes));
     }
-
-
 }

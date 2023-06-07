@@ -47,6 +47,17 @@ public class ClienteDAO {
         tx.commit();
     }
 
+    public int getID() {
+        EntityManager em = emf.createEntityManager();
+        try {
+            Query query = em.createQuery("SELECT MAX(l.idCliente) FROM Cliente l");
+            Integer maxId = (Integer) query.getSingleResult();
+            return maxId != null ? maxId + 1 : 1;
+        } finally {
+            em.close();
+        }
+    }
+
     public Cliente getById(int id) {
         return em.find(Cliente.class, id);
     }

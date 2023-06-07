@@ -1,12 +1,8 @@
 package com.AcessoBD.DAO;
 
 import com.AcessoBD.repository.entities.Linhaexercicio;
-import com.AcessoBD.repository.entities.Linhaparticipante;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 import java.util.List;
 
 public class LinhaexercicioDAO {
@@ -16,9 +12,28 @@ public class LinhaexercicioDAO {
     public void save(Linhaexercicio linhaexercicio) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.persist(linhaexercicio);
+        em.merge(linhaexercicio);
         em.getTransaction().commit();
         em.close();
+    }
+
+    public void create(Linhaexercicio linhaexercicio) {
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        em.persist(linhaexercicio);
+        tx.commit();
+    }
+
+    public int getID() {
+        EntityManager em = emf.createEntityManager();
+        try {
+            Query query = em.createQuery("SELECT MAX(l.idLinhaExercicio) FROM Linhaexercicio l");
+            Integer maxId = (Integer) query.getSingleResult();
+            return maxId != null ? maxId + 1 : 1;
+        } finally {
+            em.close();
+        }
     }
 
     public void update(Linhaexercicio linhaexercicio) {

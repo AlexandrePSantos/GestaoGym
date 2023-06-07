@@ -9,7 +9,6 @@ import java.time.LocalTime;
 public class Aulagrupo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "num_aula")
     private int numAula;
 

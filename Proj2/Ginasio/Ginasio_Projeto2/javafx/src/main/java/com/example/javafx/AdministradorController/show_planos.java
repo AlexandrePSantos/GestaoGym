@@ -68,7 +68,6 @@ public class show_planos {
                 if (empty || item == null) { setText(null); } else { setText(item.getId() + " - " + item.getNome()); }
             }
         });
-
         tblPlanos.setItems(FXCollections.observableArrayList(planos));
     }
 }

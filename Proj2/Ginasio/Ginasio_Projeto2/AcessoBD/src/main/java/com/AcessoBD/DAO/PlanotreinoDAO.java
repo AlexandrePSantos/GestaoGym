@@ -1,10 +1,9 @@
 package com.AcessoBD.DAO;
 
+import com.AcessoBD.repository.entities.Cliente;
 import com.AcessoBD.repository.entities.Planotreino;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.util.List;
 
 public class PlanotreinoDAO {
@@ -38,6 +37,17 @@ public class PlanotreinoDAO {
         em.close();
     }
 
+    public int getID() {
+        EntityManager em = emf.createEntityManager();
+        try {
+            Query query = em.createQuery("SELECT MAX(l.numPlano) FROM Planotreino l");
+            Integer maxId = (Integer) query.getSingleResult();
+            return maxId != null ? maxId + 1 : 1;
+        } finally {
+            em.close();
+        }
+    }
+
     public Planotreino getById(int id) {
         EntityManager em = emf.createEntityManager();
         Planotreino planotreino = em.find(Planotreino.class, id);
@@ -51,4 +61,18 @@ public class PlanotreinoDAO {
         em.close();
         return planosTreinos;
     }
+
+    public List<Planotreino> getByClienteAndEstado(Cliente cli, String estado) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            String queryString = "SELECT p FROM Planotreino p WHERE p.cliente = :cliente AND p.estado = :estado";
+            TypedQuery<Planotreino> query = em.createQuery(queryString, Planotreino.class);
+            query.setParameter("cliente", cli);
+            query.setParameter("estado", estado);
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
 }

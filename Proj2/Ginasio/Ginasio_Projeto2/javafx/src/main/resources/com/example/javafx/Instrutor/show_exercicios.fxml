@@ -214,5 +214,6 @@
          <Font name="System Bold" size="12.0" />
       </font>
    </Label>
-   <Label layoutX="14.0" layoutY="313.0" text="* &quot;-1&quot; e &quot;-1.00&quot; são valores default para campos vazios, não representam quantidades!" textFill="RED" />
+   <Label layoutX="14.0" layoutY="313.0" text="* &quot;-1&quot; e &quot;-1.00&quot; são valores default para campos vazios, não representam quantidades! *" />
+   <Label fx:id="erroEx" layoutX="14.0" layoutY="346.0" textFill="RED" />
 </AnchorPane>

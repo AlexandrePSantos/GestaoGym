@@ -4,10 +4,7 @@ import com.AcessoBD.repository.entities.Aulagrupo;
 import com.AcessoBD.repository.entities.Cliente;
 import com.AcessoBD.repository.entities.Sala;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.util.List;
 
 public class AulagrupoDAO {
@@ -46,6 +43,17 @@ public class AulagrupoDAO {
         }
         em.getTransaction().commit();
         em.close();
+    }
+
+    public int getID() {
+        EntityManager em = emf.createEntityManager();
+        try {
+            Query query = em.createQuery("SELECT MAX(l.numAula) FROM Aulagrupo l");
+            Integer maxId = (Integer) query.getSingleResult();
+            return maxId != null ? maxId + 1 : 1;
+        } finally {
+            em.close();
+        }
     }
 
     public Aulagrupo getById(int numAula) {

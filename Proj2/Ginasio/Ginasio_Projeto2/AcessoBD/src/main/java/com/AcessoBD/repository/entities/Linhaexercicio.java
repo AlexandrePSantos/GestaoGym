@@ -8,11 +8,10 @@ import java.math.BigDecimal;
 public class Linhaexercicio {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_linhaEx")
     private int idLinhaExercicio;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "id_exercicio", referencedColumnName = "id_exercicio")
     private Exercicio exercicio;
 

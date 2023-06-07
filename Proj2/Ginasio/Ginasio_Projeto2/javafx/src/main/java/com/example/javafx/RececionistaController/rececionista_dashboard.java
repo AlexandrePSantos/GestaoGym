@@ -110,10 +110,12 @@ public class rececionista_dashboard {
     protected TableColumn<Cliente, String> tlmCliTbl;
     @FXML
     protected TextField nCliDelete;
+    @FXML
+    protected Label errorCli;
 
     // Perfil
     @FXML
-    public Label nomeLbl, dnLbl, tlmLbl, psswdLbl, funcLbl, nifLbl, mailLbl, slLbl;
+    public Label nomeLbl, dnLbl, tlmLbl, psswdLbl, funcLbl, nifLbl, mailLbl, slLbl, errorPerfil;
     @FXML
     public TextField newPass, newTele, newNome;
 
@@ -123,6 +125,7 @@ public class rececionista_dashboard {
     FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
     SubscricaoDAO subsDAO = new SubscricaoDAO();
     ClienteDAO clienteDAO = new ClienteDAO();
+    PagamentoDAO pagDAO = new PagamentoDAO();
 
 //  *******************
 //  Inicializar
@@ -137,10 +140,9 @@ public class rececionista_dashboard {
     }
 
 //  *******************
-//  Aulas de grupo -- FALTA BLL
+//  Aulas de grupo
 //  *******************
 
-    //DONE
     protected void loadAulasAgendadas() {
         List<Aulagrupo> aulasAgendadas = aulagrupoDAO.getAll();
 
@@ -193,7 +195,6 @@ public class rececionista_dashboard {
                 .collect(Collectors.toList());
         tabelaAulasPlaneadas.setItems(FXCollections.observableArrayList(aulasFiltradas));
     }
-    //DONE
     protected void loadAulasRealizadas() {
         List<Aulagrupo> aulasRealizadas = aulagrupoDAO.getAll();
 
@@ -255,12 +256,11 @@ public class rececionista_dashboard {
         tabelaAulasRealizadas.setItems(FXCollections.observableArrayList(aulasFiltradas));
     }
 
-    public void refreshAulas(ActionEvent event) {
+    public void refreshAulas() {
         loadAulasAgendadas();
         loadAulasRealizadas();
     }
 
-    //DONE
     protected void loadParticipantesPage(int aulagrupoId) throws IOException {
         // Carregar o arquivo FXML
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/javafx/Rececionista/show_clientes.fxml"));
@@ -284,7 +284,6 @@ public class rececionista_dashboard {
 //  Subsccriçções
 //  *******************
 
-    //DONE
     @FXML
     protected void loadSubscricoes() {
         List<Subscricao> subs = subsDAO.getAll();
@@ -319,7 +318,6 @@ public class rececionista_dashboard {
         tabelaSubs.setItems(FXCollections.observableArrayList(subs));
     }
 
-    //DONE
     @FXML
     protected void loadPagamentosPag(int numSub) throws IOException {
         // Carregar o arquivo FXML
@@ -340,45 +338,109 @@ public class rececionista_dashboard {
         stage.show();
     }
 
-    public void criarSub(ActionEvent event) {
+    public void criarSub() {
         Subscricao sub = new Subscricao();
-        Cliente cli= clienteDAO.getById(Integer.parseInt(nCliSubCriar.getText()));
+        Cliente cli = clienteDAO.getById(Integer.parseInt(nCliSubCriar.getText()));
 
-        //se o cliente já tem uma ativa não deixa
-        sub.setDataIni(dtIniSubCriar.getValue());
-        sub.setDataFim(dtIniSubCriar.getValue().plusYears(1));
+        // Verificar se os campos obrigatórios foram preenchidos
+        if (nCliSubCriar.getText().isEmpty() || dtIniSubCriar.getValue() == null || valSubCriar.getText().isEmpty()) {
+            erroSub.setText("Todos os campos devem ser preenchidos!");
+            return;
+        }
+
+        List<Subscricao> subscricoesAtivas = subsDAO.getSubscricoesAtivasByCliente(cli);
+        if (!subscricoesAtivas.isEmpty()) {
+            erroSub.setText("O cliente já tem uma subscrição ativa!");
+            return;
+        }
+
+        // Verificar se a data de início é igual ou após a data atual
+        LocalDate dataAtual = LocalDate.now();
+        LocalDate dataInicio = dtIniSubCriar.getValue();
+        if (dataInicio.isBefore(dataAtual)) {
+            erroSub.setText("Data de início igual ou após a data atual!");
+            return;
+        }
+
+        // Verificar se o valor é maior que zero
+        BigDecimal valorSubscricao;
+        try {
+            valorSubscricao = new BigDecimal(valSubCriar.getText());
+        } catch (NumberFormatException e) {
+            erroSub.setText("O valor da subscrição deve ser um número válido!");
+            return;
+        }
+        if (valorSubscricao.compareTo(BigDecimal.ZERO) <= 0) {
+            erroSub.setText("O valor da subscrição deve ser maior que zero!");
+            return;
+        }
+
+        int novoID = subsDAO.getID() + 1; // Obter o próximo ID disponível
+        sub.setNumSubscricao(novoID);
+        sub.setDataIni(dataInicio);
+        sub.setDataFim(dataInicio.plusYears(1));
         sub.setEstado("Ativa");
-        sub.setValor(BigDecimal.valueOf(Integer.parseInt(valSubCriar.getText())));
+        sub.setValor(valorSubscricao);
         sub.setCliente(cli);
 
         subsDAO.save(sub);
     }
 
-    //DONE
     @FXML
     protected void desativarSub() {
         Subscricao sub = subsDAO.getByNumSubscricao(Integer.parseInt(nSubEdit.getText()));
+        List<Pagamento> pag = pagDAO.getAllById(Integer.parseInt(nSubEdit.getText()));
+
+        if(nSubEdit.getText().isEmpty()) {
+            erroSub.setText("Tem de especificar uma subscrição!");
+            return;
+        }
+        for (Pagamento pagamento : pag) {
+            if ("Por realizar".equals(pagamento.getEstado())) {
+                erroSub.setText("Contem pagamentos por realizar!");
+                return;
+            }
+        }
         sub.setEstado("Inativa");
         subsDAO.update(sub);
-        nSubEdit.clear(); loadSubscricoes();
-//    protected Label erroSub; CRIAR A CONDIÇÃO DE ERRO
+        nSubEdit.clear();
+        loadSubscricoes();
+        erroSub.setText("");
     }
 
-    //DONE
     @FXML
     protected void ativarSub() {
-        Subscricao sub = subsDAO.getByNumSubscricao(Integer.parseInt(nSubEdit.getText()));
+        String numSubscricao = nSubEdit.getText();
+
+        if (numSubscricao.isEmpty()) {
+            erroSub.setText("Tem de especificar uma subscrição!");
+            return;
+        }
+
+        Subscricao sub = subsDAO.getByNumSubscricao(Integer.parseInt(numSubscricao));
+        Cliente cliente = sub.getCliente();
+
+        // Consultar todas as subscrições ativas do cliente
+        List<Subscricao> subscricoesAtivas = subsDAO.getSubscricoesAtivasByCliente(cliente);
+
+        // Verificar se existem outras subscrições ativas
+        if (subscricoesAtivas.size() > 1) {
+            erroSub.setText("O cliente já tem uma subscrição ativa!");
+            return;
+        }
+
         sub.setEstado("Ativa");
         subsDAO.update(sub);
-        nSubEdit.clear(); loadSubscricoes();
-//    protected Label erroSub; CRIAR A CONDIÇÃO DE ERRO
+        nSubEdit.clear();
+        loadSubscricoes();
+        erroSub.setText("");
     }
+
 
 //  *******************
 //  Clientes
 //  *******************
 
-    //DONE
     @FXML
     public void loadClientes() {
         List<Cliente> cli = clienteDAO.getAll();
@@ -394,11 +456,10 @@ public class rececionista_dashboard {
         tblClientes.setItems(FXCollections.observableArrayList(cli));
     }
 
-    public void refreshClientes(ActionEvent event) {
+    public void refreshClientes() {
         loadClientes();
     }
 
-    //DONE
     @FXML
     protected void addCli() throws IOException {
         // Carregar o arquivo FXML
@@ -412,21 +473,23 @@ public class rececionista_dashboard {
         stage.show();
     }
 
-    //DONE
     @FXML
     protected void deleteCli() {
-        clienteDAO.delete(Integer.parseInt(nCliDelete.getText()));
-        nCliDelete.clear(); loadClientes();
+        if (nCliDelete.getText().isEmpty()) {
+            errorCli.setText("Especifique um cliente!");
+        } else {
+            clienteDAO.delete(Integer.parseInt(nCliDelete.getText()));
+            nCliDelete.clear(); loadClientes();
+            errorCli.setText("");
+        }
     }
 
 //  *******************
-//  Perfil -- FALTA BLL
+//  Perfil
 //  *******************
 
-    //DONE
     public void setUserId(Integer id) { this.idUserAtual = id; }
 
-    //DONE
     @FXML
     public void loadPerfil(int iduser) {
         Funcionario f = funcionarioDAO.getById(iduser);
@@ -442,26 +505,25 @@ public class rececionista_dashboard {
         }
     }
 
-    //TODO - restrições como password fraca e telemovel com minimo tamanho e a começar em determinados valores
     @FXML
     protected void editarPerfil() {
-        Funcionario f = funcionarioDAO.getById(idUserAtual);
-        // Verifique se o número da aula é válido
-        if (idUserAtual <= 0) { System.out.println("Funcionario inválido"); return; }
-        // Verifique cada campo de entrada e, se o campo estiver preenchido, atualize o valor correspondente na aula existente
-        if (!newNome.getText().isEmpty()) { f.setNome(newNome.getText()); } newNome.clear();
-        if (!newPass.getText().isEmpty()) { f.setPassword(newPass.getText()); } newPass.clear();
-        if (!newTele.getText().isEmpty()) { f.setTelemovel(newTele.getText()); } newTele.clear();
-        // Chame o método update do AulaGrupoDAO para salvar as alterações no banco de dados
-        funcionarioDAO.update(f);
-        loadPerfil(idUserAtual);
+        Funcionario func = funcionarioDAO.getById(idUserAtual);
+
+        if(newNome.getText().isEmpty() && newPass.getText().isEmpty() && newTele.getText().isEmpty()) {
+            errorPerfil.setText("Prencha pelo menos um campo!");
+        } else {
+            if (!newNome.getText().isEmpty()) { func.setNome(newNome.getText()); newNome.clear();}
+            if (!newPass.getText().isEmpty()) { func.setPassword(newPass.getText()); newPass.clear();}
+            if (!newTele.getText().isEmpty()) { func.setTelemovel(newTele.getText()); newTele.clear();}
+            funcionarioDAO.update(func);
+            loadPerfil(idUserAtual);
+        }
     }
 
 //  *******************
 //  Logout
 //  *******************
 
-    //DONE
     @FXML
     protected void onActionExit(ActionEvent event) throws IOException {
         Stage stage = new Stage();

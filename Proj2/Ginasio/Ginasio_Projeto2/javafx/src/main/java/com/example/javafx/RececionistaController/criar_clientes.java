@@ -3,7 +3,6 @@ package com.example.javafx.RececionistaController;
 import com.AcessoBD.DAO.ClienteDAO;
 import com.AcessoBD.repository.entities.Cliente;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -17,16 +16,26 @@ public class criar_clientes {
     ClienteDAO cDAO = new ClienteDAO();
 
     public void criar(ActionEvent event) {
-        c.setNome(nome.getText());
-        c.setDataNascimento(dtNasc.getValue());
-        c.setEmail(mail.getText());
-        c.setTelemovel(tele.getText());
-        c.setNif(nif.getText());
-        c.setCodigoPostal(cpostal.getText());
-        c.setPassword("default");
+        if (nome.getText().isEmpty() || dtNasc.getValue() == null || mail.getText().isEmpty() ||
+                tele.getText().isEmpty() || nif.getText().isEmpty() || cpostal.getText().isEmpty()) {
+            erros.setText("Tem de preencher todos os campos!");
+        } else {
+            int novoID = cDAO.getID() + 1; // Obter o próximo ID disponível
+            c.setIdCliente(novoID);
+            c.setNome(nome.getText());
+            nome.clear();
+            c.setDataNascimento(dtNasc.getValue());
+            c.setEmail(mail.getText());
+            mail.clear();
+            c.setTelemovel(tele.getText());
+            tele.clear();
+            c.setNif(nif.getText());
+            nif.clear();
+            c.setCodigoPostal(cpostal.getText());
+            cpostal.clear();
+            c.setPassword("default");
 
-        cDAO.create(c);
+            cDAO.create(c);
+        }
     }
-
-    public void errorHandler(){}
 }
