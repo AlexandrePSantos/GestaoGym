@@ -34,7 +34,7 @@ public class instrutor_dashboard {
     @FXML
     public Button DeleteAula, EditarAula, AddAula;
     @FXML
-    public TextField newPass, newTele;
+    public TextField newPass, newTele, newNome;
     @FXML
     public TextField nExDelete;
 
@@ -427,14 +427,14 @@ public class instrutor_dashboard {
     public void loadPerfil(int idUserAtual) {
         Funcionario f = funcionarioDAO.getById(idUserAtual);
         if (f != null) {
-            nomeLbl.setText("Nome: " + f.getNome());
-            dnLbl.setText("Data Nasc.: " + f.getDataNascimento());
-            tlmLbl.setText("Telemóvel: " + f.getTelemovel());
-            psswdLbl.setText("Password: " + f.getPassword());
-            funcLbl.setText("Função: " + f.getFuncao());
-            nifLbl.setText("NIF: " + f.getNif());
-            mailLbl.setText("Email: " + f.getEmail());
-            slLbl.setText("Salário Mensal: " + f.getSalarioLiquido() + " €");
+            nomeLbl.setText("" + f.getNome());
+            dnLbl.setText("" + f.getDataNascimento());
+            tlmLbl.setText("" + f.getTelemovel());
+            psswdLbl.setText("" + f.getPassword());
+            funcLbl.setText("" + f.getFuncao());
+            nifLbl.setText("" + f.getNif());
+            mailLbl.setText("" + f.getEmail());
+            slLbl.setText("" + f.getSalarioLiquido() + " €");
         }
     }
 
@@ -445,6 +445,7 @@ public class instrutor_dashboard {
         // Verifique se o número da aula é válido
         if (idUserAtual <= 0) { System.out.println("Funcionario inválido"); return; }
         // Verifique cada campo de entrada e, se o campo estiver preenchido, atualize o valor correspondente na aula existente
+        if (!newNome.getText().isEmpty()) { f.setNome(newNome.getText()); } newNome.clear();
         if (!newPass.getText().isEmpty()) { f.setPassword(newPass.getText()); } newPass.clear();
         if (!newTele.getText().isEmpty()) { f.setTelemovel(newTele.getText()); } newTele.clear();
         // Chame o método update do AulaGrupoDAO para salvar as alterações no banco de dados

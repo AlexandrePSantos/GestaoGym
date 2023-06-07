@@ -40,54 +40,6 @@
       </cursor>
    </Button>
 
-
-   <!-- Perfil -->
-   <Pane id="Perfil" layoutX="17.0" layoutY="56.0" prefHeight="181.0" prefWidth="503.0">
-      <!-- Informação -->
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="182.0" stroke="BLACK" strokeMiterLimit="0.0" width="503.0" />
-      <Text layoutX="1.0" layoutY="21.0" text="Perfil" textAlignment="CENTER" wrappingWidth="488.99999999999994">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Text>
-      <HBox layoutX="168.0" layoutY="144.0" prefHeight="27.0" prefWidth="310.0">
-         <TextField fx:id="newPass" editable="true" prefHeight="30.0" prefWidth="130.0">
-            <HBox.margin>
-               <Insets right="5.0" />
-            </HBox.margin>
-         </TextField>
-         <TextField fx:id="newTele" editable="true" prefHeight="30.0" prefWidth="100.0">
-            <HBox.margin>
-               <Insets right="20.0" />
-            </HBox.margin>
-         </TextField>
-         <!-- Botão -->
-         <Button mnemonicParsing="false" onAction="#editarPerfil" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: orange;" text="Alterar">
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor>
-         </Button>
-      </HBox>
-      <Label fx:id="nomeLbl" layoutX="15.0" layoutY="30.0" text="Nome:"><font><Font name="System Bold" size="12.0" /></font></Label>
-      <Label fx:id="dnLbl" layoutX="15.0" layoutY="120.0" text="Data Nasc.:"><font><Font name="System Bold" size="12.0" /></font></Label>
-      <Label fx:id="tlmLbl" layoutX="260.0" layoutY="30.0" text="Telemóvel:"><font><Font name="System Bold" size="12.0" /></font></Label>
-      <Label fx:id="psswdLbl" layoutX="15.0" layoutY="60.0" text="Password:"><font><Font name="System Bold" size="12.0" /></font></Label>
-      <Label fx:id="funcLbl" layoutX="15.0" layoutY="150.0" text="Função:"><font><Font name="System Bold" size="12.0" /></font></Label>
-      <Label fx:id="nifLbl" layoutX="260.0" layoutY="60.0" text="NIF:"><font><Font name="System Bold" size="12.0" /></font></Label>
-      <Label fx:id="mailLbl" layoutX="15.0" layoutY="90.0" text="Email:"><font><Font name="System Bold" size="12.0" /></font></Label>
-      <Label fx:id="slLbl" layoutX="260.0" layoutY="90.0" text="Salário Mensal:"><font><Font name="System Bold" size="12.0" /></font></Label>
-      <Label fx:id="psswdLbl1" layoutX="168.0" layoutY="127.0" text="Pass.:"><font><Font name="System Bold" size="12.0" /></font></Label>
-      <Label fx:id="tlmLbl1" layoutX="297.0" layoutY="127.0" text="Telemóvel:"><font><Font name="System Bold" size="12.0" /></font></Label>
-      <Line endX="210.0" endY="137.0" layoutX="35.0" layoutY="-90.0" startX="16.0" startY="137.0" />
-      <Line endX="210.0" endY="137.0" layoutX="35.0" layoutY="-60.0" startX="36.748046875" startY="137.0" />
-      <Line endX="210.0" endY="137.0" layoutX="35.0" layoutY="-30.0" startX="13.0" startY="137.0" />
-      <Line endX="121.0" endY="137.0" layoutX="35.0" startX="43.0" startY="137.0" />
-      <Line endX="121.0" endY="137.0" layoutX="35.0" layoutY="30.0" startX="22.0" startY="137.0" />
-      <Line endX="210.0" endY="137.0" layoutX="283.0" layoutY="-90.0" startX="38.40625" startY="137.0" />
-      <Line endX="210.0" endY="137.0" layoutX="283.0" layoutY="-60.0" startX="-0.224609375" startY="137.0" />
-      <Line endX="210.0" endY="137.0" layoutX="283.0" layoutY="-30.0" startX="62.517578125" startY="137.0" />
-   </Pane>
-
    <!-- Planos de Treino -->
    <Pane id="Planos Treino" layoutX="17.0" layoutY="243.0" prefHeight="259.0" prefWidth="498.0">
       <!-- Informação -->
@@ -413,7 +365,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Line endX="616.0" endY="137.0" layoutX="182.0" layoutY="307.0" startX="-165.0" startY="137.0" />
+      <Line endX="616.0" endY="137.0" layoutX="182.0" layoutY="307.0" startX="-165.0" startY="137.0" strokeWidth="0.5" />
   </Pane>
    <Pane layoutX="18.0" layoutY="509.0" prefHeight="247.0" prefWidth="497.0">
       <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="248.0" layoutX="-1.0" stroke="BLACK" strokeMiterLimit="0.0" width="503.0" />
@@ -487,5 +439,95 @@
          </font>
       </Label>
       <Line endX="-2.0" endY="-4.0" layoutX="162.0" layoutY="192.0" startX="-2.0" startY="49.0" />
+   </Pane>
+   <Pane id="Perfil" layoutX="14.0" layoutY="56.0" prefHeight="184.0" prefWidth="504.0">
+      <children>
+         <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#80808040" height="183.0" layoutX="5.0" stroke="BLACK" strokeMiterLimit="0.0" width="501.0" />
+         <Text layoutX="1.0" layoutY="21.0" text="Perfil" textAlignment="CENTER" wrappingWidth="488.99999999999994">
+            <font>
+               <Font name="System Bold" size="20.0" />
+            </font>
+         </Text>
+         <HBox layoutX="25.0" layoutY="149.0" prefHeight="27.0" prefWidth="471.0">
+            <children>
+               <TextField fx:id="newNome" prefHeight="27.0" prefWidth="140.0" promptText="Nome">
+                  <HBox.margin>
+                     <Insets right="5.0" />
+                  </HBox.margin>
+               </TextField>
+               <TextField fx:id="newPass" prefHeight="30.0" prefWidth="130.0" promptText="Password">
+                  <HBox.margin>
+                     <Insets right="5.0" />
+                  </HBox.margin>
+               </TextField>
+               <TextField fx:id="newTele" prefHeight="30.0" prefWidth="100.0" promptText="Telemóvel">
+                  <HBox.margin>
+                     <Insets right="20.0" />
+                  </HBox.margin>
+               </TextField>
+               <Button mnemonicParsing="false" onAction="#editarPerfil" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: orange;" text="Alterar">
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+               </Button>
+            </children>
+         </HBox>
+         <Label fx:id="nomeLbl" layoutX="81.0" layoutY="30.0">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Label>
+         <Label fx:id="dnLbl" layoutX="77.0" layoutY="119.0">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Label>
+         <Label fx:id="tlmLbl" layoutX="380.0" layoutY="30.0">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Label>
+         <Label fx:id="psswdLbl" layoutX="80.0" layoutY="60.0">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Label>
+         <Label fx:id="funcLbl" layoutX="380.0" layoutY="119.0">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Label>
+         <Label fx:id="nifLbl" layoutX="380.0" layoutY="60.0">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Label>
+         <Label fx:id="mailLbl" layoutX="83.0" layoutY="90.0">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Label>
+         <Label fx:id="slLbl" layoutX="380.0" layoutY="90.0">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Label>
+         <Line endX="247.0" endY="137.0" layoutX="35.0" layoutY="-90.0" startX="46.0" startY="137.0" />
+         <Line endX="247.0" endY="137.0" layoutX="35.0" layoutY="-60.0" startX="44.0" startY="137.0" />
+         <Line endX="247.0" endY="137.0" layoutX="35.0" layoutY="-30.0" startX="45.0" startY="137.0" />
+         <Line endX="247.0" endY="137.0" layoutX="35.0" startX="43.0" startY="137.0" />
+         <Line endX="121.0" endY="137.0" layoutX="372.0" startX="10.0" startY="137.0" />
+         <Line endX="210.0" endY="137.0" layoutX="283.0" layoutY="-90.0" startX="98.0" startY="137.0" />
+         <Line endX="210.0" endY="137.0" layoutX="283.0" layoutY="-60.0" startX="99.0" startY="137.0" />
+         <Line endX="210.0" endY="137.0" layoutX="283.0" layoutY="-30.0" startX="99.0" startY="137.0" />
+         <Label layoutX="14.0" layoutY="30.0" text="Nome:" />
+         <Label layoutX="14.0" layoutY="60.0" text="Password:" />
+         <Label layoutX="14.0" layoutY="90.0" text="Email:" />
+         <Label layoutX="14.0" layoutY="119.0" text="Data. Nasc.:" />
+         <Label layoutX="297.0" layoutY="30.0" text="Telemóvel:" />
+         <Label layoutX="297.0" layoutY="60.0" text="NIF:" />
+         <Label layoutX="298.0" layoutY="90.0" text="Salário Mensal:" />
+         <Label layoutX="297.0" layoutY="119.0" text="Função" />
+      </children>
    </Pane>
 </Pane>

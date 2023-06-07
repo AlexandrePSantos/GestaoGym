@@ -3,7 +3,6 @@ package com.example.javafx.RececionistaController;
 import com.AcessoBD.DAO.*;
 import com.AcessoBD.repository.entities.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.*;
 import javafx.event.ActionEvent;
@@ -39,6 +38,10 @@ public class rececionista_dashboard {
     protected TableColumn<Subscricao, Void> pagSub;
     @FXML
     protected TextField nSubEdit;
+    @FXML
+    protected TextField nCliSubCriar, valSubCriar;
+    @FXML
+    protected DatePicker dtIniSubCriar;
     @FXML
     protected Label erroSub;
 
@@ -112,7 +115,7 @@ public class rececionista_dashboard {
     @FXML
     public Label nomeLbl, dnLbl, tlmLbl, psswdLbl, funcLbl, nifLbl, mailLbl, slLbl;
     @FXML
-    public TextField newPass, newTele;
+    public TextField newPass, newTele, newNome;
 
     protected int idUserAtual;
 
@@ -190,7 +193,6 @@ public class rececionista_dashboard {
                 .collect(Collectors.toList());
         tabelaAulasPlaneadas.setItems(FXCollections.observableArrayList(aulasFiltradas));
     }
-
     //DONE
     protected void loadAulasRealizadas() {
         List<Aulagrupo> aulasRealizadas = aulagrupoDAO.getAll();
@@ -251,6 +253,11 @@ public class rececionista_dashboard {
                 })
                 .collect(Collectors.toList());
         tabelaAulasRealizadas.setItems(FXCollections.observableArrayList(aulasFiltradas));
+    }
+
+    public void refreshAulas(ActionEvent event) {
+        loadAulasAgendadas();
+        loadAulasRealizadas();
     }
 
     //DONE
@@ -333,6 +340,20 @@ public class rececionista_dashboard {
         stage.show();
     }
 
+    public void criarSub(ActionEvent event) {
+        Subscricao sub = new Subscricao();
+        Cliente cli= clienteDAO.getById(Integer.parseInt(nCliSubCriar.getText()));
+
+        //se o cliente já tem uma ativa não deixa
+        sub.setDataIni(dtIniSubCriar.getValue());
+        sub.setDataFim(dtIniSubCriar.getValue().plusYears(1));
+        sub.setEstado("Ativa");
+        sub.setValor(BigDecimal.valueOf(Integer.parseInt(valSubCriar.getText())));
+        sub.setCliente(cli);
+
+        subsDAO.save(sub);
+    }
+
     //DONE
     @FXML
     protected void desativarSub() {
@@ -373,6 +394,10 @@ public class rececionista_dashboard {
         tblClientes.setItems(FXCollections.observableArrayList(cli));
     }
 
+    public void refreshClientes(ActionEvent event) {
+        loadClientes();
+    }
+
     //DONE
     @FXML
     protected void addCli() throws IOException {
@@ -395,7 +420,7 @@ public class rececionista_dashboard {
     }
 
 //  *******************
-//  Editar perfil -- FALTA BLL
+//  Perfil -- FALTA BLL
 //  *******************
 
     //DONE
@@ -406,14 +431,14 @@ public class rececionista_dashboard {
     public void loadPerfil(int iduser) {
         Funcionario f = funcionarioDAO.getById(iduser);
         if (f != null) {
-            nomeLbl.setText("Nome: " + f.getNome());
-            dnLbl.setText("Data Nasc.: " + f.getDataNascimento());
-            tlmLbl.setText("Telemóvel: " + f.getTelemovel());
-            psswdLbl.setText("Password: " + f.getPassword());
-            funcLbl.setText("Função: " + f.getFuncao());
-            nifLbl.setText("NIF: " + f.getNif());
-            mailLbl.setText("Email: " + f.getEmail());
-            slLbl.setText("Salário Mensal: " + f.getSalarioLiquido() + " €");
+            nomeLbl.setText("" + f.getNome());
+            dnLbl.setText("" + f.getDataNascimento());
+            tlmLbl.setText("" + f.getTelemovel());
+            psswdLbl.setText("" + f.getPassword());
+            funcLbl.setText("" + f.getFuncao());
+            nifLbl.setText("" + f.getNif());
+            mailLbl.setText("" + f.getEmail());
+            slLbl.setText("" + f.getSalarioLiquido() + " €");
         }
     }
 
@@ -424,6 +449,7 @@ public class rececionista_dashboard {
         // Verifique se o número da aula é válido
         if (idUserAtual <= 0) { System.out.println("Funcionario inválido"); return; }
         // Verifique cada campo de entrada e, se o campo estiver preenchido, atualize o valor correspondente na aula existente
+        if (!newNome.getText().isEmpty()) { f.setNome(newNome.getText()); } newNome.clear();
         if (!newPass.getText().isEmpty()) { f.setPassword(newPass.getText()); } newPass.clear();
         if (!newTele.getText().isEmpty()) { f.setTelemovel(newTele.getText()); } newTele.clear();
         // Chame o método update do AulaGrupoDAO para salvar as alterações no banco de dados

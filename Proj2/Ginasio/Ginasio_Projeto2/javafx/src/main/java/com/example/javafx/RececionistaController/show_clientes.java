@@ -23,11 +23,11 @@ public class show_clientes {
     LinhaparticipanteDAO lpDAO = new LinhaparticipanteDAO();
     ClienteDAO cliDAO = new ClienteDAO();
 
-    protected void setAulagrupoId(int aulagrupoId) {
+    public void setAulagrupoId(int aulagrupoId) {
         this.idAulaAtual = aulagrupoId;
     }
 
-    protected void loadData(int id) {
+    public void loadData(int id) {
         List<Linhaparticipante> participantes = lpDAO.getAllById(id);
 
         numCli.setCellValueFactory(cellData -> {

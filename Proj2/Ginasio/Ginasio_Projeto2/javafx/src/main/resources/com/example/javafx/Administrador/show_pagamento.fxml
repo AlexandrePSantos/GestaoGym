@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="416.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.AdministradorController.show_pagamento">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff8600" height="37.0" stroke="TRANSPARENT" strokeType="INSIDE" width="780.0" />
+      <Text layoutX="320.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pagamentos">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tblPagamentos" layoutX="11.0" layoutY="51.0" prefHeight="349.0" prefWidth="758.0">
+         <columns>
+            <TableColumn fx:id="num" prefWidth="50.400020599365234" text="Nº">
+               <cellValueFactory>
+                  <PropertyValueFactory property="numPagamento" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="data" prefWidth="102.39997863769531" text="Data Pagamento">
+               <cellValueFactory>
+                  <PropertyValueFactory property="dataPagamento" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="estado" prefWidth="96.800048828125" text="Estado">
+               <cellValueFactory>
+                  <PropertyValueFactory property="estado" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="metodo" prefWidth="115.0" text="Método">
+               <cellValueFactory>
+                  <PropertyValueFactory property="metodo" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="ref" prefWidth="116.0" text="Referencia">
+               <cellValueFactory>
+                  <PropertyValueFactory property="referencia" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="valor" prefWidth="77.0" text="Valor">
+               <cellValueFactory>
+                  <PropertyValueFactory property="valor" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="entidade" prefWidth="112.0" text="Entidade">
+               <cellValueFactory>
+                  <PropertyValueFactory property="entidade" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="sub" prefWidth="85.0" text="Nº Subscrição"/>
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

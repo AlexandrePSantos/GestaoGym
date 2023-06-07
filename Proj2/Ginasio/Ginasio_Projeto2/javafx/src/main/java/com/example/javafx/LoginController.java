@@ -50,8 +50,8 @@ public class LoginController {
             FXMLLoader administradorLoader = new FXMLLoader(getClass().getResource("/com/example/javafx/Administrador/administrador_dashboard.fxml"));
             Parent administradorRoot = administradorLoader.load();
             administrador_dashboard admin_dash = administradorLoader.getController();
-//            admin_dash.setUserId(f.getId());
-//            admin_dash.loadPerfil(f.getId());
+            admin_dash.setUserId(f.getId());
+            admin_dash.loadPerfil(f.getId());
 
             FXMLLoader rececionistaLoader = new FXMLLoader(getClass().getResource("/com/example/javafx/Rececionista/rececionista_dashboard.fxml"));
             Parent rececionistaRoot = rececionistaLoader.load();
