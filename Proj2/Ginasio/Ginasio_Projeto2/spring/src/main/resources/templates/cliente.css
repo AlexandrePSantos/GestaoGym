@@ -58,3 +58,9 @@
 .pad {
     padding: 10px;
 }
+
+.title {
+    padding-left: 10px;
+    font-size: larger;
+    padding-bottom: -10px;
+}

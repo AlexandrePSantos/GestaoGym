@@ -27,6 +27,7 @@
 <!--    <a class="nav-link" href="/Ginasio_Projeto2/Proj2/Ginasio/Ginasio_Projeto2/spring/src/main/resources/templates/pagamentos.html">Pagamentos</a>-->
         <div class="pad">
             <div class="partee">
+                <p class="title">Perfil</p>
                 <table class="table">
                     <thead>
                         <tr>
@@ -58,6 +59,64 @@
             </div>
             <div class="parted">
                 <p class="pad">Login</p>
+                <p class="pad">Aulas Agendadas</p>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Nº</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Duração (m)</th>
+                        <th scope="col">Sala</th>
+                        <th scope="col">Vagas tot.</th>
+                        <th scope="col">Vagas disp.</th>
+                        <th scope="col">Instrutor</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr  th:each=" aula : ${com.AcessoBD.repository.entities.Aulagrupo}">
+                        <td th:text="${aula.numAula}"></td>
+                        <td th:text="${aula.tipoAula}"></td>
+                        <td th:text="${aula.dataAula}"></td>
+                        <td th:text="${aula.horaAula}"></td>
+                        <td th:text="${aula.duracao}"></td>
+                        <td th:text="${aula.sala}"></td>
+                        <td th:text="${aula.vagas}"></td>
+                        <td th:text="${aula.vagasDisp}"></td>
+<!--                        <td th:text="${aula.instrutor}"></td>-->
+                    </tr>
+                    </tbody>
+                </table>
+                <p class="pad">Aulas Realizadas</p>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Nº</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Duração (m)</th>
+                        <th scope="col">Sala</th>
+                        <th scope="col">Vagas tot.</th>
+                        <th scope="col">Vagas disp.</th>
+                        <th scope="col">Instrutor</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr  th:each=" aula : ${com.AcessoBD.repository.entities.Aulagrupo}">
+                        <td th:text="${aula.numAula}"></td>
+                        <td th:text="${aula.tipoAula}"></td>
+                        <td th:text="${aula.dataAula}"></td>
+                        <td th:text="${aula.horaAula}"></td>
+                        <td th:text="${aula.duracao}"></td>
+                        <td th:text="${aula.sala}"></td>
+                        <td th:text="${aula.vagas}"></td>
+                        <td th:text="${aula.vagasDisp}"></td>
+                        <!--                        <td th:text="${aula.instrutor}"></td>-->
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </body>
