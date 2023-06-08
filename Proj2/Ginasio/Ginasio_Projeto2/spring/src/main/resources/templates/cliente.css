@@ -57,7 +57,7 @@
 .planos {
     margin-top: 5px;
     width: 49%;
-    float: right;
+    float: left;
     border: 2px solid #000;
     border-radius: 10px;
     overflow: hidden;
@@ -66,15 +66,7 @@
 .subs {
     margin-top: 5px;
     width: 49%;
-    float: right;
-    border: 2px solid #000;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.pagam {
-    width: 49%;
-    float: right;
+    float: left;
     border: 2px solid #000;
     border-radius: 10px;
     overflow: hidden;
