@@ -52,7 +52,7 @@
 .planos {
     margin-top: 5px;
     width: 49%;
-    float: left;
+    float: right;
     border: 2px solid #000;
     border-radius: 10px;
     overflow: hidden;
@@ -61,7 +61,7 @@
 .subs {
     margin-top: 5px;
     width: 49%;
-    float: left;
+    float: right;
     border: 2px solid #000;
     border-radius: 10px;
     overflow: hidden;
@@ -92,6 +92,10 @@
 
 .pad {
     padding: 10px;
+}
+
+.padl {
+    padding-left: 10px;
 }
 
 .title {

@@ -31,34 +31,72 @@
                 <p class="title">Perfil</p>
                 <table class="table">
                     <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Password</th>
-                            <th scope="col">Telemóvel</th>
-                            <th scope="col">NIF</th>
-                            <th scope="col">Data Nascimento</th>
-                            <th scope="col">Cod Postal</th>
-                        </tr>
+                        <tr><th scope="col">ID</th></tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td th:text="${cliente.idCliente}"></td>
-                        <td th:text="${cliente.nome}"></td>
-                        <td th:text="${cliente.email}"></td>
-                        <td th:text="${cliente.password}"></td>
-                        <td th:text="${cliente.telemovel}"></td>
-                        <td th:text="${cliente.nif}"></td>
-                        <td th:text="${cliente.dataNascimento}"></td>
-                        <td th:text="${cliente.codigoPostal}"></td>
-                    </tr>
+                        <tr><td th:text="${cliente.idCliente}"></td></tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <tr><th scope="col">Nome</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td th:text="${cliente.nome}"></td></tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <tr><th scope="col">Email</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td th:text="${cliente.email}"></td></td></tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <tr><th scope="col">Password</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td th:text="${cliente.password}"></td></td></tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <tr><th scope="col">Telemóvel</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td th:text="${cliente.telemovel}"></td></td></tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <tr><th scope="col">NIF</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td th:text="${cliente.nif}"></td></tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <tr><th scope="col">Data Nascimento</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td th:text="${cliente.dataNascimento}"></td></td></tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <tr><th scope="col">Cod Postal</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td th:text="${cliente.codigoPostal}"></td></tr>
                     </tbody>
                 </table>
             </div>
             <!--aulas-->
             <div class="aulasA">
-            <div >
+            <div>
                 <p class="pad">Aulas Agendadas</p>
                 <table class="table">
                     <thead>
@@ -87,7 +125,7 @@
                     </tbody>
                 </table>
             </div>
-            <div >
+            <div>
                 <p class="pad">Aulas Realizadas</p>
                 <table class="table">
                     <thead>
@@ -118,7 +156,7 @@
             </div>
             </div>
             <!--Planos-->
-            <div class="planos">
+            <div class="planos padl">
                 <p class="pad">Planos de Treino</p>
                 <table class="table">
                     <thead>
