@@ -11,7 +11,7 @@ public class Linhaexercicio {
     @Column(name = "id_linhaEx")
     private int idLinhaExercicio;
 
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne
     @JoinColumn(name = "id_exercicio", referencedColumnName = "id_exercicio")
     private Exercicio exercicio;
 

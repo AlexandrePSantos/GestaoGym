@@ -47,7 +47,6 @@ public class show_exercicios {
     protected void loadChoices() {
         List<Exercicio> exs = exDao.getAll();
         ObservableList<Exercicio> options = FXCollections.observableArrayList(exs);
-        options.addAll(exs);
         addExnomePlan.setItems(options);
     }
 

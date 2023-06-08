@@ -8,6 +8,7 @@ public class Exercicio {
 
     @Id
     @Column(name = "id_exercicio")
+    @JoinColumn()
     private int idExercicio;
 
     @Column(name = "nome")

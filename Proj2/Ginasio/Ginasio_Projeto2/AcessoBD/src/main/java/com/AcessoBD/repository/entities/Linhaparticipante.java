@@ -10,7 +10,7 @@ public class Linhaparticipante {
     @Column(name = "id_linhaPart")
     private int idLinhaPart;
 
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne
     @JoinColumn(name = "num_aula")
     private Aulagrupo aulagrupo;
 

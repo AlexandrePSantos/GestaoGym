@@ -113,6 +113,8 @@ public class instrutor_dashboard {
     SalaDAO salaDAO = new SalaDAO();
     ExercicioDAO exercicioDAO = new ExercicioDAO();
     ClienteDAO clienteDAO = new ClienteDAO();
+    LinhaexercicioDAO linhaexercicioDAO = new LinhaexercicioDAO();
+    LinhaparticipanteDAO linhaparticipanteDAO = new LinhaparticipanteDAO();
 
     public Label erroEx, erroPlano, erroAula, erroPerfil;
 
@@ -359,6 +361,12 @@ public class instrutor_dashboard {
             return;
         }
 
+        // Remover as linhas participantes associadas à aula
+        List<Linhaparticipante> linhasParticipantes = linhaparticipanteDAO.getAllById(numAula);
+        for (Linhaparticipante linhaParticipante : linhasParticipantes) {
+            linhaparticipanteDAO.delete(linhaParticipante.getIdLinhaPart());
+        }
+
         aulagrupoDAO.delete(numAula);
         numAulaText.clear();
         loadAulasAgendadas();
@@ -602,11 +610,21 @@ public class instrutor_dashboard {
             return;
         }
 
+        // Remover os linhaexercicio associados
+        List<Linhaexercicio> linhaexercicios = linhaexercicioDAO.getByExercicioId(idExercicio);
+        for (Linhaexercicio linhaexercicio : linhaexercicios) {
+            linhaexercicioDAO.delete(linhaexercicio.getIdLinhaExercicio());
+        }
+
+        // Excluir o exercício
         exercicioDAO.delete(idExercicio);
+
         nExDelete.clear();
         loadExercicios();
         erroEx.setText("");
     }
+
+
 
 
 //  *******************

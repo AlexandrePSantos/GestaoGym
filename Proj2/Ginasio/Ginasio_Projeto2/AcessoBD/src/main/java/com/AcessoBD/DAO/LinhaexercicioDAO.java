@@ -73,6 +73,17 @@ public class LinhaexercicioDAO {
         }
     }
 
+    public List<Linhaexercicio> getByExercicioId(int id) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            TypedQuery<Linhaexercicio> query = em.createQuery("SELECT l FROM Linhaexercicio l WHERE l.exercicio.idExercicio = :id", Linhaexercicio.class);
+            query.setParameter("id", id);
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
     public List<Linhaexercicio> getAll() {
         EntityManager em = emf.createEntityManager();
         List<Linhaexercicio> linhaexercicios = em.createQuery("SELECT l FROM Linhaexercicio l", Linhaexercicio.class).getResultList();
