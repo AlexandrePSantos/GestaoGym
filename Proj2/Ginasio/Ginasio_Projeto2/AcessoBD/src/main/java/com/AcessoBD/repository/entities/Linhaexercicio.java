@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 public class Linhaexercicio {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_linhaEx")
     private int idLinhaExercicio;
 

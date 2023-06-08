@@ -1,17 +1,20 @@
 package com.example.javafx;
 
-import com.AcessoBD.DAO.*;
-import com.AcessoBD.repository.entities.*;
+import com.AcessoBD.DAO.FuncionarioDAO;
+import com.AcessoBD.repository.entities.Funcionario;
+import com.example.javafx.AdministradorController.administrador_dashboard;
 import com.example.javafx.InstrutorController.instrutor_dashboard;
 import com.example.javafx.RececionistaController.rececionista_dashboard;
-import com.example.javafx.AdministradorController.administrador_dashboard;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -70,8 +73,8 @@ public class LoginController {
                     break;
                 case "Administrador":
                     titulo = "Administrador: Dashboard";
-                    Scene AdministradorScene = new Scene(administradorRoot);
-                    stage.setScene(AdministradorScene);
+                    Scene administradorScene = new Scene(administradorRoot);
+                    stage.setScene(administradorScene);
                     break;
                 case "Rececionista":
                     titulo = "Rececionista: Dashboard";
@@ -79,7 +82,7 @@ public class LoginController {
                     stage.setScene(rececionistaScene);
                     break;
                 default:
-                    System.out.println("Login falhou");
+                    passErrada.setText("Login Falhou!");
                     return; // Termina o método se o login falhar
             }
 

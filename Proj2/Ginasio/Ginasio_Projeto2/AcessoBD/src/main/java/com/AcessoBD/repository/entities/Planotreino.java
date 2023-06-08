@@ -8,7 +8,6 @@ import java.time.LocalDate;
 public class Planotreino {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "num_plano")
     private int numPlano;
 

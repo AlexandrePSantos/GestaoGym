@@ -9,7 +9,6 @@ import java.time.LocalDate;
 public class Subscricao {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "num_subscricao")
     private Integer numSubscricao;
 

@@ -79,7 +79,11 @@
             <Insets bottom="10.0" />
          </VBox.margin>
       </TextField>
+      <Label fx:id="erros" textFill="RED">
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin>
+      </Label>
       <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#criar" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: orange;" text="Criar" />
-      <Label fx:id="erros" text="Error handler" textFill="RED" />
    </VBox>
 </AnchorPane>

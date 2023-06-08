@@ -5,6 +5,7 @@ import com.AcessoBD.repository.entities.Exercicio;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import java.util.List;
 
 public class ExercicioDAO {
@@ -36,6 +37,17 @@ public class ExercicioDAO {
         }
         em.getTransaction().commit();
         em.close();
+    }
+
+    public int getID() {
+        EntityManager em = emf.createEntityManager();
+        try {
+            Query query = em.createQuery("SELECT MAX(l.idExercicio) FROM Exercicio l");
+            Integer maxId = (Integer) query.getSingleResult();
+            return maxId != null ? maxId + 1 : 1;
+        } finally {
+            em.close();
+        }
     }
 
     public Exercicio getById(int id) {

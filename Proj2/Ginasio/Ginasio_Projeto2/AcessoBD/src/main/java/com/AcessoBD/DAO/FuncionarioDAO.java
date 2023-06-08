@@ -1,11 +1,9 @@
 package com.AcessoBD.DAO;
 
+import com.AcessoBD.repository.entities.Cliente;
 import com.AcessoBD.repository.entities.Funcionario;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.*;
 import java.util.List;
 
 public class FuncionarioDAO {
@@ -18,6 +16,14 @@ public class FuncionarioDAO {
         em.persist(funcionario);
         em.getTransaction().commit();
         em.close();
+    }
+
+    public void create(Funcionario funcionario) {
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        em.persist(funcionario);
+        tx.commit();
     }
 
     public void update(Funcionario funcionario) {
@@ -37,6 +43,17 @@ public class FuncionarioDAO {
         }
         em.getTransaction().commit();
         em.close();
+    }
+
+    public int getID() {
+        EntityManager em = emf.createEntityManager();
+        try {
+            Query query = em.createQuery("SELECT MAX(l.id) FROM Funcionario l");
+            Integer maxId = (Integer) query.getSingleResult();
+            return maxId != null ? maxId + 1 : 1;
+        } finally {
+            em.close();
+        }
     }
 
     public Funcionario getById(int id) {

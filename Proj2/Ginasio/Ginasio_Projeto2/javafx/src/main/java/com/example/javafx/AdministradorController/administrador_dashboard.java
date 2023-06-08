@@ -69,7 +69,7 @@ public class administrador_dashboard {
     public void setUserId(Integer id) { this.idUserAtual = id; }
 
 //  *******************
-//  Clientes e Funcionários -- FALTA BLL
+//  Clientes e Funcionários
 //  *******************
     @FXML
     public void refreshClientes() {
@@ -112,82 +112,179 @@ public class administrador_dashboard {
 
     @FXML
     public void addCli() {
-        cli.setNome(nomeCliAdd.getText()); nomeCliAdd.clear();
+        errorClientes.setText(""); // Limpa a mensagem de erro anterior, se houver
+
+        if (nomeCliAdd.getText().isEmpty() || dtCliAdd.getValue() == null || emailCliAdd.getText().isEmpty() ||
+                tlmCliAdd.getText().isEmpty() || nifCliAdd.getText().isEmpty() || cpCliAdd.getText().isEmpty()) {
+            errorClientes.setText("Tem de preencher todos os campos!");
+            return;
+        }
+
+        // Obter o próximo ID disponível
+        int novoID = cliDAO.getID() + 1;
+
+        cli.setIdCliente(novoID);
+        cli.setNome(nomeCliAdd.getText());
+        nomeCliAdd.clear();
         cli.setDataNascimento(dtCliAdd.getValue());
-        cli.setEmail(emailCliAdd.getText()); emailCliAdd.clear();
-        cli.setTelemovel(tlmCliAdd.getText()); tlmCliAdd.clear();
-        cli.setNif(nifCliAdd.getText()); nifCliAdd.clear();
-        cli.setCodigoPostal(cpCliAdd.getText()); cpCliAdd.clear();
+        cli.setEmail(emailCliAdd.getText());
+        emailCliAdd.clear();
+        cli.setTelemovel(tlmCliAdd.getText());
+        tlmCliAdd.clear();
+        cli.setNif(nifCliAdd.getText());
+        nifCliAdd.clear();
+        cli.setCodigoPostal(cpCliAdd.getText());
+        cpCliAdd.clear();
         cli.setPassword("default");
 
         cliDAO.create(cli);
         loadClientes();
+        errorClientes.setText("");
     }
+
     @FXML
     public void addFunc() {
-        func.setNome(nomeFuncAdd.getText()); nomeFuncAdd.clear();
+        errorFuncionarios.setText(""); // Limpa a mensagem de erro anterior, se houver
+
+        if (nomeFuncAdd.getText().isEmpty() || dtFuncAdd.getValue() == null || emailFuncAdd.getText().isEmpty() ||
+                tlmFuncAdd.getText().isEmpty() || nifFuncAdd.getText().isEmpty() || salarioFuncAdd.getText().isEmpty() ||
+                funcaoFuncAdd.getText().isEmpty()) {
+            errorFuncionarios.setText("Tem de preencher todos os campos!");
+            return;
+        }
+
+        // Obter o próximo ID disponível
+        int novoID = funcDAO.getID() + 1;
+
+        func.setId(novoID);
+        func.setNome(nomeFuncAdd.getText());
+        nomeFuncAdd.clear();
         func.setDataNascimento(dtFuncAdd.getValue());
-        func.setEmail(emailFuncAdd.getText()); emailFuncAdd.clear();
-        func.setTelemovel(tlmFuncAdd.getText()); tlmFuncAdd.clear();
-        func.setNif(nifFuncAdd.getText()); nifFuncAdd.clear();
-        func.setSalarioLiquido(BigDecimal.valueOf(Integer.parseInt(salarioFuncAdd.getText()))); salarioFuncAdd.clear();
-        func.setFuncao(funcaoFuncAdd.getText()); funcaoFuncAdd.clear();
+        func.setEmail(emailFuncAdd.getText());
+        emailFuncAdd.clear();
+        func.setTelemovel(tlmFuncAdd.getText());
+        tlmFuncAdd.clear();
+        func.setNif(nifFuncAdd.getText());
+        nifFuncAdd.clear();
+        func.setSalarioLiquido(BigDecimal.valueOf(Integer.parseInt(salarioFuncAdd.getText())));
+        salarioFuncAdd.clear();
+        func.setFuncao(funcaoFuncAdd.getText());
+        funcaoFuncAdd.clear();
         func.setPassword("default");
 
-        funcDAO.save(func);
+        funcDAO.create(func);
         loadFuncionarios();
     }
+
 
     @FXML
     public void editCli() {
-        cli = cliDAO.getById(Integer.parseInt(nCliEdit.getText())); nCliEdit.clear();
+        if (nCliEdit.getText().isEmpty()) {
+            errorClientes.setText("Especifique um cliente!");
+            return; // Terminar o método aqui para evitar exceções desnecessárias
+        } else {
+            cli = cliDAO.getById(Integer.parseInt(nCliEdit.getText()));
+            nCliEdit.clear();
 
-        if (!nomeCliEdit.getText().isEmpty()) { cli.setNome(nomeCliEdit.getText()); } nomeCliEdit.clear();
-        if (!emailCliEdit.getText().isEmpty()) { cli.setEmail(emailCliEdit.getText()); } emailCliEdit.clear();
-        if (!tlmCliEdit.getText().isEmpty()) { cli.setTelemovel(tlmCliEdit.getText()); } tlmCliEdit.clear();
-        if (dtCliEdit.getValue() != null) { cli.setDataNascimento(dtCliEdit.getValue()); }
-        if (!nifCliEdit.getText().isEmpty()) { cli.setNif(nifCliEdit.getText()); } nifCliEdit.clear();
-        if (!cpCliEdit.getText().isEmpty()) { cli.setCodigoPostal(cpCliEdit.getText()); } cpCliEdit.clear();
-
-        cliDAO.update(cli);
-        loadClientes();
+            if (!nomeCliEdit.getText().isEmpty()) {
+                cli.setNome(nomeCliEdit.getText());
+            }
+            nomeCliEdit.clear();
+            if (!emailCliEdit.getText().isEmpty()) {
+                cli.setEmail(emailCliEdit.getText());
+            }
+            emailCliEdit.clear();
+            if (!tlmCliEdit.getText().isEmpty()) {
+                cli.setTelemovel(tlmCliEdit.getText());
+            }
+            tlmCliEdit.clear();
+            if (dtCliEdit.getValue() != null) {
+                cli.setDataNascimento(dtCliEdit.getValue());
+            }
+            if (!nifCliEdit.getText().isEmpty()) {
+                cli.setNif(nifCliEdit.getText());
+            }
+            nifCliEdit.clear();
+            if (!cpCliEdit.getText().isEmpty()) {
+                cli.setCodigoPostal(cpCliEdit.getText());
+            }
+            cpCliEdit.clear();
+            cliDAO.update(cli);
+            loadClientes();
+            errorClientes.setText("");
+        }
     }
     @FXML
     public void editFunc() {
-        func = funcDAO.getById(Integer.parseInt(nFuncEdit.getText())); nFuncEdit.clear();
-
-        if (!nomeFuncEdit.getText().isEmpty()) { func.setNome(nomeFuncEdit.getText()); } nomeFuncEdit.clear();
-        if (!emailFuncEdit.getText().isEmpty()) { func.setEmail(emailFuncEdit.getText()); } emailFuncEdit.clear();
-        if (!tlmFuncEdit.getText().isEmpty()) { func.setTelemovel(tlmFuncEdit.getText()); } tlmFuncEdit.clear();
-        if (dtFuncEdit.getValue() != null) { func.setDataNascimento(dtFuncEdit.getValue()); }
-        if (!nifFuncEdit.getText().isEmpty()) { func.setNif(nifFuncEdit.getText()); } nifFuncEdit.clear();
-        if (!salarioFuncEdit.getText().isEmpty()) { func.setSalarioLiquido(BigDecimal.valueOf(Integer.parseInt(salarioFuncEdit.getText()))); } salarioFuncEdit.clear();
-        if (!funcaoFuncEdit.getText().isEmpty()) { func.setFuncao(funcaoFuncEdit.getText()); } funcaoFuncEdit.clear();
-
-        funcDAO.update(func);
-        loadFuncionarios();
+        if (nFuncEdit.getText().isEmpty()) {
+            errorFuncionarios.setText("Especifique um funcionário!");
+            errorFuncionarios.setText("");
+            return; // Terminar o método aqui para evitar exceções desnecessárias
+        } else {
+            func = funcDAO.getById(Integer.parseInt(nFuncEdit.getText())); nFuncEdit.clear();
+            if (!nomeFuncEdit.getText().isEmpty()) {
+                func.setNome(nomeFuncEdit.getText());
+            }
+            nomeFuncEdit.clear();
+            if (!emailFuncEdit.getText().isEmpty()) {
+                func.setEmail(emailFuncEdit.getText());
+            }
+            emailFuncEdit.clear();
+            if (!tlmFuncEdit.getText().isEmpty()) {
+                func.setTelemovel(tlmFuncEdit.getText());
+            }
+            tlmFuncEdit.clear();
+            if (dtFuncEdit.getValue() != null) {
+                func.setDataNascimento(dtFuncEdit.getValue());
+            }
+            if (!nifFuncEdit.getText().isEmpty()) {
+                func.setNif(nifFuncEdit.getText());
+            }
+            nifFuncEdit.clear();
+            if (!salarioFuncEdit.getText().isEmpty()) {
+                func.setSalarioLiquido(BigDecimal.valueOf(Integer.parseInt(salarioFuncEdit.getText())));
+            }
+            salarioFuncEdit.clear();
+            if (!funcaoFuncEdit.getText().isEmpty()) {
+                func.setFuncao(funcaoFuncEdit.getText());
+            }
+            funcaoFuncEdit.clear();
+            funcDAO.update(func);
+            loadFuncionarios();
+            errorFuncionarios.setText("");
+        }
     }
 
     @FXML
     public void deleteCli() {
-        cliDAO.delete(Integer.parseInt(nCliDelete.getText()));
-        nCliDelete.clear(); loadClientes();
+        if (nCliDelete.getText().isEmpty()) {
+            errorClientes.setText("Especifique um cliente!");
+            return; // Terminar o método aqui para evitar exceções desnecessárias
+        } else {
+            cliDAO.delete(Integer.parseInt(nCliDelete.getText()));
+            nCliDelete.clear();
+            loadClientes();
+            errorClientes.setText("");
+        }
     }
     @FXML
     public void deleteFunc() {
-        funcDAO.delete(Integer.parseInt(nFuncDelete.getText()));
-        nFuncDelete.clear(); loadFuncionarios();
-    }
-
-    public void errorCli() {
-//        label errorClientes
-    }
-    public void errorFunc() {
-//        label errorFuncionarios
+        if (nFuncDelete.getText().isEmpty()) {
+            errorFuncionarios.setText("Especifique um funcionário!");
+            return; // Terminar o método aqui para evitar exceções desnecessárias
+        } else if (funcDAO.getById(Integer.parseInt(nFuncDelete.getText())).equals(idUserAtual)){
+            errorFuncionarios.setText("Não pode apagar o próprio perfil!");
+            return; // Terminar o método aqui para evitar exceções desnecessárias
+        } else {
+            funcDAO.delete(Integer.parseInt(nFuncDelete.getText()));
+            nFuncDelete.clear();
+            loadFuncionarios();
+            errorFuncionarios.setText("");
+        }
     }
 
 //  *******************
-//  Perfil -- FALTA BLL
+//  Perfil
 //  *******************
     @FXML
     public void loadPerfil(int iduser) {
@@ -206,22 +303,19 @@ public class administrador_dashboard {
     @FXML
     public void editarPerfil() {
         func = funcDAO.getById(idUserAtual);
-        // Verifique se o número da aula é válido
-        if (idUserAtual <= 0) { System.out.println("Funcionario inválido"); return; }
-        // Verifique cada campo de entrada e, se o campo estiver preenchido, atualize o valor correspondente na aula existente
-        if (!newNome.getText().isEmpty()) { func.setNome(newNome.getText()); } newNome.clear();
-        if (!newPass.getText().isEmpty()) { func.setPassword(newPass.getText()); } newPass.clear();
-        if (!newTele.getText().isEmpty()) { func.setTelemovel(newTele.getText()); } newTele.clear();
-        // Chame o método update do AulaGrupoDAO para salvar as alterações no banco de dados
-        funcDAO.update(func);
-        loadPerfil(idUserAtual);
+
+        if(newNome.getText().isEmpty() && newPass.getText().isEmpty() && newTele.getText().isEmpty()) {
+            errorPerfil.setText("Prencha pelo menos um campo!");
+        } else {
+            if (!newNome.getText().isEmpty()) { func.setNome(newNome.getText()); newNome.clear();}
+            if (!newPass.getText().isEmpty()) { func.setPassword(newPass.getText()); newPass.clear();}
+            if (!newTele.getText().isEmpty()) { func.setTelemovel(newTele.getText()); newTele.clear();}
+            funcDAO.update(func);
+            loadPerfil(idUserAtual);
+        }
     }
 
-    public void errorPerfil() {
-//        label errorPerfil
-    }
-
-    //  *******************
+//  *******************
 //  Outros
 //  *******************
     @FXML

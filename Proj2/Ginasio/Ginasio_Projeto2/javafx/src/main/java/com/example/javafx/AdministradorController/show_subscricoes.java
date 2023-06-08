@@ -55,7 +55,6 @@ public class show_subscricoes {
                 if (empty || item == null) { setText(null); } else { setText(item.getIdCliente() + " - " + item.getNome()); }
             }
         });
-
         tblSubs.setItems(FXCollections.observableArrayList(subscricao));
     }
 }

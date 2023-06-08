@@ -4,6 +4,7 @@ import com.AcessoBD.DAO.PagamentoDAO;
 import com.AcessoBD.repository.entities.Pagamento;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -23,12 +24,15 @@ public class show_pagamentos {
     public TableColumn<Pagamento, String> refCliPag;
     public TableColumn<Pagamento, BigDecimal> valorCliPag;
     public TextField nCliPag;
+    public Label errorPag;
 
     protected int idSubscricao;
 
     PagamentoDAO pDAO = new PagamentoDAO();
 
-    protected void setSubscricaoId(int idSub) { this.idSubscricao = idSub; }
+    protected void setSubscricaoId(int idSub) {
+        this.idSubscricao = idSub;
+    }
 
     protected void loadData(int idSub) {
         List<Pagamento> pagamentos = pDAO.getAllById(idSub);
@@ -45,8 +49,14 @@ public class show_pagamentos {
 
     public void confirmPagamento(ActionEvent event) {
         Pagamento p = pDAO.getById(Integer.parseInt(nCliPag.getText()));
-        p.setEstado("Pago");
-        pDAO.update(p);
-        nCliPag.clear(); loadData(idSubscricao);
+        if (p.getEstado().equals("Por realizar") || p.getEstado().equals("Pago")) {
+            errorPag.setText("Apenas pode confirmar pagamentos pendentes!");
+            nCliPag.clear();
+        } else {
+            p.setEstado("Pago");
+            pDAO.update(p);
+            nCliPag.clear();
+            loadData(idSubscricao);
+        }
     }
 }

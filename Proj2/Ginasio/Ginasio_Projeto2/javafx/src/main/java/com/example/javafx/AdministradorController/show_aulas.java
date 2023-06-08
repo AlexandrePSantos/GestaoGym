@@ -81,10 +81,9 @@ public class show_aulas {
     }
 
 //  *******************
-//  Aulas de grupo -- FALTA BLL
+//  Aulas de grupo
 //  *******************
 
-    //DONE
     protected void loadAulasAgendadas() {
         List<Aulagrupo> aulasAgendadas = aulagrupoDAO.getAll();
 
@@ -201,7 +200,6 @@ public class show_aulas {
                 if (empty) { setGraphic(null); } else { setGraphic(button); }
             }
         });
-
         // Filtrar apenas as aulas cuja data e hora são posteriores à data atual
         LocalDateTime dataHoraAtual = LocalDateTime.of(LocalDate.now(), LocalTime.now());
         List<Aulagrupo> aulasFiltradas = aulasRealizadas.stream()
@@ -213,7 +211,6 @@ public class show_aulas {
         tblAulasRealizadas.setItems(FXCollections.observableArrayList(aulasFiltradas));
     }
 
-    //DONE
     protected void loadParticipantesPage(int aulagrupoId) throws IOException {
         // Carregar o arquivo FXML
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/javafx/Rececionista/show_clientes.fxml"));

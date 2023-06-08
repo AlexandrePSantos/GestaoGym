@@ -1,4 +1,5 @@
 package com.example.javafx;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,8 +13,8 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/com/example/javafx/Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
-        stage.show();
         stage.setTitle("Login");
+        stage.show();
     }
 
     public static void main(String[] args) {

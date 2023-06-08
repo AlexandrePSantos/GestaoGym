@@ -2,10 +2,7 @@ package com.AcessoBD.DAO;
 
 import com.AcessoBD.repository.entities.Pagamento;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 import java.util.List;
 
 public class PagamentoDAO {
@@ -37,6 +34,17 @@ public class PagamentoDAO {
         }
         em.getTransaction().commit();
         em.close();
+    }
+
+    public int getID() {
+        EntityManager em = emf.createEntityManager();
+        try {
+            Query query = em.createQuery("SELECT MAX(l.numPagamento) FROM Pagamento l");
+            Integer maxId = (Integer) query.getSingleResult();
+            return maxId != null ? maxId + 1 : 1;
+        } finally {
+            em.close();
+        }
     }
 
     public Pagamento getById(int id) {

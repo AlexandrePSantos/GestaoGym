@@ -7,11 +7,10 @@ import javax.persistence.*;
 public class Linhaparticipante {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_linhaPart")
     private int idLinhaPart;
 
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne
     @JoinColumn(name = "num_aula")
     private Aulagrupo aulagrupo;
 
