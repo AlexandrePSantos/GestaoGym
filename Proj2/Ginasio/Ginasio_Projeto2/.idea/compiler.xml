@@ -12,8 +12,12 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="AcessoBD" target="11" />
+      <module name="Ginasio_Projeto2" target="11" />
+      <module name="javafx" target="11" />
       <module name="javafx (1)" target="11" />
       <module name="javafx (2)" target="11" />
+      <module name="spring" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
