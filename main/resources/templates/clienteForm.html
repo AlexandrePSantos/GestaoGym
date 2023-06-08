@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Cliente</title>
+
+</head>
+<body>
+<h1>Criar Cliente</h1>
+<form action="#" th:action="@{/criarCliente}" th:object="${cli}" method="post">
+    Nome: <input type="text" th:field="*{nome}" /><br/>
+    Data Nasc.: <input type="date" th:field="*{dataNasc}" />
+    <input type="submit" value="Confirmar"/>
+</form>
+</body>
+</html>
