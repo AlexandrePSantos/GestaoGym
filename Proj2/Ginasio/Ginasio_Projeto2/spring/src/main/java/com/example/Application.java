@@ -27,6 +27,8 @@ public class Application {
             public void addResourceHandlers(ResourceHandlerRegistry registry) {
                 registry.addResourceHandler("/templates/**")
                         .addResourceLocations("classpath:/templates/");
+                registry.addResourceHandler("/images/**")
+                        .addResourceLocations("/images/");
             }
         };
     }
